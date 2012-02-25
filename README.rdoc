@@ -1,0 +1,55 @@
+= sBrowser
+
+* <b>Homepage:</b>
+* <b>Git:</b> https://github.com/heepie/sBrowser
+* <b>Author:</b> Carles Sentis  
+* <b>License:</b> GPL v3
+* <b>Latest Version:</b> Under Development
+* <b>Release Date:</b> Not released	
+
+== General Infromation
+
+This is an app for Android powered devices. sBrowser is a simple Internet broswer specially developed for teaching purposes in a workshop in 091 Labs (091labs.com). 
+
+
+== Authors
+
+Carles Sentis codeskraps@gmail.com
+
+
+== Thanks
+
+
+== ChangeLog
+
+
+== News
+
+
+== Install
+
+
+== Copyright/License
+
+<tt>sBrowser Copyright (C) Carles Sentis 2011 codeskraps@gmail.com</tt>
+
+<tt>sBrowser is free software: you can
+redistribute it and/or modify it under the terms
+of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of
+the License, or (at your option) any later
+version.</tt>
+
+<tt>sBrowser is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.</tt>
+
+<tt>You should have received a copy of the GNU
+General Public License along with this program.
+If not, see http://www.gnu.org/licenses.</tt>
+
+
+== Bugs
+
