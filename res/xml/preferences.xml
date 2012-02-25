@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		GMIT - Energy app
+		Copyright (C) Carles Sentis 2011 <carlesentis@gmail.com>
+		
+		GMIT - Energy app is free software: you can
+		redistribute it and/or modify it under the terms
+		of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of
+		the License, or (at your option) any later
+		version.
+		
+		GMIT - Energy app is distributed in the hope that it
+		will be useful, but WITHOUT ANY WARRANTY; without
+		even the implied warranty of MERCHANTABILITY or
+		FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details.
+		
+		You should have received a copy of the GNU
+		General Public License along with this program.
+		If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_cat_display" >
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="ckbfullscreen"
+            android:summary="@string/Fullscreen_summary"
+            android:title="@string/Fullscreen" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_cat_page_content_settings" >
+
+        <EditTextPreference
+            android:defaultValue="@string/pref_home_summary"
+            android:dialogMessage="@string/pref_home_message"
+            android:key="etxtHome"
+            android:summary="@string/pref_home_summary"
+            android:title="@string/pref_home_title" />
+        
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="ckbjavascript"
+            android:title="@string/pref_javascript" />
+        
+        <ListPreference
+            android:key="lstflash"
+            android:title="@string/prefs_flash"
+            android:entries="@array/prefs_flash_human_value"
+            android:entryValues="@array/prefs_flash_phone_value"
+            android:defaultValue="0" />
+        
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/categoryInformation" >
+
+        <Preference
+            android:summary="@string/sBrowserSummary"
+            android:title="@string/sBrowserTitle" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

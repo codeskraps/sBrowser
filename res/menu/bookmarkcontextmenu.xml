@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item 
+    	android:id="@+id/itemOpen"
+    	android:title="@string/contextMenuOpenBookmark" />
+    
+<!-- 	<item  -->
+<!--     	android:id="@+id/itemEdit" -->
+<!--     	android:title="@string/contextMenuEditBookmark" /> -->
+    
+<!--     <item  -->
+<!--     	android:id="@+id/itemDelete" -->
+<!--     	android:title="@string/contextMenuDeleteBoomark" />     -->
+
+</menu>

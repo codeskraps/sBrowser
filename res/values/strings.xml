@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">sBrowser</string>
+    <string name="alertHttpTitle">Web Address</string>
+    <string name="alertHttpSummary">Enter a new address:</string>
+    <string name="alertSearchTitle">Search</string>
+    <string name="alertSearchSummary">Enter a new search:</string>
+    <string name="alertQuitTitle">Quit</string>
+    <string name="alertQuitSummary">Are you sure you want to exit sBrowser?</string>
+
+    <!-- Menu -->
+    <string name="menuAbout">About</string>
+    <string name="menuPreference">Preferences</string>
+    <string name="menuBookmarks">Bookmarks</string>
+    <string name="menuDownloads">Downloads</string>
+    <string name="menuQuit">Quit</string>
+
+    <!-- Context Menu -->
+    <string name="contextMenuSaveImage">Save Image</string>
+    <string name="contextMenuShareImage">Share Image</string>
+    <string name="contextMenuSaveLink">Save Link</string>
+    <string name="contextMenuCopyLink">Copy Link</string>
+    <string name="contextMenuShareLink">Share Link</string>
+	<string name="contextMenuOpenBookmark">Open bookmark</string>
+	<string name="contextMenuEditBookmark">Edit bookmark</string>
+	<string name="contextMenuDeleteBoomark">Delete bookmark</string>
+	
+    <!-- Preferences -->
+    <string name="preference_activity">Preferences</string>
+    <string name="pref_cat_display">Display</string>
+    <string name="Fullscreen">Hide notification bar</string>
+    <string name="Fullscreen_summary">Hides the notification bar from view</string>
+    <string name="pref_cat_page_content_settings">Page content settings</string>
+    <string name="pref_javascript">Enable JavaScript</string>
+    <string name="pref_home_title">Set home page</string>
+    <string name="pref_home_message">Make sure to include - http:// or https://</string>
+    <string name="pref_home_summary">http://www.google.com</string>
+    <string name="categoryInformation">Information</string>
+    <string name="sBrowserTitle">sBrowser v1.4</string>
+    <string name="sBrowserSummary">License GPL v3 - 2011 - Codeskraps</string>
+    <string name="prefs_flash">Enable plug-ins</string>
+
+    <!-- Dialog -->
+    <string name="dialog_title">Add bookmark</string>
+    <string name="dialog_name">Name</string>
+    <string name="dialog_location">Location</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="addBookmark">Add Bookmark</string>
+
+    <string-array name="prefs_flash_human_value">
+        <item>Always on</item>
+        <item>On demand</item>
+        <item>Off</item>
+    </string-array>
+    <string-array name="prefs_flash_phone_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>

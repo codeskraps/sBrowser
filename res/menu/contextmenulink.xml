@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item 
+    	android:id="@+id/itemSaveLink"
+    	android:title="@string/contextMenuSaveLink" />
+    
+    <item 
+        android:id="@+id/itemCopyLink"
+        android:title="@string/contextMenuCopyLink" />
+    
+    <item 
+        android:id="@+id/itemShareLink"
+        android:title="@string/contextMenuShareLink" />
+
+</menu>
