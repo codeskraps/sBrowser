@@ -31,7 +31,18 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="fill_parent"
         android:layout_height="3dp" />
-
+    
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#565656" />
+    
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="100dp"
@@ -89,10 +100,5 @@
         </HorizontalScrollView>
     </LinearLayout>
 
-    <WebView
-        android:id="@+id/webview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1" />
-
+   
 </LinearLayout>

@@ -38,14 +38,12 @@ public class ListItemAdapter extends BaseAdapter {
 	private static final String TAG = ListItemAdapter.class.getSimpleName();
 
 	private Context context;
-	private BookmarkItem bookmarkItem = null;
 	private LayoutInflater mInflater = null;
 	private List<BookmarkItem> mItems = new ArrayList<BookmarkItem>(); 
 
 	public ListItemAdapter(Context context, BookmarkItem bookmarkItem) {
 		Log.d(TAG, "Constructor");
 		this.context = context;
-		this.bookmarkItem = bookmarkItem;
 		mInflater = LayoutInflater.from(context);
 	}
 

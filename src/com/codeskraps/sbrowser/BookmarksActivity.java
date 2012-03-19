@@ -44,7 +44,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 	private static final String TAG = BookmarksActivity.class.getSimpleName();
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
-	private ListItemAdapter listItemAdapter;
+	private ListItemAdapter listItemAdapter = null;
 	private GridView gridview = null;
 
 	private Cursor cursor = null;

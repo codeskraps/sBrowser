@@ -47,7 +47,7 @@ public class SBrowserApplication extends Application {
 		
 		Log.d(TAG, "onCreate started");
 		
-		setsBrowserData(new SBrowserData(this));
+		setsBrowserData(new SBrowserData());
 		setDataBaseData(new DataBaseData(this));
 		
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -64,17 +64,14 @@ public class SBrowserApplication extends Application {
 	}
 	
 	public Intent getMenuIntent(MenuItem item, Context context) {
-		Log.d(TAG, "SBrowserApplication - menu intent2");
+
 		switch (item.getItemId()) {
-//		
-		case R.id.itemBookmarks: 	return new Intent(context, BookmarksActivity.class);
-		case R.id.itemDownloads:	
-			Intent i = new Intent();
-			i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
-			return i;
-		case R.id.itemPreference:	return new Intent(context, PreferenceActivity.class);
+			case R.id.itemBookmarks: 	return new Intent(context, BookmarksActivity.class);
+			case R.id.itemDownloads:	Intent i = new Intent();
+										i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
+										return i;
+			case R.id.itemPreference:	return new Intent(context, PreferenceActivity.class);
 		}
-		Log.d(TAG, "SBrowserApplication - menu intent2");
 		return null;
 	}
 

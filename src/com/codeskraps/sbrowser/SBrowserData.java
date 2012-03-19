@@ -22,11 +22,9 @@
 
 package com.codeskraps.sbrowser;
 
-import android.content.Context;
 import android.webkit.WebView.HitTestResult;
 
 public class SBrowserData {
-	private Context context = null;
 	private boolean invalidate;
 	private boolean selected;
 	private boolean chkFullscreen;
@@ -39,8 +37,7 @@ public class SBrowserData {
 	private HitTestResult result;
 	private BookmarkItem bookmarkItem;
 	
-	public SBrowserData(Context context) {
-		setContext(context);
+	public SBrowserData() {
 		setInvalidate(false);
 		setChkFullscreen(false);
 		setSelected(false);
@@ -49,14 +46,6 @@ public class SBrowserData {
 		setLstflash(0);
 		setetxtHome(new String());
 		setSaveState(new String());
-	}
-
-	public Context getContext() {
-		return context;
-	}
-
-	public void setContext(Context context) {
-		this.context = context;
 	}
 	
 	public boolean isInvalidate() {

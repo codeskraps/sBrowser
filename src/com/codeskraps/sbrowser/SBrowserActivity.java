@@ -69,9 +69,6 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	private boolean activityPaused;
 	private boolean webLoading;
 
-	// private long enqueue;
-	// private DownloadManager dm;
-
 	private ProgressBar prgBar = null;
 	private WebView webView = null;
 	private HorizontalScrollView hscrlView = null;
@@ -103,6 +100,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.webview);
 
+		webView = (WebView) findViewById(R.id.webview);
 		prgBar = (ProgressBar) findViewById(R.id.prgBar);
 		btnWww = (ImageView) findViewById(R.id.btnWww);
 		btnHome = (ImageView) findViewById(R.id.btnHome);
@@ -120,69 +118,24 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		btnSearch.setOnClickListener(this);
 		btnQuit.setOnClickListener(this);
 
-		try {
-
-			webView = (WebView) findViewById(R.id.webview);
-			registerForContextMenu(webView);
-			if (sBrowserData.isChkJavascript())
-				webView.getSettings().setJavaScriptEnabled(true);
-			else
-				webView.getSettings().setJavaScriptEnabled(false);
-			webView.getSettings().setPluginsEnabled(true);
-			switch (sBrowserData.getLstflash()) {
-			case 0:
-				webView.getSettings().setPluginState(PluginState.ON);
-				break;
-			case 1:
-				webView.getSettings().setPluginState(PluginState.ON_DEMAND);
-				break;
-			case 2:
-				webView.getSettings().setPluginState(PluginState.OFF);
-				break;
-			}
-			webView.getSettings().setBuiltInZoomControls(true);
-			webView.getSettings().setUseWideViewPort(true);
-			webView.setWebViewClient(new WebViewActivityClient());
-			webView.setWebChromeClient(new WebChromeActivityClient());
-			webView.setDownloadListener(new DownloadActivityListener());
-			// webView.setOnLongClickListener(this);
-
-		} catch (Exception e) {
-			Log.e(getClass().getSimpleName(), "Browser: " + e.getMessage());
-			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-		}
-
-		// BroadcastReceiver receiver = new BroadcastReceiver() {
-		// @Override
-		// public void onReceive(Context context, Intent intent) {
-		// String action = intent.getAction();
-		// if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(action)) {
-		// long downloadId = intent.getLongExtra(
-		// DownloadManager.EXTRA_DOWNLOAD_ID, 0);
-		// Query query = new Query();
-		// query.setFilterById(enqueue);
-		// Cursor c = dm.query(query);
-		// if (c.moveToFirst()) {
-		// int columnIndex = c
-		// .getColumnIndex(DownloadManager.COLUMN_STATUS);
-		// if (DownloadManager.STATUS_SUCCESSFUL == c
-		// .getInt(columnIndex)) {
-		// Log.d(TAG, "onReceive");
-		// // ImageView view = (ImageView)
-		// // findViewById(R.id.imageView1);
-		// // String uriString = c
-		// // .getString(c
-		// // .getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
-		// // view.setImageURI(Uri.parse(uriString));
-		// }
-		// }
-		// }
-		// }
-		// };
-		//
-		// registerReceiver(receiver, new IntentFilter(
-		// DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+		registerForContextMenu(webView);
 		
+		Display display = ((WindowManager) getSystemService(WINDOW_SERVICE))
+				.getDefaultDisplay();
+		if (display.getOrientation() == Configuration.ORIENTATION_PORTRAIT) {
+			scrlView = (ScrollView) findViewById(R.id.scrlView);
+			scrlView.setVerticalScrollBarEnabled(false);
+		} else {
+			hscrlView = (HorizontalScrollView) findViewById(R.id.hscrlView);
+			hscrlView.setHorizontalScrollBarEnabled(false);
+		}
+		
+		webView.getSettings().setBuiltInZoomControls(true);
+		webView.getSettings().setUseWideViewPort(true);
+		webView.setWebViewClient(new WebViewActivityClient());
+		webView.setWebChromeClient(new WebChromeActivityClient());
+		webView.setDownloadListener(new DownloadActivityListener());
+
 		String newURL = new String();
 		Uri data = this.getIntent().getData();
 	    if(data != null) {
@@ -198,19 +151,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			webView.loadUrl(sBrowserData.getSaveState());
 		}
 
-		Display display = ((WindowManager) getSystemService(WINDOW_SERVICE))
-				.getDefaultDisplay();
-		if (display.getOrientation() == Configuration.ORIENTATION_PORTRAIT) {
-			scrlView = (ScrollView) findViewById(R.id.scrlView);
-			scrlView.setVerticalScrollBarEnabled(false);
-		} else {
-			hscrlView = (HorizontalScrollView) findViewById(R.id.hscrlView);
-			hscrlView.setHorizontalScrollBarEnabled(false);
-		}
-
 		Log.d(TAG, "User Agent: " + webView.getSettings().getUserAgentString());
 	}
-
 
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -229,6 +171,26 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
+		try {
+
+			if (sBrowserData.isChkJavascript())
+				webView.getSettings().setJavaScriptEnabled(true);
+			else
+				webView.getSettings().setJavaScriptEnabled(false);
+			
+			webView.getSettings().setPluginsEnabled(true);
+			
+			switch (sBrowserData.getLstflash()) {
+			case 0: webView.getSettings().setPluginState(PluginState.ON); break;
+			case 1: webView.getSettings().setPluginState(PluginState.ON_DEMAND); break;
+			case 2: webView.getSettings().setPluginState(PluginState.OFF); break;
+			}
+
+		} catch (Exception e) {
+			Log.e(getClass().getSimpleName(), "Browser: " + e.getMessage());
+			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+		}
 
 		if (sBrowserData.isInvalidate() && activityPaused) {
 
@@ -268,12 +230,9 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				webView.goBack();
 			else {
 				final AlertDialog.Builder alert = new AlertDialog.Builder(this);
-				alert.setTitle(getResources()
-						.getString(R.string.alertQuitTitle));
-				alert.setMessage(getResources().getString(
-						R.string.alertQuitSummary));
-				alert.setPositiveButton("Ok",
-						new DialogInterface.OnClickListener() {
+				alert.setTitle(getResources().getString(R.string.alertQuitTitle));
+				alert.setMessage(getResources().getString(R.string.alertQuitSummary));
+				alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int whichButton) {
 								finish();
@@ -592,14 +551,11 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 	private void doSearch() {
 		final AlertDialog.Builder alertSearch = new AlertDialog.Builder(this);
-		alertSearch.setTitle(getResources()
-				.getString(R.string.alertSearchTitle));
-		alertSearch.setMessage(getResources().getString(
-				R.string.alertSearchSummary));
+		alertSearch.setTitle(getResources().getString(R.string.alertSearchTitle));
+		alertSearch.setMessage(getResources().getString(R.string.alertSearchSummary));
 		final EditText inputSearch = new EditText(this);
 		alertSearch.setView(inputSearch);
-		alertSearch.setPositiveButton("Ok",
-				new DialogInterface.OnClickListener() {
+		alertSearch.setPositiveButton("Ok",	new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int whichButton) {
 						String value = inputSearch.getText().toString().trim();
 						webView.loadUrl("http://www.google.com/search?q="
@@ -607,8 +563,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 					}
 				});
 
-		alertSearch.setNegativeButton("Cancel",
-				new DialogInterface.OnClickListener() {
+		alertSearch.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int whichButton) {
 						dialog.cancel();
 					}
