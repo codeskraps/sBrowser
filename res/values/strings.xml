@@ -60,7 +60,7 @@
     <string name="pref_home_message">Make sure to include - http:// or https://</string>
     <string name="pref_home_summary">http://www.google.com</string>
     <string name="categoryInformation">Information</string>
-    <string name="sBrowserTitle">sBrowser v1.3.2</string>
+    <string name="sBrowserTitle">sBrowser v1.3.3</string>
     <string name="sBrowserSummary">License GPL v3 - 2011 - Codeskraps</string>
     <string name="prefs_flash">Enable plug-ins</string>
 
