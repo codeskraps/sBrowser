@@ -86,7 +86,6 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 	}
 
-	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 		Log.d(TAG, "Prefs Changed");
 		

@@ -144,7 +144,6 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 		inflater.inflate(R.menu.bookmarkcontextmenu, menu);
 	}
 
-	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
 		Log.d(TAG, "onListItemClick: " + position);
 
@@ -164,7 +163,6 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 			Button btnok = (Button) dialog.findViewById(R.id.btnok);
 			btnok.setOnClickListener(new View.OnClickListener() {
 
-				@Override
 				public void onClick(View v) {
 					Toast.makeText(BookmarksActivity.this, "clicked",
 							Toast.LENGTH_SHORT);
@@ -185,7 +183,6 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 			Button btnCancel = (Button) dialog.findViewById(R.id.btncancel);
 			btnCancel.setOnClickListener(new View.OnClickListener() {
 
-				@Override
 				public void onClick(View v) {
 					Toast.makeText(BookmarksActivity.this, "clicked",
 							Toast.LENGTH_SHORT);

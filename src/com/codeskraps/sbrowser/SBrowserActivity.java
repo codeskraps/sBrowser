@@ -428,6 +428,13 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
 				startActivity(i);
 
+			} else if (url.startsWith("market://")){
+				
+				Intent goToMarket = new Intent(Intent.ACTION_VIEW, 
+						Uri.parse(url));
+				goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				startActivity(goToMarket);
+				
 			} else {
 
 				view.loadUrl(url);
@@ -474,7 +481,6 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		}
 	}
 
-	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnWww:
