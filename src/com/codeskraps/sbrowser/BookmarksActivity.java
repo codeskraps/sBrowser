@@ -154,10 +154,10 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 			dialog.setContentView(R.layout.bookmark_dialog);
 			dialog.setTitle(getResources().getString(R.string.dialog_title));
 
-			EditText dtxtName = (EditText) dialog.findViewById(R.id.dtxttitle);
+			final EditText dtxtName = (EditText) dialog.findViewById(R.id.dtxttitle);
 			dtxtName.setText(sBrowserData.getBookmarkItem().getName());
 
-			EditText dtxtURL = (EditText) dialog.findViewById(R.id.dtxturl);
+			final EditText dtxtURL = (EditText) dialog.findViewById(R.id.dtxturl);
 			dtxtURL.setText(sBrowserData.getBookmarkItem().getUrl());
 
 			Button btnok = (Button) dialog.findViewById(R.id.btnok);
@@ -168,9 +168,10 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 							Toast.LENGTH_SHORT);
 					Log.d(TAG, "ok clicked");
 
-					dataBaseData.insert(sBrowserData.getBookmarkItem());
+					BookmarkItem newBookmark = new BookmarkItem(dtxtName.getText().toString(), dtxtURL.getText().toString());
+					dataBaseData.insert(newBookmark);
 					Log.d(TAG, "saved: "
-							+ sBrowserData.getBookmarkItem().getName());
+							+ newBookmark.getName());
 					
 					BookmarksActivity.this.startActivity(new Intent(
 							BookmarksActivity.this, BookmarksActivity.class));

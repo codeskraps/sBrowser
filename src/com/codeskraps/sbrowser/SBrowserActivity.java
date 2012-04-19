@@ -109,8 +109,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		
 		registerForContextMenu(webView);
 		
-		Display display = ((WindowManager) getSystemService(WINDOW_SERVICE))
-				.getDefaultDisplay();
+//		Display display = ((WindowManager) getSystemService(WINDOW_SERVICE))
+//				.getDefaultDisplay();
 //		if (display.getOrientation() == Configuration.ORIENTATION_PORTRAIT) {
 //			scrlView = (ScrollView) findViewById(R.id.scrlView);
 //			scrlView.setVerticalScrollBarEnabled(false);
@@ -218,26 +218,29 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			if (webView.canGoBack())
 				webView.goBack();
 			else {
-				final AlertDialog.Builder alert = new AlertDialog.Builder(this);
-				alert.setTitle(getResources().getString(R.string.alertQuitTitle));
-				alert.setMessage(getResources().getString(R.string.alertQuitSummary));
-				alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int whichButton) {
-								finish();
-								overridePendingTransition(R.anim.fadein,
-										R.anim.fadeout);
-							}
-						});
-
-				alert.setNegativeButton("Cancel",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int whichButton) {
-								dialog.cancel();
-							}
-						});
-				alert.show();
+				
+				finish();
+				overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+//				final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+//				alert.setTitle(getResources().getString(R.string.alertQuitTitle));
+//				alert.setMessage(getResources().getString(R.string.alertQuitSummary));
+//				alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//							public void onClick(DialogInterface dialog,
+//									int whichButton) {
+//								finish();
+//								overridePendingTransition(R.anim.fadein,
+//										R.anim.fadeout);
+//							}
+//						});
+//
+//				alert.setNegativeButton("Cancel",
+//						new DialogInterface.OnClickListener() {
+//							public void onClick(DialogInterface dialog,
+//									int whichButton) {
+//								dialog.cancel();
+//							}
+//						});
+//				alert.show();
 			}
 			return true;
 
@@ -419,8 +422,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 			} else if (url.startsWith("market://")){
 				
-				Intent goToMarket = new Intent(Intent.ACTION_VIEW, 
-						Uri.parse(url));
+				Intent goToMarket = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 				goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				startActivity(goToMarket);
 				
@@ -439,8 +441,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 		public void onReceivedError(WebView view, int errorCode,
 				String description, String failingUrl) {
-			Toast.makeText(SBrowserActivity.this, "Oh no! " + description,
-					Toast.LENGTH_SHORT).show();
+			Log.d(TAG, "Error: " + description + ", " + failingUrl);
+			Toast.makeText(SBrowserActivity.this, "sBrowser - Something when wrong!!!", Toast.LENGTH_SHORT).show();
 		}
 	}
 
