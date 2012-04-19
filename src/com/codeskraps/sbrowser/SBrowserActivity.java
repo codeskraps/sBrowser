@@ -28,7 +28,6 @@ import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Picture;
 import android.net.Uri;
@@ -56,10 +55,8 @@ import android.webkit.WebView;
 import android.webkit.WebView.HitTestResult;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 public class SBrowserActivity extends Activity implements OnClickListener {
@@ -71,16 +68,12 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 	private ProgressBar prgBar = null;
 	private WebView webView = null;
-	private HorizontalScrollView hscrlView = null;
-	private ScrollView scrlView = null;
 	private ImageView btnWww = null;
 	private ImageView btnHome = null;
-	private ImageView btnLeft = null;
 	private ImageView btnRight = null;
 	private ImageView btnRefresh = null;
 	private ImageView btnSearch = null;
-	private ImageView btnQuit = null;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -104,31 +97,27 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		prgBar = (ProgressBar) findViewById(R.id.prgBar);
 		btnWww = (ImageView) findViewById(R.id.btnWww);
 		btnHome = (ImageView) findViewById(R.id.btnHome);
-		btnLeft = (ImageView) findViewById(R.id.btnLeft);
 		btnRight = (ImageView) findViewById(R.id.btnRight);
 		btnRefresh = (ImageView) findViewById(R.id.btnRefresh);
 		btnSearch = (ImageView) findViewById(R.id.btnSearch);
-		btnQuit = (ImageView) findViewById(R.id.btnBack);
-
+		
 		btnWww.setOnClickListener(this);
 		btnHome.setOnClickListener(this);
-		btnLeft.setOnClickListener(this);
 		btnRight.setOnClickListener(this);
 		btnRefresh.setOnClickListener(this);
 		btnSearch.setOnClickListener(this);
-		btnQuit.setOnClickListener(this);
-
+		
 		registerForContextMenu(webView);
 		
 		Display display = ((WindowManager) getSystemService(WINDOW_SERVICE))
 				.getDefaultDisplay();
-		if (display.getOrientation() == Configuration.ORIENTATION_PORTRAIT) {
-			scrlView = (ScrollView) findViewById(R.id.scrlView);
-			scrlView.setVerticalScrollBarEnabled(false);
-		} else {
-			hscrlView = (HorizontalScrollView) findViewById(R.id.hscrlView);
-			hscrlView.setHorizontalScrollBarEnabled(false);
-		}
+//		if (display.getOrientation() == Configuration.ORIENTATION_PORTRAIT) {
+//			scrlView = (ScrollView) findViewById(R.id.scrlView);
+//			scrlView.setVerticalScrollBarEnabled(false);
+//		} else {
+//			hscrlView = (HorizontalScrollView) findViewById(R.id.hscrlView);
+//			hscrlView.setHorizontalScrollBarEnabled(false);
+//		}
 		
 		webView.getSettings().setBuiltInZoomControls(true);
 		webView.getSettings().setUseWideViewPort(true);
@@ -514,11 +503,6 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			webView.loadUrl(sBrowserData.getetxtHome());
 			break;
 
-		case R.id.btnLeft:
-			Log.d(TAG, "webLweft");
-			webView.goBack();
-			break;
-
 		case R.id.btnRight:
 			webView.goForward();
 			break;
@@ -534,20 +518,10 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		case R.id.btnSearch:
 			doSearch();
 			break;
-
-		case R.id.btnBack:
-			this.finish();
-			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-			break;
 		}
 	}
 
 	private void setBackForwardButtons() {
-
-		if (webView.canGoBack())
-			btnLeft.setImageResource(R.drawable.webview_left);
-		else
-			btnLeft.setImageResource(R.drawable.webview_left_bw);
 
 		if (webView.canGoForward())
 			btnRight.setImageResource(R.drawable.webview_right);

@@ -49,28 +49,28 @@
         android:layout_weight="1"
         android:background="@drawable/masthead_background"
         android:gravity="center_vertical"
-        android:orientation="vertical" >
+        android:orientation="horizontal" >
 
-        <HorizontalScrollView
-            android:id="@+id/hscrlView"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+<!--         <HorizontalScrollView -->
+<!--             android:id="@+id/hscrlView" -->
+<!--             android:layout_width="fill_parent" -->
+<!--             android:layout_height="fill_parent" > -->
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
+<!--             <LinearLayout -->
+<!--                 android:layout_width="fill_parent" -->
+<!--                 android:layout_height="fill_parent" -->
+<!--                 android:gravity="center_vertical" -->
+<!--                 android:orientation="horizontal" > -->
 
                 <ImageView
                     android:id="@+id/btnWww"
                     style="@style/horizontalBar"
                     android:src="@drawable/www" />
 
-                <ImageView
-                    android:id="@+id/btnLeft"
-                    style="@style/horizontalBar"
-                    android:src="@drawable/webview_left_bw" />
+<!--                 <ImageView -->
+<!--                     android:id="@+id/btnLeft" -->
+<!--                     style="@style/horizontalBar" -->
+<!--                     android:src="@drawable/webview_left_bw" /> -->
 
                 <ImageView
                     android:id="@+id/btnRight"
@@ -92,12 +92,12 @@
                     style="@style/horizontalBar"
                     android:src="@drawable/webview_search" />
 
-                <ImageView
-                    android:id="@+id/btnBack"
-                    style="@style/horizontalBar"
-                    android:src="@drawable/webview_back" />
-            </LinearLayout>
-        </HorizontalScrollView>
+<!--                 <ImageView -->
+<!--                     android:id="@+id/btnBack" -->
+<!--                     style="@style/horizontalBar" -->
+<!--                     android:src="@drawable/webview_back" /> -->
+<!--             </LinearLayout> -->
+<!--         </HorizontalScrollView> -->
     </LinearLayout>
 
    
