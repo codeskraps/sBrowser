@@ -205,11 +205,11 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		activityPaused = true;
 	}
 
-	@Override
-	public void onBackPressed() {
-		super.onBackPressed();
-		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-	}
+//	@Override
+//	public void onBackPressed() {
+//		super.onBackPressed();
+//		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+//	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -331,6 +331,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	public boolean onContextItemSelected(MenuItem item) {
 
 		WebView.HitTestResult result = webView.getHitTestResult();
+		Log.d(TAG, "result: " + result.getExtra());
 		Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 
 		switch (item.getItemId()) {
@@ -342,7 +343,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				Request request = new Request(Uri.parse(result.getExtra()));
 				dm.enqueue(request);
 			} catch (Exception e) {
-				e.printStackTrace();
+				Toast.makeText(this, "sBrowser - Error saving...", Toast.LENGTH_SHORT).show();
 				Log.d(TAG, "Erro Downloading: " + e);
 			}
 			break;
