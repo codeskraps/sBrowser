@@ -50,6 +50,7 @@ import android.webkit.DownloadListener;
 import android.webkit.MimeTypeMap;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
+import android.webkit.WebIconDatabase;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.webkit.WebView.HitTestResult;
@@ -60,7 +61,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class SBrowserActivity extends Activity implements OnClickListener {
-	private static final String TAG = SBrowserActivity.class.getSimpleName();
+	private static final String TAG = "sBrowser";
 
 	private SBrowserData sBrowserData = null;
 	private boolean activityPaused;
@@ -140,7 +141,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			webView.loadUrl(sBrowserData.getSaveState());
 		}
 
-		Log.d(TAG, "User Agent: " + webView.getSettings().getUserAgentString());
+	    WebIconDatabase.getInstance().open(getDir("icons", MODE_PRIVATE).getPath());
 	}
 
 	@Override
@@ -180,6 +181,41 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			Log.e(getClass().getSimpleName(), "Browser: " + e.getMessage());
 			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
 		}
+		
+		String userAgent = new String(webView.getSettings().getUserAgentString());
+	    String[] lstUserAgentArray = getResources().getStringArray(R.array.prefs_user_agent_human_value);
+	    
+		switch(sBrowserData.getUserAgent()){
+		case 0:
+			userAgent = userAgent.replaceAll("Firefox", "Android");
+			userAgent = userAgent.replaceAll("Chrome", "Android");
+			userAgent = userAgent.replaceAll("Ipad", "Android");
+			userAgent = userAgent.replaceAll("Desktop", "Mobile");
+			break;
+		case 1: 
+			userAgent = userAgent.replaceAll("Android", lstUserAgentArray[1]);
+			userAgent = userAgent.replaceAll("Chrome", lstUserAgentArray[1]);
+			userAgent = userAgent.replaceAll("Ipad", lstUserAgentArray[1]);
+			userAgent = userAgent.replaceAll("Mobile", "Desktop");
+			break;
+		case 2: 
+			userAgent = userAgent.replaceAll("Android", lstUserAgentArray[2]);
+			userAgent = userAgent.replaceAll("Firefox", lstUserAgentArray[2]);
+			userAgent = userAgent.replaceAll("Ipad", lstUserAgentArray[2]);
+			userAgent = userAgent.replaceAll("Mobile", "Desktop");
+			break;
+		case 3: 
+			userAgent = userAgent.replaceAll("Android", lstUserAgentArray[3]);
+			userAgent = userAgent.replaceAll("Chrome", lstUserAgentArray[3]);
+			userAgent = userAgent.replaceAll("Firefox", lstUserAgentArray[3]); 
+			userAgent = userAgent.replaceAll("Mobile", "Desktop");
+			break;
+		default: break;
+		}
+		
+		webView.getSettings().setUserAgentString(userAgent);
+
+		Log.d(TAG, "User Agent: " + webView.getSettings().getUserAgentString());
 
 		if (sBrowserData.isInvalidate() && activityPaused) {
 
@@ -192,7 +228,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		} else if (sBrowserData.isSelected()) {
 			webView.loadUrl(sBrowserData.getSaveState());
 		}
-
+		
 		activityPaused = false;
 	}
 
@@ -306,17 +342,24 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
 		} else {
-			Picture p = webView.capturePicture();
-			//OutputStream os = null;
-			//os = this.openFileOutput("testPicture", ontext.MODE_WORLD_READABLE); 
-			//webView.capturePicture().writeToStream(os);
-			//os.flush();
-            //os.close(); 
-			Bitmap b = Bitmap.createBitmap(p.getWidth(), p.getHeight(), Bitmap.Config.ARGB_8888);
-            			
-			BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
-			bookmarkItem.setImage(b);
-			sBrowserData.setBookmarkItem(bookmarkItem);
+			try {
+				//Picture p = webView.capturePicture();
+				//OutputStream os = null;
+				//os = this.openFileOutput("testPicture", ontext.MODE_WORLD_READABLE); 
+				//webView.capturePicture().writeToStream(os);
+				//os.flush();
+				//os.close(); 
+				//Bitmap b = Bitmap.createBitmap(p.getWidth(), p.getHeight(), Bitmap.Config.ARGB_8888);
+							
+				BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
+				bookmarkItem.setImage(null);
+				sBrowserData.setBookmarkItem(bookmarkItem);
+			} catch (Exception e) {
+				Log.d(TAG, "Error - " + e);
+				BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
+				bookmarkItem.setImage(null);
+				sBrowserData.setBookmarkItem(bookmarkItem);
+			}
 			
 			SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
 			SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item,
@@ -438,6 +481,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		public void onReceivedSslError(WebView view, SslErrorHandler handler,
 				SslError error) {
 			handler.proceed();
+			
+			Log.d(TAG, "onReceivedSslError");
 		}
 
 		public void onReceivedError(WebView view, int errorCode,
@@ -462,8 +507,19 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				btnRefresh.setImageResource(R.drawable.webview_refresh);
 				setBackForwardButtons();
 				webLoading = false;
+//				if(view.getFavicon() != null)
+//					btnWww.setImageBitmap(view.getFavicon());
+//				else btnWww.setImageResource(R.drawable.www);
 			}
 		}
+
+//		@Override
+//		public void onReceivedIcon(WebView view, Bitmap icon) {
+//			super.onReceivedIcon(view, icon);
+//			Log.d(TAG, "onReceivedIcon");
+//			
+//			btnWww.setImageBitmap(icon);
+//		}
 	}
 
 	private class DownloadActivityListener implements DownloadListener {
@@ -488,7 +544,9 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 						public void onClick(DialogInterface dialog,
 								int whichButton) {
 							String value = input.getText().toString().trim();
-							webView.loadUrl(value);
+							if (value.startsWith("http"))
+								webView.loadUrl(value);
+							else webView.loadUrl("http://" + value);
 						}
 					});
 

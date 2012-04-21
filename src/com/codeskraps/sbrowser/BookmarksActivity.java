@@ -62,7 +62,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 		/*
 		 * Set and fill the Adapter
 		 */
-		listItemAdapter = new ListItemAdapter(this, sBrowserData.getBookmarkItem());
+		listItemAdapter = new ListItemAdapter(this);
 		// setListAdapter(listItemAdapter);
 
 		gridview = (GridView) findViewById(R.id.gridview);

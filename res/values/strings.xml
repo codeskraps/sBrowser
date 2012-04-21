@@ -57,12 +57,12 @@
     <string name="pref_cat_page_content_settings">Page content settings</string>
     <string name="pref_javascript">Enable JavaScript</string>
     <string name="pref_home_title">Set home page</string>
-    <string name="pref_home_message">Make sure to include - http:// or https://</string>
     <string name="pref_home_summary">http://www.google.com</string>
     <string name="categoryInformation">Information</string>
-    <string name="sBrowserTitle">sBrowser v1.4.3</string>
+    <string name="sBrowserTitle">sBrowser v1.5</string>
     <string name="sBrowserSummary">License GPL v3 - 2011 - Codeskraps</string>
     <string name="prefs_flash">Enable plug-ins</string>
+    <string name="prefs_setUserAgent">Set user agent</string>
 
     <!-- Dialog -->
     <string name="dialog_title">Add bookmark</string>
@@ -77,10 +77,24 @@
         <item>On demand</item>
         <item>Off</item>
     </string-array>
+    
     <string-array name="prefs_flash_phone_value">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
-
+    
+	<string-array name="prefs_user_agent_human_value">
+	    <item>Default</item>
+	    <item>Firefox</item>
+	    <item>Chrome</item>
+	    <item>Ipad</item>
+	</string-array>
+	
+	<string-array name="prefs_user_agent_phone_value">
+	    <item>0</item>
+	    <item>1</item>
+	    <item>2</item>
+	    <item>3</item>
+	</string-array>
 </resources>

@@ -15,6 +15,8 @@ public final class R {
     public static final class array {
         public static final int prefs_flash_human_value=0x7f070000;
         public static final int prefs_flash_phone_value=0x7f070001;
+        public static final int prefs_user_agent_human_value=0x7f070002;
+        public static final int prefs_user_agent_phone_value=0x7f070003;
     }
     public static final class attr {
     }
@@ -89,7 +91,7 @@ public final class R {
         public static final int alertSearchSummary=0x7f060004;
         public static final int alertSearchTitle=0x7f060003;
         public static final int app_name=0x7f060000;
-        public static final int categoryInformation=0x7f06001d;
+        public static final int categoryInformation=0x7f06001c;
         public static final int contextMenuCopyLink=0x7f06000f;
         public static final int contextMenuDeleteBoomark=0x7f060013;
         public static final int contextMenuEditBookmark=0x7f060012;
@@ -116,16 +118,16 @@ public final class R {
         public static final int menuQuit=0x7f06000b;
         public static final int pref_cat_display=0x7f060015;
         public static final int pref_cat_page_content_settings=0x7f060018;
-        public static final int pref_home_message=0x7f06001b;
-        public static final int pref_home_summary=0x7f06001c;
+        public static final int pref_home_summary=0x7f06001b;
         public static final int pref_home_title=0x7f06001a;
         public static final int pref_javascript=0x7f060019;
         /**  Preferences 
          */
         public static final int preference_activity=0x7f060014;
-        public static final int prefs_flash=0x7f060020;
-        public static final int sBrowserSummary=0x7f06001f;
-        public static final int sBrowserTitle=0x7f06001e;
+        public static final int prefs_flash=0x7f06001f;
+        public static final int prefs_setUserAgent=0x7f060020;
+        public static final int sBrowserSummary=0x7f06001e;
+        public static final int sBrowserTitle=0x7f06001d;
     }
     public static final class style {
         public static final int horizontalBar=0x7f080000;

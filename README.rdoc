@@ -3,9 +3,9 @@
 * <b>Homepage:</b>
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
-* <b>License:</b> GPL v3
-* <b>Latest Version:</b> Under Development
-* <b>Release Date:</b> Not released	
+* <b>License:</b> GNU GPL v3
+* <b>Latest Version:</b> 1.5
+* <b>Release Date:</b> 2011	
 
 == General Infromation
 
@@ -22,6 +22,19 @@ Carles Sentis codeskraps@gmail.com
 
 == ChangeLog
 
+<tt>v1.5    -Add set user agent in preferences
+	-Fixed crashes when pressing menu option while still loading
+	-No need to enter http or http while changing web address</tt>
+<tt>v1.4.3  -Removed back & quit buttons from bar
+	-Bar moved to the right on landscape
+    -Other minor changes</tt>
+<tt>v1.3.3 -Opens market links</tt>
+<tt>v1.3.2 -Bar moved to the bottom
+	-Other minor improvements</tt>
+<tt>v1.3.1 -Changed empty picture of bookmarks</tt>
+<tt>v1.3   -Bookmarks view change to GridView</tt>
+<tt>v1.2   -Icon added to the app drawer</tt>
+<tt>v1.1   -Added bookmarks</tt>
 
 == News
 

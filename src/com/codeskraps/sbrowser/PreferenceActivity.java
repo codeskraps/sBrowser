@@ -38,11 +38,13 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 	private static final String CHKJAVASCRIPT = "ckbjavascript";
 	private static final String LSTFLASH = "lstflash";
 	private static final String ETXTHOME = "etxtHome";
-		
+	private static final String USERAGENT = "lstUserAgent";
+	
 	private SBrowserData sBrowserData = null;
 	private SharedPreferences prefs = null;
 	
 	private String[] lstFlashArray;
+	private String[] lstuserAgentArray;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 		
 		sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
 		lstFlashArray = getResources().getStringArray(R.array.prefs_flash_human_value);
+        lstuserAgentArray = getResources().getStringArray(R.array.prefs_user_agent_human_value);
         
 		if (sBrowserData.isChkFullscreen()) {
         	
@@ -63,9 +66,11 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 		
 		EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen().findPreference(ETXTHOME);
 		ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(LSTFLASH);
+		ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(USERAGENT);
 		
 		etxtPrefHome.setSummary(sBrowserData.getetxtHome());
 		lstFlash.setSummary(lstFlashArray[sBrowserData.getLstflash()]);
+		lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
 		
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
@@ -121,10 +126,23 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 		}else if (key.equals(ETXTHOME)) {
 			
 			String etxtHome = prefs.getString(ETXTHOME, getResources().getString(R.string.pref_home_summary));
-			sBrowserData.setetxtHome(etxtHome);
+			if (etxtHome.startsWith("http"))
+				sBrowserData.setetxtHome(etxtHome);
+			else
+				sBrowserData.setetxtHome("http://" + etxtHome);
 			
 			EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen().findPreference(ETXTHOME);
 			etxtPrefHome.setSummary(sBrowserData.getetxtHome());
+		
+		}else if (key.equals(USERAGENT)) {
+			
+			String sUserAgent = prefs.getString(USERAGENT, "0");
+			sBrowserData.setUserAgent(Integer.parseInt(sUserAgent));
+			
+			ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(USERAGENT);
+			lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
+			
+			Log.d(TAG, "prefs user agent: " + sBrowserData.getUserAgent());
 		}
 	}
 }

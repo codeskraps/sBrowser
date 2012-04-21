@@ -33,6 +33,7 @@ public class SBrowserData {
 	private int lstflash;
 	private String etxtHome;
 	private String saveState;
+	private int userAgent;
 	
 	private HitTestResult result;
 	private BookmarkItem bookmarkItem;
@@ -46,6 +47,7 @@ public class SBrowserData {
 		setLstflash(0);
 		setetxtHome(new String());
 		setSaveState(new String());
+		setUserAgent(0);
 	}
 	
 	public boolean isInvalidate() {
@@ -126,5 +128,13 @@ public class SBrowserData {
 
 	public void setSelected(boolean selected) {
 		this.selected = selected;
+	}
+
+	public int getUserAgent() {
+		return userAgent;
+	}
+
+	public void setUserAgent(int userAgent) {
+		this.userAgent = userAgent;
 	}
 }

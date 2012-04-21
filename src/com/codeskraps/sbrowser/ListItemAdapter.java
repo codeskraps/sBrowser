@@ -41,7 +41,7 @@ public class ListItemAdapter extends BaseAdapter {
 	private LayoutInflater mInflater = null;
 	private List<BookmarkItem> mItems = new ArrayList<BookmarkItem>(); 
 
-	public ListItemAdapter(Context context, BookmarkItem bookmarkItem) {
+	public ListItemAdapter(Context context) {
 		Log.d(TAG, "Constructor");
 		this.context = context;
 		mInflater = LayoutInflater.from(context);

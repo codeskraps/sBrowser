@@ -37,7 +37,6 @@
 
         <EditTextPreference
             android:defaultValue="@string/pref_home_summary"
-            android:dialogMessage="@string/pref_home_message"
             android:key="etxtHome"
             android:summary="@string/pref_home_summary"
             android:title="@string/pref_home_title" />
@@ -52,6 +51,13 @@
             android:title="@string/prefs_flash"
             android:entries="@array/prefs_flash_human_value"
             android:entryValues="@array/prefs_flash_phone_value"
+            android:defaultValue="0" />
+        
+        <ListPreference 
+            android:key="lstUserAgent"
+            android:title="@string/prefs_setUserAgent"
+            android:entries="@array/prefs_user_agent_human_value"
+            android:entryValues="@array/prefs_user_agent_phone_value"
             android:defaultValue="0" />
         
     </PreferenceCategory>

@@ -37,6 +37,7 @@ public class SBrowserApplication extends Application {
 	private static final String CHKJAVASCRIPT = "ckbjavascript";
 	private static final String LSTFLASH = "lstflash";
 	private static final String ETXTHOME = "etxtHome";
+	private static final String USERAGENT = "lstUserAgent";
 	
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
@@ -56,11 +57,13 @@ public class SBrowserApplication extends Application {
 		boolean chkJavascript = prefs.getBoolean(CHKJAVASCRIPT, true);
 		String lstFlash = prefs.getString(LSTFLASH, "0");
 		String etxtHome = prefs.getString(ETXTHOME, getResources().getString(R.string.pref_home_summary));
+		String lstUserAgent = prefs.getString(USERAGENT, "0");
 		
 		sBrowserData.setChkFullscreen(chkFullscreen);
 		sBrowserData.setChkJavascript(chkJavascript);
 		sBrowserData.setLstflash(Integer.parseInt(lstFlash));
 		sBrowserData.setetxtHome(etxtHome);
+		sBrowserData.setUserAgent(Integer.parseInt(lstUserAgent));
 	}
 	
 	public Intent getMenuIntent(MenuItem item, Context context) {
