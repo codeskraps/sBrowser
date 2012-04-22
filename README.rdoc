@@ -11,14 +11,14 @@
 
 This is an app for Android powered devices. sBrowser is a simple Internet broswer specially developed for teaching purposes in a workshop in 091 Labs (091labs.com). 
 
-
 == Authors
 
 Carles Sentis codeskraps@gmail.com
 
+== Install
 
-== Thanks
-
+Install from Google Play
+ - https://play.google.com/store/apps/details?id=com.codeskraps.sbrowser
 
 == ChangeLog
 
@@ -45,12 +45,6 @@ v1.2
 v1.1 
  - Added bookmarks
 
-== News
-
-
-== Install
-
-
 == Copyright/License
 
 sBrowser Copyright (C) Carles Sentis 2011 codeskraps@gmail.com
@@ -71,5 +65,3 @@ General Public License for more details.
 You should have received a copy of the GNU
 General Public License along with this program.
 If not, see http://www.gnu.org/licenses.
-
-== Bugs
