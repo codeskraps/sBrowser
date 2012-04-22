@@ -22,20 +22,28 @@ Carles Sentis codeskraps@gmail.com
 
 == ChangeLog
 
-v1.5 - Added set user agent in preferences
+v1.5 
+ - Added set user agent in preferences
  - Fixed crashes when pressing menu option while still loading
  - No need to enter http or http while changing web address
  - Other improvements in bookmark activity
-v1.4.3 - Removed back & quit buttons from bar
+v1.4.3 
+ - Removed back & quit buttons from bar
  - Bar moved to the right on landscape
  - Other minor changes
-v1.3.3 - Opens market links
-v1.3.2 - Bar moved to the bottom
+v1.3.3 
+ - Opens market links
+v1.3.2 
+ - Bar moved to the bottom
  - Other minor improvements
-v1.3.1 - Changed empty picture of bookmarks
-v1.3 - Bookmarks view change to GridView
-v1.2 - Icon added to the app drawer
-v1.1 - Added bookmarks
+v1.3.1 
+ - Changed empty picture of bookmarks
+v1.3 
+ - Bookmarks view change to GridView
+v1.2 
+ - Icon added to the app drawer
+v1.1 
+ - Added bookmarks
 
 == News
 
