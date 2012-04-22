@@ -34,11 +34,11 @@
         android:text="@string/menuBookmarks"
         android:textSize="30sp" />
     
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Working on this, please be patient..." />
+<!--     <TextView -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_gravity="center" -->
+<!--         android:text="Working on this, please be patient..." /> -->
 
     <LinearLayout
         android:id="@+id/etxtsLayout"
