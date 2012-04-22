@@ -22,28 +22,20 @@ Carles Sentis codeskraps@gmail.com
 
 == ChangeLog
 
-* v1.5
- - Added set user agent in preferences
+v1.5 - Added set user agent in preferences
  - Fixed crashes when pressing menu option while still loading
  - No need to enter http or http while changing web address
  - Other improvements in bookmark activity
-* v1.4.3
- - Removed back & quit buttons from bar
+v1.4.3 - Removed back & quit buttons from bar
  - Bar moved to the right on landscape
  - Other minor changes
-* v1.3.3
- - Opens market links
-* v1.3.2
- - Bar moved to the bottom
+v1.3.3 - Opens market links
+v1.3.2 - Bar moved to the bottom
  - Other minor improvements
-* v1.3.1
- - Changed empty picture of bookmarks
-* v1.3
- - Bookmarks view change to GridView
-* v1.2
- - Icon added to the app drawer
-* v1.1
- - Added bookmarks
+v1.3.1 - Changed empty picture of bookmarks
+v1.3 - Bookmarks view change to GridView
+v1.2 - Icon added to the app drawer
+v1.1 - Added bookmarks
 
 == News
 
@@ -53,25 +45,23 @@ Carles Sentis codeskraps@gmail.com
 
 == Copyright/License
 
-* sBrowser Copyright (C) Carles Sentis 2011 codeskraps@gmail.com
+sBrowser Copyright (C) Carles Sentis 2011 codeskraps@gmail.com
 
-* sBrowser is free software: you can
-  redistribute it and/or modify it under the terms
-  of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of
-  the License, or (at your option) any later
-  version.
+sBrowser is free software: you can
+redistribute it and/or modify it under the terms
+of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of
+the License, or (at your option) any later
+version.
 
-* sBrowser is distributed in the hope that it
-  will be useful, but WITHOUT ANY WARRANTY; without
-  even the implied warranty of MERCHANTABILITY or
-  FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-  General Public License for more details.
+sBrowser is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
 
-* You should have received a copy of the GNU
-  General Public License along with this program.
-  If not, see http://www.gnu.org/licenses.
-
+You should have received a copy of the GNU
+General Public License along with this program.
+If not, see http://www.gnu.org/licenses.
 
 == Bugs
-
