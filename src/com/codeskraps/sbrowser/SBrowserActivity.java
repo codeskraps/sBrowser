@@ -71,6 +71,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	private SBrowserData sBrowserData = null;
 	private boolean activityPaused;
 	private boolean webLoading;
+	private String defaultUserAgent;
 
 	private ProgressBar prgBar = null;
 	private WebView webView = null;
@@ -137,6 +138,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		}
 
 	    WebIconDatabase.getInstance().open(getDir("icons", MODE_PRIVATE).getPath());
+	    defaultUserAgent = webView.getSettings().getUserAgentString();
 	}
 
 	@Override
@@ -182,10 +184,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	    
 		switch(sBrowserData.getUserAgent()){
 		case 0:
-			userAgent = userAgent.replaceAll("Firefox", "Android");
-			userAgent = userAgent.replaceAll("Chrome", "Android");
-			userAgent = userAgent.replaceAll("Ipad", "Android");
-			userAgent = userAgent.replaceAll("Desktop", "Mobile");
+			userAgent = defaultUserAgent;
 			break;
 		case 1: 
 			userAgent = userAgent.replaceAll("Android", lstUserAgentArray[1]);
