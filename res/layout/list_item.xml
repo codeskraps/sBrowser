@@ -31,11 +31,13 @@
     <ImageView 
 		android:id="@+id/listImage"
 		android:layout_height="85dp"
-		android:layout_width="85dp" />
+		android:layout_width="85dp"
+		android:gravity="center_horizontal" />
     
 	<TextView 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" 
+		android:gravity="center_horizontal"
 		android:singleLine="true"
 		android:id="@+id/lstText" />
 		

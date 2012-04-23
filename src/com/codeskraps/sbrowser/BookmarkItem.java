@@ -22,42 +22,27 @@
 
 package com.codeskraps.sbrowser;
 
-import android.graphics.Bitmap;
-
-
 public class BookmarkItem {
 
-	private Bitmap image;
+	private int id;
+	private byte[] image = null;
 	private String title;
 	private String url;
 	
 	public BookmarkItem(String title, String url) {
-		setImage(image);
 		setName(title);
 		setUrl(url);
 	}
 
-	public String getName() {
-		return title;
-	}
+	public int getId()					{ return id; }
+	public void setId(int id)			{ this.id = id; }
+	
+	public String getName() 			{ return title;	}
+	public void setName(String name) 	{ this.title = name; }
 
-	public void setName(String name) {
-		this.title = name;
-	}
+	public String getUrl() 				{ return url; }
+	public void setUrl(String url) 		{ this.url = url; }
 
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public Bitmap getImage() {
-		return image;
-	}
-
-	public void setImage(Bitmap image) {
-		this.image = image;
-	}
+	public byte[] getImage() 			{ return image; }
+	public void setImage(byte[] image) 	{ this.image = image; }
 }

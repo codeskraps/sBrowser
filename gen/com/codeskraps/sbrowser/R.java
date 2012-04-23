@@ -38,34 +38,43 @@ public final class R {
         public static final int www=0x7f02000e;
     }
     public static final class id {
-        public static final int btnHome=0x7f0a0009;
-        public static final int btnRefresh=0x7f0a000a;
-        public static final int btnRight=0x7f0a0008;
-        public static final int btnSearch=0x7f0a000b;
-        public static final int btnWww=0x7f0a0007;
-        public static final int etxtsLayout=0x7f0a0000;
-        public static final int gridview=0x7f0a0001;
-        public static final int itemBookmarks=0x7f0a0012;
-        public static final int itemCopyLink=0x7f0a0010;
-        public static final int itemDownloads=0x7f0a0013;
-        public static final int itemOpen=0x7f0a000c;
-        public static final int itemPreference=0x7f0a0014;
-        public static final int itemQuit=0x7f0a0015;
-        public static final int itemSaveImage=0x7f0a000d;
-        public static final int itemSaveLink=0x7f0a000f;
-        public static final int itemShareImage=0x7f0a000e;
-        public static final int itemShareLink=0x7f0a0011;
-        public static final int listImage=0x7f0a0002;
-        public static final int lstText=0x7f0a0003;
-        public static final int prgBar=0x7f0a0005;
-        public static final int surface_view=0x7f0a0004;
-        public static final int webview=0x7f0a0006;
+        public static final int btnHome=0x7f0a000f;
+        public static final int btnRefresh=0x7f0a0010;
+        public static final int btnRight=0x7f0a000e;
+        public static final int btnSearch=0x7f0a0011;
+        public static final int btnWww=0x7f0a000d;
+        public static final int btncancel=0x7f0a0005;
+        public static final int btnok=0x7f0a0004;
+        public static final int dtxttitle=0x7f0a0001;
+        public static final int dtxturl=0x7f0a0002;
+        public static final int etxtsLayout=0x7f0a0006;
+        public static final int gridview=0x7f0a0007;
+        public static final int itemBookmarks=0x7f0a001a;
+        public static final int itemCopyLink=0x7f0a0018;
+        public static final int itemDelete=0x7f0a0014;
+        public static final int itemDownloads=0x7f0a001b;
+        public static final int itemEdit=0x7f0a0013;
+        public static final int itemOpen=0x7f0a0012;
+        public static final int itemPreference=0x7f0a001c;
+        public static final int itemQuit=0x7f0a001d;
+        public static final int itemSaveImage=0x7f0a0015;
+        public static final int itemSaveLink=0x7f0a0017;
+        public static final int itemShareImage=0x7f0a0016;
+        public static final int itemShareLink=0x7f0a0019;
+        public static final int layout_root=0x7f0a0000;
+        public static final int linearLayout1=0x7f0a0003;
+        public static final int listImage=0x7f0a0008;
+        public static final int lstText=0x7f0a0009;
+        public static final int prgBar=0x7f0a000b;
+        public static final int surface_view=0x7f0a000a;
+        public static final int webview=0x7f0a000c;
     }
     public static final class layout {
-        public static final int list_activity=0x7f030000;
-        public static final int list_item=0x7f030001;
-        public static final int videoview=0x7f030002;
-        public static final int webview=0x7f030003;
+        public static final int bookmark_dialog=0x7f030000;
+        public static final int list_activity=0x7f030001;
+        public static final int list_item=0x7f030002;
+        public static final int videoview=0x7f030003;
+        public static final int webview=0x7f030004;
     }
     public static final class menu {
         public static final int bookmarkcontextmenu=0x7f090000;
@@ -76,7 +85,7 @@ public final class R {
     public static final class string {
         public static final int Fullscreen=0x7f060016;
         public static final int Fullscreen_summary=0x7f060017;
-        public static final int addBookmark=0x7f060026;
+        public static final int addBookmark=0x7f060029;
         public static final int alertHttpSummary=0x7f060002;
         public static final int alertHttpTitle=0x7f060001;
         public static final int alertQuitSummary=0x7f060006;
@@ -95,13 +104,16 @@ public final class R {
         public static final int contextMenuSaveLink=0x7f06000e;
         public static final int contextMenuShareImage=0x7f06000d;
         public static final int contextMenuShareLink=0x7f060010;
-        public static final int dialog_cancel=0x7f060025;
-        public static final int dialog_location=0x7f060023;
-        public static final int dialog_name=0x7f060022;
-        public static final int dialog_ok=0x7f060024;
+        public static final int dialog_cancel=0x7f060028;
+        public static final int dialog_location=0x7f060026;
+        public static final int dialog_message_delete=0x7f060024;
+        public static final int dialog_name=0x7f060025;
+        public static final int dialog_ok=0x7f060027;
         /**  Dialog 
          */
-        public static final int dialog_title=0x7f060021;
+        public static final int dialog_title_add=0x7f060021;
+        public static final int dialog_title_delete=0x7f060023;
+        public static final int dialog_title_edit=0x7f060022;
         /**  Menu 
          */
         public static final int menuAbout=0x7f060007;

@@ -28,12 +28,12 @@
     	android:id="@+id/itemOpen"
     	android:title="@string/contextMenuOpenBookmark" />
     
-<!-- 	<item  -->
-<!--     	android:id="@+id/itemEdit" -->
-<!--     	android:title="@string/contextMenuEditBookmark" /> -->
+	<item 
+    	android:id="@+id/itemEdit"
+    	android:title="@string/contextMenuEditBookmark" />
     
-<!--     <item  -->
-<!--     	android:id="@+id/itemDelete" -->
-<!--     	android:title="@string/contextMenuDeleteBoomark" />     -->
+    <item 
+    	android:id="@+id/itemDelete"
+    	android:title="@string/contextMenuDeleteBoomark" />    
 
 </menu>

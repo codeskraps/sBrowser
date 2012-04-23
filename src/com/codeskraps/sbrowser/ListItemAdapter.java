@@ -26,6 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +38,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ListItemAdapter extends BaseAdapter {
-	private static final String TAG = ListItemAdapter.class.getSimpleName();
+	private static final String TAG = "sBrowser";
 
 	private Context context;
 	private LayoutInflater mInflater = null;
@@ -48,7 +51,7 @@ public class ListItemAdapter extends BaseAdapter {
 	}
 
 	public void addItem(BookmarkItem it) {
-		mItems.add(it); // Adding Items to the list
+		mItems.add(it);
 	}
 
 	public void setListItems(List<BookmarkItem> lit) { 
@@ -67,39 +70,36 @@ public class ListItemAdapter extends BaseAdapter {
 		return position;
 	}
 
-	/*
-	 * This gets called every time ListView needs a new Row Item position holds
-	 * the position on the row in the ListView convertView is the new view we
-	 * have to filled with our custom --> list_item.xml
-	 */
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder vHolder = null;
 
 		if (convertView != null)
-			vHolder = (ViewHolder) convertView.getTag(); // convertView is been
-															// recycled
+			vHolder = (ViewHolder) convertView.getTag();
 		else {
 			convertView = (View) mInflater.inflate(R.layout.list_item, null); 
 
 			vHolder = new ViewHolder();
-			vHolder.imageView = ((ImageView) convertView
-					.findViewById(R.id.listImage));
-			vHolder.textView = ((TextView) convertView
-					.findViewById(R.id.lstText));
+			vHolder.imageView = ((ImageView) convertView.findViewById(R.id.listImage));
+			vHolder.textView = ((TextView) convertView.findViewById(R.id.lstText));
 
 			convertView.setTag(vHolder);
 		}
 
 		vHolder.imageView.setId(position);
-		vHolder.textView.setId(position); // Do not delete !!!
+		vHolder.textView.setId(position);
 
 		if (position == 0) {
 			vHolder.textView.setText(context.getResources().getString(R.string.addBookmark));
 			vHolder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.add));
 		} else {
-			vHolder.textView.setText(mItems.get(position).getName());
-			//vHolder.imageView.setImageBitmap(mItems.get(position).getImage());
-			vHolder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
+			BookmarkItem b = mItems.get(position);
+			vHolder.textView.setText(b.getName());
+			if (b.getImage() != null){
+				Log.d(TAG, "listAdapter");
+				Bitmap bm = BitmapFactory.decodeByteArray(b.getImage(), 0, b.getImage().length);
+				if (bm != null) vHolder.imageView.setImageBitmap(bm);
+				else vHolder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
+			}else vHolder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
 		}
 		
 		return convertView;

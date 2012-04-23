@@ -65,7 +65,10 @@
     <string name="prefs_setUserAgent">Set user agent</string>
 
     <!-- Dialog -->
-    <string name="dialog_title">Add bookmark</string>
+    <string name="dialog_title_add">Add bookmark</string>
+    <string name="dialog_title_edit">Edit bookmark</string>
+    <string name="dialog_title_delete">Delete Bookmark</string>
+    <string name="dialog_message_delete">Are you sure?</string>
     <string name="dialog_name">Name</string>
     <string name="dialog_location">Location</string>
     <string name="dialog_ok">OK</string>

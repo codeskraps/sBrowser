@@ -30,8 +30,6 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class VideoPlayer extends Activity {
-//implements OnBufferingUpdateListener, OnCompletionListener,
-//OnPreparedListener, OnVideoSizeChangedListener, SurfaceHolder.Callback {
 	private static final String TAG = VideoPlayer.class.getSimpleName();
 	
 	private VideoView videoView = null;
@@ -57,7 +55,6 @@ public class VideoPlayer extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 					
 			this.finish();
-			//overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);

@@ -22,12 +22,20 @@
 
 package com.codeskraps.sbrowser;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.Canvas;
+import android.graphics.Picture;
+import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
@@ -106,16 +114,6 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		btnSearch.setOnClickListener(this);
 		
 		registerForContextMenu(webView);
-		
-//		Display display = ((WindowManager) getSystemService(WINDOW_SERVICE))
-//				.getDefaultDisplay();
-//		if (display.getOrientation() == Configuration.ORIENTATION_PORTRAIT) {
-//			scrlView = (ScrollView) findViewById(R.id.scrlView);
-//			scrlView.setVerticalScrollBarEnabled(false);
-//		} else {
-//			hscrlView = (HorizontalScrollView) findViewById(R.id.hscrlView);
-//			hscrlView.setHorizontalScrollBarEnabled(false);
-//		}
 		
 		webView.getSettings().setBuiltInZoomControls(true);
 		webView.getSettings().setUseWideViewPort(true);
@@ -238,12 +236,6 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		activityPaused = true;
 	}
 
-//	@Override
-//	public void onBackPressed() {
-//		super.onBackPressed();
-//		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-//	}
-
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -254,26 +246,6 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				
 				finish();
 				overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-//				final AlertDialog.Builder alert = new AlertDialog.Builder(this);
-//				alert.setTitle(getResources().getString(R.string.alertQuitTitle));
-//				alert.setMessage(getResources().getString(R.string.alertQuitSummary));
-//				alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//							public void onClick(DialogInterface dialog,
-//									int whichButton) {
-//								finish();
-//								overridePendingTransition(R.anim.fadein,
-//										R.anim.fadeout);
-//							}
-//						});
-//
-//				alert.setNegativeButton("Cancel",
-//						new DialogInterface.OnClickListener() {
-//							public void onClick(DialogInterface dialog,
-//									int whichButton) {
-//								dialog.cancel();
-//							}
-//						});
-//				alert.show();
 			}
 			return true;
 
@@ -300,13 +272,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		if (result.getType() == HitTestResult.IMAGE_TYPE
 				|| result.getType() == HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
 			Log.d(TAG, "onCreateContextMenu - SRC_IMAGE_ANCHOR_TYPE");
-			// Menu options for an image.
-			// set the header title to the image url
 			menu.setHeaderTitle(result.getExtra());
-			// menu.add(0, ID_SAVEIMAGE, 0,
-			// "Save Image").setOnMenuItemClickListener(handler);
-			// menu.add(0, ID_VIEWIMAGE, 0,
-			// "View Image").setOnMenuItemClickListener(handler);
 
 			MenuInflater inflater = getMenuInflater();
 			inflater.inflate(R.menu.contextmenuimage, menu);
@@ -314,13 +280,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		} else if (result.getType() == HitTestResult.ANCHOR_TYPE
 				|| result.getType() == HitTestResult.SRC_ANCHOR_TYPE) {
 			Log.d(TAG, "onCreateContextMenu - SRC_ANCHOR_TYPE");
-			// Menu options for a hyperlink.
-			// set the header title to the link url
 			menu.setHeaderTitle(result.getExtra());
-			// menu.add(0, ID_SAVELINK, 0,
-			// "Save Link").setOnMenuItemClickListener(handler);
-			// menu.add(0, ID_SHARELINK, 0,
-			// "Share Link").setOnMenuItemClickListener(handler);
 
 			MenuInflater inflater = getMenuInflater();
 			inflater.inflate(R.menu.contextmenulink, menu);
@@ -340,17 +300,21 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 		} else {
 			try {
-				//Picture p = webView.capturePicture();
-				//OutputStream os = null;
-				//os = this.openFileOutput("testPicture", ontext.MODE_WORLD_READABLE); 
-				//webView.capturePicture().writeToStream(os);
-				//os.flush();
-				//os.close(); 
-				//Bitmap b = Bitmap.createBitmap(p.getWidth(), p.getHeight(), Bitmap.Config.ARGB_8888);
-							
+				Picture picture = webView.capturePicture();
+				PictureDrawable pictureDrawable = new PictureDrawable(picture);
+				Bitmap bitmap = Bitmap.createBitmap(pictureDrawable.getIntrinsicWidth(), 
+						pictureDrawable.getIntrinsicHeight(), Config.ARGB_8888);
+				Canvas canvas = new Canvas(bitmap);
+				canvas.drawPicture(pictureDrawable.getPicture());
+				ByteArrayOutputStream bos = new ByteArrayOutputStream();
+				bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, (OutputStream) bos);
+				Log.d(TAG, "bos: " + bos.toByteArray());
+				
 				BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
-				bookmarkItem.setImage(null);
+				bookmarkItem.setImage(bos.toByteArray());
 				sBrowserData.setBookmarkItem(bookmarkItem);
+				bos.close();
+				
 			} catch (Exception e) {
 				Log.d(TAG, "Error - " + e);
 				BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
@@ -359,8 +323,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			}
 			
 			SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
-			SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item,
-					SBrowserActivity.this));
+			SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item, SBrowserActivity.this));
 			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 		}
 
@@ -456,7 +419,6 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
 				Request request = new Request(Uri.parse(url));
 				dm.enqueue(request);
-				// enqueue = dm.enqueue(request);
 				Intent i = new Intent();
 				i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
 				startActivity(i);
@@ -504,19 +466,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				btnRefresh.setImageResource(R.drawable.webview_refresh);
 				setBackForwardButtons();
 				webLoading = false;
-//				if(view.getFavicon() != null)
-//					btnWww.setImageBitmap(view.getFavicon());
-//				else btnWww.setImageResource(R.drawable.www);
 			}
 		}
-
-//		@Override
-//		public void onReceivedIcon(WebView view, Bitmap icon) {
-//			super.onReceivedIcon(view, icon);
-//			Log.d(TAG, "onReceivedIcon");
-//			
-//			btnWww.setImageBitmap(icon);
-//		}
 	}
 
 	private class DownloadActivityListener implements DownloadListener {

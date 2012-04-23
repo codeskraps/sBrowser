@@ -43,7 +43,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class BookmarksActivity extends Activity implements OnItemClickListener {
-	private static final String TAG = BookmarksActivity.class.getSimpleName();
+	private static final String TAG = "sBrowser";
+	private static final int ADD = 1;
+	private static final int EDIT = 2;
+	
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
 	private ListItemAdapter listItemAdapter = null;
@@ -61,12 +64,8 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 		dataBaseData = ((SBrowserApplication) getApplication())
 				.getDataBaseData();
 
-		/*
-		 * Set and fill the Adapter
-		 */
 		listItemAdapter = new ListItemAdapter(this);
-		// setListAdapter(listItemAdapter);
-
+		
 		gridview = (GridView) findViewById(R.id.gridview);
 		gridview.setAdapter(listItemAdapter);
 		gridview.setOnItemClickListener(this);
@@ -75,24 +74,30 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 
 		listItemAdapter.addItem(sBrowserData.getBookmarkItem());
 
-		// Get the data
 		cursor = dataBaseData.query();
 		startManagingCursor(cursor);
-		final int userColumnIndex = cursor
-				.getColumnIndex(DataBaseData.C_BOOK_NAME);
-		final int textColumnIndex = cursor
-				.getColumnIndex(DataBaseData.C_BOOK_URL);
+		
+		final int idColumnIndex = cursor.getColumnIndex(DataBaseData.C_ID);
+		final int userColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_NAME);
+		final int textColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_URL);
+		final int imageColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_IMAGE);
 
 		Log.d(TAG, ("Got cursor with records: " + cursor.getCount()));
 
-		// Output it
+		int id;
 		String name, url;
+		byte[] image;
 		while (cursor.moveToNext()) {
+			id = cursor.getInt(idColumnIndex);
 			name = cursor.getString(userColumnIndex);
 			url = cursor.getString(textColumnIndex);
+			image = cursor.getBlob(imageColumnIndex);
 			BookmarkItem b = new BookmarkItem(name, url);
+			b.setId(id);
+			if (image != null) b.setImage(image);
 			listItemAdapter.addItem(b);
-			Log.d(TAG, String.format("\n%s: %s", name, url));
+			Log.d(TAG, String.format("\n%s: %s: %s", id, name, url));
+			Log.d(TAG, "Image: " + image);
 		}
 
 	}
@@ -110,24 +115,50 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 		}
 		int id = (int) listItemAdapter.getItemId(info.position);
 
-		switch (item.getItemId()) {
-		case R.id.itemOpen:
-			sBrowserData.setSelected(true);
-			BookmarkItem b = (BookmarkItem) listItemAdapter.getItem(id);
-			sBrowserData.setSaveState(b.getUrl());
-			finish();
-			break;
-		// case R.id.itemEdit:
-		// break;
-		// case R.id.itemDelete:
-		// break;
+		if (id > 0) {
+			final BookmarkItem b = (BookmarkItem) listItemAdapter.getItem(id);
+			
+			switch (item.getItemId()) {
+			case R.id.itemOpen:
+				sBrowserData.setSelected(true);
+				sBrowserData.setSaveState(b.getUrl());
+				finish();
+				break;
+			
+			case R.id.itemEdit:
+				showMyDialog(EDIT, b);
+				break;
+			case R.id.itemDelete:
+				final AlertDialog.Builder alertSearch = new AlertDialog.Builder(this);
+				alertSearch.setTitle(getResources().getString(R.string.dialog_title_delete));
+				alertSearch.setMessage(getResources().getString(R.string.dialog_message_delete));
+				alertSearch.setPositiveButton("Ok",	new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int whichButton) {
+							
+								dataBaseData.delete(b.getId());
+								Log.d(TAG, "delete: " + b.getName());
+					
+								BookmarksActivity.this.startActivity(new Intent(
+										BookmarksActivity.this, BookmarksActivity.class));
+								BookmarksActivity.this.finish();
+								
+								dialog.dismiss();
+							}
+						});
+				alertSearch.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int whichButton) {
+								dialog.cancel();
+							}
+						});
+				alertSearch.show();
+				break;
+			}
 		}
 		return super.onContextItemSelected(item);
 	}
 
 	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 
 		AdapterView.AdapterContextMenuInfo info;
@@ -139,11 +170,13 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 		}
 		int id = (int) listItemAdapter.getItemId(info.position);
 
-		BookmarkItem b = (BookmarkItem) listItemAdapter.getItem(id);
-		menu.setHeaderTitle(b.getName());
-
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.bookmarkcontextmenu, menu);
+		if (id > 0){
+			BookmarkItem b = (BookmarkItem) listItemAdapter.getItem(id);
+			menu.setHeaderTitle(b.getName());
+	
+			MenuInflater inflater = getMenuInflater();
+			inflater.inflate(R.menu.bookmarkcontextmenu, menu);
+		}
 	}
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
@@ -151,55 +184,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 
 		if (position == 0) {
 
-			TextView txtName = new TextView(this);
-		    txtName.setText(getResources().getString(R.string.dialog_name));
-		    LayoutParams txtLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		    txtName.setLayoutParams(txtLayoutParams);
-		    
-		    final EditText edtName = new EditText(this);
-		    LayoutParams edtLayoutParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
-		    edtName.setLayoutParams(edtLayoutParams);
-		    
-		    TextView txtUrl = new TextView(this);
-		    txtUrl.setText(getResources().getString(R.string.dialog_location));
-		    txtName.setLayoutParams(txtLayoutParams);
-		    
-		    final EditText edtUrl = new EditText(this);
-		    edtUrl.setLayoutParams(edtLayoutParams);
-		    
-		    LinearLayout dialogLayout = new LinearLayout(this);
-		    dialogLayout.setOrientation(LinearLayout.VERTICAL);
-		    dialogLayout.addView(txtName);
-		    dialogLayout.addView(edtName);
-		    dialogLayout.addView(txtUrl);
-		    dialogLayout.addView(edtUrl);
-			
-			final AlertDialog.Builder alertSearch = new AlertDialog.Builder(this);
-			alertSearch.setTitle(getResources().getString(R.string.dialog_title));
-			alertSearch.setView(dialogLayout);
-			alertSearch.setPositiveButton("Ok",	new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int whichButton) {
-							
-					BookmarkItem newBookmark = new BookmarkItem(edtName.getText().toString(), edtUrl.getText().toString());
-					dataBaseData.insert(newBookmark);
-					Log.d(TAG, "saved: "
-							+ newBookmark.getName());
-					
-					BookmarksActivity.this.startActivity(new Intent(
-							BookmarksActivity.this, BookmarksActivity.class));
-					BookmarksActivity.this.finish();
-					
-					dialog.dismiss();
-
-						}
-					});
-
-			alertSearch.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int whichButton) {
-							dialog.cancel();
-						}
-					});
-			alertSearch.show();
+			showMyDialog(ADD, sBrowserData.getBookmarkItem());
 
 		} else {
 			sBrowserData.setSelected(true);
@@ -207,6 +192,65 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 			sBrowserData.setSaveState(b.getUrl());
 			finish();
 		}
+	}
+	
+	public void showMyDialog(final int thisDialog, final BookmarkItem b){
+		
+		TextView txtName = new TextView(this);
+		txtName.setText(getResources().getString(R.string.dialog_name));
+		LayoutParams txtLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+	    txtName.setLayoutParams(txtLayoutParams);
+	    
+	    final EditText edtName = new EditText(this);
+	    edtName.setText(b.getName());
+	    LayoutParams edtLayoutParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+	    edtName.setLayoutParams(edtLayoutParams);
+	    
+	    TextView txtUrl = new TextView(this);
+	    txtUrl.setText(getResources().getString(R.string.dialog_location));
+	    txtName.setLayoutParams(txtLayoutParams);
+	    
+	    final EditText edtUrl = new EditText(this);
+	    edtUrl.setText(b.getUrl());
+	    edtUrl.setLayoutParams(edtLayoutParams);
+	    
+	    LinearLayout dialogLayout = new LinearLayout(this);
+	    dialogLayout.setOrientation(LinearLayout.VERTICAL);
+	    dialogLayout.addView(txtName);
+	    dialogLayout.addView(edtName);
+	    dialogLayout.addView(txtUrl);
+	    dialogLayout.addView(edtUrl);
+		
+		final AlertDialog.Builder alertSearch = new AlertDialog.Builder(this);
+		if (thisDialog == ADD) alertSearch.setTitle(getResources().getString(R.string.dialog_title_add));
+		else alertSearch.setTitle(getResources().getString(R.string.dialog_title_edit));
+		alertSearch.setView(dialogLayout);
+		alertSearch.setPositiveButton("Ok",	new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+					
+						BookmarkItem newBookmark = new BookmarkItem(edtName.getText().toString(), 
+								edtUrl.getText().toString());
+						newBookmark.setId(b.getId());
+						newBookmark.setImage(b.getImage());
+						
+						if(thisDialog == ADD) dataBaseData.insert(newBookmark);
+						else dataBaseData.update(newBookmark);
+						
+						Log.d(TAG, "saved: " + newBookmark.getName());
+			
+						Intent i = new Intent(BookmarksActivity.this, BookmarksActivity.class);
+						BookmarksActivity.this.startActivity(i);
+						BookmarksActivity.this.finish();
+						
+						dialog.dismiss();
+					}
+				});
+		alertSearch.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						dialog.cancel();
+					}
+				});
+		alertSearch.show();
 	}
 	
 	@Override

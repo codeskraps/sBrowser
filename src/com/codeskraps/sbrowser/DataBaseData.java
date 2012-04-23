@@ -33,7 +33,7 @@ import android.util.Log;
 public class DataBaseData {
 	private static final String TAG = DataBaseData.class.getSimpleName();
 	
-	public static final String C_ID = BaseColumns._ID; //Special for id
+	public static final String C_ID = BaseColumns._ID;
 	public static final String C_BOOK_IMAGE = "sbrowser_image";
 	public static final String C_BOOK_NAME = "sbrowser_name";
 	public static final String C_BOOK_URL = "sbrowser_url";
@@ -50,60 +50,50 @@ public class DataBaseData {
 		dbHelper.close();
 	}
 	
-	/**
-	 * Insert into database
-	 * @param values Name/value pairs data
-	 */
-	public void insert(ContentValues values){
-		// Open Database
+	public void insert(BookmarkItem bookmarkItem){
+		ContentValues values = new ContentValues();
+		values.put(C_BOOK_NAME, bookmarkItem.getName());
+		values.put(C_BOOK_URL, bookmarkItem.getUrl());
+		values.put(C_BOOK_IMAGE, bookmarkItem.getImage());
+		
+		long r;
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
+		r = db.insertWithOnConflict(DbHelper.TABLE, null, values, SQLiteDatabase.CONFLICT_REPLACE);
+		db.close();
+		Log.d(TAG, "inserting: " + r);
+	}
 		
-		// Insert into database
-		db.insertWithOnConflict(DbHelper.TABLE, null, values, SQLiteDatabase.CONFLICT_REPLACE);
+	public void update(BookmarkItem bookmarkItem){
 		
-		// Close Database
+		ContentValues values = new ContentValues();
+		values.put(C_ID, bookmarkItem.getId());
+		values.put(C_BOOK_NAME, bookmarkItem.getName());
+		values.put(C_BOOK_URL, bookmarkItem.getUrl());
+		values.put(C_BOOK_IMAGE, bookmarkItem.getImage());
+		
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
+		String whereClause = new String(C_ID + " = ?");
+		String whereArgs = new String(Integer.toString(bookmarkItem.getId()));
+		db.updateWithOnConflict(DbHelper.TABLE, values, whereClause, new String[] { whereArgs },
+				SQLiteDatabase.CONFLICT_REPLACE);
 		db.close();
 	}
 	
-	/**
-	 * Insert into database
-	 * @param status Status data as provided by online service
-	 */
-	public void insert(BookmarkItem bookmarkItem){
-		ContentValues values = new ContentValues();
-		//values.put(C_ID, bookmarkItem.getId());
-		//values.put(C_BOOK_IMAGE, EntityUtils.toByteArray(bookmarkItem.getImage());
-		values.put(C_BOOK_NAME, bookmarkItem.getName());
-		values.put(C_BOOK_URL, bookmarkItem.getUrl());
-		this.insert(values);
-	}
-	
-	/**
-	 * Deletes all data
-	 */
-	public void delete(){
-		// Open Database
-		SQLiteDatabase db = dbHelper.getWritableDatabase();
-	
-		// Delete the data
-		db.delete(DbHelper.TABLE, null, null);
+	public void delete(int id){
 		
-		// Close Database
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
+		String whereClause = new String(C_ID + " = ?");
+		String whereArgs = new String(Integer.toString(id));
+		db.delete(DbHelper.TABLE, whereClause, new String[] { whereArgs });
 		db.close();
 	}
 	
 	public Cursor query(){
-		// Open Database
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 		
-		// Get the data
-		// SELECT * FROM statuses ORDER BY yamba_createdAt DESC;
 		return db.query(DbHelper.TABLE, null, null, null, null, null, C_ID + " ASC");
 	}
 	
-	/**
-	 * Class to help open/create/upgrade database
-	 */
 	private class DbHelper extends SQLiteOpenHelper {		
 		public static final String DB_NAME = "sBrowserDB.db";
 		public static final int DB_VERSION = 1;
@@ -115,8 +105,8 @@ public class DataBaseData {
 
 		@Override
 		public void onCreate(SQLiteDatabase db) {
-			String sql = String.format("create table %s (%s INTEGER primary key AUTOINCREMENT, %s text, %s text)", 
-					TABLE, C_ID, C_BOOK_NAME, C_BOOK_URL);
+			String sql = String.format("create table %s (%s INTEGER primary key AUTOINCREMENT, %s text, %s text, %s BLOB)", 
+					TABLE, C_ID, C_BOOK_NAME, C_BOOK_URL, C_BOOK_IMAGE);
 		
 			Log.d(TAG, "onCreate sql: " + sql);
 			
