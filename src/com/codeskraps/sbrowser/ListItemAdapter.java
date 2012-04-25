@@ -94,10 +94,10 @@ public class ListItemAdapter extends BaseAdapter {
 			BookmarkItem b = mItems.get(position);
 			vHolder.textView.setText(b.getName());
 			if (b.getImage() != null){
-				Log.d(TAG, "listAdapter");
 				Bitmap bm = BitmapFactory.decodeByteArray(b.getImage(), 0, b.getImage().length);
 				if (bm != null) vHolder.imageView.setImageBitmap(bm);
 				else vHolder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
+				bm.isRecycled();
 			}else vHolder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
 		}
 		

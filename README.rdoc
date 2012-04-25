@@ -22,6 +22,8 @@ Install from Google Play
 
 == ChangeLog
 
+v1.6.2
+ - Compleate fixed bug in the bookmarks
 v1.6.1
  - Fixed bug of out of memory error on bookmarks
 v1.6

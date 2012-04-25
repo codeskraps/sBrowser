@@ -301,15 +301,12 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			try {
 				Picture picture = webView.capturePicture();
 				PictureDrawable pictureDrawable = new PictureDrawable(picture);
-				Bitmap bitmap = Bitmap.createBitmap(pictureDrawable.getIntrinsicWidth(), 
-						pictureDrawable.getIntrinsicHeight(), Config.ARGB_8888);
+				Bitmap bitmap = Bitmap.createBitmap(300, 300, Config.ARGB_8888);
 				Canvas canvas = new Canvas(bitmap);
 				canvas.drawPicture(pictureDrawable.getPicture());
 				ByteArrayOutputStream bos = new ByteArrayOutputStream();
 				bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, (OutputStream) bos);
 				bitmap.isRecycled();
-				
-				Log.d(TAG, "bos: " + bos.toByteArray());
 				
 				BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
 				bookmarkItem.setImage(bos.toByteArray());
@@ -448,7 +445,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		public void onReceivedError(WebView view, int errorCode,
 				String description, String failingUrl) {
 			Log.d(TAG, "Error: " + description + ", " + failingUrl);
-			Toast.makeText(SBrowserActivity.this, "sBrowser - Something when wrong!!!", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(SBrowserActivity.this, "sBrowser - Something when wrong!!!", Toast.LENGTH_SHORT).show();
 		}
 	}
 
