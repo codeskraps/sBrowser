@@ -31,7 +31,8 @@
     <string name="alertSearchSummary">Enter a new search:</string>
     <string name="alertQuitTitle">Quit</string>
     <string name="alertQuitSummary">Are you sure you want to exit sBrowser?</string>
-
+    <string name="errorMessage">sBrowser &#8211; Something when wrong!!!</string>
+        
     <!-- Menu -->
     <string name="menuAbout">About</string>
     <string name="menuPreference">Preferences</string>
@@ -59,7 +60,7 @@
     <string name="pref_home_title">Set home page</string>
     <string name="pref_home_summary">http://www.google.com</string>
     <string name="categoryInformation">Information</string>
-    <string name="sBrowserTitle">sBrowser v1.6</string>
+    <string name="sBrowserTitle">sBrowser v1.6.1</string>
     <string name="sBrowserSummary">License GNU GPL v3 &#8211; 2011 &#8211; Codeskraps</string>
     <string name="prefs_flash">Enable plug-ins</string>
     <string name="prefs_setUserAgent">Set user agent</string>

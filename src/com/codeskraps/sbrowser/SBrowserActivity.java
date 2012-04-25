@@ -175,8 +175,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			}
 
 		} catch (Exception e) {
-			Log.e(getClass().getSimpleName(), "Browser: " + e.getMessage());
-			Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+			Log.e(TAG, "Error: " + e.getMessage());
+			Toast.makeText(this, getResources().getString(R.string.errorMessage), Toast.LENGTH_LONG).show();
 		}
 		
 		String userAgent = new String(webView.getSettings().getUserAgentString());
@@ -307,6 +307,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				canvas.drawPicture(pictureDrawable.getPicture());
 				ByteArrayOutputStream bos = new ByteArrayOutputStream();
 				bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, (OutputStream) bos);
+				bitmap.isRecycled();
+				
 				Log.d(TAG, "bos: " + bos.toByteArray());
 				
 				BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
