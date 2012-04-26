@@ -30,9 +30,13 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class PreferenceActivity extends android.preference.PreferenceActivity implements OnSharedPreferenceChangeListener {
+public class PreferenceActivity extends android.preference.PreferenceActivity implements OnSharedPreferenceChangeListener, OnClickListener {
 	private static final String TAG = PreferenceActivity.class.getSimpleName();
 	private static final String CHKFULLSCREEN = "ckbfullscreen";
 	private static final String CHKJAVASCRIPT = "ckbjavascript";
@@ -42,6 +46,9 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 	
 	private SBrowserData sBrowserData = null;
 	private SharedPreferences prefs = null;
+	
+	private TextView txtIcon = null;
+	private ImageView imgIcon = null;
 	
 	private String[] lstFlashArray;
 	private String[] lstuserAgentArray;
@@ -62,7 +69,14 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 		}
 		
 		setTitle(R.string.preference_activity);
+		setContentView(R.layout.preference);
 		addPreferencesFromResource(R.xml.preferences);
+		
+		txtIcon = (TextView) findViewById(R.id.txtIcon);
+		imgIcon = (ImageView) findViewById(R.id.imgIcon);
+		
+		txtIcon.setOnClickListener(this);
+		imgIcon.setOnClickListener(this);
 		
 		EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen().findPreference(ETXTHOME);
 		ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(LSTFLASH);
@@ -144,5 +158,10 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 			
 			Log.d(TAG, "prefs user agent: " + sBrowserData.getUserAgent());
 		}
+	}
+
+	public void onClick(View arg0) {
+		this.finish();
+		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 	}
 }

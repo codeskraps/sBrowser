@@ -297,6 +297,18 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			this.finish();
 			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
+		} else if (item.getItemId() == R.id.itemFeedback) {
+			
+			Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);  
+					  
+			String aEmailList[] = { "codeskraps@gmail.com" };  
+			  
+			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);    
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "sBrowser - Feedback");  
+			emailIntent.setType("plain/text");  
+			
+			startActivity(Intent.createChooser(emailIntent, "Send your feedback in:"));
+			
 		} else {
 			try {
 				Picture picture = webView.capturePicture();

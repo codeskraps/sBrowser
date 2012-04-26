@@ -4,7 +4,7 @@
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
 * <b>License:</b> GNU GPL v3
-* <b>Latest Version:</b> 1.6.1
+* <b>Latest Version:</b> 1.6.3
 * <b>Release Date:</b> 2011	
 
 == General Infromation
@@ -22,6 +22,9 @@ Install from Google Play
 
 == ChangeLog
 
+v1.6.3
+ - Added feedback menu button
+ - Added top bar in preference/bookmark screens
 v1.6.2
  - Compleate fixed bug in the bookmarks
 v1.6.1

@@ -34,15 +34,17 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class BookmarksActivity extends Activity implements OnItemClickListener {
+public class BookmarksActivity extends Activity implements OnItemClickListener, OnClickListener {
 	private static final String TAG = "sBrowser";
 	private static final int ADD = 1;
 	private static final int EDIT = 2;
@@ -51,6 +53,8 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 	private DataBaseData dataBaseData = null;
 	private ListItemAdapter listItemAdapter = null;
 	private GridView gridview = null;
+	private TextView txtIcon = null;
+	private ImageView imgIcon = null;
 
 	private Cursor cursor = null;
 
@@ -65,6 +69,13 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 				.getDataBaseData();
 
 		listItemAdapter = new ListItemAdapter(this);
+		
+		txtIcon = (TextView) findViewById(R.id.txtIcon);
+		imgIcon = (ImageView) findViewById(R.id.imgIcon);
+		
+		txtIcon.setOnClickListener(this);
+		imgIcon.setOnClickListener(this);
+		
 		
 		gridview = (GridView) findViewById(R.id.gridview);
 		gridview.setAdapter(listItemAdapter);
@@ -256,6 +267,11 @@ public class BookmarksActivity extends Activity implements OnItemClickListener {
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
+		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+	}
+
+	public void onClick(View arg0) {
+		this.finish();
 		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 	}
 }

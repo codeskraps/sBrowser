@@ -13,12 +13,18 @@ public final class R {
         public static final int fadeout=0x7f040001;
     }
     public static final class array {
-        public static final int prefs_flash_human_value=0x7f070000;
-        public static final int prefs_flash_phone_value=0x7f070001;
-        public static final int prefs_user_agent_human_value=0x7f070002;
-        public static final int prefs_user_agent_phone_value=0x7f070003;
+        public static final int prefs_flash_human_value=0x7f080000;
+        public static final int prefs_flash_phone_value=0x7f080001;
+        public static final int prefs_user_agent_human_value=0x7f080002;
+        public static final int prefs_user_agent_phone_value=0x7f080003;
     }
     public static final class attr {
+    }
+    public static final class color {
+        public static final int regColor=0x7f060003;
+        public static final int regColorBackground=0x7f060002;
+        public static final int themeColor=0x7f060000;
+        public static final int themeColorBackground=0x7f060001;
     }
     public static final class drawable {
         public static final int add=0x7f020000;
@@ -38,105 +44,111 @@ public final class R {
         public static final int www=0x7f02000e;
     }
     public static final class id {
-        public static final int btnHome=0x7f0a000f;
-        public static final int btnRefresh=0x7f0a0010;
-        public static final int btnRight=0x7f0a000e;
-        public static final int btnSearch=0x7f0a0011;
-        public static final int btnWww=0x7f0a000d;
-        public static final int btncancel=0x7f0a0005;
-        public static final int btnok=0x7f0a0004;
-        public static final int dtxttitle=0x7f0a0001;
-        public static final int dtxturl=0x7f0a0002;
-        public static final int etxtsLayout=0x7f0a0006;
-        public static final int gridview=0x7f0a0007;
-        public static final int itemBookmarks=0x7f0a001a;
-        public static final int itemCopyLink=0x7f0a0018;
-        public static final int itemDelete=0x7f0a0014;
-        public static final int itemDownloads=0x7f0a001b;
-        public static final int itemEdit=0x7f0a0013;
-        public static final int itemOpen=0x7f0a0012;
-        public static final int itemPreference=0x7f0a001c;
-        public static final int itemQuit=0x7f0a001d;
-        public static final int itemSaveImage=0x7f0a0015;
-        public static final int itemSaveLink=0x7f0a0017;
-        public static final int itemShareImage=0x7f0a0016;
-        public static final int itemShareLink=0x7f0a0019;
-        public static final int layout_root=0x7f0a0000;
-        public static final int linearLayout1=0x7f0a0003;
-        public static final int listImage=0x7f0a0008;
-        public static final int lstText=0x7f0a0009;
-        public static final int prgBar=0x7f0a000b;
-        public static final int surface_view=0x7f0a000a;
-        public static final int webview=0x7f0a000c;
+        public static final int btnHome=0x7f0b0010;
+        public static final int btnRefresh=0x7f0b0011;
+        public static final int btnRight=0x7f0b000f;
+        public static final int btnSearch=0x7f0b0012;
+        public static final int btnWww=0x7f0b000e;
+        public static final int btncancel=0x7f0b0005;
+        public static final int btnok=0x7f0b0004;
+        public static final int dtxttitle=0x7f0b0001;
+        public static final int dtxturl=0x7f0b0002;
+        public static final int gridview=0x7f0b0008;
+        public static final int imgIcon=0x7f0b0007;
+        public static final int itemBookmarks=0x7f0b001b;
+        public static final int itemCopyLink=0x7f0b0019;
+        public static final int itemDelete=0x7f0b0015;
+        public static final int itemDownloads=0x7f0b001c;
+        public static final int itemEdit=0x7f0b0014;
+        public static final int itemFeedback=0x7f0b001e;
+        public static final int itemOpen=0x7f0b0013;
+        public static final int itemPreference=0x7f0b001d;
+        public static final int itemQuit=0x7f0b001f;
+        public static final int itemSaveImage=0x7f0b0016;
+        public static final int itemSaveLink=0x7f0b0018;
+        public static final int itemShareImage=0x7f0b0017;
+        public static final int itemShareLink=0x7f0b001a;
+        public static final int layout_root=0x7f0b0000;
+        public static final int linearLayout1=0x7f0b0003;
+        public static final int listImage=0x7f0b0009;
+        public static final int lstText=0x7f0b000a;
+        public static final int prgBar=0x7f0b000c;
+        public static final int surface_view=0x7f0b000b;
+        public static final int txtIcon=0x7f0b0006;
+        public static final int webview=0x7f0b000d;
     }
     public static final class layout {
         public static final int bookmark_dialog=0x7f030000;
         public static final int list_activity=0x7f030001;
         public static final int list_item=0x7f030002;
-        public static final int videoview=0x7f030003;
-        public static final int webview=0x7f030004;
+        public static final int preference=0x7f030003;
+        public static final int videoview=0x7f030004;
+        public static final int webview=0x7f030005;
     }
     public static final class menu {
-        public static final int bookmarkcontextmenu=0x7f090000;
-        public static final int contextmenuimage=0x7f090001;
-        public static final int contextmenulink=0x7f090002;
-        public static final int main=0x7f090003;
+        public static final int bookmarkcontextmenu=0x7f0a0000;
+        public static final int contextmenuimage=0x7f0a0001;
+        public static final int contextmenulink=0x7f0a0002;
+        public static final int main=0x7f0a0003;
     }
     public static final class string {
-        public static final int Fullscreen=0x7f060017;
-        public static final int Fullscreen_summary=0x7f060018;
-        public static final int addBookmark=0x7f06002a;
-        public static final int alertHttpSummary=0x7f060002;
-        public static final int alertHttpTitle=0x7f060001;
-        public static final int alertQuitSummary=0x7f060006;
-        public static final int alertQuitTitle=0x7f060005;
-        public static final int alertSearchSummary=0x7f060004;
-        public static final int alertSearchTitle=0x7f060003;
-        public static final int app_name=0x7f060000;
-        public static final int categoryInformation=0x7f06001d;
-        public static final int contextMenuCopyLink=0x7f060010;
-        public static final int contextMenuDeleteBoomark=0x7f060014;
-        public static final int contextMenuEditBookmark=0x7f060013;
-        public static final int contextMenuOpenBookmark=0x7f060012;
+        public static final int Fullscreen=0x7f07001a;
+        public static final int Fullscreen_summary=0x7f07001b;
+        public static final int addBookmark=0x7f07002d;
+        public static final int alertHttpSummary=0x7f070003;
+        public static final int alertHttpTitle=0x7f070002;
+        public static final int alertQuitSummary=0x7f070007;
+        public static final int alertQuitTitle=0x7f070006;
+        public static final int alertSearchSummary=0x7f070005;
+        public static final int alertSearchTitle=0x7f070004;
+        public static final int app_name=0x7f070000;
+        public static final int categoryInformation=0x7f070020;
+        public static final int contextMenuCopyLink=0x7f070013;
+        public static final int contextMenuDeleteBoomark=0x7f070017;
+        public static final int contextMenuEditBookmark=0x7f070016;
+        public static final int contextMenuOpenBookmark=0x7f070015;
         /**  Context Menu 
          */
-        public static final int contextMenuSaveImage=0x7f06000d;
-        public static final int contextMenuSaveLink=0x7f06000f;
-        public static final int contextMenuShareImage=0x7f06000e;
-        public static final int contextMenuShareLink=0x7f060011;
-        public static final int dialog_cancel=0x7f060029;
-        public static final int dialog_location=0x7f060027;
-        public static final int dialog_message_delete=0x7f060025;
-        public static final int dialog_name=0x7f060026;
-        public static final int dialog_ok=0x7f060028;
+        public static final int contextMenuSaveImage=0x7f070010;
+        public static final int contextMenuSaveLink=0x7f070012;
+        public static final int contextMenuShareImage=0x7f070011;
+        public static final int contextMenuShareLink=0x7f070014;
+        public static final int dialog_cancel=0x7f07002c;
+        public static final int dialog_location=0x7f07002a;
+        public static final int dialog_message_delete=0x7f070028;
+        public static final int dialog_name=0x7f070029;
+        public static final int dialog_ok=0x7f07002b;
         /**  Dialog 
          */
-        public static final int dialog_title_add=0x7f060022;
-        public static final int dialog_title_delete=0x7f060024;
-        public static final int dialog_title_edit=0x7f060023;
-        public static final int errorMessage=0x7f060007;
+        public static final int dialog_title_add=0x7f070025;
+        public static final int dialog_title_delete=0x7f070027;
+        public static final int dialog_title_edit=0x7f070026;
+        public static final int errorMessage=0x7f070008;
+        public static final int iconImageDescription=0x7f070001;
         /**  Menu 
          */
-        public static final int menuAbout=0x7f060008;
-        public static final int menuBookmarks=0x7f06000a;
-        public static final int menuDownloads=0x7f06000b;
-        public static final int menuPreference=0x7f060009;
-        public static final int menuQuit=0x7f06000c;
-        public static final int pref_cat_display=0x7f060016;
-        public static final int pref_cat_page_content_settings=0x7f060019;
-        public static final int pref_home_summary=0x7f06001c;
-        public static final int pref_home_title=0x7f06001b;
-        public static final int pref_javascript=0x7f06001a;
+        public static final int menuAbout=0x7f07000a;
+        public static final int menuBookmarks=0x7f07000c;
+        public static final int menuDownloads=0x7f07000d;
+        public static final int menuFeedback=0x7f07000e;
+        public static final int menuPreference=0x7f07000b;
+        public static final int menuQuit=0x7f07000f;
+        public static final int pref_cat_display=0x7f070019;
+        public static final int pref_cat_page_content_settings=0x7f07001c;
+        public static final int pref_home_summary=0x7f07001f;
+        public static final int pref_home_title=0x7f07001e;
+        public static final int pref_javascript=0x7f07001d;
         /**  Preferences 
          */
-        public static final int preference_activity=0x7f060015;
-        public static final int prefs_flash=0x7f060020;
-        public static final int prefs_setUserAgent=0x7f060021;
-        public static final int sBrowserSummary=0x7f06001f;
-        public static final int sBrowserTitle=0x7f06001e;
+        public static final int preference_activity=0x7f070018;
+        public static final int prefs_flash=0x7f070023;
+        public static final int prefs_setUserAgent=0x7f070024;
+        public static final int sBrowserSummary=0x7f070022;
+        public static final int sBrowserTitle=0x7f070021;
+        public static final int txtIcon=0x7f070009;
     }
     public static final class style {
-        public static final int horizontalBar=0x7f080000;
+        public static final int horizontalBar=0x7f090000;
     }
     public static final class xml {
         public static final int preferences=0x7f050000;

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!-- 
+<!--
   sBrowser
   Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
  
@@ -32,17 +31,18 @@
         android:id="@+id/itemBookmarks"
         android:icon="@android:drawable/ic_menu_compass"
         android:title="@string/menuBookmarks"/>
-
     <item
         android:id="@+id/itemDownloads"
         android:icon="@android:drawable/ic_menu_gallery"
         android:title="@string/menuDownloads"/>
-
     <item
         android:id="@+id/itemPreference"
         android:icon="@android:drawable/ic_menu_preferences"
         android:title="@string/menuPreference"/>
-
+    <item
+        android:id="@+id/itemFeedback"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/menuFeedback"/>
     <item
         android:id="@+id/itemQuit"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"

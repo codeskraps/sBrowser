@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  sBrowser
-  Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
- 
-  sBrowser is free software: you can
-  redistribute it and/or modify it under the terms
-  of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of
-  the License, or (at your option) any later
-  version.
-   
-  sBrowser is distributed in the hope that it
-  will be useful, but WITHOUT ANY WARRANTY; without
-  even the implied warranty of MERCHANTABILITY or
-  FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-  General Public License for more details.
-   
-  You should have received a copy of the GNU
-  General Public License along with this program.
-  If not, see <http://www.gnu.org/licenses/>.
--->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -41,7 +19,7 @@
             android:textColor="#AAAAAA"
             android:textSize="25dp"
             android:typeface="normal" />
-
+        
         <ImageView
             android:id="@+id/imgIcon"
             android:layout_width="wrap_content"
@@ -54,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/menuBookmarks"
+            android:text="@string/preference_activity"
             android:textColor="#AAAAAA"
             android:textSize="25dp"
             android:typeface="normal" />
@@ -66,15 +44,9 @@
         android:background="#666666"
         android:orientation="horizontal" />
 
-    <GridView
-        android:id="@+id/gridview"
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:columnWidth="90dp"
-        android:gravity="center"
-        android:horizontalSpacing="10dp"
-        android:numColumns="auto_fit"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp" />
+        android:layout_height="fill_parent" />
 
 </LinearLayout>
