@@ -22,6 +22,8 @@ Install from Google Play
 
 == ChangeLog
 
+v1.6.4
+ - Opens https links from third party apps
 v1.6.3
  - Added feedback menu button
  - Added top bar in preference/bookmark screens

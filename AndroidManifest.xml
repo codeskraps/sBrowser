@@ -24,8 +24,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codeskraps.sbrowser"
-    android:versionCode="16"
-    android:versionName="1.6.3" >
+    android:versionCode="17"
+    android:versionName="1.6.4" >
 
     <uses-sdk android:minSdkVersion="10" />
 
@@ -52,6 +52,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:scheme="http" />
+                <data android:scheme="https" />
             </intent-filter>
         </activity>
         <activity 
