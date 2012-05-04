@@ -55,6 +55,9 @@
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".TabsActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity 
             android:name=".BookmarksActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar" />

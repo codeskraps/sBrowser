@@ -51,7 +51,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 	
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
-	private ListItemAdapter listItemAdapter = null;
+	private ListBookmarkAdapter listItemAdapter = null;
 	private GridView gridview = null;
 	private TextView txtIcon = null;
 	private ImageView imgIcon = null;
@@ -61,14 +61,14 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-		setContentView(R.layout.list_activity);
+		setContentView(R.layout.lst_bookmarks);
 
 		sBrowserData = ((SBrowserApplication) getApplication())
 				.getsBrowserData();
 		dataBaseData = ((SBrowserApplication) getApplication())
 				.getDataBaseData();
 
-		listItemAdapter = new ListItemAdapter(this);
+		listItemAdapter = new ListBookmarkAdapter(this);
 		
 		txtIcon = (TextView) findViewById(R.id.txtIcon);
 		imgIcon = (ImageView) findViewById(R.id.imgIcon);
@@ -85,7 +85,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 
 		listItemAdapter.addItem(sBrowserData.getBookmarkItem());
 
-		cursor = dataBaseData.query();
+		cursor = dataBaseData.query(DataBaseData.DB_TABLE_BOOKMARK);
 		startManagingCursor(cursor);
 		
 		final int idColumnIndex = cursor.getColumnIndex(DataBaseData.C_ID);
@@ -146,7 +146,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 				alertSearch.setPositiveButton("Ok",	new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 							
-								dataBaseData.delete(b.getId());
+								dataBaseData.delete(DataBaseData.DB_TABLE_BOOKMARK, b.getId());
 								Log.d(TAG, "delete: " + b.getName());
 					
 								BookmarksActivity.this.startActivity(new Intent(
@@ -244,8 +244,8 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 						newBookmark.setId(b.getId());
 						newBookmark.setImage(b.getImage());
 						
-						if(thisDialog == ADD) dataBaseData.insert(newBookmark);
-						else dataBaseData.update(newBookmark);
+						if(thisDialog == ADD) dataBaseData.insert(DataBaseData.DB_TABLE_BOOKMARK, newBookmark);
+						else dataBaseData.update(DataBaseData.DB_TABLE_BOOKMARK, newBookmark);
 						
 						Log.d(TAG, "saved: " + newBookmark.getName());
 			

@@ -69,6 +69,7 @@ public class SBrowserApplication extends Application {
 	public Intent getMenuIntent(MenuItem item, Context context) {
 
 		switch (item.getItemId()) {
+			case R.id.itemTabs:			return new Intent(context, TabsActivity.class);
 			case R.id.itemBookmarks: 	return new Intent(context, BookmarksActivity.class);
 			case R.id.itemDownloads:	Intent i = new Intent();
 										i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);

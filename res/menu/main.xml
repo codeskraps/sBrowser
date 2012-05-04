@@ -27,25 +27,29 @@
     <!-- android:id="@+id/itemAbout" -->
     <!-- android:title="@string/menuAbout"/> -->
 
+	<item 
+	    android:id="@+id/itemTabs"
+	    android:icon="@android:drawable/ic_menu_slideshow"
+	    android:title="@string/menuTabs" />
     <item
         android:id="@+id/itemBookmarks"
         android:icon="@android:drawable/ic_menu_compass"
-        android:title="@string/menuBookmarks"/>
+        android:title="@string/menuBookmarks" />
     <item
         android:id="@+id/itemDownloads"
         android:icon="@android:drawable/ic_menu_gallery"
-        android:title="@string/menuDownloads"/>
+        android:title="@string/menuDownloads" />
     <item
         android:id="@+id/itemPreference"
         android:icon="@android:drawable/ic_menu_preferences"
-        android:title="@string/menuPreference"/>
+        android:title="@string/menuPreference" />
     <item
         android:id="@+id/itemFeedback"
         android:icon="@android:drawable/ic_menu_send"
-        android:title="@string/menuFeedback"/>
+        android:title="@string/menuFeedback" />
     <item
         android:id="@+id/itemQuit"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
-        android:title="@string/menuQuit"/>
+        android:title="@string/menuQuit" />
 
 </menu>

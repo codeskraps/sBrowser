@@ -37,6 +37,7 @@
         
     <!-- Menu -->
     <string name="menuAbout">About</string>
+    <string name="menuTabs">Tabs</string>
     <string name="menuPreference">Preferences</string>
     <string name="menuBookmarks">Bookmarks</string>
     <string name="menuDownloads">Downloads</string>
@@ -78,6 +79,9 @@
     <string name="dialog_ok">OK</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="addBookmark">Add Bookmark</string>
+    
+    <string name="tabsActivity">Tabs</string>
+    <string name="newTab">New tab</string>
 
     <string-array name="prefs_flash_human_value">
         <item>Always on</item>

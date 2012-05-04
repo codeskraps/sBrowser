@@ -69,6 +69,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	private static final String TAG = "sBrowser";
 
 	private SBrowserData sBrowserData = null;
+	private DataBaseData dataBaseData = null;
+	
 	private boolean activityPaused;
 	private boolean webLoading;
 	private String defaultUserAgent;
@@ -85,8 +87,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		sBrowserData = ((SBrowserApplication) getApplication())
-				.getsBrowserData();
+		sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
+		dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
 
 		activityPaused = false;
 		webLoading = false;
@@ -139,6 +141,9 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 	    WebIconDatabase.getInstance().open(getDir("icons", MODE_PRIVATE).getPath());
 	    defaultUserAgent = webView.getSettings().getUserAgentString();
+	    
+	    BookmarkItem b = new BookmarkItem(webView.getTitle(), webView.getUrl());
+	    dataBaseData.insert(DataBaseData.DB_TABLE_TABS, b);
 	}
 
 	@Override
@@ -221,6 +226,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 		} else if (sBrowserData.isSelected()) {
 			webView.loadUrl(sBrowserData.getSaveState());
+			sBrowserData.setSelected(false);
+			sBrowserData.setSaveState(new String());
 		}
 		
 		activityPaused = false;

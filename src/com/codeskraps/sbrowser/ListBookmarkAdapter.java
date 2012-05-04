@@ -36,14 +36,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ListItemAdapter extends BaseAdapter {
+public class ListBookmarkAdapter extends BaseAdapter {
 	private static final String TAG = "sBrowser";
 
 	private Context context;
 	private LayoutInflater mInflater = null;
 	private List<BookmarkItem> mItems = new ArrayList<BookmarkItem>(); 
 
-	public ListItemAdapter(Context context) {
+	public ListBookmarkAdapter(Context context) {
 		Log.d(TAG, "Constructor");
 		this.context = context;
 		mInflater = LayoutInflater.from(context);
@@ -75,7 +75,7 @@ public class ListItemAdapter extends BaseAdapter {
 		if (convertView != null)
 			vHolder = (ViewHolder) convertView.getTag();
 		else {
-			convertView = (View) mInflater.inflate(R.layout.list_item, null); 
+			convertView = (View) mInflater.inflate(R.layout.lst_bookmark_item, null); 
 
 			vHolder = new ViewHolder();
 			vHolder.imageView = ((ImageView) convertView.findViewById(R.id.listImage));
