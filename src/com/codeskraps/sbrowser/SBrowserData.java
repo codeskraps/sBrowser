@@ -30,6 +30,7 @@ public class SBrowserData {
 	private boolean chkFullscreen;
 	private boolean chkLandscape;
 	private boolean chkJavascript;
+	private boolean tabbed;
 	private int lstflash;
 	private String etxtHome;
 	private String saveState;
@@ -44,6 +45,7 @@ public class SBrowserData {
 		setSelected(false);
 		setChkLandscape(false);
 		setChkJavascript(true);
+		setTabbed(false);
 		setLstflash(0);
 		setetxtHome(new String());
 		setSaveState(new String());
@@ -136,5 +138,13 @@ public class SBrowserData {
 
 	public void setUserAgent(int userAgent) {
 		this.userAgent = userAgent;
+	}
+
+	public boolean isTabbed() {
+		return tabbed;
+	}
+
+	public void setTabbed(boolean tabbed) {
+		this.tabbed = tabbed;
 	}
 }

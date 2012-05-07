@@ -36,6 +36,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ListTabAdapter extends BaseAdapter {
@@ -73,19 +74,32 @@ public class ListTabAdapter extends BaseAdapter {
 		return position;
 	}
 
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder vHolder = null;
 
 		if (convertView != null)
 			vHolder = (ViewHolder) convertView.getTag();
 		else {
 			convertView = (View) mInflater.inflate(R.layout.lst_tab_item, null); 
-
+			//parent.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+			
 			vHolder = new ViewHolder();
 			vHolder.imgTab = ((ImageView) convertView.findViewById(R.id.lstTabImage));
 			vHolder.titleTab = ((TextView) convertView.findViewById(R.id.txtTabTitle));
 			vHolder.urlTab = ((TextView) convertView.findViewById(R.id.txtTabURL));
-			vHolder.btnTab = ((ImageButton) convertView.findViewById(R.id.btnTabRemove));
+			vHolder.llTabLine = ((LinearLayout) convertView.findViewById(R.id.llTabLine));
+			vHolder.llTabRemove = ((LinearLayout) convertView.findViewById(R.id.llTabRemove));
+			vHolder.btnTab = ((ImageView) convertView.findViewById(R.id.btnTabRemove));
+			
+			vHolder.llTabRemove.setOnClickListener(new View.OnClickListener() {
+				
+				public void onClick(View v) {
+					BookmarkItem b = (BookmarkItem) getItem(position);
+					dataBaseData.delete(DataBaseData.DB_TABLE_TABS, b.getId());
+					Log.d(TAG, "deleted: " + b.getId());
+					((TabsActivity) context).updateView();
+				}
+			});
 
 			convertView.setTag(vHolder);
 		}
@@ -100,22 +114,37 @@ public class ListTabAdapter extends BaseAdapter {
 		BookmarkItem b = mItems.get(position);
 		vHolder.titleTab.setText(b.getName());
 		vHolder.urlTab.setText(b.getUrl());
-		if (position == 0) vHolder.imgTab.setBackgroundResource(R.drawable.add);
-		else vHolder.imgTab.setBackgroundResource(R.drawable.default_favicon);
-//		if (b.getImage() != null){
-//			Bitmap bm = BitmapFactory.decodeByteArray(b.getImage(), 0, b.getImage().length);
-//			if (bm != null) vHolder.imgTab.setImageBitmap(bm);
-//			else vHolder.imgTab.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
-//			bm.isRecycled();
-//		}else vHolder.imgTab.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
+		if (position == 0) {
+
+			vHolder.urlTab.setVisibility(View.GONE);
+			vHolder.imgTab.setBackgroundResource(R.drawable.add_tab);
+			vHolder.llTabLine.setVisibility(View.GONE);
+			vHolder.llTabRemove.setVisibility(View.GONE);
+			vHolder.btnTab.setVisibility(View.GONE);
+		
+		}else {
+			setImage(vHolder, b);
+			vHolder.btnTab.setImageResource(R.drawable.remove_tab);
+		}
 		
 		return convertView;
+	}
+	
+	private void setImage(ViewHolder vHolder, BookmarkItem b){
+		if (b.getFavIcon() != null){
+			Bitmap bm = BitmapFactory.decodeByteArray(b.getFavIcon(), 0, b.getFavIcon().length);
+			if (bm != null) vHolder.imgTab.setImageBitmap(bm);
+			else vHolder.imgTab.setImageResource(R.drawable.fav_icon);
+			bm.isRecycled();
+		}else vHolder.imgTab.setImageResource(R.drawable.fav_icon);
 	}
 
 	public static class ViewHolder {
 		ImageView imgTab;
 		TextView titleTab;
 		TextView urlTab;
-		ImageButton btnTab;
+		LinearLayout llTabLine;
+		LinearLayout llTabRemove;
+		ImageView btnTab;
 	}
 }

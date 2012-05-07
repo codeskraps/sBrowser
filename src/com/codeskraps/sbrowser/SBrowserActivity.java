@@ -89,7 +89,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 		sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
 		dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
-
+		
 		activityPaused = false;
 		webLoading = false;
 
@@ -141,9 +141,6 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 	    WebIconDatabase.getInstance().open(getDir("icons", MODE_PRIVATE).getPath());
 	    defaultUserAgent = webView.getSettings().getUserAgentString();
-	    
-	    BookmarkItem b = new BookmarkItem(webView.getTitle(), webView.getUrl());
-	    dataBaseData.insert(DataBaseData.DB_TABLE_TABS, b);
 	}
 
 	@Override
@@ -301,6 +298,11 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 		if (item.getItemId() == R.id.itemQuit) {
 
+			try {
+				dataBaseData.deleteTable(DataBaseData.DB_TABLE_TABS);
+			} catch (Exception e) {
+				Log.e(TAG, "deleteTable: " + e.getMessage());
+			}
 			this.finish();
 			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
@@ -316,7 +318,40 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			
 			startActivity(Intent.createChooser(emailIntent, "Send your feedback in:"));
 			
+		} else if (item.getItemId() == R.id.itemTabs) {
+
+			if (!sBrowserData.isTabbed()) {
+				try {				
+					Bitmap favIcon = webView.getFavicon();
+					ByteArrayOutputStream favIconStream = new ByteArrayOutputStream();
+					favIcon.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, (OutputStream) favIconStream);
+					favIcon.isRecycled();
+	
+					
+					BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
+					bookmarkItem.setFavIcon(favIconStream.toByteArray());
+					sBrowserData.setBookmarkItem(bookmarkItem);
+					favIconStream.close();
+					
+				} catch (Exception e) {
+					Log.e(TAG, "Picture:" + e.getMessage());
+					BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
+					bookmarkItem.setImage(null);
+					sBrowserData.setBookmarkItem(bookmarkItem);
+				}
+				sBrowserData.setTabbed(true);
+			} else {
+				
+				BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
+				bookmarkItem.setImage(null);
+				sBrowserData.setBookmarkItem(bookmarkItem);
+			}
+			SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
+			SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item, SBrowserActivity.this));
+			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+			
 		} else {
+			
 			try {
 				Picture picture = webView.capturePicture();
 				PictureDrawable pictureDrawable = new PictureDrawable(picture);
@@ -333,7 +368,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				bos.close();
 				
 			} catch (Exception e) {
-				Log.d(TAG, "Error - " + e);
+				Log.e(TAG, "Picture:" + e.getMessage());
 				BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
 				bookmarkItem.setImage(null);
 				sBrowserData.setBookmarkItem(bookmarkItem);

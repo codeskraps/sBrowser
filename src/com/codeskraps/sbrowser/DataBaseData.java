@@ -58,7 +58,9 @@ public class DataBaseData {
 		ContentValues values = new ContentValues();
 		values.put(C_BOOK_NAME, bookmarkItem.getName());
 		values.put(C_BOOK_URL, bookmarkItem.getUrl());
-		values.put(C_BOOK_IMAGE, bookmarkItem.getImage());
+		if (table.equals(DB_TABLE_BOOKMARK))
+			values.put(C_BOOK_IMAGE, bookmarkItem.getImage());
+		else values.put(C_BOOK_IMAGE, bookmarkItem.getFavIcon());
 		
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		db.insertWithOnConflict(table, null, values, SQLiteDatabase.CONFLICT_REPLACE);
@@ -94,7 +96,17 @@ public class DataBaseData {
 	public Cursor query(String table){
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 		
-		return db.query(table, null, null, null, null, null, C_ID + " ASC");
+		String param = new String();
+		if (table.equals(DB_TABLE_BOOKMARK)) param = " ASC";
+		else param = " DESC";
+		
+		return db.query(table, null, null, null, null, null, C_ID + param);
+	}
+	
+	public void deleteTable(String table){
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
+		db.delete(table, null, null);
+		db.close();
 	}
 	
 	private class DbHelper extends SQLiteOpenHelper {		

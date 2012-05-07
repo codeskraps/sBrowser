@@ -26,6 +26,7 @@ public class BookmarkItem {
 
 	private int id;
 	private byte[] image = null;
+	private byte[] favIcon = null;
 	private String title;
 	private String url;
 	
@@ -45,4 +46,7 @@ public class BookmarkItem {
 
 	public byte[] getImage() 			{ return image; }
 	public void setImage(byte[] image) 	{ this.image = image; }
+	
+	public byte[] getFavIcon() 			{ return favIcon; }
+	public void setFavIcon(byte[] favIcon) 	{ this.favIcon = favIcon; }
 }

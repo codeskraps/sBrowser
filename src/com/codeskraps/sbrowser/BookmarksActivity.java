@@ -63,10 +63,8 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 		super.onCreate(icicle);
 		setContentView(R.layout.lst_bookmarks);
 
-		sBrowserData = ((SBrowserApplication) getApplication())
-				.getsBrowserData();
-		dataBaseData = ((SBrowserApplication) getApplication())
-				.getDataBaseData();
+		sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
+		dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
 
 		listItemAdapter = new ListBookmarkAdapter(this);
 		

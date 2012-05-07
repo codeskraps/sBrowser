@@ -15,8 +15,6 @@ import android.widget.TextView;
 public class TabsActivity extends Activity implements OnClickListener, OnItemClickListener {
 
 	private static final String TAG = "sBrowser";
-	private static final int ADD = 1;
-	private static final int EDIT = 2;
 	
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
@@ -48,6 +46,11 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 		imgIcon.setOnClickListener(this);
 		
 		lstTab.setAdapter(lstTabAdapter);
+		
+		if ((sBrowserData.getBookmarkItem().getName().equals("updateView"))
+				|| sBrowserData.getBookmarkItem().getName().equals("Set title"))
+			Log.d(TAG, "do Nothing");
+		else dataBaseData.insert(DataBaseData.DB_TABLE_TABS, sBrowserData.getBookmarkItem());
 
 		cursor = dataBaseData.query(DataBaseData.DB_TABLE_TABS);
 		startManagingCursor(cursor);
@@ -59,6 +62,9 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 
 		Log.d(TAG, ("Got cursor with records: " + cursor.getCount()));
 
+		BookmarkItem newB = new BookmarkItem("New Tab", "");
+		lstTabAdapter.addItem(newB);
+		
 		int id;
 		String name, url;
 		byte[] image;
@@ -69,7 +75,7 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 			image = cursor.getBlob(imageColumnIndex);
 			BookmarkItem b = new BookmarkItem(name, url);
 			b.setId(id);
-			if (image != null) b.setImage(image);
+			if (image != null) b.setFavIcon(image);
 			lstTabAdapter.addItem(b);
 			Log.d(TAG, String.format("\n%s: %s: %s", id, name, url));
 			Log.d(TAG, "Image: " + image);
@@ -77,18 +83,44 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 
 	}
 	
+	@Override
+	public void onBackPressed() {
+		//super.onBackPressed();
+		
+		this.onClick(null);
+	}
+
 	public void onClick(View v) {
+		Log.d(TAG, "count: " + lstTabAdapter.getCount());
+		if (lstTabAdapter.getCount() <= 1) {
+			sBrowserData.setSaveState(sBrowserData.getetxtHome());
+			sBrowserData.setSelected(true);
+			sBrowserData.setTabbed(false);
+		}
 		finish();
 	}
 
 	public void onItemClick(AdapterView<?> arg0, View v, int position, long arg3) {
-		Log.d(TAG, "itemClick");
-		switch(v.getId()){
-		case R.id.btnTabRemove:
-			Log.d(TAG, "btnTabRemoveClicked");
+		Log.d(TAG, "itemClick: " + v.getId());
+		if (position == 0) {
+			
+			sBrowserData.setSaveState(sBrowserData.getetxtHome());
+		
+		} else {
+			
 			BookmarkItem b = (BookmarkItem) lstTabAdapter.getItem(position);
 			dataBaseData.delete(DataBaseData.DB_TABLE_TABS, b.getId());
-			lstTabAdapter.notifyDataSetChanged();
+			sBrowserData.setSaveState(b.getUrl());
 		}
+		
+		sBrowserData.setTabbed(false);
+		sBrowserData.setSelected(true);
+		finish();
+	}
+	
+	public void updateView() {
+		Log.d(TAG, "updateView");
+		(sBrowserData.getBookmarkItem()).setName("updateView");
+		this.onCreate(null);
 	}
 }
