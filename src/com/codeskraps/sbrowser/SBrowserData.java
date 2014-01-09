@@ -35,10 +35,10 @@ public class SBrowserData {
 	private String etxtHome;
 	private String saveState;
 	private int userAgent;
-	
+
 	private HitTestResult result;
 	private BookmarkItem bookmarkItem;
-	
+
 	public SBrowserData() {
 		setInvalidate(false);
 		setChkFullscreen(false);
@@ -47,11 +47,11 @@ public class SBrowserData {
 		setChkJavascript(true);
 		setTabbed(false);
 		setLstflash(0);
-		setetxtHome(new String());
+		setetxtHome(new String("https://encrypted.google.com/"));
 		setSaveState(new String());
 		setUserAgent(0);
 	}
-	
+
 	public boolean isInvalidate() {
 		return invalidate;
 	}
@@ -63,11 +63,11 @@ public class SBrowserData {
 	public boolean isChkFullscreen() {
 		return chkFullscreen;
 	}
-	
+
 	public void setChkFullscreen(boolean chkFullscreen) {
 		this.chkFullscreen = chkFullscreen;
 	}
-	
+
 	public boolean isChkLandscape() {
 		return chkLandscape;
 	}
@@ -92,10 +92,10 @@ public class SBrowserData {
 		this.lstflash = i;
 	}
 
-	public String getetxtHome () {
+	public String getetxtHome() {
 		return etxtHome;
 	}
-	
+
 	public void setetxtHome(String etxtHome) {
 		this.etxtHome = etxtHome;
 	}

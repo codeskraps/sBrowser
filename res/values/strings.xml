@@ -24,7 +24,7 @@
 
 <resources>
 
-    <string name="app_name">sBrowser</string>
+    <string name="app_name">sBrowser_test</string>
     <string name="iconImageDescription">Icon</string>
     <string name="alertHttpTitle">Web Address</string>
     <string name="alertHttpSummary">Enter a new address:</string>
@@ -34,6 +34,7 @@
     <string name="alertQuitSummary">Are you sure you want to exit sBrowser?</string>
     <string name="errorMessage">sBrowser &#8211; Something when wrong!!!</string>
     <string name="txtIcon">&lt;</string>
+    <string name="imgDescription">icon</string>
         
     <!-- Menu -->
     <string name="menuAbout">About</string>
@@ -42,6 +43,7 @@
     <string name="menuBookmarks">Bookmarks</string>
     <string name="menuDownloads">Downloads</string>
     <string name="menuFeedback">Feedback</string>
+    <string name="menuBuyMeAPint">Buy Me A Pint</string>
     <string name="menuQuit">Quit</string>
 
     <!-- Context Menu -->
@@ -62,9 +64,9 @@
     <string name="pref_cat_page_content_settings">Page content settings</string>
     <string name="pref_javascript">Enable JavaScript</string>
     <string name="pref_home_title">Set home page</string>
-    <string name="pref_home_summary">http://www.google.com</string>
+    <string name="pref_home_summary">https://encrypted.google.com/</string>
     <string name="categoryInformation">Information</string>
-    <string name="sBrowserTitle">sBrowser v1.6.4</string>
+    <string name="sBrowserTitle">sBrowser v1.6.6</string>
     <string name="sBrowserSummary">License GNU GPL v3 &#8211; 2012 &#8211; Codeskraps</string>
     <string name="prefs_flash">Enable plug-ins</string>
     <string name="prefs_setUserAgent">Set user agent</string>
@@ -82,30 +84,4 @@
     
     <string name="tabsActivity">Tabs</string>
     <string name="newTab">New tab</string>
-
-    <string-array name="prefs_flash_human_value">
-        <item>Always on</item>
-        <item>On demand</item>
-        <item>Off</item>
-    </string-array>
-    
-    <string-array name="prefs_flash_phone_value">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-    
-	<string-array name="prefs_user_agent_human_value">
-	    <item>Default</item>
-	    <item>Firefox</item>
-	    <item>Chrome</item>
-	    <item>Ipad</item>
-	</string-array>
-	
-	<string-array name="prefs_user_agent_phone_value">
-	    <item>0</item>
-	    <item>1</item>
-	    <item>2</item>
-	    <item>3</item>
-	</string-array>
 </resources>

@@ -4,8 +4,8 @@
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
 * <b>License:</b> GNU GPL v3
-* <b>Latest Version:</b> 1.6.3
-* <b>Release Date:</b> 2011	
+* <b>Latest Version:</b> 1.6.6
+* <b>Release Date:</b> 2014	
 
 == General Infromation
 
@@ -22,6 +22,10 @@ Install from Google Play
 
 == ChangeLog
 
+v1.6.6
+ - Removed from recent apps
+ - Default home page "https://encrypted.google.com/"
+ - Default search engine "https://encrypted.google.com/" 
 v1.6.4
  - Opens https links from third party apps
 v1.6.3

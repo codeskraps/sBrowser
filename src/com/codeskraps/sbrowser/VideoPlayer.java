@@ -36,12 +36,12 @@ public class VideoPlayer extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		if (BuildConfig.DEBUG == true)
+			Log.d(TAG, "onCreate");
 		super.onCreate(savedInstanceState);
-		Log.d(TAG, "VideoPlayer onCreate");
 		
 		setContentView(R.layout.videoview);
-		
-		Log.d(TAG, "uri: " + getIntent().getData());
+
 		videoView=(VideoView)findViewById(R.id.surface_view);
 		videoView.setVideoURI(getIntent().getData());
 		videoView.setMediaController(new MediaController(this));

@@ -108,7 +108,6 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 			Log.d(TAG, String.format("\n%s: %s: %s", id, name, url));
 			Log.d(TAG, "Image: " + image);
 		}
-
 	}
 
 	@Override

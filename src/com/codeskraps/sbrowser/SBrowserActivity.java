@@ -1,5 +1,29 @@
 /**
- * sBrowser
+ try {
+   System.out.println("Perform Search ....");
+   System.out.println("-------------------");
+   HttpRequestFactory httpRequestFactory = createRequestFactory(transport);
+   HttpRequest request = httpRequestFactory.buildGetRequest(new GenericUrl(PLACES_SEARCH_URL));
+   request.url.put("key", API_KEY);
+   request.url.put("location", latitude + "," + longitude);
+   request.url.put("radius", 500);
+   request.url.put("sensor", "false");
+   
+   if (PRINT_AS_STRING) {
+    System.out.println(request.execute().parseAsString());
+   } else {
+    
+    PlacesList places = request.execute().parseAs(PlacesList.class);
+    System.out.println("STATUS = " + places.status);
+    for (Place place : places.results) {
+     System.out.println(place);
+    }
+   }
+
+  } catch (HttpResponseException e) {
+   System.err.println(e.response.parseAsString());
+   throw e;
+  } * sBrowser
  * Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
  *
  * sBrowser is free software: you can
@@ -25,7 +49,6 @@ package com.codeskraps.sbrowser;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
@@ -37,8 +60,8 @@ import android.graphics.Canvas;
 import android.graphics.Picture;
 import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
-import android.net.http.SslError;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.text.ClipboardManager;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -51,47 +74,37 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.webkit.DownloadListener;
-import android.webkit.MimeTypeMap;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebChromeClient;
-import android.webkit.WebIconDatabase;
-import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.webkit.WebView.HitTestResult;
-import android.webkit.WebViewClient;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-public class SBrowserActivity extends Activity implements OnClickListener {
+public class SBrowserActivity extends FragmentActivity implements OnClickListener {
 	private static final String TAG = "sBrowser";
 
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
-	
+
 	private boolean activityPaused;
-	private boolean webLoading;
 	private String defaultUserAgent;
 
-	private ProgressBar prgBar = null;
 	private WebView webView = null;
 	private ImageView btnWww = null;
 	private ImageView btnHome = null;
 	private ImageView btnRight = null;
 	private ImageView btnRefresh = null;
 	private ImageView btnSearch = null;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
 		dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
-		
+
 		activityPaused = false;
-		webLoading = false;
 
 		if (sBrowserData.isChkFullscreen()) {
 
@@ -100,134 +113,38 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		}
 
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.webview);
+		setContentView(R.layout.sbrowser);
 
-		webView = (WebView) findViewById(R.id.webview);
-		prgBar = (ProgressBar) findViewById(R.id.prgBar);
+		FrameLayout fragmentContainer = (FrameLayout) findViewById(R.id.fragment_container);
+		WebViewFragment wF = new WebViewFragment();
+		if (fragmentContainer != null) {
+			if (savedInstanceState != null) { return; }
+			getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, wF)
+					.commit();
+		}
+
 		btnWww = (ImageView) findViewById(R.id.btnWww);
 		btnHome = (ImageView) findViewById(R.id.btnHome);
 		btnRight = (ImageView) findViewById(R.id.btnRight);
 		btnRefresh = (ImageView) findViewById(R.id.btnRefresh);
 		btnSearch = (ImageView) findViewById(R.id.btnSearch);
-		
+
 		btnWww.setOnClickListener(this);
 		btnHome.setOnClickListener(this);
 		btnRight.setOnClickListener(this);
 		btnRefresh.setOnClickListener(this);
 		btnSearch.setOnClickListener(this);
-		
-		registerForContextMenu(webView);
-		
-		webView.getSettings().setBuiltInZoomControls(true);
-		webView.getSettings().setUseWideViewPort(true);
-		webView.setWebViewClient(new WebViewActivityClient());
-		webView.setWebChromeClient(new WebChromeActivityClient());
-		webView.setDownloadListener(new DownloadActivityListener());
 
 		String newURL = new String();
 		Uri data = this.getIntent().getData();
-	    if(data != null) {
-	    	newURL = data.toString();
-		    Log.d(TAG, "text: " + newURL);    
-	    }
-	    
-	    if (newURL.startsWith("http")) {
-			webView.loadUrl(newURL);
-		} else if (sBrowserData.getSaveState().equalsIgnoreCase(new String()))
-			webView.loadUrl(sBrowserData.getetxtHome());
-		else {
-			webView.loadUrl(sBrowserData.getSaveState());
+		if (data != null) {
+			newURL = data.toString();
+			Log.d(TAG, "text: " + newURL);
 		}
-
-	    WebIconDatabase.getInstance().open(getDir("icons", MODE_PRIVATE).getPath());
-	    defaultUserAgent = webView.getSettings().getUserAgentString();
 	}
 
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		super.onRestoreInstanceState(savedInstanceState);
-
-		webView.restoreState(savedInstanceState);
-	}
-
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-
-		webView.saveState(outState);
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		
-		try {
-
-			if (sBrowserData.isChkJavascript())
-				webView.getSettings().setJavaScriptEnabled(true);
-			else
-				webView.getSettings().setJavaScriptEnabled(false);
-			
-			webView.getSettings().setPluginsEnabled(true);
-			
-			switch (sBrowserData.getLstflash()) {
-			case 0: webView.getSettings().setPluginState(PluginState.ON); break;
-			case 1: webView.getSettings().setPluginState(PluginState.ON_DEMAND); break;
-			case 2: webView.getSettings().setPluginState(PluginState.OFF); break;
-			}
-
-		} catch (Exception e) {
-			Log.e(TAG, "Error: " + e.getMessage());
-			Toast.makeText(this, getResources().getString(R.string.errorMessage), Toast.LENGTH_LONG).show();
-		}
-		
-		String userAgent = new String(webView.getSettings().getUserAgentString());
-	    String[] lstUserAgentArray = getResources().getStringArray(R.array.prefs_user_agent_human_value);
-	    
-		switch(sBrowserData.getUserAgent()){
-		case 0:
-			userAgent = defaultUserAgent;
-			break;
-		case 1: 
-			userAgent = userAgent.replaceAll("Android", lstUserAgentArray[1]);
-			userAgent = userAgent.replaceAll("Chrome", lstUserAgentArray[1]);
-			userAgent = userAgent.replaceAll("Ipad", lstUserAgentArray[1]);
-			userAgent = userAgent.replaceAll("Mobile", "Desktop");
-			break;
-		case 2: 
-			userAgent = userAgent.replaceAll("Android", lstUserAgentArray[2]);
-			userAgent = userAgent.replaceAll("Firefox", lstUserAgentArray[2]);
-			userAgent = userAgent.replaceAll("Ipad", lstUserAgentArray[2]);
-			userAgent = userAgent.replaceAll("Mobile", "Desktop");
-			break;
-		case 3: 
-			userAgent = userAgent.replaceAll("Android", lstUserAgentArray[3]);
-			userAgent = userAgent.replaceAll("Chrome", lstUserAgentArray[3]);
-			userAgent = userAgent.replaceAll("Firefox", lstUserAgentArray[3]); 
-			userAgent = userAgent.replaceAll("Mobile", "Desktop");
-			break;
-		default: break;
-		}
-		
-		webView.getSettings().setUserAgentString(userAgent);
-
-		Log.d(TAG, "User Agent: " + webView.getSettings().getUserAgentString());
-
-		if (sBrowserData.isInvalidate() && activityPaused) {
-
-			sBrowserData.setSaveState(webView.getUrl());
-			SBrowserActivity.this.startActivity(new Intent(
-					SBrowserActivity.this, SBrowserActivity.class));
-			SBrowserActivity.this.finish();
-			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-
-		} else if (sBrowserData.isSelected()) {
-			webView.loadUrl(sBrowserData.getSaveState());
-			sBrowserData.setSelected(false);
-			sBrowserData.setSaveState(new String());
-		}
-		
-		activityPaused = false;
+	public void setWebView(WebView webView) {
+		this.webView = webView;
 	}
 
 	@Override
@@ -243,10 +160,9 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 
-			if (webView.canGoBack())
-				webView.goBack();
+			if (webView.canGoBack()) webView.goBack();
 			else {
-				
+
 				finish();
 				overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 			}
@@ -266,10 +182,9 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 	}
 
 	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-		
+
 		WebView.HitTestResult result = ((WebView) v).getHitTestResult();
 
 		if (result.getType() == HitTestResult.IMAGE_TYPE
@@ -307,51 +222,35 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
 		} else if (item.getItemId() == R.id.itemFeedback) {
-			
-			Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);  
-					  
-			String aEmailList[] = { "codeskraps@gmail.com" };  
-			  
-			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);    
-			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "sBrowser - Feedback");  
-			emailIntent.setType("plain/text");  
-			
-			startActivity(Intent.createChooser(emailIntent, "Send your feedback in:"));
-			
-		} else if (item.getItemId() == R.id.itemTabs) {
 
-			if (!sBrowserData.isTabbed()) {
-				try {				
-					Bitmap favIcon = webView.getFavicon();
-					ByteArrayOutputStream favIconStream = new ByteArrayOutputStream();
-					favIcon.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, (OutputStream) favIconStream);
-					favIcon.isRecycled();
-	
-					
-					BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
-					bookmarkItem.setFavIcon(favIconStream.toByteArray());
-					sBrowserData.setBookmarkItem(bookmarkItem);
-					favIconStream.close();
-					
-				} catch (Exception e) {
-					Log.e(TAG, "Picture:" + e.getMessage());
-					BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
-					bookmarkItem.setImage(null);
-					sBrowserData.setBookmarkItem(bookmarkItem);
-				}
-				sBrowserData.setTabbed(true);
-			} else {
-				
-				BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
-				bookmarkItem.setImage(null);
-				sBrowserData.setBookmarkItem(bookmarkItem);
+			Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+
+			String aEmailList[] = { "codeskraps@gmail.com" };
+
+			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "sBrowser - Feedback");
+			emailIntent.setType("plain/text");
+
+			startActivity(Intent.createChooser(emailIntent, "Send your feedback in:"));
+
+		} else if (item.getItemId() == R.id.itemBuyMeAPint) {
+
+			try {
+				Intent marketIntent = new Intent(Intent.ACTION_VIEW);
+				marketIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY
+						| Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+				startActivity(marketIntent.setData(Uri.parse("market://developer?id=Codeskraps")));
+			} catch (Exception e) {
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+						Uri.parse("http://play.google.com/store/apps/developer?id=Codeskraps"));
+				browserIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY
+						| Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+				startActivity(browserIntent);
+				Log.e(TAG, e.getMessage());
 			}
-			SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
-			SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item, SBrowserActivity.this));
-			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-			
+
 		} else {
-			
+
 			try {
 				Picture picture = webView.capturePicture();
 				PictureDrawable pictureDrawable = new PictureDrawable(picture);
@@ -361,21 +260,22 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 				ByteArrayOutputStream bos = new ByteArrayOutputStream();
 				bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, (OutputStream) bos);
 				bitmap.isRecycled();
-				
+
 				BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
 				bookmarkItem.setImage(bos.toByteArray());
 				sBrowserData.setBookmarkItem(bookmarkItem);
 				bos.close();
-				
+
 			} catch (Exception e) {
 				Log.e(TAG, "Picture:" + e.getMessage());
 				BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
 				bookmarkItem.setImage(null);
 				sBrowserData.setBookmarkItem(bookmarkItem);
 			}
-			
+
 			SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
-			SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item, SBrowserActivity.this));
+			SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item,
+					SBrowserActivity.this));
 			overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 		}
 
@@ -415,8 +315,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			try {
 				sharingIntent.setType("text/html");
 				sharingIntent.putExtra(Intent.EXTRA_TEXT, result.getExtra());
-				startActivity(Intent.createChooser(sharingIntent,
-						"Share using..."));
+				startActivity(Intent.createChooser(sharingIntent, "Share using..."));
 			} catch (Exception e) {
 				e.printStackTrace();
 				Log.d(TAG, "Erro Sharing link: " + e);
@@ -429,8 +328,7 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			try {
 				sharingIntent.setType("image/*");
 				sharingIntent.putExtra(Intent.EXTRA_STREAM, result.getExtra());
-				startActivity(Intent.createChooser(sharingIntent,
-						"Share image using..."));
+				startActivity(Intent.createChooser(sharingIntent, "Share image using..."));
 			} catch (Exception e) {
 				e.printStackTrace();
 				Log.d(TAG, "Erro Sharing Image: " + e);
@@ -441,122 +339,30 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 		return super.onContextItemSelected(item);
 	}
-	
-	private class WebViewActivityClient extends WebViewClient {
-		@Override
-		public boolean shouldOverrideUrlLoading(WebView view, String url) {
-			Log.d(TAG, url);
-			Log.d(TAG, "MimeType: " + MimeTypeMap.getFileExtensionFromUrl(url));
-
-			if ((new String("mp4").equalsIgnoreCase(MimeTypeMap
-					.getFileExtensionFromUrl(url)))
-					|| (new String("3gp").equalsIgnoreCase(MimeTypeMap
-							.getFileExtensionFromUrl(url)))) {
-
-				Intent intent = new Intent();
-				intent.setClass(SBrowserActivity.this, VideoPlayer.class);
-				intent.setData(Uri.parse(url));
-				startActivity(intent);
-				overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-
-			} else if ((new String("ppt").equalsIgnoreCase(MimeTypeMap
-					.getFileExtensionFromUrl(url)))
-					|| (new String("doc").equalsIgnoreCase(MimeTypeMap
-							.getFileExtensionFromUrl(url)))
-					|| (new String("pdf").equalsIgnoreCase(MimeTypeMap
-							.getFileExtensionFromUrl(url)))
-					|| (new String("apk").equalsIgnoreCase(MimeTypeMap
-							.getFileExtensionFromUrl(url)))) {
-
-				DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-				Request request = new Request(Uri.parse(url));
-				dm.enqueue(request);
-				Intent i = new Intent();
-				i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
-				startActivity(i);
-
-			} else if (url.startsWith("market://")){
-				
-				Intent goToMarket = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-				goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				startActivity(goToMarket);
-				
-			} else {
-
-				view.loadUrl(url);
-			}
-			return true;
-		}
-
-		@Override
-		public void onReceivedSslError(WebView view, SslErrorHandler handler,
-				SslError error) {
-			handler.proceed();
-			
-			Log.d(TAG, "onReceivedSslError");
-		}
-
-		public void onReceivedError(WebView view, int errorCode,
-				String description, String failingUrl) {
-			Log.d(TAG, "Error: " + description + ", " + failingUrl);
-			//Toast.makeText(SBrowserActivity.this, "sBrowser - Something when wrong!!!", Toast.LENGTH_SHORT).show();
-		}
-	}
-
-	private class WebChromeActivityClient extends WebChromeClient {
-		public void onProgressChanged(WebView view, int progress) {
-
-			if (!webLoading) {
-				btnRefresh.setImageResource(R.drawable.webview_stop);
-				webLoading = true;
-				prgBar.setVisibility(View.VISIBLE);
-			}
-			prgBar.setProgress(progress);
-
-			if (progress == 100) {
-				prgBar.setVisibility(View.GONE);
-				btnRefresh.setImageResource(R.drawable.webview_refresh);
-				setBackForwardButtons();
-				webLoading = false;
-			}
-		}
-	}
-
-	private class DownloadActivityListener implements DownloadListener {
-		public void onDownloadStart(final String url, String userAgent,
-				String contentDisposition, String mimetype, long contentLength) {
-			Log.d(TAG, "onDownloadStart");
-		}
-	}
 
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnWww:
 			final AlertDialog.Builder alert = new AlertDialog.Builder(this);
 			alert.setTitle(getResources().getString(R.string.alertHttpTitle));
-			alert.setMessage(getResources()
-					.getString(R.string.alertHttpSummary));
+			alert.setMessage(getResources().getString(R.string.alertHttpSummary));
 			final EditText input = new EditText(this);
-			input.setText(webView.getUrl());
+			String url = webView == null ? null : webView.getUrl();
+			if (url != null) input.setText(url);
 			alert.setView(input);
-			alert.setPositiveButton("Ok",
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,
-								int whichButton) {
-							String value = input.getText().toString().trim();
-							if (value.startsWith("http"))
-								webView.loadUrl(value);
-							else webView.loadUrl("http://" + value);
-						}
-					});
+			alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+					String value = input.getText().toString().trim();
+					if (value.startsWith("http")) webView.loadUrl(value);
+					else webView.loadUrl("http://" + value);
+				}
+			});
 
-			alert.setNegativeButton("Cancel",
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,
-								int whichButton) {
-							dialog.cancel();
-						}
-					});
+			alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+					dialog.cancel();
+				}
+			});
 			alert.show();
 			break;
 
@@ -569,11 +375,11 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 			break;
 
 		case R.id.btnRefresh:
-			if (!webLoading) {
-				webView.reload();
-			} else {
-				webView.stopLoading();
-			}
+			// if (!webLoading) {
+			// webView.reload();
+			// } else {
+			// webView.stopLoading();
+			// }
 			break;
 
 		case R.id.btnSearch:
@@ -584,10 +390,8 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 
 	private void setBackForwardButtons() {
 
-		if (webView.canGoForward())
-			btnRight.setImageResource(R.drawable.webview_right);
-		else
-			btnRight.setImageResource(R.drawable.webview_right_bw);
+		if (webView.canGoForward()) btnRight.setImageResource(R.drawable.webview_right);
+		else btnRight.setImageResource(R.drawable.webview_right_bw);
 	}
 
 	private void doSearch() {
@@ -596,19 +400,18 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		alertSearch.setMessage(getResources().getString(R.string.alertSearchSummary));
 		final EditText inputSearch = new EditText(this);
 		alertSearch.setView(inputSearch);
-		alertSearch.setPositiveButton("Ok",	new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-						String value = inputSearch.getText().toString().trim();
-						webView.loadUrl("http://www.google.com/search?q="
-								+ value);
-					}
-				});
+		alertSearch.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				String value = inputSearch.getText().toString().trim();
+				webView.loadUrl("https://encrypted.google.com/search?q=" + value);
+			}
+		});
 
 		alertSearch.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-						dialog.cancel();
-					}
-				});
+			public void onClick(DialogInterface dialog, int whichButton) {
+				dialog.cancel();
+			}
+		});
 		alertSearch.show();
 	}
 
@@ -617,8 +420,10 @@ public class SBrowserActivity extends Activity implements OnClickListener {
 		super.onDestroy();
 		Log.d(TAG, "OnDestroy");
 
-		webView.clearCache(true);
-		webView.clearHistory();
+		if (webView != null) {
+			webView.clearCache(true);
+			webView.clearHistory();
+		}
 	}
 
 }
