@@ -4,7 +4,7 @@
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
 * <b>License:</b> GNU GPL v3
-* <b>Latest Version:</b> 1.7
+* <b>Latest Version:</b> 1.7.1
 * <b>Release Date:</b> 2014	
 
 == General Infromation
