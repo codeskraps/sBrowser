@@ -31,29 +31,28 @@ import android.widget.VideoView;
 
 public class VideoPlayer extends Activity {
 	private static final String TAG = VideoPlayer.class.getSimpleName();
-	
+
 	private VideoView videoView = null;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		if (BuildConfig.DEBUG == true)
-			Log.d(TAG, "onCreate");
+		Log.d(TAG, "onCreate");
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.videoview);
 
-		videoView=(VideoView)findViewById(R.id.surface_view);
+		videoView = (VideoView) findViewById(R.id.surface_view);
 		videoView.setVideoURI(getIntent().getData());
 		videoView.setMediaController(new MediaController(this));
 		videoView.requestFocus();
 		videoView.start();
 
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-					
+
 			this.finish();
 			return true;
 		}

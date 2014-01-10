@@ -1,29 +1,5 @@
 /**
- try {
-   System.out.println("Perform Search ....");
-   System.out.println("-------------------");
-   HttpRequestFactory httpRequestFactory = createRequestFactory(transport);
-   HttpRequest request = httpRequestFactory.buildGetRequest(new GenericUrl(PLACES_SEARCH_URL));
-   request.url.put("key", API_KEY);
-   request.url.put("location", latitude + "," + longitude);
-   request.url.put("radius", 500);
-   request.url.put("sensor", "false");
-   
-   if (PRINT_AS_STRING) {
-    System.out.println(request.execute().parseAsString());
-   } else {
-    
-    PlacesList places = request.execute().parseAs(PlacesList.class);
-    System.out.println("STATUS = " + places.status);
-    for (Place place : places.results) {
-     System.out.println(place);
-    }
-   }
-
-  } catch (HttpResponseException e) {
-   System.err.println(e.response.parseAsString());
-   throw e;
-  } * sBrowser
+ * sBrowser
  * Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
  *
  * sBrowser is free software: you can
@@ -49,9 +25,11 @@ package com.codeskraps.sbrowser;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -60,6 +38,7 @@ import android.graphics.Canvas;
 import android.graphics.Picture;
 import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.ClipboardManager;
@@ -87,9 +66,6 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
 
-	private boolean activityPaused;
-	private String defaultUserAgent;
-
 	private WebView webView = null;
 	private ImageView btnWww = null;
 	private ImageView btnHome = null;
@@ -103,8 +79,6 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 
 		sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
 		dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
-
-		activityPaused = false;
 
 		if (sBrowserData.isChkFullscreen()) {
 
@@ -148,15 +122,6 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 	}
 
 	@Override
-	protected void onPause() {
-		super.onPause();
-
-		Log.d(TAG, "onPause");
-
-		activityPaused = true;
-	}
-
-	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 
@@ -181,6 +146,7 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 		return true;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
@@ -282,6 +248,8 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 		return super.onOptionsItemSelected(item);
 	}
 
+	@SuppressLint("NewApi")
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 
@@ -305,8 +273,14 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 
 		case R.id.itemCopyLink:
 
-			ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-			clipboard.setText(result.getExtra());
+			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+				ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+				clipboard.setText(result.getExtra());
+			} else {
+				android.content.ClipboardManager newClipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+				ClipData clip = ClipData.newPlainText("label", result.getExtra());
+				newClipboard.setPrimaryClip(clip);
+			}
 
 			break;
 
@@ -389,7 +363,6 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 	}
 
 	private void setBackForwardButtons() {
-
 		if (webView.canGoForward()) btnRight.setImageResource(R.drawable.webview_right);
 		else btnRight.setImageResource(R.drawable.webview_right_bw);
 	}

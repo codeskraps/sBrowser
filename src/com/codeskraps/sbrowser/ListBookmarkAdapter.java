@@ -41,7 +41,7 @@ public class ListBookmarkAdapter extends BaseAdapter {
 
 	private Context context;
 	private LayoutInflater mInflater = null;
-	private List<BookmarkItem> mItems = new ArrayList<BookmarkItem>(); 
+	private List<BookmarkItem> mItems = new ArrayList<BookmarkItem>();
 
 	public ListBookmarkAdapter(Context context) {
 		Log.d(TAG, "Constructor");
@@ -53,7 +53,7 @@ public class ListBookmarkAdapter extends BaseAdapter {
 		mItems.add(it);
 	}
 
-	public void setListItems(List<BookmarkItem> lit) { 
+	public void setListItems(List<BookmarkItem> lit) {
 		mItems = lit;
 	}
 
@@ -72,10 +72,9 @@ public class ListBookmarkAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder vHolder = null;
 
-		if (convertView != null)
-			vHolder = (ViewHolder) convertView.getTag();
+		if (convertView != null) vHolder = (ViewHolder) convertView.getTag();
 		else {
-			convertView = (View) mInflater.inflate(R.layout.lst_bookmark_item, null); 
+			convertView = (View) mInflater.inflate(R.layout.lst_bookmark_item, null);
 
 			vHolder = new ViewHolder();
 			vHolder.imageView = ((ImageView) convertView.findViewById(R.id.listImage));
@@ -93,14 +92,16 @@ public class ListBookmarkAdapter extends BaseAdapter {
 		} else {
 			BookmarkItem b = mItems.get(position);
 			vHolder.textView.setText(b.getName());
-			if (b.getImage() != null){
+			if (b.getImage() != null) {
 				Bitmap bm = BitmapFactory.decodeByteArray(b.getImage(), 0, b.getImage().length);
 				if (bm != null) vHolder.imageView.setImageBitmap(bm);
-				else vHolder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
+				else vHolder.imageView.setImageDrawable(context.getResources().getDrawable(
+						R.drawable.bookmark_empty));
 				bm.isRecycled();
-			}else vHolder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.bookmark_empty));
+			} else vHolder.imageView.setImageDrawable(context.getResources().getDrawable(
+					R.drawable.bookmark_empty));
 		}
-		
+
 		return convertView;
 	}
 

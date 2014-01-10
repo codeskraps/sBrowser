@@ -38,43 +38,47 @@ public class SBrowserApplication extends Application {
 	private static final String LSTFLASH = "lstflash";
 	private static final String ETXTHOME = "etxtHome";
 	private static final String USERAGENT = "lstUserAgent";
-	
+
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
-	
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		
+
 		Log.d(TAG, "onCreate started");
-		
+
 		setsBrowserData(new SBrowserData());
 		setDataBaseData(new DataBaseData(this));
-		
+
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		
+
 		boolean chkFullscreen = prefs.getBoolean(CHKFULLSCREEN, false);
 		boolean chkJavascript = prefs.getBoolean(CHKJAVASCRIPT, true);
 		String lstFlash = prefs.getString(LSTFLASH, "0");
-		String etxtHome = prefs.getString(ETXTHOME, getResources().getString(R.string.pref_home_summary));
+		String etxtHome = prefs.getString(ETXTHOME,
+				getResources().getString(R.string.pref_home_summary));
 		String lstUserAgent = prefs.getString(USERAGENT, "0");
-		
+
 		sBrowserData.setChkFullscreen(chkFullscreen);
 		sBrowserData.setChkJavascript(chkJavascript);
 		sBrowserData.setLstflash(Integer.parseInt(lstFlash));
 		sBrowserData.setetxtHome(etxtHome);
 		sBrowserData.setUserAgent(Integer.parseInt(lstUserAgent));
 	}
-	
+
 	public Intent getMenuIntent(MenuItem item, Context context) {
 
 		switch (item.getItemId()) {
-//			case R.id.itemTabs:			return new Intent(context, TabsActivity.class);
-			case R.id.itemBookmarks: 	return new Intent(context, BookmarksActivity.class);
-			case R.id.itemDownloads:	Intent i = new Intent();
-										i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
-										return i;
-			case R.id.itemPreference:	return new Intent(context, PreferenceActivity.class);
+		// case R.id.itemTabs: return new Intent(context, TabsActivity.class);
+		case R.id.itemBookmarks:
+			return new Intent(context, BookmarksActivity.class);
+		case R.id.itemDownloads:
+			Intent i = new Intent();
+			i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
+			return i;
+		case R.id.itemPreference:
+			return new Intent(context, PreferenceActivity.class);
 		}
 		return null;
 	}
@@ -86,7 +90,7 @@ public class SBrowserApplication extends Application {
 	public void setsBrowserData(SBrowserData sBrowserData) {
 		this.sBrowserData = sBrowserData;
 	}
-	
+
 	@Override
 	public void onTerminate() {
 		super.onTerminate();

@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class TabsActivity extends Activity implements OnClickListener, OnItemClickListener {
 
 	private static final String TAG = "sBrowser";
-	
+
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
 	private ListTabAdapter lstTabAdapter = null;
@@ -34,27 +34,27 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 		dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
 
 		lstTabAdapter = new ListTabAdapter(this);
-		
+
 		Log.d(TAG, "I got here");
-		
+
 		lstTab = (ListView) findViewById(R.id.lstTab);
 		txtIcon = (TextView) findViewById(R.id.txtTabIcon);
 		imgIcon = (ImageView) findViewById(R.id.imgTabIcon);
-		
+
 		lstTab.setOnItemClickListener(this);
 		txtIcon.setOnClickListener(this);
 		imgIcon.setOnClickListener(this);
-		
+
 		lstTab.setAdapter(lstTabAdapter);
-		
+
 		if ((sBrowserData.getBookmarkItem().getName().equals("updateView"))
-				|| sBrowserData.getBookmarkItem().getName().equals("Set title"))
-			Log.d(TAG, "do Nothing");
+				|| sBrowserData.getBookmarkItem().getName().equals("Set title")) Log.d(TAG,
+				"do Nothing");
 		else dataBaseData.insert(DataBaseData.DB_TABLE_TABS, sBrowserData.getBookmarkItem());
 
 		cursor = dataBaseData.query(DataBaseData.DB_TABLE_TABS);
 		startManagingCursor(cursor);
-		
+
 		final int idColumnIndex = cursor.getColumnIndex(DataBaseData.C_ID);
 		final int userColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_NAME);
 		final int textColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_URL);
@@ -64,7 +64,7 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 
 		BookmarkItem newB = new BookmarkItem("New Tab", "");
 		lstTabAdapter.addItem(newB);
-		
+
 		int id;
 		String name, url;
 		byte[] image;
@@ -82,11 +82,11 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 		}
 
 	}
-	
+
 	@Override
 	public void onBackPressed() {
-		//super.onBackPressed();
-		
+		// super.onBackPressed();
+
 		this.onClick(null);
 	}
 
@@ -103,21 +103,21 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 	public void onItemClick(AdapterView<?> arg0, View v, int position, long arg3) {
 		Log.d(TAG, "itemClick: " + v.getId());
 		if (position == 0) {
-			
+
 			sBrowserData.setSaveState(sBrowserData.getetxtHome());
-		
+
 		} else {
-			
+
 			BookmarkItem b = (BookmarkItem) lstTabAdapter.getItem(position);
 			dataBaseData.delete(DataBaseData.DB_TABLE_TABS, b.getId());
 			sBrowserData.setSaveState(b.getUrl());
 		}
-		
+
 		sBrowserData.setTabbed(false);
 		sBrowserData.setSelected(true);
 		finish();
 	}
-	
+
 	public void updateView() {
 		Log.d(TAG, "updateView");
 		(sBrowserData.getBookmarkItem()).setName("updateView");

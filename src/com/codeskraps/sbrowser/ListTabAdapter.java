@@ -31,10 +31,8 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -45,7 +43,7 @@ public class ListTabAdapter extends BaseAdapter {
 	private DataBaseData dataBaseData = null;
 	private Context context;
 	private LayoutInflater mInflater = null;
-	private List<BookmarkItem> mItems = new ArrayList<BookmarkItem>(); 
+	private List<BookmarkItem> mItems = new ArrayList<BookmarkItem>();
 
 	public ListTabAdapter(Context context) {
 		Log.d(TAG, "Constructor");
@@ -58,7 +56,7 @@ public class ListTabAdapter extends BaseAdapter {
 		mItems.add(it);
 	}
 
-	public void setListItems(List<BookmarkItem> lit) { 
+	public void setListItems(List<BookmarkItem> lit) {
 		mItems = lit;
 	}
 
@@ -77,12 +75,11 @@ public class ListTabAdapter extends BaseAdapter {
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder vHolder = null;
 
-		if (convertView != null)
-			vHolder = (ViewHolder) convertView.getTag();
+		if (convertView != null) vHolder = (ViewHolder) convertView.getTag();
 		else {
-			convertView = (View) mInflater.inflate(R.layout.lst_tab_item, null); 
-			//parent.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
-			
+			convertView = (View) mInflater.inflate(R.layout.lst_tab_item, null);
+			// parent.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+
 			vHolder = new ViewHolder();
 			vHolder.imgTab = ((ImageView) convertView.findViewById(R.id.lstTabImage));
 			vHolder.titleTab = ((TextView) convertView.findViewById(R.id.txtTabTitle));
@@ -90,9 +87,9 @@ public class ListTabAdapter extends BaseAdapter {
 			vHolder.llTabLine = ((LinearLayout) convertView.findViewById(R.id.llTabLine));
 			vHolder.llTabRemove = ((LinearLayout) convertView.findViewById(R.id.llTabRemove));
 			vHolder.btnTab = ((ImageView) convertView.findViewById(R.id.btnTabRemove));
-			
+
 			vHolder.llTabRemove.setOnClickListener(new View.OnClickListener() {
-				
+
 				public void onClick(View v) {
 					BookmarkItem b = (BookmarkItem) getItem(position);
 					dataBaseData.delete(DataBaseData.DB_TABLE_TABS, b.getId());
@@ -108,8 +105,8 @@ public class ListTabAdapter extends BaseAdapter {
 		vHolder.titleTab.setId(position);
 		vHolder.urlTab.setId(position);
 		vHolder.btnTab.setId(position);
-		
-		//vHolder.btnTab.setOnClickListener(this);
+
+		// vHolder.btnTab.setOnClickListener(this);
 
 		BookmarkItem b = mItems.get(position);
 		vHolder.titleTab.setText(b.getName());
@@ -121,22 +118,22 @@ public class ListTabAdapter extends BaseAdapter {
 			vHolder.llTabLine.setVisibility(View.GONE);
 			vHolder.llTabRemove.setVisibility(View.GONE);
 			vHolder.btnTab.setVisibility(View.GONE);
-		
-		}else {
+
+		} else {
 			setImage(vHolder, b);
 			vHolder.btnTab.setImageResource(R.drawable.remove_tab);
 		}
-		
+
 		return convertView;
 	}
-	
-	private void setImage(ViewHolder vHolder, BookmarkItem b){
-		if (b.getFavIcon() != null){
+
+	private void setImage(ViewHolder vHolder, BookmarkItem b) {
+		if (b.getFavIcon() != null) {
 			Bitmap bm = BitmapFactory.decodeByteArray(b.getFavIcon(), 0, b.getFavIcon().length);
 			if (bm != null) vHolder.imgTab.setImageBitmap(bm);
 			else vHolder.imgTab.setImageResource(R.drawable.fav_icon);
 			bm.isRecycled();
-		}else vHolder.imgTab.setImageResource(R.drawable.fav_icon);
+		} else vHolder.imgTab.setImageResource(R.drawable.fav_icon);
 	}
 
 	public static class ViewHolder {

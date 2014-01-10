@@ -48,7 +48,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 	private static final String TAG = "sBrowser";
 	private static final int ADD = 1;
 	private static final int EDIT = 2;
-	
+
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
 	private ListBookmarkAdapter listItemAdapter = null;
@@ -67,14 +67,13 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 		dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
 
 		listItemAdapter = new ListBookmarkAdapter(this);
-		
+
 		txtIcon = (TextView) findViewById(R.id.txtIcon);
 		imgIcon = (ImageView) findViewById(R.id.imgIcon);
-		
+
 		txtIcon.setOnClickListener(this);
 		imgIcon.setOnClickListener(this);
-		
-		
+
 		gridview = (GridView) findViewById(R.id.gridview);
 		gridview.setAdapter(listItemAdapter);
 		gridview.setOnItemClickListener(this);
@@ -85,7 +84,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 
 		cursor = dataBaseData.query(DataBaseData.DB_TABLE_BOOKMARK);
 		startManagingCursor(cursor);
-		
+
 		final int idColumnIndex = cursor.getColumnIndex(DataBaseData.C_ID);
 		final int userColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_NAME);
 		final int textColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_URL);
@@ -125,14 +124,14 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 
 		if (id > 0) {
 			final BookmarkItem b = (BookmarkItem) listItemAdapter.getItem(id);
-			
+
 			switch (item.getItemId()) {
 			case R.id.itemOpen:
 				sBrowserData.setSelected(true);
 				sBrowserData.setSaveState(b.getUrl());
 				finish();
 				break;
-			
+
 			case R.id.itemEdit:
 				showMyDialog(EDIT, b);
 				break;
@@ -140,24 +139,24 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 				final AlertDialog.Builder alertSearch = new AlertDialog.Builder(this);
 				alertSearch.setTitle(getResources().getString(R.string.dialog_title_delete));
 				alertSearch.setMessage(getResources().getString(R.string.dialog_message_delete));
-				alertSearch.setPositiveButton("Ok",	new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
-							
-								dataBaseData.delete(DataBaseData.DB_TABLE_BOOKMARK, b.getId());
-								Log.d(TAG, "delete: " + b.getName());
-					
-								BookmarksActivity.this.startActivity(new Intent(
-										BookmarksActivity.this, BookmarksActivity.class));
-								BookmarksActivity.this.finish();
-								
-								dialog.dismiss();
-							}
-						});
+				alertSearch.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+
+						dataBaseData.delete(DataBaseData.DB_TABLE_BOOKMARK, b.getId());
+						Log.d(TAG, "delete: " + b.getName());
+
+						BookmarksActivity.this.startActivity(new Intent(BookmarksActivity.this,
+								BookmarksActivity.class));
+						BookmarksActivity.this.finish();
+
+						dialog.dismiss();
+					}
+				});
 				alertSearch.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
-								dialog.cancel();
-							}
-						});
+					public void onClick(DialogInterface dialog, int whichButton) {
+						dialog.cancel();
+					}
+				});
 				alertSearch.show();
 				break;
 			}
@@ -178,10 +177,10 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 		}
 		int id = (int) listItemAdapter.getItemId(info.position);
 
-		if (id > 0){
+		if (id > 0) {
 			BookmarkItem b = (BookmarkItem) listItemAdapter.getItem(id);
 			menu.setHeaderTitle(b.getName());
-	
+
 			MenuInflater inflater = getMenuInflater();
 			inflater.inflate(R.menu.bookmarkcontextmenu, menu);
 		}
@@ -201,66 +200,70 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 			finish();
 		}
 	}
-	
-	public void showMyDialog(final int thisDialog, final BookmarkItem b){
-		
+
+	public void showMyDialog(final int thisDialog, final BookmarkItem b) {
+
 		TextView txtName = new TextView(this);
 		txtName.setText(getResources().getString(R.string.dialog_name));
-		LayoutParams txtLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-	    txtName.setLayoutParams(txtLayoutParams);
-	    
-	    final EditText edtName = new EditText(this);
-	    edtName.setText(b.getName());
-	    LayoutParams edtLayoutParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
-	    edtName.setLayoutParams(edtLayoutParams);
-	    
-	    TextView txtUrl = new TextView(this);
-	    txtUrl.setText(getResources().getString(R.string.dialog_location));
-	    txtName.setLayoutParams(txtLayoutParams);
-	    
-	    final EditText edtUrl = new EditText(this);
-	    edtUrl.setText(b.getUrl());
-	    edtUrl.setLayoutParams(edtLayoutParams);
-	    
-	    LinearLayout dialogLayout = new LinearLayout(this);
-	    dialogLayout.setOrientation(LinearLayout.VERTICAL);
-	    dialogLayout.addView(txtName);
-	    dialogLayout.addView(edtName);
-	    dialogLayout.addView(txtUrl);
-	    dialogLayout.addView(edtUrl);
-		
+		LayoutParams txtLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT);
+		txtName.setLayoutParams(txtLayoutParams);
+
+		final EditText edtName = new EditText(this);
+		edtName.setText(b.getName());
+		LayoutParams edtLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT,
+				LayoutParams.WRAP_CONTENT);
+		edtName.setLayoutParams(edtLayoutParams);
+
+		TextView txtUrl = new TextView(this);
+		txtUrl.setText(getResources().getString(R.string.dialog_location));
+		txtName.setLayoutParams(txtLayoutParams);
+
+		final EditText edtUrl = new EditText(this);
+		edtUrl.setText(b.getUrl());
+		edtUrl.setLayoutParams(edtLayoutParams);
+
+		LinearLayout dialogLayout = new LinearLayout(this);
+		dialogLayout.setOrientation(LinearLayout.VERTICAL);
+		dialogLayout.addView(txtName);
+		dialogLayout.addView(edtName);
+		dialogLayout.addView(txtUrl);
+		dialogLayout.addView(edtUrl);
+
 		final AlertDialog.Builder alertSearch = new AlertDialog.Builder(this);
-		if (thisDialog == ADD) alertSearch.setTitle(getResources().getString(R.string.dialog_title_add));
+		if (thisDialog == ADD) alertSearch.setTitle(getResources().getString(
+				R.string.dialog_title_add));
 		else alertSearch.setTitle(getResources().getString(R.string.dialog_title_edit));
 		alertSearch.setView(dialogLayout);
-		alertSearch.setPositiveButton("Ok",	new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-					
-						BookmarkItem newBookmark = new BookmarkItem(edtName.getText().toString(), 
-								edtUrl.getText().toString());
-						newBookmark.setId(b.getId());
-						newBookmark.setImage(b.getImage());
-						
-						if(thisDialog == ADD) dataBaseData.insert(DataBaseData.DB_TABLE_BOOKMARK, newBookmark);
-						else dataBaseData.update(DataBaseData.DB_TABLE_BOOKMARK, newBookmark);
-						
-						Log.d(TAG, "saved: " + newBookmark.getName());
-			
-						Intent i = new Intent(BookmarksActivity.this, BookmarksActivity.class);
-						BookmarksActivity.this.startActivity(i);
-						BookmarksActivity.this.finish();
-						
-						dialog.dismiss();
-					}
-				});
+		alertSearch.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+
+				BookmarkItem newBookmark = new BookmarkItem(edtName.getText().toString(), edtUrl
+						.getText().toString());
+				newBookmark.setId(b.getId());
+				newBookmark.setImage(b.getImage());
+
+				if (thisDialog == ADD) dataBaseData.insert(DataBaseData.DB_TABLE_BOOKMARK,
+						newBookmark);
+				else dataBaseData.update(DataBaseData.DB_TABLE_BOOKMARK, newBookmark);
+
+				Log.d(TAG, "saved: " + newBookmark.getName());
+
+				Intent i = new Intent(BookmarksActivity.this, BookmarksActivity.class);
+				BookmarksActivity.this.startActivity(i);
+				BookmarksActivity.this.finish();
+
+				dialog.dismiss();
+			}
+		});
 		alertSearch.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-						dialog.cancel();
-					}
-				});
+			public void onClick(DialogInterface dialog, int whichButton) {
+				dialog.cancel();
+			}
+		});
 		alertSearch.show();
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();

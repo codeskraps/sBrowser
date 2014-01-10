@@ -36,126 +36,132 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PreferenceActivity extends android.preference.PreferenceActivity implements OnSharedPreferenceChangeListener, OnClickListener {
+public class PreferenceActivity extends android.preference.PreferenceActivity implements
+		OnSharedPreferenceChangeListener, OnClickListener {
 	private static final String TAG = PreferenceActivity.class.getSimpleName();
 	private static final String CHKFULLSCREEN = "ckbfullscreen";
 	private static final String CHKJAVASCRIPT = "ckbjavascript";
 	private static final String LSTFLASH = "lstflash";
 	private static final String ETXTHOME = "etxtHome";
 	private static final String USERAGENT = "lstUserAgent";
-	
+
 	private SBrowserData sBrowserData = null;
 	private SharedPreferences prefs = null;
-	
+
 	private TextView txtIcon = null;
 	private ImageView imgIcon = null;
-	
+
 	private String[] lstFlashArray;
 	private String[] lstuserAgentArray;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		Log.d(TAG, "Prefs onCreate");
-		
+
 		sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
 		lstFlashArray = getResources().getStringArray(R.array.prefs_flash_human_value);
-        lstuserAgentArray = getResources().getStringArray(R.array.prefs_user_agent_human_value);
-        
+		lstuserAgentArray = getResources().getStringArray(R.array.prefs_user_agent_human_value);
+
 		if (sBrowserData.isChkFullscreen()) {
-        	
-	        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+			getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+					WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		}
-		
+
 		setTitle(R.string.preference_activity);
 		setContentView(R.layout.preference);
 		addPreferencesFromResource(R.xml.preferences);
-		
+
 		txtIcon = (TextView) findViewById(R.id.txtIcon);
 		imgIcon = (ImageView) findViewById(R.id.imgIcon);
-		
+
 		txtIcon.setOnClickListener(this);
 		imgIcon.setOnClickListener(this);
-		
-		EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen().findPreference(ETXTHOME);
+
+		EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen()
+				.findPreference(ETXTHOME);
 		ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(LSTFLASH);
-		ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(USERAGENT);
-		
+		ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(
+				USERAGENT);
+
 		etxtPrefHome.setSummary(sBrowserData.getetxtHome());
 		lstFlash.setSummary(lstFlashArray[sBrowserData.getLstflash()]);
 		lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
-		
+
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
 	}
-	
+
 	@Override
 	protected void onPause() {
 		super.onPause();
-		
+
 		prefs.unregisterOnSharedPreferenceChangeListener(this);
 
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
-		
+
 		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 	}
 
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 		Log.d(TAG, "Prefs Changed");
-		
+
 		if (key.equals(CHKFULLSCREEN)) {
 			Log.d(TAG, "Prefs fullscreen Changed");
-			
+
 			boolean chkFullscreen = prefs.getBoolean(CHKFULLSCREEN, false);
 			sBrowserData.setChkFullscreen(chkFullscreen);
 			sBrowserData.setInvalidate(true);
-			
+
 			Log.d(TAG, key + ": " + sBrowserData.isChkFullscreen());
-			
-			
-			PreferenceActivity.this.startActivity(new Intent(PreferenceActivity.this, PreferenceActivity.class));
+
+			PreferenceActivity.this.startActivity(new Intent(PreferenceActivity.this,
+					PreferenceActivity.class));
 			PreferenceActivity.this.finish();
-			
-		}else if (key.equals(CHKJAVASCRIPT)) {
-			
+
+		} else if (key.equals(CHKJAVASCRIPT)) {
+
 			boolean chkJavascript = prefs.getBoolean(CHKJAVASCRIPT, true);
 			sBrowserData.setChkJavascript(chkJavascript);
 			sBrowserData.setInvalidate(true);
-			
-		}else if (key.equals(LSTFLASH)) {
-			
+
+		} else if (key.equals(LSTFLASH)) {
+
 			String intLstFlash = prefs.getString(LSTFLASH, "0");
 			sBrowserData.setLstflash(Integer.parseInt(intLstFlash));
-			
-			ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(LSTFLASH);
+
+			ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(
+					LSTFLASH);
 			lstFlash.setSummary(lstFlashArray[sBrowserData.getLstflash()]);
-			
+
 			sBrowserData.setInvalidate(true);
-		
-		}else if (key.equals(ETXTHOME)) {
-			
-			String etxtHome = prefs.getString(ETXTHOME, getResources().getString(R.string.pref_home_summary));
-			if (etxtHome.startsWith("http"))
-				sBrowserData.setetxtHome(etxtHome);
-			else
-				sBrowserData.setetxtHome("http://" + etxtHome);
-			
-			EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen().findPreference(ETXTHOME);
+
+		} else if (key.equals(ETXTHOME)) {
+
+			String etxtHome = prefs.getString(ETXTHOME,
+					getResources().getString(R.string.pref_home_summary));
+			if (etxtHome.startsWith("http")) sBrowserData.setetxtHome(etxtHome);
+			else sBrowserData.setetxtHome("http://" + etxtHome);
+
+			EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen()
+					.findPreference(ETXTHOME);
 			etxtPrefHome.setSummary(sBrowserData.getetxtHome());
-		
-		}else if (key.equals(USERAGENT)) {
-			
+
+		} else if (key.equals(USERAGENT)) {
+
 			String sUserAgent = prefs.getString(USERAGENT, "0");
 			sBrowserData.setUserAgent(Integer.parseInt(sUserAgent));
-			
-			ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(USERAGENT);
+
+			ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(
+					USERAGENT);
 			lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
-			
+
 			Log.d(TAG, "prefs user agent: " + sBrowserData.getUserAgent());
 		}
 	}
