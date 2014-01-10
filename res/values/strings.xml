@@ -24,7 +24,7 @@
 
 <resources>
 
-    <string name="app_name">sBrowser_test</string>
+    <string name="app_name">sBrowser</string>
     <string name="iconImageDescription">Icon</string>
     <string name="alertHttpTitle">Web Address</string>
     <string name="alertHttpSummary">Enter a new address:</string>

@@ -24,7 +24,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codeskraps.sbrowser"
-    android:versionCode="19"
+    android:versionCode="20"
     android:versionName="1.6.6" >
 
     <uses-sdk android:minSdkVersion="10" />
