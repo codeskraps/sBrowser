@@ -60,12 +60,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+@SuppressWarnings("deprecation")
 public class SBrowserActivity extends FragmentActivity implements OnClickListener {
 	private static final String TAG = "sBrowser";
 
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
 
+	private WebViewFragment wF = null;
 	private WebView webView = null;
 	private ImageView btnWww = null;
 	private ImageView btnHome = null;
@@ -90,9 +92,9 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 		setContentView(R.layout.sbrowser);
 
 		FrameLayout fragmentContainer = (FrameLayout) findViewById(R.id.fragment_container);
-		WebViewFragment wF = new WebViewFragment();
 		if (fragmentContainer != null) {
 			if (savedInstanceState != null) { return; }
+			wF = new WebViewFragment();
 			getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, wF)
 					.commit();
 		}
@@ -146,7 +148,6 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 		return true;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
@@ -249,7 +250,6 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 	}
 
 	@SuppressLint("NewApi")
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 
@@ -349,11 +349,11 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 			break;
 
 		case R.id.btnRefresh:
-			// if (!webLoading) {
-			// webView.reload();
-			// } else {
-			// webView.stopLoading();
-			// }
+			if (wF != null && wF.isReloading() == false) {
+				webView.reload();
+			} else {
+				webView.stopLoading();
+			}
 			break;
 
 		case R.id.btnSearch:
@@ -362,7 +362,13 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 		}
 	}
 
-	private void setBackForwardButtons() {
+	public void setStopButton(){
+		btnRefresh.setImageResource(R.drawable.webview_stop);
+	}
+	
+	public void setBackForwardButtons() {
+		btnRefresh.setImageResource(R.drawable.webview_refresh);
+
 		if (webView.canGoForward()) btnRight.setImageResource(R.drawable.webview_right);
 		else btnRight.setImageResource(R.drawable.webview_right_bw);
 	}

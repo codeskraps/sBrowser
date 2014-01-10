@@ -22,6 +22,8 @@ Install from Google Play
 
 == ChangeLog
 
+v1.7.1
+ - Re-enable Refresh/Stop button functionality
 v1.7
  - Hardware acceleration allowed for YouTube handling and similar
  - Some bug fixes and improvements

@@ -192,7 +192,7 @@ public class WebViewFragment extends Fragment {
 		public void onProgressChanged(WebView view, int progress) {
 
 			if (!webLoading) {
-				// btnRefresh.setImageResource(R.drawable.webview_stop);
+				((SBrowserActivity) getActivity()).setStopButton();
 				webLoading = true;
 				prgBar.setVisibility(View.VISIBLE);
 			}
@@ -200,8 +200,7 @@ public class WebViewFragment extends Fragment {
 
 			if (progress == 100) {
 				prgBar.setVisibility(View.GONE);
-				// btnRefresh.setImageResource(R.drawable.webview_refresh);
-				// setBackForwardButtons();
+				((SBrowserActivity) getActivity()).setBackForwardButtons();
 				webLoading = false;
 			}
 		}
@@ -212,5 +211,9 @@ public class WebViewFragment extends Fragment {
 				String mimetype, long contentLength) {
 			Log.d(TAG, "onDownloadStart");
 		}
+	}
+
+	public boolean isReloading() {
+		return webLoading;
 	}
 }
