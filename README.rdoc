@@ -22,6 +22,8 @@ Install from Google Play
 
 == ChangeLog
 
+v1.7.2 - Issue with menu button not showing in some devices
+ - Better tablet support
 v1.7.1
  - Re-enable Refresh/Stop button functionality
 v1.7

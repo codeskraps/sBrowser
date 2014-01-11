@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- 
+<!--
   sBrowser
   Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
  
@@ -24,6 +24,8 @@
 
 <resources>
 
+    <bool name="isTablet">true</bool>
+
     <string name="app_name">sBrowser</string>
     <string name="iconImageDescription">Icon</string>
     <string name="alertHttpTitle">Web Address</string>
@@ -35,7 +37,7 @@
     <string name="errorMessage">sBrowser &#8211; Something when wrong!!!</string>
     <string name="txtIcon">&lt;</string>
     <string name="imgDescription">icon</string>
-        
+
     <!-- Menu -->
     <string name="menuAbout">About</string>
     <string name="menuTabs">Tabs</string>
@@ -52,10 +54,10 @@
     <string name="contextMenuSaveLink">Save Link</string>
     <string name="contextMenuCopyLink">Copy Link</string>
     <string name="contextMenuShareLink">Share Link</string>
-	<string name="contextMenuOpenBookmark">Open bookmark</string>
-	<string name="contextMenuEditBookmark">Edit bookmark</string>
-	<string name="contextMenuDeleteBoomark">Delete bookmark</string>
-	
+    <string name="contextMenuOpenBookmark">Open bookmark</string>
+    <string name="contextMenuEditBookmark">Edit bookmark</string>
+    <string name="contextMenuDeleteBoomark">Delete bookmark</string>
+
     <!-- Preferences -->
     <string name="preference_activity">Preferences</string>
     <string name="pref_cat_display">Display</string>
@@ -66,10 +68,11 @@
     <string name="pref_home_title">Set home page</string>
     <string name="pref_home_summary">https://encrypted.google.com/</string>
     <string name="categoryInformation">Information</string>
-    <string name="sBrowserTitle">sBrowser v1.7.1</string>
+    <string name="sBrowserTitle">sBrowser v1.7.2</string>
     <string name="sBrowserSummary">License GNU GPL v3 &#8211; 2012 &#8211; Codeskraps</string>
     <string name="prefs_flash">Enable plug-ins</string>
     <string name="prefs_setUserAgent">Set user agent</string>
+    <string name="prefs_cat_user">Profile &amp; Privacy</string>
 
     <!-- Dialog -->
     <string name="dialog_title_add">Add bookmark</string>
@@ -81,7 +84,7 @@
     <string name="dialog_ok">OK</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="addBookmark">Add Bookmark</string>
-    
     <string name="tabsActivity">Tabs</string>
     <string name="newTab">New tab</string>
+
 </resources>
