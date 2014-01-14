@@ -22,11 +22,15 @@
 
 package com.codeskraps.sbrowser.home;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -46,9 +50,13 @@ import android.widget.TextView;
 
 import com.codeskraps.sbrowser.R;
 import com.codeskraps.sbrowser.misc.BookmarkItem;
+import com.codeskraps.sbrowser.misc.Cons;
 import com.codeskraps.sbrowser.misc.DataBaseData;
 import com.codeskraps.sbrowser.misc.ListBookmarkAdapter;
 import com.codeskraps.sbrowser.misc.SBrowserData;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 public class BookmarksActivity extends Activity implements OnItemClickListener, OnClickListener {
 	private static final String TAG = "sBrowser";
@@ -61,8 +69,6 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 	private GridView gridview = null;
 	private TextView txtIcon = null;
 	private ImageView imgIcon = null;
-
-	private Cursor cursor = null;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -86,32 +92,51 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 
 		registerForContextMenu(gridview);
 
-		listItemAdapter.addItem(sBrowserData.getBookmarkItem());
+		new GetBookmarks().execute();
+	}
 
-		cursor = dataBaseData.query(DataBaseData.DB_TABLE_BOOKMARK);
-		startManagingCursor(cursor);
+	private class GetBookmarks extends AsyncTask<Void, Void, Void> {
 
-		final int idColumnIndex = cursor.getColumnIndex(DataBaseData.C_ID);
-		final int userColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_NAME);
-		final int textColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_URL);
-		final int imageColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_IMAGE);
+		@Override
+		protected Void doInBackground(Void... params) {
+			listItemAdapter.addItem(sBrowserData.getBookmarkItem());
 
-		Log.d(TAG, ("Got cursor with records: " + cursor.getCount()));
+			Cursor cursor = dataBaseData.query(DataBaseData.DB_TABLE_BOOKMARK);
+			startManagingCursor(cursor);
 
-		int id;
-		String name, url;
-		byte[] image;
-		while (cursor.moveToNext()) {
-			id = cursor.getInt(idColumnIndex);
-			name = cursor.getString(userColumnIndex);
-			url = cursor.getString(textColumnIndex);
-			image = cursor.getBlob(imageColumnIndex);
-			BookmarkItem b = new BookmarkItem(name, url);
-			b.setId(id);
-			if (image != null) b.setImage(image);
-			listItemAdapter.addItem(b);
-			Log.d(TAG, String.format("\n%s: %s: %s", id, name, url));
-			Log.d(TAG, "Image: " + image);
+			final int idColumnIndex = cursor.getColumnIndex(Cons.C_ID);
+			final int userColumnIndex = cursor.getColumnIndex(Cons.C_BOOK_NAME);
+			final int textColumnIndex = cursor.getColumnIndex(Cons.C_BOOK_URL);
+			final int imageColumnIndex = cursor.getColumnIndex(Cons.C_BOOK_IMAGE);
+
+			Log.d(TAG, ("Got cursor with records: " + cursor.getCount()));
+
+			int id;
+			String name, url;
+			byte[] image;
+			while (cursor.moveToNext()) {
+				id = cursor.getInt(idColumnIndex);
+				name = cursor.getString(userColumnIndex);
+				url = cursor.getString(textColumnIndex);
+				image = cursor.getBlob(imageColumnIndex);
+				BookmarkItem b = new BookmarkItem(name, url);
+				b.setId(id);
+				if (image != null) b.setImage(image);
+				listItemAdapter.addItem(b);
+				Log.d(TAG, String.format("\n%s: %s: %s", id, name, url));
+			}
+
+			cursor.close();
+
+			stopManagingCursor(cursor);
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			super.onPostExecute(result);
+			listItemAdapter.notifyDataSetChanged();
 		}
 	}
 
@@ -141,6 +166,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 			case R.id.itemEdit:
 				showMyDialog(EDIT, b);
 				break;
+
 			case R.id.itemDelete:
 				final AlertDialog.Builder alertSearch = new AlertDialog.Builder(this);
 				alertSearch.setTitle(getResources().getString(R.string.dialog_title_delete));
@@ -150,6 +176,21 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 
 						dataBaseData.delete(DataBaseData.DB_TABLE_BOOKMARK, b.getId());
 						Log.d(TAG, "delete: " + b.getName());
+
+
+						new Thread(new Runnable() {
+
+							@Override
+							public void run() {
+								List<BookmarkItem> parseBook = getParseBookmarks();
+								for (BookmarkItem item : parseBook) {
+									if (item.getUrl().equals(b.getUrl())) {
+										item.deleteInBackground();
+										break;
+									}
+								}
+							}
+						}).start();
 
 						BookmarksActivity.this.startActivity(new Intent(BookmarksActivity.this,
 								BookmarksActivity.class));
@@ -253,6 +294,12 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 						newBookmark);
 				else dataBaseData.update(DataBaseData.DB_TABLE_BOOKMARK, newBookmark);
 
+				ParseUser user = ParseUser.getCurrentUser();
+				if (user != null) {
+					newBookmark.setUser(user.getUsername());
+					newBookmark.saveInBackground();
+				}
+
 				Log.d(TAG, "saved: " + newBookmark.getName());
 
 				Intent i = new Intent(BookmarksActivity.this, BookmarksActivity.class);
@@ -279,5 +326,21 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 	public void onClick(View arg0) {
 		this.finish();
 		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+	}
+
+	public List<BookmarkItem> getParseBookmarks() {
+		ParseQuery<BookmarkItem> bookmarkQuery = BookmarkItem.getQuery();
+		bookmarkQuery.whereContains(Cons.C_USER, ParseUser.getCurrentUser().getUsername());
+		bookmarkQuery.orderByAscending(BookmarkItem.ID);
+		List<BookmarkItem> object = new ArrayList<BookmarkItem>();
+
+		try {
+			object = bookmarkQuery.find();
+		} catch (ParseException e) {
+			Log.i(TAG, "Unable to get Bookmarks", e);
+		}
+
+		Log.d(TAG, ("Got parse records: " + object.size()));
+		return object;
 	}
 }

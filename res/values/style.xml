@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- 
+<!--
   sBrowser
   Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
  
@@ -23,13 +23,21 @@
 -->
 
 <resources>
-	<style name="horizontalBar">
-	    <item name="android:layout_width">wrap_content</item>
+
+    <style name="horizontalBar">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:layout_marginLeft">5dp</item>
-       	<item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_weight">1</item>
-	</style>
+    </style>
+
+    <style name="LoginFormContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
 </resources>

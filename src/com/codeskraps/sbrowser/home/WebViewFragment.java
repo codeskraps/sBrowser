@@ -1,6 +1,7 @@
 package com.codeskraps.sbrowser.home;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
 import android.content.Context;
@@ -199,8 +200,10 @@ public class WebViewFragment extends Fragment {
 	private class WebChromeActivityClient extends WebChromeClient {
 		public void onProgressChanged(WebView view, int progress) {
 
+			Activity act = getActivity();
+
 			if (!webLoading) {
-				((SBrowserActivity) getActivity()).setStopButton();
+				if (act != null) ((SBrowserActivity) act).setStopButton();
 				webLoading = true;
 				prgBar.setVisibility(View.VISIBLE);
 			}
@@ -208,7 +211,7 @@ public class WebViewFragment extends Fragment {
 
 			if (progress == 100) {
 				prgBar.setVisibility(View.GONE);
-				((SBrowserActivity) getActivity()).setBackForwardButtons();
+				if (act != null) ((SBrowserActivity) act).setBackForwardButtons();
 				webLoading = false;
 			}
 		}

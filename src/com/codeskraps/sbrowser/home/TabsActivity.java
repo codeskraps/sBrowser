@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.codeskraps.sbrowser.R;
 import com.codeskraps.sbrowser.misc.BookmarkItem;
+import com.codeskraps.sbrowser.misc.Cons;
 import com.codeskraps.sbrowser.misc.DataBaseData;
 import com.codeskraps.sbrowser.misc.ListTabAdapter;
 import com.codeskraps.sbrowser.misc.SBrowserData;
@@ -61,10 +62,10 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 		cursor = dataBaseData.query(DataBaseData.DB_TABLE_TABS);
 		startManagingCursor(cursor);
 
-		final int idColumnIndex = cursor.getColumnIndex(DataBaseData.C_ID);
-		final int userColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_NAME);
-		final int textColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_URL);
-		final int imageColumnIndex = cursor.getColumnIndex(DataBaseData.C_BOOK_IMAGE);
+		final int idColumnIndex = cursor.getColumnIndex(Cons.C_ID);
+		final int userColumnIndex = cursor.getColumnIndex(Cons.C_BOOK_NAME);
+		final int textColumnIndex = cursor.getColumnIndex(Cons.C_BOOK_URL);
+		final int imageColumnIndex = cursor.getColumnIndex(Cons.C_BOOK_IMAGE);
 
 		Log.d(TAG, ("Got cursor with records: " + cursor.getCount()));
 
@@ -81,7 +82,6 @@ public class TabsActivity extends Activity implements OnClickListener, OnItemCli
 			image = cursor.getBlob(imageColumnIndex);
 			BookmarkItem b = new BookmarkItem(name, url);
 			b.setId(id);
-			if (image != null) b.setFavIcon(image);
 			lstTabAdapter.addItem(b);
 			Log.d(TAG, String.format("\n%s: %s: %s", id, name, url));
 			Log.d(TAG, "Image: " + image);

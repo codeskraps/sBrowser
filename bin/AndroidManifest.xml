@@ -24,8 +24,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codeskraps.sbrowser"
-    android:versionCode="25"
-    android:versionName="1.7.2" >
+    android:versionCode="27"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="10"
@@ -75,8 +75,31 @@
             android:name="com.codeskraps.sbrowser.home.PreferenceActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity
-            android:name="com.codeskraps.sbrowser.home.UserActivity"
+            android:name="com.codeskraps.sbrowser.home.PrefsUserActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.home.PurchaseActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.loginsignup.DispatchActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.loginsignup.LoginActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.loginsignup.SignUpActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.loginsignup.SignUpOrLogInActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="group.pals.android.lib.ui.lockpattern.LockPatternActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="user"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <service android:name="com.codeskraps.sbrowser.services.ProAccoundVerificationService" />
+        <service android:name="com.codeskraps.sbrowser.services.SyncService" />
     </application>
 
 </manifest>

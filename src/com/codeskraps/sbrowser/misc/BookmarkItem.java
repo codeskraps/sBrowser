@@ -22,31 +22,72 @@
 
 package com.codeskraps.sbrowser.misc;
 
-public class BookmarkItem {
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
-	private int id;
-	private byte[] image = null;
-	private byte[] favIcon = null;
-	private String title;
-	private String url;
-	
+@ParseClassName("BookmarkItem")
+public class BookmarkItem extends ParseObject {
+	public static final String ID = "id_data";
+
+	public BookmarkItem() {}
+
 	public BookmarkItem(String title, String url) {
 		setName(title);
 		setUrl(url);
 	}
 
-	public int getId()					{ return id; }
-	public void setId(int id)			{ this.id = id; }
-	
-	public String getName() 			{ return title;	}
-	public void setName(String name) 	{ this.title = name; }
+	public String getUser() {
+		return getString(Cons.C_USER);
+	}
 
-	public String getUrl() 				{ return url; }
-	public void setUrl(String url) 		{ this.url = url; }
+	public void setUser(String user) {
+		put(Cons.C_USER, user);
+	}
 
-	public byte[] getImage() 			{ return image; }
-	public void setImage(byte[] image) 	{ this.image = image; }
-	
-	public byte[] getFavIcon() 			{ return favIcon; }
-	public void setFavIcon(byte[] favIcon) 	{ this.favIcon = favIcon; }
+	public int getId() {
+		return getInt(ID);
+	}
+
+	public void setId(int id) {
+		put(ID, id);
+	}
+
+	public String getName() {
+		return getString(Cons.C_BOOK_NAME);
+	}
+
+	public void setName(String name) {
+		put(Cons.C_BOOK_NAME, name);
+	}
+
+	public String getUrl() {
+		return getString(Cons.C_BOOK_URL);
+	}
+
+	public void setUrl(String url) {
+		put(Cons.C_BOOK_URL, url);
+	}
+
+	public byte[] getImage() {
+		return getBytes(Cons.C_BOOK_IMAGE);
+	}
+
+	public void setImage(byte[] image) {
+		if (image == null) return;
+		put(Cons.C_BOOK_IMAGE, image);
+	}
+
+	public byte[] getFavIcon() {
+		return getBytes(Cons.C_BOOK_IMAGE);
+	}
+
+	public void setFavIcon(byte[] favIcon) {
+		if (favIcon == null) return;
+		put(Cons.C_BOOK_IMAGE, favIcon);
+	}
+
+	public static ParseQuery<BookmarkItem> getQuery() {
+		return ParseQuery.getQuery(BookmarkItem.class);
+	}
 }

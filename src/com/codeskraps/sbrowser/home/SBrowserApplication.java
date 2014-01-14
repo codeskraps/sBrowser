@@ -32,8 +32,13 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.codeskraps.sbrowser.R;
+import com.codeskraps.sbrowser.misc.BookmarkItem;
+import com.codeskraps.sbrowser.misc.Cons;
 import com.codeskraps.sbrowser.misc.DataBaseData;
 import com.codeskraps.sbrowser.misc.SBrowserData;
+import com.codeskraps.sbrowser.services.ProAccoundVerificationService;
+import com.parse.Parse;
+import com.parse.ParseObject;
 
 public class SBrowserApplication extends Application {
 	private static final String TAG = SBrowserApplication.class.getSimpleName();
@@ -52,6 +57,9 @@ public class SBrowserApplication extends Application {
 
 		Log.d(TAG, "onCreate started");
 
+		ParseObject.registerSubclass(BookmarkItem.class);
+		Parse.initialize(this, Cons.APLICATION_ID, Cons.CLIENT_KEY);
+
 		setsBrowserData(new SBrowserData());
 		setDataBaseData(new DataBaseData(this));
 
@@ -69,6 +77,8 @@ public class SBrowserApplication extends Application {
 		sBrowserData.setLstflash(Integer.parseInt(lstFlash));
 		sBrowserData.setetxtHome(etxtHome);
 		sBrowserData.setUserAgent(Integer.parseInt(lstUserAgent));
+
+		startService(new Intent(this, ProAccoundVerificationService.class));
 	}
 
 	public Intent getMenuIntent(MenuItem item, Context context) {

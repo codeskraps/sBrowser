@@ -39,7 +39,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codeskraps.sbrowser.R;
+import com.codeskraps.sbrowser.loginsignup.DispatchActivity;
+import com.codeskraps.sbrowser.misc.Cons;
 import com.codeskraps.sbrowser.misc.SBrowserData;
+import com.parse.ParseUser;
 
 public class PreferenceActivity extends android.preference.PreferenceActivity implements
 		OnSharedPreferenceChangeListener, OnClickListener, OnPreferenceClickListener {
@@ -49,6 +52,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 	private static final String LSTFLASH = "lstflash";
 	private static final String ETXTHOME = "etxtHome";
 	private static final String USERAGENT = "lstUserAgent";
+	private static final String PURCHASE = "prefPurchase";
 	private static final String USER = "prefUser";
 
 	private SBrowserData sBrowserData = null;
@@ -90,6 +94,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 		ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(LSTFLASH);
 		ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(
 				USERAGENT);
+		getPreferenceScreen().findPreference(PURCHASE).setOnPreferenceClickListener(this);
 		getPreferenceScreen().findPreference(USER).setOnPreferenceClickListener(this);
 
 		etxtPrefHome.setSummary(sBrowserData.getetxtHome());
@@ -98,6 +103,26 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		if (prefs.getBoolean(Cons.hasPro, false)) {
+			getPreferenceScreen().findPreference(PURCHASE).setEnabled(false);
+			getPreferenceScreen().findPreference(USER).setEnabled(true);
+		} else {
+			getPreferenceScreen().findPreference(PURCHASE).setEnabled(true);
+			getPreferenceScreen().findPreference(USER).setEnabled(false);
+		}
+		if (ParseUser.getCurrentUser() != null) {
+			ParseUser user = ParseUser.getCurrentUser();
+			getPreferenceScreen().findPreference(USER).setSummary(user.getUsername());
+
+		} else getPreferenceScreen().findPreference(USER).setSummary(R.string.sign_up);
+
+		getPreferenceScreen().findPreference(USER).setEnabled(true);
 	}
 
 	@Override
@@ -179,8 +204,15 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 
 	@Override
 	public boolean onPreferenceClick(Preference preference) {
-		if (preference.getKey().equals(USER)) {
-			startActivity(new Intent(this, UserActivity.class));
+		if (preference.getKey().equals(PURCHASE)) {
+			startActivity(new Intent(this, PurchaseActivity.class));
+			return true;
+		} else if (preference.getKey().endsWith(USER)) {
+			if (ParseUser.getCurrentUser() != null) {
+				startActivity(new Intent(this, PrefsUserActivity.class));
+			} else {
+				startActivity(new Intent(this, DispatchActivity.class));
+			}
 			return true;
 		}
 		return false;

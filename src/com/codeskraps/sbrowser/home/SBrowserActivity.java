@@ -219,22 +219,23 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 
 			startActivity(Intent.createChooser(emailIntent, "Send your feedback in:"));
 
-		} else if (item.getItemId() == R.id.itemBuyMeAPint) {
+			/*-
+			} else if (item.getItemId() == R.id.itemBuyMeAPint) {
 
-			try {
-				Intent marketIntent = new Intent(Intent.ACTION_VIEW);
-				marketIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY
-						| Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-				startActivity(marketIntent.setData(Uri.parse("market://developer?id=Codeskraps")));
-			} catch (Exception e) {
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-						Uri.parse("http://play.google.com/store/apps/developer?id=Codeskraps"));
-				browserIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY
-						| Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-				startActivity(browserIntent);
-				Log.e(TAG, e.getMessage());
-			}
-
+				try {
+					Intent marketIntent = new Intent(Intent.ACTION_VIEW);
+					marketIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY
+							| Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+					startActivity(marketIntent.setData(Uri.parse("market://developer?id=Codeskraps")));
+				} catch (Exception e) {
+					Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+							Uri.parse("http://play.google.com/store/apps/developer?id=Codeskraps"));
+					browserIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY
+							| Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+					startActivity(browserIntent);
+					Log.e(TAG, e.getMessage());
+				}
+			 */
 		} else {
 
 			try {

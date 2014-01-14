@@ -4,10 +4,10 @@
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
 * <b>License:</b> GNU GPL v3
-* <b>Latest Version:</b> 1.7.1
+* <b>Latest Version:</b> 2.0
 * <b>Release Date:</b> 2014	
 
-== General Infromation
+== General Information
 
 This is an app for Android powered devices. sBrowser is a simple Internet broswer specially developed for teaching purposes in a workshop in 091 Labs (091labs.com). 
 
@@ -22,8 +22,11 @@ Install from Google Play
 
 == ChangeLog
 
+v2.0 - Pro Account
+ - Sync Bookmarks to sBrowser server
 v1.7.2 - Issue with menu button not showing in some devices
  - Better tablet support
+ - NEW PERMISSION (com.android.vending.BILLING) NOT YET IMPLEMENTED
 v1.7.1
  - Re-enable Refresh/Stop button functionality
 v1.7

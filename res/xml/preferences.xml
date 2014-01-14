@@ -56,9 +56,15 @@
             android:key="lstUserAgent"
             android:title="@string/prefs_setUserAgent" />
     </PreferenceCategory>
-<!--     <PreferenceCategory android:title="@string/prefs_cat_user" > -->
-<!--         <Preference android:key="prefUser" /> -->
-<!--     </PreferenceCategory> -->
+    <PreferenceCategory android:title="@string/prefs_cat_user" >
+        <Preference
+            android:key="prefPurchase"
+            android:summary="@string/prefs_purchase_summary"
+            android:title="@string/prefs_purchase_title" />
+        <Preference
+            android:key="prefUser"
+            android:title="@string/prefs_user_title" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/categoryInformation" >
         <Preference
             android:summary="@string/sBrowserSummary"

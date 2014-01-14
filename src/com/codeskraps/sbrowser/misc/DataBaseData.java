@@ -22,110 +22,106 @@
 
 package com.codeskraps.sbrowser.misc;
 
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.BaseColumns;
 import android.util.Log;
 
 public class DataBaseData {
 	private static final String TAG = DataBaseData.class.getSimpleName();
-	
+
 	public static final String DB_TABLE_BOOKMARK = "bookmarks";
 	public static final String DB_TABLE_TABS = "tabs";
-	
-	public static final String C_ID = BaseColumns._ID;
-	public static final String C_BOOK_IMAGE = "sbrowser_image";
-	public static final String C_BOOK_NAME = "sbrowser_name";
-	public static final String C_BOOK_URL = "sbrowser_url";
-	
+
 	private Context context;
 	private DbHelper dbHelper;
-	
-	public DataBaseData(Context context){
+
+	public DataBaseData(Context context) {
 		this.context = context;
 		dbHelper = new DbHelper();
 	}
-	
-	public void close(){
+
+	public void close() {
 		dbHelper.close();
 	}
-	
-	public void insert(String table, BookmarkItem bookmarkItem){
-		
+
+	public void insert(String table, BookmarkItem bookmarkItem) {
+
 		ContentValues values = new ContentValues();
-		values.put(C_BOOK_NAME, bookmarkItem.getName());
-		values.put(C_BOOK_URL, bookmarkItem.getUrl());
-		if (table.equals(DB_TABLE_BOOKMARK))
-			values.put(C_BOOK_IMAGE, bookmarkItem.getImage());
-		else values.put(C_BOOK_IMAGE, bookmarkItem.getFavIcon());
-		
+		values.put(Cons.C_BOOK_NAME, bookmarkItem.getName());
+		values.put(Cons.C_BOOK_URL, bookmarkItem.getUrl());
+		if (table.equals(DB_TABLE_BOOKMARK)) values.put(Cons.C_BOOK_IMAGE, bookmarkItem.getImage());
+		else values.put(Cons.C_BOOK_IMAGE, bookmarkItem.getFavIcon());
+
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		db.insertWithOnConflict(table, null, values, SQLiteDatabase.CONFLICT_REPLACE);
 		db.close();
 	}
-		
-	public void update(String table, BookmarkItem bookmarkItem){
-		
+
+	public void update(String table, BookmarkItem bookmarkItem) {
+
 		ContentValues values = new ContentValues();
-		values.put(C_ID, bookmarkItem.getId());
-		values.put(C_BOOK_NAME, bookmarkItem.getName());
-		values.put(C_BOOK_URL, bookmarkItem.getUrl());
-		values.put(C_BOOK_IMAGE, bookmarkItem.getImage());
-		
+		values.put(Cons.C_ID, bookmarkItem.getId());
+		values.put(Cons.C_BOOK_NAME, bookmarkItem.getName());
+		values.put(Cons.C_BOOK_URL, bookmarkItem.getUrl());
+		values.put(Cons.C_BOOK_IMAGE, bookmarkItem.getImage());
+
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
-		String whereClause = new String(C_ID + " = ?");
+		String whereClause = new String(Cons.C_ID + " = ?");
 		String whereArgs = new String(Integer.toString(bookmarkItem.getId()));
 		db.updateWithOnConflict(table, values, whereClause, new String[] { whereArgs },
 				SQLiteDatabase.CONFLICT_REPLACE);
 		db.close();
 	}
-	
-	public void delete(String table, int id){
-		
+
+	public void delete(String table, int id) {
+
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
-		String whereClause = new String(C_ID + " = ?");
+		String whereClause = new String(Cons.C_ID + " = ?");
 		String whereArgs = new String(Integer.toString(id));
 		long l = db.delete(table, whereClause, new String[] { whereArgs });
 		db.close();
 		Log.d(TAG, "Deleted: " + l);
 	}
-	
-	public Cursor query(String table){
+
+	public Cursor query(String table) {
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
-		
+
 		String param = new String();
 		if (table.equals(DB_TABLE_BOOKMARK)) param = " ASC";
 		else param = " DESC";
-		
-		return db.query(table, null, null, null, null, null, C_ID + param);
+
+		return db.query(table, null, null, null, null, null, Cons.C_ID + param);
 	}
-	
-	public void deleteTable(String table){
+
+	public void deleteTable(String table) {
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		db.delete(table, null, null);
 		db.close();
 	}
-	
-	private class DbHelper extends SQLiteOpenHelper {		
+
+	private class DbHelper extends SQLiteOpenHelper {
 		public static final String DB_NAME = "sBrowserDB.db";
 		public static final int DB_VERSION = 2;
-		
+
 		public DbHelper() {
 			super(context, DB_NAME, null, DB_VERSION);
 		}
 
 		@Override
 		public void onCreate(SQLiteDatabase db) {
-			String sql = String.format("create table %s (%s INTEGER primary key AUTOINCREMENT, %s text, %s text, %s BLOB)", 
-					DB_TABLE_BOOKMARK, C_ID, C_BOOK_NAME, C_BOOK_URL, C_BOOK_IMAGE);
+			String sql = String
+					.format("create table %s (%s INTEGER primary key AUTOINCREMENT, %s text, %s text, %s BLOB)",
+							DB_TABLE_BOOKMARK, Cons.C_ID, Cons.C_BOOK_NAME, Cons.C_BOOK_URL,
+							Cons.C_BOOK_IMAGE);
 			db.execSQL(sql);
-			
-			sql = String.format("create table %s (%s INTEGER primary key AUTOINCREMENT, %s text, %s text, %s BLOB)", 
-					DB_TABLE_TABS, C_ID, C_BOOK_NAME, C_BOOK_URL, C_BOOK_IMAGE);
+
+			sql = String
+					.format("create table %s (%s INTEGER primary key AUTOINCREMENT, %s text, %s text, %s BLOB)",
+							DB_TABLE_TABS, Cons.C_ID, Cons.C_BOOK_NAME, Cons.C_BOOK_URL,
+							Cons.C_BOOK_IMAGE);
 			db.execSQL(sql);
 
 		}
@@ -135,7 +131,7 @@ public class DataBaseData {
 			db.execSQL("drop table if exists " + DB_TABLE_BOOKMARK);
 			db.execSQL("drop table if exists " + DB_TABLE_TABS);
 			Log.d(TAG, "onUpdate dropped tables " + DB_TABLE_BOOKMARK + ", " + DB_TABLE_TABS);
-			
+
 			this.onCreate(db);
 		}
 	}
