@@ -24,8 +24,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codeskraps.sbrowser"
-    android:versionCode="27"
-    android:versionName="2.0" >
+    android:versionCode="31"
+    android:versionName="2.1" >
 
     <uses-sdk
         android:minSdkVersion="10"
@@ -34,6 +34,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name="com.codeskraps.sbrowser.home.SBrowserApplication"
@@ -100,6 +101,7 @@
 
         <service android:name="com.codeskraps.sbrowser.services.ProAccoundVerificationService" />
         <service android:name="com.codeskraps.sbrowser.services.SyncService" />
+        <service android:name="com.example.chatheads.ChatHeadService" />
     </application>
 
 </manifest>

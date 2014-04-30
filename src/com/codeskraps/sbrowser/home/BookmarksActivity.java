@@ -177,7 +177,6 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 						dataBaseData.delete(DataBaseData.DB_TABLE_BOOKMARK, b.getId());
 						Log.d(TAG, "delete: " + b.getName());
 
-
 						new Thread(new Runnable() {
 
 							@Override

@@ -22,10 +22,12 @@
 
 package com.codeskraps.sbrowser.misc;
 
-
+import android.util.Log;
 import android.webkit.WebView.HitTestResult;
 
 public class SBrowserData {
+	private static final String TAG = SBrowserData.class.getSimpleName();
+
 	private boolean invalidate;
 	private boolean selected;
 	private boolean chkFullscreen;
@@ -102,10 +104,12 @@ public class SBrowserData {
 	}
 
 	public String getSaveState() {
+		Log.v(TAG, "getSaveState: " + saveState);
 		return saveState;
 	}
 
 	public void setSaveState(String saveState) {
+		Log.v(TAG, "setSaveState: " + saveState);
 		this.saveState = saveState;
 	}
 

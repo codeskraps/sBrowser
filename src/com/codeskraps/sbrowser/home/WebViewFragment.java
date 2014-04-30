@@ -37,20 +37,27 @@ public class WebViewFragment extends Fragment {
 
 	private boolean webLoading;
 
+	public static WebViewFragment getInstance() {
+		WebViewFragment fragment = new WebViewFragment();
+		return fragment;
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		Log.v(TAG, "onCreateView");
 		return inflater.inflate(R.layout.webview, container, false);
 	}
 
 	@SuppressLint("NewApi")
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
+		Log.v(TAG, "onViewCreated");
 		super.onViewCreated(view, savedInstanceState);
 
 		webView = (WebView) view.findViewById(R.id.webview);
 		prgBar = (ProgressBar) view.findViewById(R.id.prgBar);
 
-		((SBrowserActivity) getActivity()).setWebView(webView);
+		((SBrowserActivity) getActivity()).setWebView(this, webView);
 		webLoading = false;
 		registerForContextMenu(webView);
 
@@ -68,20 +75,17 @@ public class WebViewFragment extends Fragment {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
 			ws.setDisplayZoomControls(true);
 
-		webView.setInitialScale(100);
+		webView.setInitialScale(200);
 		webView.setNetworkAvailable(true);
 		webView.setWebViewClient(new WebViewActivityClient());
 		webView.setWebChromeClient(new WebChromeActivityClient());
 		webView.setDownloadListener(new DownloadActivityListener());
-
-		SBrowserData sBrowserData = ((SBrowserApplication) getActivity().getApplication())
-				.getsBrowserData();
-		webView.loadUrl(sBrowserData.getetxtHome());
 	}
 
 	@SuppressLint("SetJavaScriptEnabled")
 	@Override
 	public void onResume() {
+		Log.v(TAG, "onResume");
 		super.onResume();
 
 		SBrowserData sBrowserData = ((SBrowserApplication) getActivity().getApplication())
@@ -131,15 +135,29 @@ public class WebViewFragment extends Fragment {
 		Log.d(TAG, "User Agent: " + webView.getSettings().getUserAgentString());
 
 		if (sBrowserData.isSelected()) {
+			Log.i(TAG, "onResume loadUrl:" + sBrowserData.getSaveState());
 			webView.loadUrl(sBrowserData.getSaveState());
 			sBrowserData.setSelected(false);
+
+		} else {
+			Log.i(TAG, "onResume loadUrl:" + sBrowserData.getetxtHome());
+			webView.loadUrl(sBrowserData.getetxtHome());
 		}
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		SBrowserData sBrowserData = ((SBrowserApplication) getActivity().getApplication())
+				.getsBrowserData();
+		sBrowserData.setSelected(true);
+		sBrowserData.setSaveState(webView.getUrl());
 	}
 
 	private class WebViewActivityClient extends WebViewClient {
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
-			Log.d(TAG, url);
+			Log.d(TAG, "shouldOverrideUrlLoading: " + url);
 			Log.d(TAG, "MimeType: " + MimeTypeMap.getFileExtensionFromUrl(url));
 
 			if ((new String("mp4").equalsIgnoreCase(MimeTypeMap.getFileExtensionFromUrl(url)))

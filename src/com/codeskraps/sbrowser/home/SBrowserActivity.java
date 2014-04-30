@@ -43,6 +43,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.ClipboardManager;
+import android.text.InputType;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -68,7 +69,7 @@ import com.codeskraps.sbrowser.misc.SBrowserData;
 
 @SuppressWarnings("deprecation")
 public class SBrowserActivity extends FragmentActivity implements OnClickListener {
-	private static final String TAG = "sBrowser";
+	private static final String TAG = SBrowserActivity.class.getSimpleName();
 
 	private SBrowserData sBrowserData = null;
 	private DataBaseData dataBaseData = null;
@@ -85,7 +86,6 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 		dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
 
 		if (sBrowserData.isChkFullscreen()) {
-
 			getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 					WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		}
@@ -120,24 +120,25 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 		findViewById(R.id.btnMenu).setVisibility(View.GONE);
 		findViewById(R.id.btnSearch).setVisibility(View.VISIBLE);
 
-		String newURL = new String();
-		Uri data = this.getIntent().getData();
-		if (data != null) {
-			newURL = data.toString();
-			Log.d(TAG, "text: " + newURL);
-		}
-
 		FrameLayout fragmentContainer = (FrameLayout) findViewById(R.id.fragment_container);
 		if (fragmentContainer != null) {
+			Log.v(TAG, "bundle:" + savedInstanceState);
 			if (savedInstanceState != null) { return; }
-			wF = new WebViewFragment();
+			wF = WebViewFragment.getInstance();
 			getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, wF)
 					.commit();
 		}
 	}
 
-	public void setWebView(WebView webView) {
+	public void setWebView(WebViewFragment wF, WebView webView) {
+		this.wF = wF;
 		this.webView = webView;
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		outState.putString(TAG, webView.getUrl());
+		super.onSaveInstanceState(outState);
 	}
 
 	@Override
@@ -146,6 +147,13 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 
 			if (webView.canGoBack()) webView.goBack();
 			else {
+				if (webView != null) {
+					webView.clearCache(true);
+					webView.clearHistory();
+				}
+
+				sBrowserData.setSelected(false);
+				sBrowserData.setSaveState(sBrowserData.getetxtHome());
 
 				finish();
 				overridePendingTransition(R.anim.fadein, R.anim.fadeout);
@@ -407,6 +415,8 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 		alertSearch.setTitle(getResources().getString(R.string.alertSearchTitle));
 		alertSearch.setMessage(getResources().getString(R.string.alertSearchSummary));
 		final EditText inputSearch = new EditText(this);
+		inputSearch.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+				| InputType.TYPE_TEXT_VARIATION_URI);
 		alertSearch.setView(inputSearch);
 		alertSearch.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
@@ -421,16 +431,5 @@ public class SBrowserActivity extends FragmentActivity implements OnClickListene
 			}
 		});
 		alertSearch.show();
-	}
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		Log.d(TAG, "OnDestroy");
-
-		if (webView != null) {
-			webView.clearCache(true);
-			webView.clearHistory();
-		}
 	}
 }

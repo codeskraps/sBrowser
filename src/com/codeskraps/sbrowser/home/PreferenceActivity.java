@@ -122,7 +122,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
 
 		} else getPreferenceScreen().findPreference(USER).setSummary(R.string.sign_up);
 
-		getPreferenceScreen().findPreference(USER).setEnabled(true);
+		// getPreferenceScreen().findPreference(USER).setEnabled(true);
 	}
 
 	@Override
