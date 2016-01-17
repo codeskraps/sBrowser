@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:25:1-97:12
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:25:1-96:12
 	xmlns:android
 		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:26:11-69
 	package
@@ -25,139 +25,135 @@ uses-permission#com.android.vending.BILLING
 ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:30:5-66
 	android:name
 		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:30:22-64
-uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:31:5-77
-	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:31:22-75
 application
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:33:5-95:19
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:32:5-94:19
 MERGED from [com.android.support:support-v4:23.1.1] /home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:23.1.1] /home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] /home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:38:9-41
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:37:9-41
 	android:allowBackup
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:35:9-36
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:34:9-36
 	android:icon
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:37:9-45
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:36:9-45
 	android:hardwareAccelerated
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:36:9-43
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:35:9-43
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:34:9-72
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:33:9-72
 activity#com.codeskraps.sbrowser.home.SBrowserActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:39:9-59:20
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:38:9-58:20
 	android:label
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:41:13-45
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:40:13-45
 	android:configChanges
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:42:13-74
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:41:13-74
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:43:13-55
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:42:13-55
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:40:13-73
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:39:13-73
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:44:13-48:29
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:43:13-47:29
 action#android.intent.action.MAIN
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:45:17-68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:44:17-68
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:45:25-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:47:17-76
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:46:17-76
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:47:27-74
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:46:27-74
 intent-filter#android.intent.action.SEND+android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:49:13-58:29
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:48:13-57:29
 action#android.intent.action.SEND
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:49:17-68
+	android:name
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:49:25-66
+action#android.intent.action.VIEW
 ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:50:17-68
 	android:name
 		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:50:25-66
-action#android.intent.action.VIEW
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:51:17-68
-	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:51:25-66
 category#android.intent.category.BROWSABLE
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:53:17-77
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:52:17-77
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:53:27-75
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:52:27-75
 category#android.intent.category.DEFAULT
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:54:17-75
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:53:17-75
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:54:27-73
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:53:27-73
 data
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:56:17-46
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:55:17-46
 	android:scheme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:56:23-44
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:55:23-44
 activity#com.codeskraps.sbrowser.home.TabsActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:60:9-62:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:59:9-61:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:62:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:61:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:61:13-69
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:60:13-69
 activity#com.codeskraps.sbrowser.home.BookmarksActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:63:9-65:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:62:9-64:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:65:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:64:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:64:13-74
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:63:13-74
 activity#com.codeskraps.sbrowser.home.VideoPlayer
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:66:9-70:73
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:65:9-69:73
 	android:screenOrientation
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:68:13-50
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:67:13-50
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:70:13-71
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:69:13-71
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:67:13-68
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:66:13-68
 	android:launchMode
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:69:13-44
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:68:13-44
 activity#com.codeskraps.sbrowser.home.PreferenceActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:71:9-73:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:70:9-72:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:73:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:72:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:72:13-75
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:71:13-75
 activity#com.codeskraps.sbrowser.home.PrefsUserActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:74:9-76:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:73:9-75:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:76:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:75:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:75:13-74
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:74:13-74
 activity#com.codeskraps.sbrowser.home.PurchaseActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:77:9-79:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:76:9-78:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:79:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:78:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:78:13-73
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:77:13-73
 activity#com.codeskraps.sbrowser.loginsignup.DispatchActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:80:9-82:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:79:9-81:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:82:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:81:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:81:13-80
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:80:13-80
 activity#com.codeskraps.sbrowser.loginsignup.LoginActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:83:9-85:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:82:9-84:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:85:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:84:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:84:13-77
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:83:13-77
 activity#com.codeskraps.sbrowser.loginsignup.SignUpActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:86:9-88:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:85:9-87:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:88:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:87:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:87:13-78
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:86:13-78
 activity#com.codeskraps.sbrowser.loginsignup.SignUpOrLogInActivity
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:89:9-91:68
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:88:9-90:68
 	android:theme
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:91:13-66
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:90:13-66
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:90:13-85
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:89:13-85
 service#com.codeskraps.sbrowser.services.ProAccoundVerificationService
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:93:9-97
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:92:9-97
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:93:18-95
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:92:18-95
 service#com.codeskraps.sbrowser.services.SyncService
-ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:94:9-79
+ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:93:9-79
 	android:name
-		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:94:18-77
+		ADDED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml:93:18-77
 uses-sdk
 INJECTED from /home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:support-v4:23.1.1] /home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:20:5-43

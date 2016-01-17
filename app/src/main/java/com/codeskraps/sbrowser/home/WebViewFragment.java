@@ -48,7 +48,6 @@ public class WebViewFragment extends Fragment {
     private String defaultUserAgent = null;
     private String title;
     private String video;
-    private boolean launched = false;
     private AlertDialog.Builder alert;
 
     private boolean webLoading;
@@ -238,46 +237,46 @@ public class WebViewFragment extends Fragment {
         @Override
         protected Boolean doInBackground(String... params) {
             try {
+                title = null;
                 Document doc = Jsoup.connect(params[0]).get();
-                Elements metalinks = doc.select("meta[property=og:type]");
+                Elements metalinks = doc.select("meta[property=og:title]");
                 if (!metalinks.isEmpty()) {
-                    String content = metalinks.first().attr("content");
-                    if ("video.movie".equals(content)) {
-                        metalinks = doc.select("meta[property=og:title]");
-                        if (!metalinks.isEmpty()) {
-                            title = metalinks.first().attr("content");
-                        }
+                    title = metalinks.first().attr("content");
+                }
+                if (title == null) {
+                    metalinks = doc.select("meta[name=description]");
+                    if (!metalinks.isEmpty()) {
+                        title = metalinks.first().attr("content");
+                    }
+                }
+                if (title == null) title = "Unknown";
 
-                        metalinks = doc.select("div[id=player]");
-                        if (!metalinks.isEmpty()) {
-                            Elements elements = metalinks.select("script");
-                            if (!elements.isEmpty()) {
-                                Iterator<Element> iter = elements.iterator();
-                                while (iter.hasNext()) {
-                                    String html = iter.next().html();
-                                    L.w(TAG, html);
-                                    if (html.contains("HTML5Player")) {
-                                        html = html.substring(html.indexOf("HTML5Player"));
-                                        Matcher m = Pattern.compile("\\((.*?)\\)").matcher(html);
-                                        while (m.find()) {
-                                            L.v(TAG, "m:" + m.group(1));
-                                            String[] attr = m.group(1).split(",");
-                                            L.v(TAG, "attr:" + attr[3]);
-                                            int index1 = attr[3].indexOf("\'") + 1;
-                                            int index2 = attr[3].indexOf("\'", index1);
-                                            String newVideo = attr[3].substring(index1, index2);
-                                            L.v(TAG, "video:" + newVideo);
-                                            if (!newVideo.equals(video)) {
-                                                launched = false;
-                                                video = newVideo;
-                                            }
-                                            return true;
-                                        }
+                metalinks = doc.select("div[id=player]");
+                if (!metalinks.isEmpty()) {
+                    Elements elements = metalinks.select("script");
+                    if (!elements.isEmpty()) {
+                        Iterator<Element> iter = elements.iterator();
+                        while (iter.hasNext()) {
+                            String html = iter.next().html();
+                            L.w(TAG, html);
+                            if (html.contains("HTML5Player")) {
+                                html = html.substring(html.indexOf("HTML5Player"));
+                                Matcher m = Pattern.compile("\\((.*?)\\)").matcher(html);
+                                while (m.find()) {
+                                    L.v(TAG, "m:" + m.group(1));
+                                    String[] attr = m.group(1).split(",");
+                                    L.v(TAG, "attr:" + attr[3]);
+                                    int index1 = attr[3].indexOf("\'") + 1;
+                                    int index2 = attr[3].indexOf("\'", index1);
+                                    String newVideo = attr[3].substring(index1, index2);
+                                    L.v(TAG, "video:" + newVideo);
+                                    if (!newVideo.equals(video)) {
+                                        video = newVideo;
                                     }
+                                    return true;
                                 }
                             }
                         }
-                        return false;
                     }
                 }
 
@@ -291,7 +290,7 @@ public class WebViewFragment extends Fragment {
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
             if (getActivity() == null) return;
-            if (aBoolean && !launched && alert == null) {
+            if (aBoolean && alert == null) {
                 alert = new AlertDialog.Builder(getActivity());
                 alert.setCancelable(false);
                 alert.setTitle(getResources().getString(R.string.alertVideoFound_title));
@@ -303,7 +302,6 @@ public class WebViewFragment extends Fragment {
                         intent.setData(Uri.parse(video));
                         intent.putExtra("type", 0);
                         startActivity(intent);
-                        launched = true;
                         dialog.dismiss();
                         alert = null;
                     }
@@ -352,7 +350,6 @@ public class WebViewFragment extends Fragment {
     }
 
     public void reload() {
-        launched = false;
         webView.reload();
     }
 }

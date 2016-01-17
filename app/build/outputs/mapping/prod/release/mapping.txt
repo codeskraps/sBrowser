@@ -9955,64 +9955,61 @@ com.codeskraps.sbrowser.home.WebViewFragment -> is:
     java.lang.String defaultUserAgent -> ad
     java.lang.String title -> ae
     java.lang.String video -> af
-    boolean launched -> ag
-    android.app.AlertDialog$Builder alert -> ah
-    boolean webLoading -> ai
-    43:343:void <init>() -> <init>
-    57:58:com.codeskraps.sbrowser.home.WebViewFragment getInstance() -> I
-    63:64:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
-    70:104:void onViewCreated(android.view.View,android.os.Bundle) -> a
-    109:163:void onResume() -> j
-    167:172:void onPause() -> k
-    351:351:boolean isReloading() -> J
-    355:357:void reload() -> K
+    android.app.AlertDialog$Builder alert -> ag
+    boolean webLoading -> ah
+    43:342:void <init>() -> <init>
+    56:57:com.codeskraps.sbrowser.home.WebViewFragment getInstance() -> I
+    62:63:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    69:103:void onViewCreated(android.view.View,android.os.Bundle) -> a
+    108:162:void onResume() -> j
+    166:171:void onPause() -> k
+    350:350:boolean isReloading() -> J
+    354:355:void reload() -> K
     43:43:java.lang.String access$300() -> L
     43:43:java.lang.String access$502(com.codeskraps.sbrowser.home.WebViewFragment,java.lang.String) -> a
-    43:43:java.lang.String access$600(com.codeskraps.sbrowser.home.WebViewFragment) -> a
-    43:43:boolean access$702(com.codeskraps.sbrowser.home.WebViewFragment,boolean) -> a
+    43:43:java.lang.String access$500(com.codeskraps.sbrowser.home.WebViewFragment) -> a
+    43:43:java.lang.String access$600(com.codeskraps.sbrowser.home.WebViewFragment) -> b
     43:43:java.lang.String access$602(com.codeskraps.sbrowser.home.WebViewFragment,java.lang.String) -> b
-    43:43:boolean access$700(com.codeskraps.sbrowser.home.WebViewFragment) -> b
-    43:43:android.app.AlertDialog$Builder access$800(com.codeskraps.sbrowser.home.WebViewFragment) -> c
-    43:43:android.app.AlertDialog$Builder access$802(com.codeskraps.sbrowser.home.WebViewFragment,android.app.AlertDialog$Builder) -> a
-    43:43:java.lang.String access$500(com.codeskraps.sbrowser.home.WebViewFragment) -> d
-    43:43:boolean access$900(com.codeskraps.sbrowser.home.WebViewFragment) -> e
-    43:43:boolean access$902(com.codeskraps.sbrowser.home.WebViewFragment,boolean) -> b
-    43:43:android.widget.ProgressBar access$1000(com.codeskraps.sbrowser.home.WebViewFragment) -> f
+    43:43:android.app.AlertDialog$Builder access$700(com.codeskraps.sbrowser.home.WebViewFragment) -> c
+    43:43:android.app.AlertDialog$Builder access$702(com.codeskraps.sbrowser.home.WebViewFragment,android.app.AlertDialog$Builder) -> a
+    43:43:boolean access$800(com.codeskraps.sbrowser.home.WebViewFragment) -> d
+    43:43:boolean access$802(com.codeskraps.sbrowser.home.WebViewFragment,boolean) -> a
+    43:43:android.widget.ProgressBar access$900(com.codeskraps.sbrowser.home.WebViewFragment) -> e
     44:44:void <clinit>() -> <clinit>
 com.codeskraps.sbrowser.home.WebViewFragment$1 -> is$1:
 com.codeskraps.sbrowser.home.WebViewFragment$DownloadActivityListener -> is$a:
     com.codeskraps.sbrowser.home.WebViewFragment this$0 -> a
-    343:343:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
-    346:347:void onDownloadStart(java.lang.String,java.lang.String,java.lang.String,java.lang.String,long) -> onDownloadStart
-    343:343:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
+    342:342:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
+    345:346:void onDownloadStart(java.lang.String,java.lang.String,java.lang.String,java.lang.String,long) -> onDownloadStart
+    342:342:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
 com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo -> is$b:
     com.codeskraps.sbrowser.home.WebViewFragment this$0 -> a
-    236:236:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
-    241:287:java.lang.Boolean doInBackground(java.lang.String[]) -> a
-    292:320:void onPostExecute(java.lang.Boolean) -> a
-    236:236:void onPostExecute(java.lang.Object) -> onPostExecute
-    236:236:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    236:236:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
+    235:235:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
+    240:287:java.lang.Boolean doInBackground(java.lang.String[]) -> a
+    292:319:void onPostExecute(java.lang.Boolean) -> a
+    235:235:void onPostExecute(java.lang.Object) -> onPostExecute
+    235:235:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    235:235:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
 com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo$1 -> is$b$1:
     com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo this$1 -> a
     299:299:void <init>(com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo) -> <init>
-    301:309:void onClick(android.content.DialogInterface,int) -> onClick
+    301:308:void onClick(android.content.DialogInterface,int) -> onClick
 com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo$2 -> is$b$2:
     com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo this$1 -> a
-    312:312:void <init>(com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo) -> <init>
-    314:316:void onClick(android.content.DialogInterface,int) -> onClick
+    311:311:void <init>(com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo) -> <init>
+    313:315:void onClick(android.content.DialogInterface,int) -> onClick
 com.codeskraps.sbrowser.home.WebViewFragment$WebChromeActivityClient -> is$c:
     com.codeskraps.sbrowser.home.WebViewFragment this$0 -> a
-    323:323:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
-    326:340:void onProgressChanged(android.webkit.WebView,int) -> onProgressChanged
-    323:323:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
+    322:322:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
+    325:339:void onProgressChanged(android.webkit.WebView,int) -> onProgressChanged
+    322:322:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
 com.codeskraps.sbrowser.home.WebViewFragment$WebViewActivityClient -> is$d:
     com.codeskraps.sbrowser.home.WebViewFragment this$0 -> a
-    174:174:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
-    177:219:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
-    224:226:void onReceivedSslError(android.webkit.WebView,android.webkit.SslErrorHandler,android.net.http.SslError) -> onReceivedSslError
-    230:233:void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
-    174:174:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
+    173:173:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
+    176:218:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
+    223:225:void onReceivedSslError(android.webkit.WebView,android.webkit.SslErrorHandler,android.net.http.SslError) -> onReceivedSslError
+    229:232:void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
+    173:173:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
 com.codeskraps.sbrowser.loginsignup.DispatchActivity -> com.codeskraps.sbrowser.loginsignup.DispatchActivity:
     10:10:void <init>() -> <init>
     14:24:void onCreate(android.os.Bundle) -> onCreate

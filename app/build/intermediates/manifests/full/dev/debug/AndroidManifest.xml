@@ -22,7 +22,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codeskraps.sbrowser.dev"
-    android:versionCode="32"
+    android:versionCode="33"
     android:versionName="2.1_dev_DEBUG" >
 
     <uses-sdk
@@ -32,7 +32,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.android.vending.BILLING" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name="com.codeskraps.sbrowser.home.SBrowserApplication"

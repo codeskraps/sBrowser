@@ -97,7 +97,7 @@
     <string name="pref_home_title">Set home page</string>
     <string name="pref_home_summary">https://encrypted.google.com/</string>
     <string name="categoryInformation">Information</string>
-    <string name="sBrowserTitle">sBrowser v2.2</string>
+    <string name="sBrowserTitle">sBrowser v2.3</string>
     <string name="sBrowserSummary">License GNU GPL v3 &#8211; 2012 &#8211; Codeskraps</string>
     <string name="prefs_flash">Enable plug-ins</string>
     <string name="prefs_setUserAgent">Set user agent</string>
