@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/prefs_user_cat" >
+        <Preference
+            android:key="prefSyncNow"
+            android:summary="@string/prefs_sync_summary"
+            android:title="@string/prefs_sync_title" />
+    </PreferenceCategory>
+    <!--
+    <PreferenceCategory android:title="@string/prefs_cat_security" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefchkbookmark"
+            android:summary="@string/prefs_chk_bookmark_summary"
+            android:title="@string/prefs_chk_bookmark_title" />
+
+        <Preference
+            android:key="prefCreateLock"
+            android:title="@string/prefs_lock_create_title" />
+    </PreferenceCategory>
+    -->
+    <PreferenceCategory android:title="@string/prefs_cat_user" >
+        <Preference
+            android:key="prefSignOut"
+            android:title="@string/action_sign_out_short" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

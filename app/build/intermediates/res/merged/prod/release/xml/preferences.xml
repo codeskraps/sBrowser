@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  sBrowser
+  Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
+ 
+  sBrowser is free software: you can
+  redistribute it and/or modify it under the terms
+  of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of
+  the License, or (at your option) any later
+  version.
+   
+  sBrowser is distributed in the hope that it
+  will be useful, but WITHOUT ANY WARRANTY; without
+  even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+   
+  You should have received a copy of the GNU
+  General Public License along with this program.
+  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_cat_display" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="ckbfullscreen"
+            android:summary="@string/Fullscreen_summary"
+            android:title="@string/Fullscreen" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_cat_page_content_settings" >
+        <EditTextPreference
+            android:defaultValue="@string/pref_home_summary"
+            android:key="etxtHome"
+            android:summary="@string/pref_home_summary"
+            android:title="@string/pref_home_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="ckbjavascript"
+            android:title="@string/pref_javascript" />
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/prefs_flash_human_value"
+            android:entryValues="@array/prefs_flash_phone_value"
+            android:key="lstflash"
+            android:title="@string/prefs_flash" />
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/prefs_user_agent_human_value"
+            android:entryValues="@array/prefs_user_agent_phone_value"
+            android:key="lstUserAgent"
+            android:title="@string/prefs_setUserAgent" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prefs_cat_user" >
+        <Preference
+            android:key="prefPurchase"
+            android:summary="@string/prefs_purchase_summary"
+            android:title="@string/prefs_purchase_title" />
+        <Preference
+            android:key="prefUser"
+            android:title="@string/prefs_user_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/categoryInformation" >
+        <Preference
+            android:summary="@string/sBrowserSummary"
+            android:title="@string/sBrowserTitle" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

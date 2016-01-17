@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  sBrowser
+  Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
+ 
+  sBrowser is free software: you can
+  redistribute it and/or modify it under the terms
+  of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of
+  the License, or (at your option) any later
+  version.
+   
+  sBrowser is distributed in the hope that it
+  will be useful, but WITHOUT ANY WARRANTY; without
+  even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+   
+  You should have received a copy of the GNU
+  General Public License along with this program.
+  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- <item -->
+    <!-- android:id="@+id/itemAbout" -->
+    <!-- android:title="@string/menuAbout"/> -->
+
+
+    <!-- <item -->
+    <!-- android:id="@+id/itemTabs" -->
+    <!-- android:icon="@android:drawable/ic_menu_slideshow" -->
+    <!-- android:title="@string/menuTabs"/> -->
+    <item
+        android:id="@+id/itemBookmarks"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="@string/menuBookmarks"/>
+    <item
+        android:id="@+id/itemDownloads"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/menuDownloads"/>
+    <item
+        android:id="@+id/itemPreference"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/menuPreference"/>
+    <item
+        android:id="@+id/itemFeedback"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/menuFeedback"/>
+    <!--
+    <item
+        android:id="@+id/itemBuyMeAPint"
+        android:icon="@drawable/mug_bw"
+        android:title="@string/menuBuyMeAPint"/>
+    -->
+    <item
+        android:id="@+id/itemQuit"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/menuQuit"/>
+
+</menu>

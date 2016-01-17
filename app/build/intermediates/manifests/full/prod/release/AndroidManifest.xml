@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  sBrowser
+  Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
+ 
+  sBrowser is free software: you can
+  redistribute it and/or modify it under the terms
+  of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of
+  the License, or (at your option) any later
+  version.
+   
+  sBrowser is distributed in the hope that it
+  will be useful, but WITHOUT ANY WARRANTY; without
+  even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+   
+  You should have received a copy of the GNU
+  General Public License along with this program.
+  If not, see <http://www.gnu.org/licenses/>.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.codeskraps.sbrowser"
+    android:versionCode="32"
+    android:versionName="2.2" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <application
+        android:name="com.codeskraps.sbrowser.home.SBrowserApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name="com.codeskraps.sbrowser.home.SBrowserActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/MyTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.codeskraps.sbrowser.home.TabsActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.home.BookmarksActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.home.VideoPlayer"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.codeskraps.sbrowser.home.PreferenceActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.home.PrefsUserActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.home.PurchaseActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.loginsignup.DispatchActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.loginsignup.LoginActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.loginsignup.SignUpActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.codeskraps.sbrowser.loginsignup.SignUpOrLogInActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <service android:name="com.codeskraps.sbrowser.services.ProAccoundVerificationService" />
+        <service android:name="com.codeskraps.sbrowser.services.SyncService" />
+    </application>
+
+</manifest>

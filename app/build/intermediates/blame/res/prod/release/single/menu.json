@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/prod/release/menu/contextmenuimage.xml",
+        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/menu/contextmenuimage.xml"
+    },
+    {
+        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/prod/release/menu/main.xml",
+        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/prod/release/menu/contextmenulink.xml",
+        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/menu/contextmenulink.xml"
+    },
+    {
+        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/prod/release/menu/bookmarkcontextmenu.xml",
+        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/menu/bookmarkcontextmenu.xml"
+    }
+]

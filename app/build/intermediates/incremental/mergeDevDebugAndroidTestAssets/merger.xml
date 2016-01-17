@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/androidTest/assets"/></dataSet><dataSet config="dev"><source path="/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/androidTestDev/assets"/></dataSet></merger>

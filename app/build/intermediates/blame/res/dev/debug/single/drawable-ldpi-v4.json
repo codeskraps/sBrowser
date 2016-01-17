@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/dev/debug/drawable-ldpi-v4/ic_launcher.png",
+        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/drawable-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/dev/debug/drawable-ldpi-v4/mug_bw.png",
+        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/drawable-ldpi/mug_bw.png"
+    }
+]
