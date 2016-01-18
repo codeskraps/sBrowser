@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 
 android {
     compileSdkVersion 23
@@ -8,7 +23,7 @@ android {
         applicationId "com.codeskraps.sbrowser"
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 33
+        versionCode 35
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_7
             targetCompatibility JavaVersion.VERSION_1_7
@@ -23,7 +38,7 @@ android {
             return true
         }
         prod {
-            versionName "2.3"
+            versionName "2.4"
             applicationId "com.codeskraps.sbrowser"
             setProperty("archivesBaseName", "sBrowser-v$versionName")
             return true
@@ -50,4 +65,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile files('libs/Parse-1.3.9.jar')
     compile files('libs/jsoup-1.8.3.jar')
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
 }

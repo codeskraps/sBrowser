@@ -22,12 +22,13 @@
   If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<manifest package="com.codeskraps.sbrowser"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="com.codeskraps.sbrowser"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="com.android.vending.BILLING"/>
+    <!--<uses-permission android:name="com.android.vending.BILLING"/>-->
 
     <application
         android:name="com.codeskraps.sbrowser.home.SBrowserApplication"
@@ -35,10 +36,14 @@
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name">
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="5729fbf340e7c28fbede1402318bccca7380193e"/>
+
         <activity
             android:name="com.codeskraps.sbrowser.home.SBrowserActivity"
-            android:label="@string/app_name"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
             android:theme="@style/MyTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -61,15 +66,16 @@
             android:theme="@android:style/Theme.Black.NoTitleBar"/>
         <activity
             android:name="com.codeskraps.sbrowser.home.BookmarksActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+            android:label="@string/menuBookmarks"
+            android:theme="@style/MyTheme.NoActionBar"/>
         <activity
             android:name="com.codeskraps.sbrowser.home.VideoPlayer"
-            android:screenOrientation="landscape"
             android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+            android:screenOrientation="landscape"
+            android:theme="@style/MyTheme.AppCompat.NoActionBar.FullScreen"/>
         <activity
             android:name="com.codeskraps.sbrowser.home.PreferenceActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar"/>
+            android:theme="@style/MyTheme.NoActionBar"/>
         <activity
             android:name="com.codeskraps.sbrowser.home.PrefsUserActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar"/>
@@ -91,6 +97,7 @@
 
         <service android:name="com.codeskraps.sbrowser.services.ProAccoundVerificationService"/>
         <service android:name="com.codeskraps.sbrowser.services.SyncService"/>
+
     </application>
 
 </manifest>

@@ -2998,7 +2998,6 @@ android.support.v7.app.ActionBar:
     public abstract void setDisplayOptions(int,int)
     public abstract void setDisplayUseLogoEnabled(boolean)
     public abstract void setDisplayShowHomeEnabled(boolean)
-    public abstract void setDisplayHomeAsUpEnabled(boolean)
     public abstract void setDisplayShowTitleEnabled(boolean)
     public abstract void setDisplayShowCustomEnabled(boolean)
     public abstract void setBackgroundDrawable(android.graphics.drawable.Drawable)
@@ -3130,7 +3129,6 @@ android.support.v7.app.AlertDialog$Builder:
     870:871:public android.support.v7.app.AlertDialog$Builder setRecycleOnMeasureEnabled(boolean)
     901:903:public android.support.v7.app.AlertDialog show()
 android.support.v7.app.AppCompatActivity:
-    99:100:public void setSupportActionBar(android.support.v7.widget.Toolbar)
     186:186:public boolean supportRequestWindowFeature(int)
     237:237:public android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback)
     245:245:public void setSupportProgressBarVisibility(boolean)
@@ -3143,7 +3141,6 @@ android.support.v7.app.AppCompatDelegate:
     public static final int FEATURE_SUPPORT_ACTION_BAR
     public static final int FEATURE_SUPPORT_ACTION_BAR_OVERLAY
     public static final int FEATURE_ACTION_MODE_OVERLAY
-    public abstract void setSupportActionBar(android.support.v7.widget.Toolbar)
     public abstract android.support.v7.app.ActionBarDrawerToggle$Delegate getDrawerToggleDelegate()
     public abstract boolean hasWindowFeature(int)
     public abstract android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback)
@@ -3159,7 +3156,6 @@ android.support.v7.app.AppCompatDelegateImplBase$ActionBarDrawableToggleImpl
 android.support.v7.app.AppCompatDelegateImplV14:
     41:42:public void setHandleNativeActionModesEnabled(boolean)
 android.support.v7.app.AppCompatDelegateImplV7:
-    191:210:public void setSupportActionBar(android.support.v7.widget.Toolbar)
     556:571:public boolean hasWindowFeature(int)
     1656:1656:android.view.ViewGroup getSubDecor()
 android.support.v7.app.AppCompatDelegateImplV7$PanelFeatureState:
@@ -3189,11 +3185,6 @@ android.support.v7.app.NotificationCompat$MediaStyle
 android.support.v7.app.NotificationCompatImpl21
 android.support.v7.app.NotificationCompatImplBase
 android.support.v7.app.ToolbarActionBar:
-    private boolean mToolbarMenuPrepared
-    private android.support.v7.view.menu.ListMenuPresenter mListMenuPresenter
-    private final android.support.v7.widget.Toolbar$OnMenuItemClickListener mMenuClicker
-    53:78:public ToolbarActionBar(android.support.v7.widget.Toolbar,java.lang.CharSequence,android.view.Window$Callback)
-    81:81:public android.view.Window$Callback getWrappedWindowCallback()
     86:87:public void setCustomView(android.view.View)
     91:95:public void setCustomView(android.view.View,android.support.v7.app.ActionBar$LayoutParams)
     99:101:public void setCustomView(int)
@@ -3218,10 +3209,8 @@ android.support.v7.app.ToolbarActionBar:
     237:238:public void setSubtitle(java.lang.CharSequence)
     242:243:public void setSubtitle(int)
     247:248:public void setDisplayOptions(int)
-    252:254:public void setDisplayOptions(int,int)
     258:259:public void setDisplayUseLogoEnabled(boolean)
     263:264:public void setDisplayShowHomeEnabled(boolean)
-    268:269:public void setDisplayHomeAsUpEnabled(boolean)
     273:274:public void setDisplayShowTitleEnabled(boolean)
     278:279:public void setDisplayShowCustomEnabled(boolean)
     283:284:public void setBackgroundDrawable(android.graphics.drawable.Drawable)
@@ -3250,16 +3239,6 @@ android.support.v7.app.ToolbarActionBar:
     456:459:public boolean onMenuKeyEvent(android.view.KeyEvent)
     478:479:public void addOnMenuVisibilityListener(android.support.v7.app.ActionBar$OnMenuVisibilityListener)
     482:483:public void removeOnMenuVisibilityListener(android.support.v7.app.ActionBar$OnMenuVisibilityListener)
-    498:507:private android.view.View getListMenuView(android.view.Menu)
-    511:541:private void ensureListMenuPresenter(android.view.Menu)
-    46:46:static synthetic boolean access$200(android.support.v7.app.ToolbarActionBar)
-    46:46:static synthetic boolean access$202(android.support.v7.app.ToolbarActionBar,boolean)
-    46:46:static synthetic android.view.View access$400(android.support.v7.app.ToolbarActionBar,android.view.Menu)
-android.support.v7.app.ToolbarActionBar$1:
-    57:57:ToolbarActionBar$1(android.support.v7.app.ToolbarActionBar)
-android.support.v7.app.ToolbarActionBar$2
-android.support.v7.app.ToolbarActionBar$PanelMenuPresenterCallback
-android.support.v7.app.ToolbarActionBar$ToolbarCallbackWrapper
 android.support.v7.app.TwilightCalculator
 android.support.v7.app.TwilightManager
 android.support.v7.app.TwilightManager$1
@@ -3927,7 +3906,6 @@ com.codeskraps.sbrowser.bill_util.SkuDetails:
     51:51:public java.lang.String getTitle()
     52:52:public java.lang.String getDescription()
 com.codeskraps.sbrowser.home.BookmarksActivity:
-    private static final java.lang.String TAG
     private static final int ADD
     private static final int EDIT
 com.codeskraps.sbrowser.home.PreferenceActivity:
@@ -3936,8 +3914,6 @@ com.codeskraps.sbrowser.home.PreferenceActivity:
     private static final java.lang.String LSTFLASH
     private static final java.lang.String ETXTHOME
     private static final java.lang.String USERAGENT
-    private static final java.lang.String PURCHASE
-    private static final java.lang.String USER
 com.codeskraps.sbrowser.home.PrefsUserActivity:
     private static final int REQ_CREATE_PATTERN
     private static final java.lang.String SYNC_NOW
@@ -3981,3 +3957,535 @@ com.codeskraps.sbrowser.misc.SBrowserData:
     116:116:public android.webkit.WebView$HitTestResult getResult()
     120:121:public void setResult(android.webkit.WebView$HitTestResult)
     148:148:public boolean isTabbed()
+io.fabric.sdk.android.BuildConfig
+io.fabric.sdk.android.DefaultLogger:
+    43:43:public int getLogLevel()
+    48:49:public void setLogLevel(int)
+io.fabric.sdk.android.Fabric:
+    public static final java.lang.String TAG
+    static final java.lang.String ROOT_DIR
+    static final boolean DEFAULT_DEBUGGABLE
+    308:315:public static varargs io.fabric.sdk.android.Fabric with(android.content.Context,io.fabric.sdk.android.Kit[])
+    504:504:public android.os.Handler getMainHandler()
+    551:551:public static boolean isInitialized()
+    558:558:public java.lang.String getAppIdentifier()
+    565:565:public java.lang.String getAppInstallIdentifier()
+io.fabric.sdk.android.Fabric$Builder:
+    115:115:public io.fabric.sdk.android.Fabric$Builder executorService(java.util.concurrent.ExecutorService)
+    122:131:public io.fabric.sdk.android.Fabric$Builder threadPoolExecutor(io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor)
+    139:139:public io.fabric.sdk.android.Fabric$Builder handler(android.os.Handler)
+    146:155:public io.fabric.sdk.android.Fabric$Builder logger(io.fabric.sdk.android.Logger)
+    170:179:public io.fabric.sdk.android.Fabric$Builder appIdentifier(java.lang.String)
+    186:195:public io.fabric.sdk.android.Fabric$Builder appInstallIdentifier(java.lang.String)
+    211:220:public io.fabric.sdk.android.Fabric$Builder initializationCallback(io.fabric.sdk.android.InitializationCallback)
+io.fabric.sdk.android.FabricKitsFinder:
+    static final java.lang.String FABRIC_DIR
+    private static final java.lang.String FABRIC_IDENTIFIER_KEY
+    private static final java.lang.String FABRIC_VERSION_KEY
+    private static final java.lang.String FABRIC_BUILD_TYPE_KEY
+io.fabric.sdk.android.InitializationException:
+    30:31:public InitializationException(java.lang.String,java.lang.Throwable)
+io.fabric.sdk.android.InitializationTask:
+    private static final java.lang.String TIMING_METRIC_TAG
+io.fabric.sdk.android.Logger:
+    public abstract int getLogLevel()
+    public abstract void setLogLevel(int)
+    public abstract void v(java.lang.String,java.lang.String,java.lang.Throwable)
+    public abstract void i(java.lang.String,java.lang.String,java.lang.Throwable)
+io.fabric.sdk.android.Onboarding:
+    static final java.lang.String CRASHLYTICS_API_ENDPOINT
+    private static final java.lang.String BINARY_BUILD_TYPE
+io.fabric.sdk.android.SilentLogger
+io.fabric.sdk.android.services.cache.AbstractValueCache:
+    27:28:public AbstractValueCache()
+    52:53:public final synchronized void invalidate(android.content.Context)
+    protected abstract void doInvalidate(android.content.Context)
+io.fabric.sdk.android.services.cache.MemoryValueCache:
+    36:37:protected void doInvalidate(android.content.Context)
+io.fabric.sdk.android.services.cache.ValueCache:
+    public abstract void invalidate(android.content.Context)
+io.fabric.sdk.android.services.common.AdvertisingInfoProvider:
+    private static final java.lang.String ADVERTISING_INFO_PREFERENCES
+    private static final java.lang.String PREFKEY_LIMIT_AD_TRACKING
+    private static final java.lang.String PREFKEY_ADVERTISING_ID
+io.fabric.sdk.android.services.common.AdvertisingInfoReflectionStrategy:
+    private static final int GOOGLE_PLAY_SERVICES_SUCCESS_CODE
+    private static final java.lang.String CLASS_NAME_GOOGLE_PLAY_SERVICES_UTILS
+    private static final java.lang.String METHOD_NAME_IS_GOOGLE_PLAY_SERVICES_AVAILABLE
+    private static final java.lang.String CLASS_NAME_ADVERTISING_ID_CLIENT
+    private static final java.lang.String CLASS_NAME_ADVERTISING_ID_CLIENT_INFO
+    private static final java.lang.String METHOD_NAME_GET_ADVERTISING_ID_INFO
+    private static final java.lang.String METHOD_NAME_GET_ID
+    private static final java.lang.String METHOD_NAME_IS_LIMITED_AD_TRACKING_ENABLED
+io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy:
+    private static final java.lang.String GOOGLE_PLAY_SERVICE_PACKAGE_NAME
+    public static final java.lang.String GOOGLE_PLAY_SERVICES_INTENT
+    public static final java.lang.String GOOGLE_PLAY_SERVICES_INTENT_PACKAGE_NAME
+io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$AdvertisingConnection:
+    private static final int QUEUE_TIMEOUT_IN_MS
+io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$AdvertisingInterface:
+    private static final int FLAGS_NONE
+    private static final int AD_TRANSACTION_CODE_ID
+    private static final int AD_TRANSACTION_CODE_LIMIT_AD_TRACKING
+    public static final java.lang.String ADVERTISING_ID_SERVICE_INTERFACE_TOKEN
+io.fabric.sdk.android.services.common.ApiKey:
+    static final java.lang.String FABRIC_API_KEY
+    static final java.lang.String CRASHLYTICS_API_KEY
+    38:40:public static java.lang.String getApiKey(android.content.Context)
+    48:50:public static java.lang.String getApiKey(android.content.Context,boolean)
+io.fabric.sdk.android.services.common.CommonUtils:
+    private static final java.lang.String LOG_PRIORITY_NAME_ASSERT
+    private static final java.lang.String LOG_PRIORITY_NAME_DEBUG
+    private static final java.lang.String LOG_PRIORITY_NAME_ERROR
+    private static final java.lang.String LOG_PRIORITY_NAME_INFO
+    private static final java.lang.String LOG_PRIORITY_NAME_VERBOSE
+    private static final java.lang.String LOG_PRIORITY_NAME_WARN
+    private static final java.lang.String LOG_PRIORITY_NAME_UNKNOWN
+    public static final java.lang.String MD5_INSTANCE
+    public static final java.lang.String SHA1_INSTANCE
+    public static final java.lang.String GOOGLE_SDK
+    public static final java.lang.String SDK
+    private static final java.lang.String CLS_SHARED_PREFERENCES_NAME
+    static final java.lang.String CLS_TRACE_PREFERENCE_NAME
+    static final boolean CLS_TRACE_DEFAULT
+    static final java.lang.String FABRIC_BUILD_ID
+    static final java.lang.String CRASHLYTICS_BUILD_ID
+    private static final long UNCALCULATED_TOTAL_RAM
+    static final int BYTES_IN_A_GIGABYTE
+    static final int BYTES_IN_A_MEGABYTE
+    static final int BYTES_IN_A_KILOBYTE
+    public static final int DEVICE_STATE_ISSIMULATOR
+    public static final int DEVICE_STATE_JAILBROKEN
+    public static final int DEVICE_STATE_DEBUGGERATTACHED
+    public static final int DEVICE_STATE_BETAOS
+    public static final int DEVICE_STATE_VENDORINTERNAL
+    public static final int DEVICE_STATE_COMPROMISEDLIBRARIES
+    70:153:public CommonUtils()
+    279:279:public static java.lang.String md5(java.lang.String)
+    283:283:public static java.lang.String md5(byte[])
+    291:291:public static java.lang.String sha1(byte[])
+    464:464:public static boolean isLoggingEnabled(android.content.Context)
+    627:627:public static javax.crypto.Cipher createCipher(int,java.lang.String)
+    648:654:public static byte[] dehexify(java.lang.String)
+    746:757:public static boolean stringsEqualIncludingNull(java.lang.String,java.lang.String)
+    875:880:public static void hideKeyboard(android.content.Context,android.view.View)
+    883:888:public static void openKeyboard(android.content.Context,android.view.View)
+    893:896:public static void finishAffinity(android.content.Context,int)
+    908:917:public static void finishAffinity(android.app.Activity,int)
+    944:949:public static void logOrThrowIllegalStateException(java.lang.String,java.lang.String)
+    959:964:public static void logOrThrowIllegalArgumentException(java.lang.String,java.lang.String)
+io.fabric.sdk.android.services.common.DeliveryMechanism:
+    public static final java.lang.String BETA_APP_PACKAGE_NAME
+io.fabric.sdk.android.services.common.ExecutorUtils:
+    private static final long DEFAULT_TERMINATION_TIMEOUT
+    38:39:private ExecutorUtils()
+    50:54:public static io.fabric.sdk.android.services.concurrency.internal.RetryThreadPoolExecutor buildRetryThreadPoolExecutor(java.lang.String,int,io.fabric.sdk.android.services.concurrency.internal.RetryPolicy,io.fabric.sdk.android.services.concurrency.internal.Backoff)
+io.fabric.sdk.android.services.common.IdManager:
+    public static final java.lang.String COLLECT_DEVICE_IDENTIFIERS
+    public static final java.lang.String COLLECT_USER_IDENTIFIERS
+    public static final java.lang.String DEFAULT_VERSION_NAME
+    private static final java.lang.String PREFKEY_INSTALLATION_UUID
+    private static final java.lang.String BAD_ANDROID_ID
+    135:135:public java.lang.String createIdHeaderValue(java.lang.String,java.lang.String)
+    361:361:public java.lang.String getTelephonyId()
+    370:370:public java.lang.String getWifiMacAddress()
+    379:379:public java.lang.String getBluetoothMacAddress()
+    388:388:public java.lang.String getSerialNumber()
+io.fabric.sdk.android.services.common.InstallerPackageNameProvider:
+    private static final java.lang.String NO_INSTALLER_PACKAGE_NAME
+io.fabric.sdk.android.services.common.QueueFile:
+    private static final int INITIAL_LENGTH
+    static final int HEADER_LENGTH
+    122:140:QueueFile(java.io.RandomAccessFile)
+    420:426:public synchronized byte[] peek()
+    431:434:public synchronized void peek(io.fabric.sdk.android.services.common.QueueFile$ElementReader)
+    504:504:public synchronized int size()
+io.fabric.sdk.android.services.common.QueueFile$Element:
+    static final int HEADER_LENGTH
+io.fabric.sdk.android.services.common.ResponseParser:
+    public static final int ResponseActionDiscard
+    public static final int ResponseActionRetry
+    20:20:public ResponseParser()
+io.fabric.sdk.android.services.common.SafeToast
+io.fabric.sdk.android.services.common.SafeToast$1
+io.fabric.sdk.android.services.common.TimingMetric:
+    56:56:public long getDuration()
+io.fabric.sdk.android.services.concurrency.AsyncTask:
+    private static final java.lang.String LOG_TAG
+    private static final int KEEP_ALIVE
+    private static final int MESSAGE_POST_RESULT
+    private static final int MESSAGE_POST_PROGRESS
+    293:294:public static void init()
+    298:299:public static void setDefaultExecutor(java.util.concurrent.Executor)
+    506:506:public final java.lang.Object get()
+    526:526:public final java.lang.Object get(long,java.util.concurrent.TimeUnit)
+    558:558:public final varargs io.fabric.sdk.android.services.concurrency.AsyncTask execute(java.lang.Object[])
+    628:629:public static void execute(java.lang.Runnable)
+    646:650:protected final varargs void publishProgress(java.lang.Object[])
+io.fabric.sdk.android.services.concurrency.DelegateProvider
+io.fabric.sdk.android.services.concurrency.DependencyPriorityBlockingQueue:
+    static final int TAKE
+    static final int PEEK
+    static final int POLL
+    static final int POLL_WITH_TIMEOUT
+io.fabric.sdk.android.services.concurrency.PriorityAsyncTask:
+    96:96:public java.lang.Throwable getError()
+io.fabric.sdk.android.services.concurrency.PriorityFutureTask:
+    90:90:public java.lang.Throwable getError()
+io.fabric.sdk.android.services.concurrency.PriorityRunnable
+io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor:
+    private static final long KEEP_ALIVE
+    72:72:public static io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor create(int)
+io.fabric.sdk.android.services.concurrency.Task:
+    public abstract java.lang.Throwable getError()
+io.fabric.sdk.android.services.concurrency.UnmetDependencyException:
+    34:35:public UnmetDependencyException(java.lang.String,java.lang.Throwable)
+io.fabric.sdk.android.services.concurrency.internal.AbstractFuture
+io.fabric.sdk.android.services.concurrency.internal.AbstractFuture$Sync
+io.fabric.sdk.android.services.concurrency.internal.DefaultRetryPolicy:
+    33:33:public boolean shouldRetry(int,java.lang.Throwable)
+io.fabric.sdk.android.services.concurrency.internal.ExponentialBackoff:
+    private static final int DEFAULT_POWER
+    31:32:public ExponentialBackoff(long)
+io.fabric.sdk.android.services.concurrency.internal.RetryFuture
+io.fabric.sdk.android.services.concurrency.internal.RetryPolicy:
+    public abstract boolean shouldRetry(int,java.lang.Throwable)
+io.fabric.sdk.android.services.concurrency.internal.RetryState:
+    36:36:public int getRetryCount()
+    44:44:public io.fabric.sdk.android.services.concurrency.internal.Backoff getBackoff()
+    48:48:public io.fabric.sdk.android.services.concurrency.internal.RetryPolicy getRetryPolicy()
+io.fabric.sdk.android.services.concurrency.internal.RetryThreadPoolExecutor
+io.fabric.sdk.android.services.events.DisabledEventsStrategy
+io.fabric.sdk.android.services.events.EnabledEventsStrategy
+io.fabric.sdk.android.services.events.EventsHandler
+io.fabric.sdk.android.services.events.EventsHandler$1
+io.fabric.sdk.android.services.events.EventsHandler$2
+io.fabric.sdk.android.services.events.EventsHandler$3
+io.fabric.sdk.android.services.events.EventsHandler$4
+io.fabric.sdk.android.services.events.EventsManager
+io.fabric.sdk.android.services.events.EventsStorage:
+    public abstract java.io.File getWorkingDirectory()
+    public abstract java.io.File getRollOverDirectory()
+io.fabric.sdk.android.services.events.EventsStrategy
+io.fabric.sdk.android.services.events.FileRollOverManager:
+    public abstract void scheduleTimeBasedRollOverIfNeeded()
+io.fabric.sdk.android.services.events.QueueFileEventStorage:
+    125:125:public java.io.File getWorkingDirectory()
+    130:130:public java.io.File getRollOverDirectory()
+io.fabric.sdk.android.services.network.CertificateChainCleaner:
+    34:35:private CertificateChainCleaner()
+io.fabric.sdk.android.services.network.DefaultHttpRequestFactory:
+    private static final java.lang.String HTTPS
+    58:58:public io.fabric.sdk.android.services.network.PinningInfoProvider getPinningInfoProvider()
+io.fabric.sdk.android.services.network.HttpRequest:
+    public static final java.lang.String CHARSET_UTF8
+    public static final java.lang.String CONTENT_TYPE_FORM
+    public static final java.lang.String CONTENT_TYPE_JSON
+    public static final java.lang.String ENCODING_GZIP
+    public static final java.lang.String HEADER_ACCEPT
+    public static final java.lang.String HEADER_ACCEPT_CHARSET
+    public static final java.lang.String HEADER_ACCEPT_ENCODING
+    public static final java.lang.String HEADER_AUTHORIZATION
+    public static final java.lang.String HEADER_CACHE_CONTROL
+    public static final java.lang.String HEADER_CONTENT_ENCODING
+    public static final java.lang.String HEADER_CONTENT_LENGTH
+    public static final java.lang.String HEADER_CONTENT_TYPE
+    public static final java.lang.String HEADER_DATE
+    public static final java.lang.String HEADER_ETAG
+    public static final java.lang.String HEADER_EXPIRES
+    public static final java.lang.String HEADER_IF_NONE_MATCH
+    public static final java.lang.String HEADER_LAST_MODIFIED
+    public static final java.lang.String HEADER_LOCATION
+    public static final java.lang.String HEADER_PROXY_AUTHORIZATION
+    public static final java.lang.String HEADER_REFERER
+    public static final java.lang.String HEADER_SERVER
+    public static final java.lang.String HEADER_USER_AGENT
+    public static final java.lang.String METHOD_DELETE
+    public static final java.lang.String METHOD_GET
+    public static final java.lang.String METHOD_HEAD
+    public static final java.lang.String METHOD_OPTIONS
+    public static final java.lang.String METHOD_POST
+    public static final java.lang.String METHOD_PUT
+    public static final java.lang.String METHOD_TRACE
+    public static final java.lang.String PARAM_CHARSET
+    private static final java.lang.String BOUNDARY
+    private static final java.lang.String CONTENT_TYPE_MULTIPART
+    private static final java.lang.String CRLF
+    private boolean form
+    329:333:public static void setConnectionFactory(io.fabric.sdk.android.services.network.HttpRequest$ConnectionFactory)
+    797:825:public static varargs java.lang.String append(java.lang.CharSequence,java.lang.Object[])
+    847:847:public static io.fabric.sdk.android.services.network.HttpRequest get(java.net.URL)
+    880:881:public static varargs io.fabric.sdk.android.services.network.HttpRequest get(java.lang.CharSequence,boolean,java.lang.Object[])
+    903:903:public static io.fabric.sdk.android.services.network.HttpRequest post(java.net.URL)
+    936:937:public static varargs io.fabric.sdk.android.services.network.HttpRequest post(java.lang.CharSequence,boolean,java.lang.Object[])
+    959:959:public static io.fabric.sdk.android.services.network.HttpRequest put(java.net.URL)
+    975:976:public static io.fabric.sdk.android.services.network.HttpRequest put(java.lang.CharSequence,java.util.Map,boolean)
+    992:993:public static varargs io.fabric.sdk.android.services.network.HttpRequest put(java.lang.CharSequence,boolean,java.lang.Object[])
+    1015:1015:public static io.fabric.sdk.android.services.network.HttpRequest delete(java.net.URL)
+    1031:1032:public static io.fabric.sdk.android.services.network.HttpRequest delete(java.lang.CharSequence,java.util.Map,boolean)
+    1048:1049:public static varargs io.fabric.sdk.android.services.network.HttpRequest delete(java.lang.CharSequence,boolean,java.lang.Object[])
+    1060:1060:public static io.fabric.sdk.android.services.network.HttpRequest head(java.lang.CharSequence)
+    1071:1071:public static io.fabric.sdk.android.services.network.HttpRequest head(java.net.URL)
+    1087:1088:public static io.fabric.sdk.android.services.network.HttpRequest head(java.lang.CharSequence,java.util.Map,boolean)
+    1104:1105:public static varargs io.fabric.sdk.android.services.network.HttpRequest head(java.lang.CharSequence,boolean,java.lang.Object[])
+    1116:1116:public static io.fabric.sdk.android.services.network.HttpRequest options(java.lang.CharSequence)
+    1127:1127:public static io.fabric.sdk.android.services.network.HttpRequest options(java.net.URL)
+    1138:1138:public static io.fabric.sdk.android.services.network.HttpRequest trace(java.lang.CharSequence)
+    1149:1149:public static io.fabric.sdk.android.services.network.HttpRequest trace(java.net.URL)
+    1160:1161:public static void keepAlive(boolean)
+    1171:1173:public static void proxyHost(java.lang.String)
+    1183:1186:public static void proxyPort(int)
+    1198:1207:public static varargs void nonProxyHosts(java.lang.String[])
+    1220:1234:private static java.lang.String setProperty(java.lang.String,java.lang.String)
+    1237:1285:public HttpRequest(java.net.URL,java.lang.String)
+    1330:1331:public io.fabric.sdk.android.services.network.HttpRequest ignoreCloseExceptions(boolean)
+    1340:1340:public boolean ignoreCloseExceptions()
+    1366:1367:public io.fabric.sdk.android.services.network.HttpRequest code(java.util.concurrent.atomic.AtomicInteger)
+    1387:1387:public boolean created()
+    1397:1397:public boolean serverError()
+    1407:1407:public boolean badRequest()
+    1417:1417:public boolean notFound()
+    1427:1427:public boolean notModified()
+    1438:1441:public java.lang.String message()
+    1451:1452:public io.fabric.sdk.android.services.network.HttpRequest disconnect()
+    1462:1463:public io.fabric.sdk.android.services.network.HttpRequest chunk(int)
+    1477:1480:public io.fabric.sdk.android.services.network.HttpRequest bufferSize(int)
+    1491:1491:public int bufferSize()
+    1510:1511:public io.fabric.sdk.android.services.network.HttpRequest uncompress(boolean)
+    1564:1565:public io.fabric.sdk.android.services.network.HttpRequest body(java.util.concurrent.atomic.AtomicReference)
+    1578:1579:public io.fabric.sdk.android.services.network.HttpRequest body(java.util.concurrent.atomic.AtomicReference,java.lang.String)
+    1589:1589:public boolean isBodyEmpty()
+    1599:1605:public byte[] bytes()
+    1664:1666:public java.io.InputStreamReader reader(java.lang.String)
+    1677:1677:public java.io.InputStreamReader reader()
+    1690:1690:public java.io.BufferedReader bufferedReader(java.lang.String)
+    1702:1702:public java.io.BufferedReader bufferedReader()
+    1715:1719:public io.fabric.sdk.android.services.network.HttpRequest receive(java.io.File)
+    1737:1739:public io.fabric.sdk.android.services.network.HttpRequest receive(java.io.OutputStream)
+    1751:1751:public io.fabric.sdk.android.services.network.HttpRequest receive(java.io.PrintStream)
+    1762:1763:public io.fabric.sdk.android.services.network.HttpRequest receive(java.lang.Appendable)
+    1787:1788:public io.fabric.sdk.android.services.network.HttpRequest receive(java.io.Writer)
+    1804:1805:public io.fabric.sdk.android.services.network.HttpRequest readTimeout(int)
+    1839:1839:public io.fabric.sdk.android.services.network.HttpRequest header(java.lang.String,java.lang.Number)
+    1850:1853:public io.fabric.sdk.android.services.network.HttpRequest headers(java.util.Map)
+    1885:1886:public java.util.Map headers()
+    1898:1898:public long dateHeader(java.lang.String)
+    1911:1912:public long dateHeader(java.lang.String,long)
+    1948:1956:public java.lang.String[] headers(java.lang.String)
+    1979:1979:public java.util.Map parameters(java.lang.String)
+    1989:2023:protected java.util.Map getParams(java.lang.String)
+    2083:2083:public io.fabric.sdk.android.services.network.HttpRequest userAgent(java.lang.String)
+    2093:2093:public io.fabric.sdk.android.services.network.HttpRequest referer(java.lang.String)
+    2114:2114:public io.fabric.sdk.android.services.network.HttpRequest acceptEncoding(java.lang.String)
+    2124:2124:public io.fabric.sdk.android.services.network.HttpRequest acceptGzipEncoding()
+    2134:2134:public io.fabric.sdk.android.services.network.HttpRequest acceptCharset(java.lang.String)
+    2152:2152:public java.lang.String server()
+    2161:2161:public long date()
+    2170:2170:public java.lang.String cacheControl()
+    2179:2179:public java.lang.String eTag()
+    2188:2188:public long expires()
+    2197:2197:public long lastModified()
+    2206:2206:public java.lang.String location()
+    2216:2216:public io.fabric.sdk.android.services.network.HttpRequest authorization(java.lang.String)
+    2226:2226:public io.fabric.sdk.android.services.network.HttpRequest proxyAuthorization(java.lang.String)
+    2237:2237:public io.fabric.sdk.android.services.network.HttpRequest basic(java.lang.String,java.lang.String)
+    2248:2248:public io.fabric.sdk.android.services.network.HttpRequest proxyBasic(java.lang.String,java.lang.String)
+    2258:2259:public io.fabric.sdk.android.services.network.HttpRequest ifModifiedSince(long)
+    2269:2269:public io.fabric.sdk.android.services.network.HttpRequest ifNoneMatch(java.lang.String)
+    2303:2303:public java.lang.String contentType()
+    2322:2322:public io.fabric.sdk.android.services.network.HttpRequest contentLength(java.lang.String)
+    2332:2333:public io.fabric.sdk.android.services.network.HttpRequest contentLength(int)
+    2343:2343:public io.fabric.sdk.android.services.network.HttpRequest accept(java.lang.String)
+    2352:2352:public io.fabric.sdk.android.services.network.HttpRequest acceptJson()
+    2386:2386:protected io.fabric.sdk.android.services.network.HttpRequest copy(java.io.Reader,java.io.Writer)
+    2478:2478:protected io.fabric.sdk.android.services.network.HttpRequest writePartHeader(java.lang.String,java.lang.String)
+    2585:2585:public io.fabric.sdk.android.services.network.HttpRequest part(java.lang.String,java.io.File)
+    2598:2598:public io.fabric.sdk.android.services.network.HttpRequest part(java.lang.String,java.lang.String,java.io.File)
+    2638:2638:public io.fabric.sdk.android.services.network.HttpRequest part(java.lang.String,java.io.InputStream)
+    2685:2689:public io.fabric.sdk.android.services.network.HttpRequest send(java.io.File)
+    2700:2700:public io.fabric.sdk.android.services.network.HttpRequest send(byte[])
+    2714:2719:public io.fabric.sdk.android.services.network.HttpRequest send(java.io.InputStream)
+    2733:2738:public io.fabric.sdk.android.services.network.HttpRequest send(java.io.Reader)
+    2775:2778:public java.io.OutputStreamWriter writer()
+    2793:2793:public io.fabric.sdk.android.services.network.HttpRequest form(java.util.Map)
+    2807:2807:public io.fabric.sdk.android.services.network.HttpRequest form(java.util.Map$Entry)
+    2822:2822:public io.fabric.sdk.android.services.network.HttpRequest form(java.util.Map$Entry,java.lang.String)
+    2837:2837:public io.fabric.sdk.android.services.network.HttpRequest form(java.lang.Object,java.lang.Object)
+    2853:2870:public io.fabric.sdk.android.services.network.HttpRequest form(java.lang.Object,java.lang.Object,java.lang.String)
+    2882:2885:public io.fabric.sdk.android.services.network.HttpRequest form(java.util.Map,java.lang.String)
+    2896:2896:public io.fabric.sdk.android.services.network.HttpRequest trustAllCerts()
+    2906:2906:public io.fabric.sdk.android.services.network.HttpRequest trustAllHosts()
+    2936:2942:public io.fabric.sdk.android.services.network.HttpRequest useProxy(java.lang.String,int)
+    2952:2953:public io.fabric.sdk.android.services.network.HttpRequest followRedirects(boolean)
+io.fabric.sdk.android.services.network.HttpRequest$1
+io.fabric.sdk.android.services.network.HttpRequest$2
+io.fabric.sdk.android.services.network.HttpRequest$3
+io.fabric.sdk.android.services.network.HttpRequest$4
+io.fabric.sdk.android.services.network.HttpRequest$5
+io.fabric.sdk.android.services.network.HttpRequest$7
+io.fabric.sdk.android.services.network.HttpRequest$8
+io.fabric.sdk.android.services.network.HttpRequest$Base64
+io.fabric.sdk.android.services.network.HttpRequest$FlushOperation
+io.fabric.sdk.android.services.network.HttpRequest$RequestOutputStream:
+    671:671:static synthetic java.nio.charset.CharsetEncoder access$200(io.fabric.sdk.android.services.network.HttpRequest$RequestOutputStream)
+io.fabric.sdk.android.services.network.HttpRequestFactory:
+    public abstract io.fabric.sdk.android.services.network.PinningInfoProvider getPinningInfoProvider()
+io.fabric.sdk.android.services.network.NetworkUtils:
+    32:33:private NetworkUtils()
+io.fabric.sdk.android.services.network.PinningInfoProvider:
+    public static final long PIN_CREATION_TIME_UNDEFINED
+io.fabric.sdk.android.services.network.PinningTrustManager:
+    private static final long PIN_FRESHNESS_DURATION_MILLIS
+io.fabric.sdk.android.services.network.UrlUtils
+io.fabric.sdk.android.services.persistence.FileStore:
+    public abstract java.io.File getCacheDir()
+    public abstract java.io.File getExternalCacheDir()
+    public abstract java.io.File getExternalFilesDir()
+io.fabric.sdk.android.services.persistence.FileStoreImpl:
+    54:54:public java.io.File getCacheDir()
+    64:73:public java.io.File getExternalCacheDir()
+    93:102:public java.io.File getExternalFilesDir()
+    119:128:boolean isExternalStorageAvailable()
+io.fabric.sdk.android.services.persistence.PersistenceStrategy
+io.fabric.sdk.android.services.persistence.PreferenceStoreStrategy
+io.fabric.sdk.android.services.persistence.SerializationStrategy
+io.fabric.sdk.android.services.settings.AbstractAppSpiCall:
+    public static final java.lang.String APP_IDENTIFIER_PARAM
+    public static final java.lang.String APP_NAME_PARAM
+    public static final java.lang.String APP_INSTANCE_IDENTIFIER_PARAM
+    public static final java.lang.String APP_DISPLAY_VERSION_PARAM
+    public static final java.lang.String APP_BUILD_VERSION_PARAM
+    public static final java.lang.String APP_SOURCE_PARAM
+    public static final java.lang.String APP_MIN_SDK_VERSION_PARAM
+    public static final java.lang.String APP_BUILT_SDK_VERSION_PARAM
+    public static final java.lang.String APP_ICON_HASH_PARAM
+    public static final java.lang.String APP_ICON_DATA_PARAM
+    public static final java.lang.String APP_ICON_WIDTH_PARAM
+    public static final java.lang.String APP_ICON_HEIGHT_PARAM
+    public static final java.lang.String APP_ICON_PRERENDERED_PARAM
+    public static final java.lang.String APP_SDK_MODULES_PARAM_PREFIX
+    public static final java.lang.String APP_SDK_MODULES_PARAM_VERSION
+    public static final java.lang.String APP_SDK_MODULES_PARAM_BUILD_TYPE
+    static final java.lang.String ICON_FILE_NAME
+    static final java.lang.String ICON_CONTENT_TYPE
+io.fabric.sdk.android.services.settings.AnalyticsSettingsData:
+    public static final int DEFAULT_SAMPLING_RATE
+    60:65:public AnalyticsSettingsData(java.lang.String,int,int,int,int,boolean,int)
+    75:80:public AnalyticsSettingsData(java.lang.String,int,int,int,int,boolean)
+io.fabric.sdk.android.services.settings.AppSettingsData:
+    public static final java.lang.String STATUS_NEW
+    public static final java.lang.String STATUS_CONFIGURED
+    public static final java.lang.String STATUS_ACTIVATED
+io.fabric.sdk.android.services.settings.AppSpiCall
+io.fabric.sdk.android.services.settings.DefaultSettingsController:
+    private static final java.lang.String LOAD_ERROR_MESSAGE
+    private static final java.lang.String PREFS_BUILD_INSTANCE_IDENTIFIER
+io.fabric.sdk.android.services.settings.DefaultSettingsJsonTransform:
+    62:62:public org.json.JSONObject toJson(io.fabric.sdk.android.services.settings.SettingsData)
+    236:247:private org.json.JSONObject toAppJson(io.fabric.sdk.android.services.settings.AppSettingsData)
+    251:251:private org.json.JSONObject toIconJson(io.fabric.sdk.android.services.settings.AppIconSettingsData)
+    257:257:private org.json.JSONObject toFeaturesJson(io.fabric.sdk.android.services.settings.FeaturesSettingsData)
+    266:266:private org.json.JSONObject toSessionJson(io.fabric.sdk.android.services.settings.SessionSettingsData)
+    281:281:private org.json.JSONObject toAnalyticsJson(io.fabric.sdk.android.services.settings.AnalyticsSettingsData)
+    294:294:private org.json.JSONObject toBetaJson(io.fabric.sdk.android.services.settings.BetaSettingsData)
+    301:301:private org.json.JSONObject toPromptJson(io.fabric.sdk.android.services.settings.PromptSettingsData)
+io.fabric.sdk.android.services.settings.DefaultSettingsSpiCall:
+    static final java.lang.String BUILD_VERSION_PARAM
+    static final java.lang.String DISPLAY_VERSION_PARAM
+    static final java.lang.String INSTANCE_PARAM
+    static final java.lang.String SOURCE_PARAM
+    static final java.lang.String ICON_HASH
+    static final java.lang.String HEADER_DEVICE_MODEL
+    static final java.lang.String HEADER_OS_BUILD_VERSION
+    static final java.lang.String HEADER_OS_DISPLAY_VERSION
+    static final java.lang.String HEADER_ADVERTISING_TOKEN
+    static final java.lang.String HEADER_INSTALLATION_ID
+    static final java.lang.String HEADER_ANDROID_ID
+io.fabric.sdk.android.services.settings.Settings:
+    public static final java.lang.String SETTINGS_CACHE_FILENAME
+    private static final java.lang.String SETTINGS_URL_FORMAT
+    116:117:public void clearSettings()
+    125:126:public void setSettingsController(io.fabric.sdk.android.services.settings.SettingsController)
+io.fabric.sdk.android.services.settings.Settings$LazyHolder:
+    46:46:Settings$LazyHolder()
+io.fabric.sdk.android.services.settings.SettingsJsonConstants:
+    public static final java.lang.String EXPIRES_AT_KEY
+    public static final java.lang.String APP_KEY
+    public static final java.lang.String ANALYTICS_KEY
+    public static final java.lang.String BETA_KEY
+    public static final java.lang.String SESSION_KEY
+    public static final java.lang.String PROMPT_KEY
+    public static final java.lang.String SETTINGS_VERSION
+    public static final java.lang.String FEATURES_KEY
+    public static final java.lang.String CACHE_DURATION_KEY
+    public static final int SETTINGS_VERSION_DEFAULT
+    public static final java.lang.String ANALYTICS_URL_KEY
+    public static final java.lang.String ANALYTICS_FLUSH_INTERVAL_SECS_KEY
+    public static final java.lang.String ANALYTICS_MAX_BYTE_SIZE_PER_FILE_KEY
+    public static final java.lang.String ANALYTICS_MAX_FILE_COUNT_PER_SEND_KEY
+    public static final java.lang.String ANALYTICS_MAX_PENDING_SEND_FILE_COUNT_KEY
+    public static final java.lang.String ANALYTICS_TRACK_CUSTOM_EVENTS_KEY
+    public static final java.lang.String ANALYTICS_TRACK_PREDEFINED_EVENTS_KEY
+    public static final java.lang.String ANALYTICS_SAMPLING_RATE_KEY
+    public static final java.lang.String ANALYTICS_FLUSH_ON_BACKGROUND_KEY
+    public static final java.lang.String ANALYTICS_URL_DEFAULT
+    public static final int ANALYTICS_FLUSH_INTERVAL_SECS_DEFAULT
+    public static final int ANALYTICS_MAX_BYTE_SIZE_PER_FILE_DEFAULT
+    public static final int ANALYTICS_MAX_FILE_COUNT_PER_SEND_DEFAULT
+    public static final int ANALYTICS_MAX_PENDING_SEND_FILE_COUNT_DEFAULT
+    public static final boolean ANALYTICS_TRACK_CUSTOM_EVENTS_DEFAULT
+    public static final boolean ANALYTICS_TRACK_PREDEFINED_EVENTS_DEFAULT
+    public static final boolean ANALYTICS_FLUSH_ON_BACKGROUND_DEFAULT
+    public static final int ANALYTICS_SAMPLING_RATE_DEFAULT
+    public static final java.lang.String BETA_UPDATE_ENDPOINT
+    public static final java.lang.String BETA_UPDATE_SUSPEND_DURATION
+    public static final int BETA_UPDATE_SUSPEND_DURATION_DEFAULT
+    public static final java.lang.String FEATURES_PROMPT_ENABLED_KEY
+    public static final java.lang.String FEATURES_COLLECT_REPORTS_KEY
+    public static final java.lang.String FEATURES_COLLECT_LOGGED_EXCEPTIONS_KEY
+    public static final java.lang.String FEATURES_COLLECT_ANALYTICS_KEY
+    public static final boolean FEATURES_PROMPT_ENABLED_DEFAULT
+    public static final boolean FEATURES_COLLECT_REPORTS_DEFAULT
+    public static final boolean FEATURES_COLLECT_LOGGED_EXCEPTIONS_DEFAULT
+    public static final boolean FEATURES_COLLECT_ANALYTICS_DEFAULT
+    public static final java.lang.String APP_IDENTIFIER_KEY
+    public static final java.lang.String APP_STATUS_KEY
+    public static final java.lang.String APP_URL_KEY
+    public static final java.lang.String APP_REPORTS_URL_KEY
+    public static final java.lang.String APP_UPDATE_REQUIRED_KEY
+    public static final java.lang.String APP_ICON_KEY
+    public static final boolean APP_UPDATE_REQUIRED_DEFAULT
+    public static final java.lang.String ICON_HASH_KEY
+    public static final java.lang.String ICON_WIDTH_KEY
+    public static final java.lang.String ICON_HEIGHT_KEY
+    public static final java.lang.String ICON_PRERENDERED_KEY
+    public static final java.lang.String SETTINGS_LOG_BUFFER_SIZE_KEY
+    public static final java.lang.String SETTINGS_MAX_CHAINED_EXCEPTION_DEPTH_KEY
+    public static final java.lang.String SETTINGS_MAX_CUSTOM_EXCEPTION_EVENTS_KEY
+    public static final java.lang.String SETTINGS_MAX_CUSTOM_KEY_VALUE_PAIRS_KEY
+    public static final java.lang.String SETTINGS_IDENTIFIER_MASK_KEY
+    public static final java.lang.String SETTINGS_SEND_SESSION_WITHOUT_CRASH_KEY
+    public static final int SETTINGS_CACHE_DURATION_DEFAULT
+    public static final int SETTINGS_LOG_BUFFER_SIZE_DEFAULT
+    public static final int SETTINGS_MAX_CHAINED_EXCEPTION_DEPTH_DEFAULT
+    public static final int SETTINGS_MAX_CUSTOM_EXCEPTION_EVENTS_DEFAULT
+    public static final int SETTINGS_MAX_CUSTOM_KEY_VALUE_PAIRS_DEFAULT
+    public static final int SETTINGS_IDENTIFIER_MASK_DEFAULT
+    public static final boolean SETTINGS_SEND_SESSION_WITHOUT_CRASH_DEFAULT
+    public static final java.lang.String PROMPT_TITLE_KEY
+    public static final java.lang.String PROMPT_MESSAGE_KEY
+    public static final java.lang.String PROMPT_SEND_BUTTON_TITLE_KEY
+    public static final java.lang.String PROMPT_SHOW_CANCEL_BUTTON_KEY
+    public static final java.lang.String PROMPT_CANCEL_BUTTON_TITLE_KEY
+    public static final java.lang.String PROMPT_SHOW_ALWAYS_SEND_BUTTON_KEY
+    public static final java.lang.String PROMPT_ALWAYS_SEND_BUTTON_TITLE_KEY
+    public static final java.lang.String PROMPT_TITLE_DEFAULT
+    public static final java.lang.String PROMPT_MESSAGE_DEFAULT
+    public static final boolean PROMPT_SHOW_CANCEL_BUTTON_DEFAULT
+    public static final boolean PROMPT_SHOW_ALWAYS_SEND_BUTTON_DEFAULT
+    public static final java.lang.String PROMPT_SEND_BUTTON_TITLE_DEFAULT
+    public static final java.lang.String PROMPT_ALWAYS_SEND_BUTTON_TITLE_DEFAULT
+    public static final java.lang.String PROMPT_CANCEL_BUTTON_TITLE_DEFAULT
+    20:20:public SettingsJsonConstants()
+io.fabric.sdk.android.services.settings.SettingsJsonTransform:
+    public abstract org.json.JSONObject toJson(io.fabric.sdk.android.services.settings.SettingsData)

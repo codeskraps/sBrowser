@@ -37,8 +37,11 @@ import com.codeskraps.sbrowser.misc.DataBaseData;
 import com.codeskraps.sbrowser.misc.L;
 import com.codeskraps.sbrowser.misc.SBrowserData;
 import com.codeskraps.sbrowser.services.ProAccoundVerificationService;
+import com.crashlytics.android.Crashlytics;
 import com.parse.Parse;
 import com.parse.ParseObject;
+
+import io.fabric.sdk.android.Fabric;
 
 public class SBrowserApplication extends Application {
     private static final String TAG = SBrowserApplication.class.getSimpleName();
@@ -54,6 +57,11 @@ public class SBrowserApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        final Fabric fabric = new Fabric.Builder(this)
+                .kits(new Crashlytics())
+                .debuggable(true)
+                .build();
+        Fabric.with(fabric);
 
         L.d(TAG, "onCreate started");
 

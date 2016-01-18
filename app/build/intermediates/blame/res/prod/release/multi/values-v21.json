@@ -1696,6 +1696,27 @@
                         "endOffset": 19843
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 238,
+                    "startColumn": 4,
+                    "startOffset": 17496,
+                    "endLine": 243,
+                    "endColumn": 12,
+                    "endOffset": 17764
+                },
+                "from": {
+                    "file": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/values-v21/style.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 774,
+                        "endLine": 31,
+                        "endColumn": 12,
+                        "endOffset": 1042
+                    }
+                }
             }
         ]
     }

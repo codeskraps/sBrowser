@@ -1,20 +1,20 @@
 /**
  * sBrowser
  * Copyright (C) Carles Sentis 2011 <codeskraps@gmail.com>
- *
+ * <p/>
  * sBrowser is free software: you can
  * redistribute it and/or modify it under the terms
  * of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of
  * the License, or (at your option) any later
  * version.
- *  
+ * <p/>
  * sBrowser is distributed in the hope that it
  * will be useful, but WITHOUT ANY WARRANTY; without
  * even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
- *  
+ * <p/>
  * You should have received a copy of the GNU
  * General Public License along with this program.
  * If not, see <http://www.gnu.org/licenses/>.
@@ -31,6 +31,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
@@ -45,176 +46,174 @@ import com.codeskraps.sbrowser.misc.SBrowserData;
 import com.parse.ParseUser;
 
 public class PreferenceActivity extends android.preference.PreferenceActivity implements
-		OnSharedPreferenceChangeListener, OnClickListener, OnPreferenceClickListener {
-	private static final String TAG = PreferenceActivity.class.getSimpleName();
-	private static final String CHKFULLSCREEN = "ckbfullscreen";
-	private static final String CHKJAVASCRIPT = "ckbjavascript";
-	private static final String LSTFLASH = "lstflash";
-	private static final String ETXTHOME = "etxtHome";
-	private static final String USERAGENT = "lstUserAgent";
-	private static final String PURCHASE = "prefPurchase";
-	private static final String USER = "prefUser";
+        OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+    private static final String TAG = PreferenceActivity.class.getSimpleName();
+    private static final String CHKFULLSCREEN = "ckbfullscreen";
+    private static final String CHKJAVASCRIPT = "ckbjavascript";
+    private static final String LSTFLASH = "lstflash";
+    private static final String ETXTHOME = "etxtHome";
+    private static final String USERAGENT = "lstUserAgent";
+    // private static final String PURCHASE = "prefPurchase";
+    // private static final String USER = "prefUser";
 
-	private SBrowserData sBrowserData = null;
-	private SharedPreferences prefs = null;
+    private SBrowserData sBrowserData = null;
+    private SharedPreferences prefs = null;
 
-	private TextView txtIcon = null;
-	private ImageView imgIcon = null;
+    private String[] lstFlashArray;
+    private String[] lstuserAgentArray;
 
-	private String[] lstFlashArray;
-	private String[] lstuserAgentArray;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+        L.d(TAG, "Prefs onCreate");
 
-		L.d(TAG, "Prefs onCreate");
+        sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
+        lstFlashArray = getResources().getStringArray(R.array.prefs_flash_human_value);
+        lstuserAgentArray = getResources().getStringArray(R.array.prefs_user_agent_human_value);
 
-		sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
-		lstFlashArray = getResources().getStringArray(R.array.prefs_flash_human_value);
-		lstuserAgentArray = getResources().getStringArray(R.array.prefs_user_agent_human_value);
+        if (sBrowserData.isChkFullscreen()) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
 
-		if (sBrowserData.isChkFullscreen()) {
-			getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-					WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		}
+        setTitle(R.string.preference_activity);
+        setContentView(R.layout.preference);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getTitle());
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-		setTitle(R.string.preference_activity);
-		setContentView(R.layout.preference);
-		addPreferencesFromResource(R.xml.preferences);
+        addPreferencesFromResource(R.xml.preferences);
 
-		txtIcon = (TextView) findViewById(R.id.txtIcon);
-		imgIcon = (ImageView) findViewById(R.id.imgIcon);
+        EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen()
+                .findPreference(ETXTHOME);
+        ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(LSTFLASH);
+        ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(
+                USERAGENT);
+        // getPreferenceScreen().findPreference(PURCHASE).setOnPreferenceClickListener(this);
+        // getPreferenceScreen().findPreference(USER).setOnPreferenceClickListener(this);
 
-		txtIcon.setOnClickListener(this);
-		imgIcon.setOnClickListener(this);
+        etxtPrefHome.setSummary(sBrowserData.getetxtHome());
+        lstFlash.setSummary(lstFlashArray[sBrowserData.getLstflash()]);
+        lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
 
-		EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen()
-				.findPreference(ETXTHOME);
-		ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(LSTFLASH);
-		ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(
-				USERAGENT);
-		getPreferenceScreen().findPreference(PURCHASE).setOnPreferenceClickListener(this);
-		getPreferenceScreen().findPreference(USER).setOnPreferenceClickListener(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.registerOnSharedPreferenceChangeListener(this);
+    }
 
-		etxtPrefHome.setSummary(sBrowserData.getetxtHome());
-		lstFlash.setSummary(lstFlashArray[sBrowserData.getLstflash()]);
-		lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-		prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		prefs.registerOnSharedPreferenceChangeListener(this);
-	}
+        /*-
+        if (prefs.getBoolean(Cons.hasPro, false)) {
+            getPreferenceScreen().findPreference(PURCHASE).setEnabled(false);
+            getPreferenceScreen().findPreference(USER).setEnabled(true);
+        } else {
+            getPreferenceScreen().findPreference(PURCHASE).setEnabled(true);
+            getPreferenceScreen().findPreference(USER).setEnabled(false);
+        }
+        if (ParseUser.getCurrentUser() != null) {
+            ParseUser user = ParseUser.getCurrentUser();
+            getPreferenceScreen().findPreference(USER).setSummary(user.getUsername());
 
-	@Override
-	protected void onResume() {
-		super.onResume();
+        } else getPreferenceScreen().findPreference(USER).setSummary(R.string.sign_up);
+        */
 
-		if (prefs.getBoolean(Cons.hasPro, false)) {
-			getPreferenceScreen().findPreference(PURCHASE).setEnabled(false);
-			getPreferenceScreen().findPreference(USER).setEnabled(true);
-		} else {
-			getPreferenceScreen().findPreference(PURCHASE).setEnabled(true);
-			getPreferenceScreen().findPreference(USER).setEnabled(false);
-		}
-		if (ParseUser.getCurrentUser() != null) {
-			ParseUser user = ParseUser.getCurrentUser();
-			getPreferenceScreen().findPreference(USER).setSummary(user.getUsername());
+        // getPreferenceScreen().findPreference(USER).setEnabled(true);
+    }
 
-		} else getPreferenceScreen().findPreference(USER).setSummary(R.string.sign_up);
+    @Override
+    protected void onPause() {
+        super.onPause();
 
-		// getPreferenceScreen().findPreference(USER).setEnabled(true);
-	}
+        prefs.unregisterOnSharedPreferenceChangeListener(this);
 
-	@Override
-	protected void onPause() {
-		super.onPause();
+    }
 
-		prefs.unregisterOnSharedPreferenceChangeListener(this);
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
-	}
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+    }
 
-	@Override
-	public void onBackPressed() {
-		super.onBackPressed();
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        L.d(TAG, "Prefs Changed");
 
-		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-	}
+        if (key.equals(CHKFULLSCREEN)) {
+            L.d(TAG, "Prefs fullscreen Changed");
 
-	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-		L.d(TAG, "Prefs Changed");
+            boolean chkFullscreen = prefs.getBoolean(CHKFULLSCREEN, false);
+            sBrowserData.setChkFullscreen(chkFullscreen);
+            sBrowserData.setInvalidate(true);
 
-		if (key.equals(CHKFULLSCREEN)) {
-			L.d(TAG, "Prefs fullscreen Changed");
+            L.d(TAG, key + ": " + sBrowserData.isChkFullscreen());
 
-			boolean chkFullscreen = prefs.getBoolean(CHKFULLSCREEN, false);
-			sBrowserData.setChkFullscreen(chkFullscreen);
-			sBrowserData.setInvalidate(true);
+            PreferenceActivity.this.startActivity(new Intent(PreferenceActivity.this,
+                    PreferenceActivity.class));
+            PreferenceActivity.this.finish();
 
-			L.d(TAG, key + ": " + sBrowserData.isChkFullscreen());
+        } else if (key.equals(CHKJAVASCRIPT)) {
 
-			PreferenceActivity.this.startActivity(new Intent(PreferenceActivity.this,
-					PreferenceActivity.class));
-			PreferenceActivity.this.finish();
+            boolean chkJavascript = prefs.getBoolean(CHKJAVASCRIPT, true);
+            sBrowserData.setChkJavascript(chkJavascript);
+            sBrowserData.setInvalidate(true);
 
-		} else if (key.equals(CHKJAVASCRIPT)) {
+        } else if (key.equals(LSTFLASH)) {
 
-			boolean chkJavascript = prefs.getBoolean(CHKJAVASCRIPT, true);
-			sBrowserData.setChkJavascript(chkJavascript);
-			sBrowserData.setInvalidate(true);
+            String intLstFlash = prefs.getString(LSTFLASH, "0");
+            sBrowserData.setLstflash(Integer.parseInt(intLstFlash));
 
-		} else if (key.equals(LSTFLASH)) {
+            ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(
+                    LSTFLASH);
+            lstFlash.setSummary(lstFlashArray[sBrowserData.getLstflash()]);
 
-			String intLstFlash = prefs.getString(LSTFLASH, "0");
-			sBrowserData.setLstflash(Integer.parseInt(intLstFlash));
+            sBrowserData.setInvalidate(true);
 
-			ListPreference lstFlash = (ListPreference) getPreferenceScreen().findPreference(
-					LSTFLASH);
-			lstFlash.setSummary(lstFlashArray[sBrowserData.getLstflash()]);
+        } else if (key.equals(ETXTHOME)) {
 
-			sBrowserData.setInvalidate(true);
+            String etxtHome = prefs.getString(ETXTHOME,
+                    getResources().getString(R.string.pref_home_summary));
+            if (etxtHome.startsWith("http")) sBrowserData.setetxtHome(etxtHome);
+            else sBrowserData.setetxtHome("http://" + etxtHome);
 
-		} else if (key.equals(ETXTHOME)) {
+            EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen()
+                    .findPreference(ETXTHOME);
+            etxtPrefHome.setSummary(sBrowserData.getetxtHome());
 
-			String etxtHome = prefs.getString(ETXTHOME,
-					getResources().getString(R.string.pref_home_summary));
-			if (etxtHome.startsWith("http")) sBrowserData.setetxtHome(etxtHome);
-			else sBrowserData.setetxtHome("http://" + etxtHome);
+        } else if (key.equals(USERAGENT)) {
 
-			EditTextPreference etxtPrefHome = (EditTextPreference) getPreferenceScreen()
-					.findPreference(ETXTHOME);
-			etxtPrefHome.setSummary(sBrowserData.getetxtHome());
+            String sUserAgent = prefs.getString(USERAGENT, "0");
+            sBrowserData.setUserAgent(Integer.parseInt(sUserAgent));
 
-		} else if (key.equals(USERAGENT)) {
+            ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(
+                    USERAGENT);
+            lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
 
-			String sUserAgent = prefs.getString(USERAGENT, "0");
-			sBrowserData.setUserAgent(Integer.parseInt(sUserAgent));
+            L.d(TAG, "prefs user agent: " + sBrowserData.getUserAgent());
+        }
+    }
 
-			ListPreference lstUserAgent = (ListPreference) getPreferenceScreen().findPreference(
-					USERAGENT);
-			lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
-
-			L.d(TAG, "prefs user agent: " + sBrowserData.getUserAgent());
-		}
-	}
-
-	public void onClick(View arg0) {
-		this.finish();
-		overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-	}
-
-	@Override
-	public boolean onPreferenceClick(Preference preference) {
-		if (preference.getKey().equals(PURCHASE)) {
-			startActivity(new Intent(this, PurchaseActivity.class));
-			return true;
-		} else if (preference.getKey().endsWith(USER)) {
-			if (ParseUser.getCurrentUser() != null) {
-				startActivity(new Intent(this, PrefsUserActivity.class));
-			} else {
-				startActivity(new Intent(this, DispatchActivity.class));
-			}
-			return true;
-		}
-		return false;
-	}
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        /*-
+        if (preference.getKey().equals(PURCHASE)) {
+            startActivity(new Intent(this, PurchaseActivity.class));
+            return true;
+        } else if (preference.getKey().endsWith(USER)) {
+            if (ParseUser.getCurrentUser() != null) {
+                startActivity(new Intent(this, PrefsUserActivity.class));
+            } else {
+                startActivity(new Intent(this, DispatchActivity.class));
+            }
+            return true;
+        }*/
+        return false;
+    }
 }

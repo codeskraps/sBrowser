@@ -236,4 +236,10 @@
     </style>
     <style name="Platform.ThemeOverlay.AppCompat.Dark"/>
     <style name="Platform.ThemeOverlay.AppCompat.Light"/>
+    <style name="Toobar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:background">#000</item>
+    </style>
 </resources>

@@ -22,28 +22,24 @@
 
 package com.codeskraps.sbrowser.home;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -58,41 +54,51 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-public class BookmarksActivity extends Activity implements OnItemClickListener, OnClickListener {
-    private static final String TAG = "sBrowser";
+import java.util.ArrayList;
+import java.util.List;
+
+public class BookmarksActivity extends AppCompatActivity implements OnItemClickListener {
+    private static final String TAG = BookmarksActivity.class.getSimpleName();
     private static final int ADD = 1;
     private static final int EDIT = 2;
 
     private SBrowserData sBrowserData = null;
     private DataBaseData dataBaseData = null;
     private ListBookmarkAdapter listItemAdapter = null;
-    private GridView gridview = null;
-    private TextView txtIcon = null;
-    private ImageView imgIcon = null;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.lst_bookmarks);
 
+        Toolbar toolbar = (Toolbar) findViewById(
+                R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
         dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
 
         listItemAdapter = new ListBookmarkAdapter(this);
 
-        txtIcon = (TextView) findViewById(R.id.txtIcon);
-        imgIcon = (ImageView) findViewById(R.id.imgIcon);
-
-        txtIcon.setOnClickListener(this);
-        imgIcon.setOnClickListener(this);
-
-        gridview = (GridView) findViewById(R.id.gridview);
+        GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(listItemAdapter);
         gridview.setOnItemClickListener(this);
 
         registerForContextMenu(gridview);
 
         new GetBookmarks().execute();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private class GetBookmarks extends AsyncTask<Void, Void, Void> {
@@ -177,6 +183,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
                             dataBaseData.delete(DataBaseData.DB_TABLE_BOOKMARK, b.getId());
                             L.d(TAG, "delete: " + b.getName());
 
+                            /*-
                             new Thread(new Runnable() {
 
                                 @Override
@@ -189,7 +196,7 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
                                         }
                                     }
                                 }
-                            }).start();
+                            }).start();*/
 
                             BookmarksActivity.this.startActivity(new Intent(BookmarksActivity.this,
                                     BookmarksActivity.class));
@@ -322,16 +329,12 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
-    public void onClick(View arg0) {
-        this.finish();
-        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-    }
-
+    /*-
     public List<BookmarkItem> getParseBookmarks() {
         ParseQuery<BookmarkItem> bookmarkQuery = BookmarkItem.getQuery();
         bookmarkQuery.whereContains(Cons.C_USER, ParseUser.getCurrentUser().getUsername());
         bookmarkQuery.orderByAscending(BookmarkItem.ID);
-        List<BookmarkItem> object = new ArrayList<BookmarkItem>();
+        List<BookmarkItem> object = new ArrayList<>();
 
         try {
             object = bookmarkQuery.find();
@@ -341,5 +344,5 @@ public class BookmarksActivity extends Activity implements OnItemClickListener, 
 
         L.d(TAG, ("Got parse records: " + object.size()));
         return object;
-    }
+    }*/
 }

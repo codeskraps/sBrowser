@@ -1,53 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#222222"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/txtIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/txtIcon"
-            android:textColor="#AAAAAA"
-            android:textSize="25dp"
-            android:typeface="normal" />
-        
-        <ImageView
-            android:id="@+id/imgIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/ic_launcher"
-            android:contentDescription="@string/iconImageDescription" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:text="@string/preference_activity"
-            android:textColor="#AAAAAA"
-            android:textSize="25dp"
-            android:typeface="normal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#666666"
-        android:orientation="horizontal" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toobar"
+        app:navigationContentDescription="@string/abc_action_bar_up_description"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="@string/preference_activity"/>
 
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"/>
 
 </LinearLayout>

@@ -48,12 +48,12 @@
         "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
         "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/dev/debug/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",

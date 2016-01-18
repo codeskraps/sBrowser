@@ -16,17 +16,20 @@
             android:layout_height="match_parent"
             android:layout_weight="1"/>
 
+        <!--
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#565656"/>
+         -->
 
         <LinearLayout
             android:id="@+id/horizontalbar_vert"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:background="@drawable/masthead_background"
+            android:background="#2f2f2f"
+            android:elevation="5dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -74,7 +77,8 @@
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/h_masthead_background"
+        android:background="#2f2f2f"
+        android:elevation="5dp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 

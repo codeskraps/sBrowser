@@ -268,16 +268,20 @@ public class WebViewFragment extends Fragment {
                                     L.v(TAG, "attr:" + attr[3]);
                                     int index1 = attr[3].indexOf("\'") + 1;
                                     int index2 = attr[3].indexOf("\'", index1);
-                                    String newVideo = attr[3].substring(index1, index2);
-                                    L.v(TAG, "video:" + newVideo);
-                                    if (!newVideo.equals(video)) {
-                                        video = newVideo;
-                                    }
+                                    video = attr[3].substring(index1, index2);
+                                    L.v(TAG, "video:" + video);
                                     return true;
                                 }
                             }
                         }
                     }
+                }
+
+                metalinks = doc.select("a[id=play]");
+                if (!metalinks.isEmpty()) {
+                    video = metalinks.first().attr("href");
+                    L.v(TAG, "video:" + video);
+                    return true;
                 }
 
             } catch (Exception e) {

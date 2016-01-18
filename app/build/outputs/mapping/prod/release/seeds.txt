@@ -2468,6 +2468,7 @@ com.codeskraps.sbrowser.R$id: int textView3
 com.codeskraps.sbrowser.R$id: int time
 com.codeskraps.sbrowser.R$id: int title
 com.codeskraps.sbrowser.R$id: int title_template
+com.codeskraps.sbrowser.R$id: int toolbar
 com.codeskraps.sbrowser.R$id: int topPanel
 com.codeskraps.sbrowser.R$id: int txtIcon
 com.codeskraps.sbrowser.R$id: int txtPrice
@@ -2576,6 +2577,7 @@ com.codeskraps.sbrowser.R$string: int alertVideoFound_summary
 com.codeskraps.sbrowser.R$string: int alertVideoFound_title
 com.codeskraps.sbrowser.R$string: int app_name
 com.codeskraps.sbrowser.R$string: int categoryInformation
+com.codeskraps.sbrowser.R$string: int com_crashlytics_android_build_id
 com.codeskraps.sbrowser.R$string: int contextMenuCopyLink
 com.codeskraps.sbrowser.R$string: int contextMenuDeleteBoomark
 com.codeskraps.sbrowser.R$string: int contextMenuEditBookmark
@@ -2798,6 +2800,7 @@ com.codeskraps.sbrowser.R$style: int Base_Widget_AppCompat_TextView_SpinnerItem
 com.codeskraps.sbrowser.R$style: int Base_Widget_AppCompat_Toolbar
 com.codeskraps.sbrowser.R$style: int Base_Widget_AppCompat_Toolbar_Button_Navigation
 com.codeskraps.sbrowser.R$style: int LoginFormContainer
+com.codeskraps.sbrowser.R$style: int MyTheme_AppCompat_NoActionBar_FullScreen
 com.codeskraps.sbrowser.R$style: int MyTheme_NoActionBar
 com.codeskraps.sbrowser.R$style: int Platform_AppCompat
 com.codeskraps.sbrowser.R$style: int Platform_AppCompat_Light
@@ -2894,6 +2897,7 @@ com.codeskraps.sbrowser.R$style: int ThemeOverlay_AppCompat_ActionBar
 com.codeskraps.sbrowser.R$style: int ThemeOverlay_AppCompat_Dark
 com.codeskraps.sbrowser.R$style: int ThemeOverlay_AppCompat_Dark_ActionBar
 com.codeskraps.sbrowser.R$style: int ThemeOverlay_AppCompat_Light
+com.codeskraps.sbrowser.R$style: int Toobar
 com.codeskraps.sbrowser.R$style: int Widget_AppCompat_ActionBar
 com.codeskraps.sbrowser.R$style: int Widget_AppCompat_ActionBar_Solid
 com.codeskraps.sbrowser.R$style: int Widget_AppCompat_ActionBar_TabBar
@@ -3288,10 +3292,8 @@ com.codeskraps.sbrowser.R$xml: int user_pref
 com.codeskraps.sbrowser.bill_util.Base64DecoderException: long serialVersionUID
 com.codeskraps.sbrowser.home.BookmarksActivity
 com.codeskraps.sbrowser.home.BookmarksActivity: BookmarksActivity()
-com.codeskraps.sbrowser.home.BookmarksActivity: void onClick(android.view.View)
 com.codeskraps.sbrowser.home.PreferenceActivity
 com.codeskraps.sbrowser.home.PreferenceActivity: PreferenceActivity()
-com.codeskraps.sbrowser.home.PreferenceActivity: void onClick(android.view.View)
 com.codeskraps.sbrowser.home.PrefsUserActivity
 com.codeskraps.sbrowser.home.PrefsUserActivity: PrefsUserActivity()
 com.codeskraps.sbrowser.home.PrefsUserActivity: void onClick(android.view.View)
@@ -3323,6 +3325,1804 @@ com.codeskraps.sbrowser.services.ProAccoundVerificationService
 com.codeskraps.sbrowser.services.ProAccoundVerificationService: ProAccoundVerificationService()
 com.codeskraps.sbrowser.services.SyncService
 com.codeskraps.sbrowser.services.SyncService: SyncService()
+com.crashlytics.android.BuildConfig
+com.crashlytics.android.BuildConfig: boolean DEBUG
+com.crashlytics.android.BuildConfig: java.lang.String APPLICATION_ID
+com.crashlytics.android.BuildConfig: java.lang.String BUILD_TYPE
+com.crashlytics.android.BuildConfig: java.lang.String FLAVOR
+com.crashlytics.android.BuildConfig: int VERSION_CODE
+com.crashlytics.android.BuildConfig: java.lang.String VERSION_NAME
+com.crashlytics.android.BuildConfig: java.lang.String ARTIFACT_ID
+com.crashlytics.android.BuildConfig: java.lang.String BUILD_NUMBER
+com.crashlytics.android.BuildConfig: java.lang.String GROUP
+com.crashlytics.android.BuildConfig: BuildConfig()
+com.crashlytics.android.Crashlytics
+com.crashlytics.android.Crashlytics: java.lang.String TAG
+com.crashlytics.android.Crashlytics: com.crashlytics.android.answers.Answers answers
+com.crashlytics.android.Crashlytics: com.crashlytics.android.beta.Beta beta
+com.crashlytics.android.Crashlytics: com.crashlytics.android.core.CrashlyticsCore core
+com.crashlytics.android.Crashlytics: java.util.Collection kits
+com.crashlytics.android.Crashlytics: Crashlytics()
+com.crashlytics.android.Crashlytics: Crashlytics(com.crashlytics.android.answers.Answers,com.crashlytics.android.beta.Beta,com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.Crashlytics: java.lang.String getVersion()
+com.crashlytics.android.Crashlytics: java.lang.String getIdentifier()
+com.crashlytics.android.Crashlytics: java.util.Collection getKits()
+com.crashlytics.android.Crashlytics: java.lang.Void doInBackground()
+com.crashlytics.android.Crashlytics: com.crashlytics.android.Crashlytics getInstance()
+com.crashlytics.android.Crashlytics: com.crashlytics.android.core.PinningInfoProvider getPinningInfoProvider()
+com.crashlytics.android.Crashlytics: void logException(java.lang.Throwable)
+com.crashlytics.android.Crashlytics: void log(java.lang.String)
+com.crashlytics.android.Crashlytics: void log(int,java.lang.String,java.lang.String)
+com.crashlytics.android.Crashlytics: void setUserIdentifier(java.lang.String)
+com.crashlytics.android.Crashlytics: void setUserName(java.lang.String)
+com.crashlytics.android.Crashlytics: void setUserEmail(java.lang.String)
+com.crashlytics.android.Crashlytics: void setString(java.lang.String,java.lang.String)
+com.crashlytics.android.Crashlytics: void setBool(java.lang.String,boolean)
+com.crashlytics.android.Crashlytics: void setDouble(java.lang.String,double)
+com.crashlytics.android.Crashlytics: void setFloat(java.lang.String,float)
+com.crashlytics.android.Crashlytics: void setInt(java.lang.String,int)
+com.crashlytics.android.Crashlytics: void setLong(java.lang.String,long)
+com.crashlytics.android.Crashlytics: void crash()
+com.crashlytics.android.Crashlytics: boolean verifyPinning(java.net.URL)
+com.crashlytics.android.Crashlytics: void setListener(com.crashlytics.android.core.CrashlyticsListener)
+com.crashlytics.android.Crashlytics: void setDebugMode(boolean)
+com.crashlytics.android.Crashlytics: boolean getDebugMode()
+com.crashlytics.android.Crashlytics: void setPinningInfoProvider(com.crashlytics.android.core.PinningInfoProvider)
+com.crashlytics.android.Crashlytics: void checkInitialized()
+com.crashlytics.android.Crashlytics: java.lang.Object doInBackground()
+com.crashlytics.android.Crashlytics$Builder
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.answers.Answers answers
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.beta.Beta beta
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.core.CrashlyticsCore core
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.core.CrashlyticsCore$Builder coreBuilder
+com.crashlytics.android.Crashlytics$Builder: Crashlytics$Builder()
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.Crashlytics$Builder delay(float)
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.Crashlytics$Builder listener(com.crashlytics.android.core.CrashlyticsListener)
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.Crashlytics$Builder pinningInfo(com.crashlytics.android.core.PinningInfoProvider)
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.Crashlytics$Builder disabled(boolean)
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.Crashlytics$Builder answers(com.crashlytics.android.answers.Answers)
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.Crashlytics$Builder beta(com.crashlytics.android.beta.Beta)
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.Crashlytics$Builder core(com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.Crashlytics build()
+com.crashlytics.android.Crashlytics$Builder: com.crashlytics.android.core.CrashlyticsCore$Builder getCoreBuilder()
+com.crashlytics.android.answers.AddToCartEvent
+com.crashlytics.android.answers.AddToCartEvent: java.lang.String TYPE
+com.crashlytics.android.answers.AddToCartEvent: java.math.BigDecimal MICRO_CONSTANT
+com.crashlytics.android.answers.AddToCartEvent: java.lang.String ITEM_ID_ATTRIBUTE
+com.crashlytics.android.answers.AddToCartEvent: java.lang.String ITEM_NAME_ATTRIBUTE
+com.crashlytics.android.answers.AddToCartEvent: java.lang.String ITEM_TYPE_ATTRIBUTE
+com.crashlytics.android.answers.AddToCartEvent: java.lang.String ITEM_PRICE_ATTRIBUTE
+com.crashlytics.android.answers.AddToCartEvent: java.lang.String CURRENCY_ATTRIBUTE
+com.crashlytics.android.answers.AddToCartEvent: AddToCartEvent()
+com.crashlytics.android.answers.AddToCartEvent: com.crashlytics.android.answers.AddToCartEvent putItemId(java.lang.String)
+com.crashlytics.android.answers.AddToCartEvent: com.crashlytics.android.answers.AddToCartEvent putItemName(java.lang.String)
+com.crashlytics.android.answers.AddToCartEvent: com.crashlytics.android.answers.AddToCartEvent putItemType(java.lang.String)
+com.crashlytics.android.answers.AddToCartEvent: com.crashlytics.android.answers.AddToCartEvent putItemPrice(java.math.BigDecimal)
+com.crashlytics.android.answers.AddToCartEvent: com.crashlytics.android.answers.AddToCartEvent putCurrency(java.util.Currency)
+com.crashlytics.android.answers.AddToCartEvent: long priceToMicros(java.math.BigDecimal)
+com.crashlytics.android.answers.AddToCartEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.AddToCartEvent: void <clinit>()
+com.crashlytics.android.answers.Answers
+com.crashlytics.android.answers.Answers: java.lang.String TAG
+com.crashlytics.android.answers.Answers: java.lang.String CRASHLYTICS_API_ENDPOINT
+com.crashlytics.android.answers.Answers: com.crashlytics.android.answers.SessionAnalyticsManager analyticsManager
+com.crashlytics.android.answers.Answers: Answers()
+com.crashlytics.android.answers.Answers: com.crashlytics.android.answers.Answers getInstance()
+com.crashlytics.android.answers.Answers: void logCustom(com.crashlytics.android.answers.CustomEvent)
+com.crashlytics.android.answers.Answers: void logPurchase(com.crashlytics.android.answers.PurchaseEvent)
+com.crashlytics.android.answers.Answers: void logLogin(com.crashlytics.android.answers.LoginEvent)
+com.crashlytics.android.answers.Answers: void logShare(com.crashlytics.android.answers.ShareEvent)
+com.crashlytics.android.answers.Answers: void logInvite(com.crashlytics.android.answers.InviteEvent)
+com.crashlytics.android.answers.Answers: void logSignUp(com.crashlytics.android.answers.SignUpEvent)
+com.crashlytics.android.answers.Answers: void logLevelStart(com.crashlytics.android.answers.LevelStartEvent)
+com.crashlytics.android.answers.Answers: void logLevelEnd(com.crashlytics.android.answers.LevelEndEvent)
+com.crashlytics.android.answers.Answers: void logAddToCart(com.crashlytics.android.answers.AddToCartEvent)
+com.crashlytics.android.answers.Answers: void logStartCheckout(com.crashlytics.android.answers.StartCheckoutEvent)
+com.crashlytics.android.answers.Answers: void logRating(com.crashlytics.android.answers.RatingEvent)
+com.crashlytics.android.answers.Answers: void logContentView(com.crashlytics.android.answers.ContentViewEvent)
+com.crashlytics.android.answers.Answers: void logSearch(com.crashlytics.android.answers.SearchEvent)
+com.crashlytics.android.answers.Answers: void onException(io.fabric.sdk.android.services.common.Crash$LoggedException)
+com.crashlytics.android.answers.Answers: void onException(io.fabric.sdk.android.services.common.Crash$FatalException)
+com.crashlytics.android.answers.Answers: boolean onPreExecute()
+com.crashlytics.android.answers.Answers: java.lang.Boolean doInBackground()
+com.crashlytics.android.answers.Answers: java.lang.String getIdentifier()
+com.crashlytics.android.answers.Answers: java.lang.String getVersion()
+com.crashlytics.android.answers.Answers: java.lang.String getOverridenSpiEndpoint()
+com.crashlytics.android.answers.Answers: java.lang.Object doInBackground()
+com.crashlytics.android.answers.AnswersAttributes
+com.crashlytics.android.answers.AnswersAttributes: com.crashlytics.android.answers.AnswersEventValidator validator
+com.crashlytics.android.answers.AnswersAttributes: java.util.Map attributes
+com.crashlytics.android.answers.AnswersAttributes: AnswersAttributes(com.crashlytics.android.answers.AnswersEventValidator)
+com.crashlytics.android.answers.AnswersAttributes: void put(java.lang.String,java.lang.String)
+com.crashlytics.android.answers.AnswersAttributes: void put(java.lang.String,java.lang.Number)
+com.crashlytics.android.answers.AnswersAttributes: void putAttribute(java.lang.String,java.lang.Object)
+com.crashlytics.android.answers.AnswersAttributes: java.lang.String toString()
+com.crashlytics.android.answers.AnswersEvent
+com.crashlytics.android.answers.AnswersEvent: int MAX_STRING_LENGTH
+com.crashlytics.android.answers.AnswersEvent: int MAX_NUM_ATTRIBUTES
+com.crashlytics.android.answers.AnswersEvent: com.crashlytics.android.answers.AnswersEventValidator validator
+com.crashlytics.android.answers.AnswersEvent: com.crashlytics.android.answers.AnswersAttributes customAttributes
+com.crashlytics.android.answers.AnswersEvent: AnswersEvent()
+com.crashlytics.android.answers.AnswersEvent: java.util.Map getCustomAttributes()
+com.crashlytics.android.answers.AnswersEvent: com.crashlytics.android.answers.AnswersEvent putCustomAttribute(java.lang.String,java.lang.String)
+com.crashlytics.android.answers.AnswersEvent: com.crashlytics.android.answers.AnswersEvent putCustomAttribute(java.lang.String,java.lang.Number)
+com.crashlytics.android.answers.AnswersEventValidator
+com.crashlytics.android.answers.AnswersEventValidator: int maxNumAttributes
+com.crashlytics.android.answers.AnswersEventValidator: int maxStringLength
+com.crashlytics.android.answers.AnswersEventValidator: boolean failFast
+com.crashlytics.android.answers.AnswersEventValidator: AnswersEventValidator(int,int,boolean)
+com.crashlytics.android.answers.AnswersEventValidator: java.lang.String limitStringLength(java.lang.String)
+com.crashlytics.android.answers.AnswersEventValidator: boolean isNull(java.lang.Object,java.lang.String)
+com.crashlytics.android.answers.AnswersEventValidator: boolean isFullMap(java.util.Map,java.lang.String)
+com.crashlytics.android.answers.AnswersEventValidator: void logOrThrowException(java.lang.RuntimeException)
+com.crashlytics.android.answers.AnswersEventsHandler
+com.crashlytics.android.answers.AnswersEventsHandler: io.fabric.sdk.android.Kit kit
+com.crashlytics.android.answers.AnswersEventsHandler: android.content.Context context
+com.crashlytics.android.answers.AnswersEventsHandler: com.crashlytics.android.answers.AnswersFilesManagerProvider filesManagerProvider
+com.crashlytics.android.answers.AnswersEventsHandler: com.crashlytics.android.answers.SessionMetadataCollector metadataCollector
+com.crashlytics.android.answers.AnswersEventsHandler: io.fabric.sdk.android.services.network.HttpRequestFactory requestFactory
+com.crashlytics.android.answers.AnswersEventsHandler: java.util.concurrent.ScheduledExecutorService executor
+com.crashlytics.android.answers.AnswersEventsHandler: com.crashlytics.android.answers.SessionAnalyticsManagerStrategy strategy
+com.crashlytics.android.answers.AnswersEventsHandler: AnswersEventsHandler(io.fabric.sdk.android.Kit,android.content.Context,com.crashlytics.android.answers.AnswersFilesManagerProvider,com.crashlytics.android.answers.SessionMetadataCollector,io.fabric.sdk.android.services.network.HttpRequestFactory,java.util.concurrent.ScheduledExecutorService)
+com.crashlytics.android.answers.AnswersEventsHandler: void processEventAsync(com.crashlytics.android.answers.SessionEvent$Builder)
+com.crashlytics.android.answers.AnswersEventsHandler: void processEventAsyncAndFlush(com.crashlytics.android.answers.SessionEvent$Builder)
+com.crashlytics.android.answers.AnswersEventsHandler: void processEventSync(com.crashlytics.android.answers.SessionEvent$Builder)
+com.crashlytics.android.answers.AnswersEventsHandler: void setAnalyticsSettingsData(io.fabric.sdk.android.services.settings.AnalyticsSettingsData,java.lang.String)
+com.crashlytics.android.answers.AnswersEventsHandler: void disable()
+com.crashlytics.android.answers.AnswersEventsHandler: void onRollOver(java.lang.String)
+com.crashlytics.android.answers.AnswersEventsHandler: void enable()
+com.crashlytics.android.answers.AnswersEventsHandler: void flushEvents()
+com.crashlytics.android.answers.AnswersEventsHandler: void processEvent(com.crashlytics.android.answers.SessionEvent$Builder,boolean,boolean)
+com.crashlytics.android.answers.AnswersEventsHandler: void executeSync(java.lang.Runnable)
+com.crashlytics.android.answers.AnswersEventsHandler: void executeAsync(java.lang.Runnable)
+com.crashlytics.android.answers.AnswersEventsHandler: com.crashlytics.android.answers.SessionMetadataCollector access$000(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler: com.crashlytics.android.answers.AnswersFilesManagerProvider access$100(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler: io.fabric.sdk.android.Kit access$200(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler: android.content.Context access$300(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler: io.fabric.sdk.android.services.network.HttpRequestFactory access$400(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler$1
+com.crashlytics.android.answers.AnswersEventsHandler$1: io.fabric.sdk.android.services.settings.AnalyticsSettingsData val$analyticsSettingsData
+com.crashlytics.android.answers.AnswersEventsHandler$1: java.lang.String val$protocolAndHostOverride
+com.crashlytics.android.answers.AnswersEventsHandler$1: com.crashlytics.android.answers.AnswersEventsHandler this$0
+com.crashlytics.android.answers.AnswersEventsHandler$1: AnswersEventsHandler$1(com.crashlytics.android.answers.AnswersEventsHandler,io.fabric.sdk.android.services.settings.AnalyticsSettingsData,java.lang.String)
+com.crashlytics.android.answers.AnswersEventsHandler$1: void run()
+com.crashlytics.android.answers.AnswersEventsHandler$2
+com.crashlytics.android.answers.AnswersEventsHandler$2: com.crashlytics.android.answers.AnswersEventsHandler this$0
+com.crashlytics.android.answers.AnswersEventsHandler$2: AnswersEventsHandler$2(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler$2: void run()
+com.crashlytics.android.answers.AnswersEventsHandler$3
+com.crashlytics.android.answers.AnswersEventsHandler$3: com.crashlytics.android.answers.AnswersEventsHandler this$0
+com.crashlytics.android.answers.AnswersEventsHandler$3: AnswersEventsHandler$3(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler$3: void run()
+com.crashlytics.android.answers.AnswersEventsHandler$4
+com.crashlytics.android.answers.AnswersEventsHandler$4: com.crashlytics.android.answers.AnswersEventsHandler this$0
+com.crashlytics.android.answers.AnswersEventsHandler$4: AnswersEventsHandler$4(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler$4: void run()
+com.crashlytics.android.answers.AnswersEventsHandler$5
+com.crashlytics.android.answers.AnswersEventsHandler$5: com.crashlytics.android.answers.AnswersEventsHandler this$0
+com.crashlytics.android.answers.AnswersEventsHandler$5: AnswersEventsHandler$5(com.crashlytics.android.answers.AnswersEventsHandler)
+com.crashlytics.android.answers.AnswersEventsHandler$5: void run()
+com.crashlytics.android.answers.AnswersEventsHandler$6
+com.crashlytics.android.answers.AnswersEventsHandler$6: com.crashlytics.android.answers.SessionEvent$Builder val$eventBuilder
+com.crashlytics.android.answers.AnswersEventsHandler$6: boolean val$flush
+com.crashlytics.android.answers.AnswersEventsHandler$6: com.crashlytics.android.answers.AnswersEventsHandler this$0
+com.crashlytics.android.answers.AnswersEventsHandler$6: AnswersEventsHandler$6(com.crashlytics.android.answers.AnswersEventsHandler,com.crashlytics.android.answers.SessionEvent$Builder,boolean)
+com.crashlytics.android.answers.AnswersEventsHandler$6: void run()
+com.crashlytics.android.answers.AnswersFilesManagerProvider
+com.crashlytics.android.answers.AnswersFilesManagerProvider: java.lang.String SESSION_ANALYTICS_TO_SEND_DIR
+com.crashlytics.android.answers.AnswersFilesManagerProvider: java.lang.String SESSION_ANALYTICS_FILE_NAME
+com.crashlytics.android.answers.AnswersFilesManagerProvider: android.content.Context context
+com.crashlytics.android.answers.AnswersFilesManagerProvider: io.fabric.sdk.android.services.persistence.FileStore fileStore
+com.crashlytics.android.answers.AnswersFilesManagerProvider: AnswersFilesManagerProvider(android.content.Context,io.fabric.sdk.android.services.persistence.FileStore)
+com.crashlytics.android.answers.AnswersFilesManagerProvider: com.crashlytics.android.answers.SessionAnalyticsFilesManager getAnalyticsFilesManager()
+com.crashlytics.android.answers.AnswersLifecycleCallbacks
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: com.crashlytics.android.answers.SessionAnalyticsManager analyticsManager
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: com.crashlytics.android.answers.BackgroundManager backgroundManager
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: AnswersLifecycleCallbacks(com.crashlytics.android.answers.SessionAnalyticsManager,com.crashlytics.android.answers.BackgroundManager)
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: void onActivityCreated(android.app.Activity,android.os.Bundle)
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: void onActivityStarted(android.app.Activity)
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: void onActivityResumed(android.app.Activity)
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: void onActivityPaused(android.app.Activity)
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: void onActivityStopped(android.app.Activity)
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: void onActivitySaveInstanceState(android.app.Activity,android.os.Bundle)
+com.crashlytics.android.answers.AnswersLifecycleCallbacks: void onActivityDestroyed(android.app.Activity)
+com.crashlytics.android.answers.AnswersPreferenceManager
+com.crashlytics.android.answers.AnswersPreferenceManager: java.lang.String PREF_STORE_NAME
+com.crashlytics.android.answers.AnswersPreferenceManager: java.lang.String PREFKEY_ANALYTICS_LAUNCHED
+com.crashlytics.android.answers.AnswersPreferenceManager: io.fabric.sdk.android.services.persistence.PreferenceStore prefStore
+com.crashlytics.android.answers.AnswersPreferenceManager: com.crashlytics.android.answers.AnswersPreferenceManager build(android.content.Context)
+com.crashlytics.android.answers.AnswersPreferenceManager: AnswersPreferenceManager(io.fabric.sdk.android.services.persistence.PreferenceStore)
+com.crashlytics.android.answers.AnswersPreferenceManager: void setAnalyticsLaunched()
+com.crashlytics.android.answers.AnswersPreferenceManager: boolean hasAnalyticsLaunched()
+com.crashlytics.android.answers.AnswersRetryFilesSender
+com.crashlytics.android.answers.AnswersRetryFilesSender: int MAX_RETRIES
+com.crashlytics.android.answers.AnswersRetryFilesSender: int BACKOFF_MS
+com.crashlytics.android.answers.AnswersRetryFilesSender: int BACKOFF_POWER
+com.crashlytics.android.answers.AnswersRetryFilesSender: double JITTER_PERCENT
+com.crashlytics.android.answers.AnswersRetryFilesSender: com.crashlytics.android.answers.SessionAnalyticsFilesSender filesSender
+com.crashlytics.android.answers.AnswersRetryFilesSender: com.crashlytics.android.answers.RetryManager retryManager
+com.crashlytics.android.answers.AnswersRetryFilesSender: com.crashlytics.android.answers.AnswersRetryFilesSender build(com.crashlytics.android.answers.SessionAnalyticsFilesSender)
+com.crashlytics.android.answers.AnswersRetryFilesSender: AnswersRetryFilesSender(com.crashlytics.android.answers.SessionAnalyticsFilesSender,com.crashlytics.android.answers.RetryManager)
+com.crashlytics.android.answers.AnswersRetryFilesSender: boolean send(java.util.List)
+com.crashlytics.android.answers.BackgroundManager
+com.crashlytics.android.answers.BackgroundManager: int BACKGROUND_DELAY
+com.crashlytics.android.answers.BackgroundManager: java.util.concurrent.ScheduledExecutorService executorService
+com.crashlytics.android.answers.BackgroundManager: java.util.List listeners
+com.crashlytics.android.answers.BackgroundManager: boolean flushOnBackground
+com.crashlytics.android.answers.BackgroundManager: java.util.concurrent.atomic.AtomicReference backgroundFutureRef
+com.crashlytics.android.answers.BackgroundManager: boolean inBackground
+com.crashlytics.android.answers.BackgroundManager: BackgroundManager(java.util.concurrent.ScheduledExecutorService)
+com.crashlytics.android.answers.BackgroundManager: void setFlushOnBackground(boolean)
+com.crashlytics.android.answers.BackgroundManager: void notifyBackground()
+com.crashlytics.android.answers.BackgroundManager: void registerListener(com.crashlytics.android.answers.BackgroundManager$Listener)
+com.crashlytics.android.answers.BackgroundManager: void onActivityResumed()
+com.crashlytics.android.answers.BackgroundManager: void onActivityPaused()
+com.crashlytics.android.answers.BackgroundManager: void access$000(com.crashlytics.android.answers.BackgroundManager)
+com.crashlytics.android.answers.BackgroundManager$1
+com.crashlytics.android.answers.BackgroundManager$1: com.crashlytics.android.answers.BackgroundManager this$0
+com.crashlytics.android.answers.BackgroundManager$1: BackgroundManager$1(com.crashlytics.android.answers.BackgroundManager)
+com.crashlytics.android.answers.BackgroundManager$1: void run()
+com.crashlytics.android.answers.BackgroundManager$Listener
+com.crashlytics.android.answers.BackgroundManager$Listener: void onBackground()
+com.crashlytics.android.answers.BuildConfig
+com.crashlytics.android.answers.BuildConfig: boolean DEBUG
+com.crashlytics.android.answers.BuildConfig: java.lang.String APPLICATION_ID
+com.crashlytics.android.answers.BuildConfig: java.lang.String BUILD_TYPE
+com.crashlytics.android.answers.BuildConfig: java.lang.String FLAVOR
+com.crashlytics.android.answers.BuildConfig: int VERSION_CODE
+com.crashlytics.android.answers.BuildConfig: java.lang.String VERSION_NAME
+com.crashlytics.android.answers.BuildConfig: java.lang.String ARTIFACT_ID
+com.crashlytics.android.answers.BuildConfig: java.lang.String BUILD_NUMBER
+com.crashlytics.android.answers.BuildConfig: java.lang.String GROUP
+com.crashlytics.android.answers.BuildConfig: BuildConfig()
+com.crashlytics.android.answers.ContentViewEvent
+com.crashlytics.android.answers.ContentViewEvent: java.lang.String TYPE
+com.crashlytics.android.answers.ContentViewEvent: java.lang.String CONTENT_ID_ATTRIBUTE
+com.crashlytics.android.answers.ContentViewEvent: java.lang.String CONTENT_NAME_ATTRIBUTE
+com.crashlytics.android.answers.ContentViewEvent: java.lang.String CONTENT_TYPE_ATTRIBUTE
+com.crashlytics.android.answers.ContentViewEvent: ContentViewEvent()
+com.crashlytics.android.answers.ContentViewEvent: com.crashlytics.android.answers.ContentViewEvent putContentId(java.lang.String)
+com.crashlytics.android.answers.ContentViewEvent: com.crashlytics.android.answers.ContentViewEvent putContentName(java.lang.String)
+com.crashlytics.android.answers.ContentViewEvent: com.crashlytics.android.answers.ContentViewEvent putContentType(java.lang.String)
+com.crashlytics.android.answers.ContentViewEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.CustomEvent
+com.crashlytics.android.answers.CustomEvent: java.lang.String eventName
+com.crashlytics.android.answers.CustomEvent: CustomEvent(java.lang.String)
+com.crashlytics.android.answers.CustomEvent: java.lang.String getCustomType()
+com.crashlytics.android.answers.CustomEvent: java.lang.String toString()
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy: DisabledSessionAnalyticsManagerStrategy()
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy: void setAnalyticsSettingsData(io.fabric.sdk.android.services.settings.AnalyticsSettingsData,java.lang.String)
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy: void processEvent(com.crashlytics.android.answers.SessionEvent$Builder)
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy: void sendEvents()
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy: void deleteAllEvents()
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy: boolean rollFileOver()
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy: void scheduleTimeBasedRollOverIfNeeded()
+com.crashlytics.android.answers.DisabledSessionAnalyticsManagerStrategy: void cancelTimeBasedFileRollOver()
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: int UNDEFINED_ROLLOVER_INTERVAL_SECONDS
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: io.fabric.sdk.android.Kit kit
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: io.fabric.sdk.android.services.network.HttpRequestFactory httpRequestFactory
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: android.content.Context context
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: com.crashlytics.android.answers.SessionAnalyticsFilesManager filesManager
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: java.util.concurrent.ScheduledExecutorService executorService
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: java.util.concurrent.atomic.AtomicReference rolloverFutureRef
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: com.crashlytics.android.answers.SessionEventMetadata metadata
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: io.fabric.sdk.android.services.events.FilesSender filesSender
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: io.fabric.sdk.android.services.common.ApiKey apiKey
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: com.crashlytics.android.answers.EventFilter eventFilter
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: boolean customEventsEnabled
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: boolean predefinedEventsEnabled
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: int rolloverIntervalSeconds
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: EnabledSessionAnalyticsManagerStrategy(io.fabric.sdk.android.Kit,android.content.Context,java.util.concurrent.ScheduledExecutorService,com.crashlytics.android.answers.SessionAnalyticsFilesManager,io.fabric.sdk.android.services.network.HttpRequestFactory,com.crashlytics.android.answers.SessionEventMetadata)
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: void setAnalyticsSettingsData(io.fabric.sdk.android.services.settings.AnalyticsSettingsData,java.lang.String)
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: void processEvent(com.crashlytics.android.answers.SessionEvent$Builder)
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: void scheduleTimeBasedRollOverIfNeeded()
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: void sendEvents()
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: void cancelTimeBasedFileRollOver()
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: void deleteAllEvents()
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: boolean rollFileOver()
+com.crashlytics.android.answers.EnabledSessionAnalyticsManagerStrategy: void scheduleTimeBasedFileRollOver(long,long)
+com.crashlytics.android.answers.EventFilter
+com.crashlytics.android.answers.EventFilter: boolean skipEvent(com.crashlytics.android.answers.SessionEvent)
+com.crashlytics.android.answers.InviteEvent
+com.crashlytics.android.answers.InviteEvent: java.lang.String TYPE
+com.crashlytics.android.answers.InviteEvent: java.lang.String METHOD_ATTRIBUTE
+com.crashlytics.android.answers.InviteEvent: InviteEvent()
+com.crashlytics.android.answers.InviteEvent: com.crashlytics.android.answers.InviteEvent putMethod(java.lang.String)
+com.crashlytics.android.answers.InviteEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.KeepAllEventFilter
+com.crashlytics.android.answers.KeepAllEventFilter: KeepAllEventFilter()
+com.crashlytics.android.answers.KeepAllEventFilter: boolean skipEvent(com.crashlytics.android.answers.SessionEvent)
+com.crashlytics.android.answers.LevelEndEvent
+com.crashlytics.android.answers.LevelEndEvent: java.lang.String TYPE
+com.crashlytics.android.answers.LevelEndEvent: java.lang.String LEVEL_NAME_ATTRIBUTE
+com.crashlytics.android.answers.LevelEndEvent: java.lang.String SCORE_ATTRIBUTE
+com.crashlytics.android.answers.LevelEndEvent: java.lang.String SUCCESS_ATTRIBUTE
+com.crashlytics.android.answers.LevelEndEvent: LevelEndEvent()
+com.crashlytics.android.answers.LevelEndEvent: com.crashlytics.android.answers.LevelEndEvent putLevelName(java.lang.String)
+com.crashlytics.android.answers.LevelEndEvent: com.crashlytics.android.answers.LevelEndEvent putScore(java.lang.Number)
+com.crashlytics.android.answers.LevelEndEvent: com.crashlytics.android.answers.LevelEndEvent putSuccess(boolean)
+com.crashlytics.android.answers.LevelEndEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.LevelStartEvent
+com.crashlytics.android.answers.LevelStartEvent: java.lang.String TYPE
+com.crashlytics.android.answers.LevelStartEvent: java.lang.String LEVEL_NAME_ATTRIBUTE
+com.crashlytics.android.answers.LevelStartEvent: LevelStartEvent()
+com.crashlytics.android.answers.LevelStartEvent: com.crashlytics.android.answers.LevelStartEvent putLevelName(java.lang.String)
+com.crashlytics.android.answers.LevelStartEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.LoginEvent
+com.crashlytics.android.answers.LoginEvent: java.lang.String TYPE
+com.crashlytics.android.answers.LoginEvent: java.lang.String METHOD_ATTRIBUTE
+com.crashlytics.android.answers.LoginEvent: java.lang.String SUCCESS_ATTRIBUTE
+com.crashlytics.android.answers.LoginEvent: LoginEvent()
+com.crashlytics.android.answers.LoginEvent: com.crashlytics.android.answers.LoginEvent putMethod(java.lang.String)
+com.crashlytics.android.answers.LoginEvent: com.crashlytics.android.answers.LoginEvent putSuccess(boolean)
+com.crashlytics.android.answers.LoginEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.PredefinedEvent
+com.crashlytics.android.answers.PredefinedEvent: com.crashlytics.android.answers.AnswersAttributes predefinedAttributes
+com.crashlytics.android.answers.PredefinedEvent: PredefinedEvent()
+com.crashlytics.android.answers.PredefinedEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.PredefinedEvent: java.util.Map getPredefinedAttributes()
+com.crashlytics.android.answers.PredefinedEvent: java.lang.String toString()
+com.crashlytics.android.answers.PurchaseEvent
+com.crashlytics.android.answers.PurchaseEvent: java.lang.String TYPE
+com.crashlytics.android.answers.PurchaseEvent: java.math.BigDecimal MICRO_CONSTANT
+com.crashlytics.android.answers.PurchaseEvent: java.lang.String ITEM_ID_ATTRIBUTE
+com.crashlytics.android.answers.PurchaseEvent: java.lang.String ITEM_NAME_ATTRIBUTE
+com.crashlytics.android.answers.PurchaseEvent: java.lang.String ITEM_TYPE_ATTRIBUTE
+com.crashlytics.android.answers.PurchaseEvent: java.lang.String ITEM_PRICE_ATTRIBUTE
+com.crashlytics.android.answers.PurchaseEvent: java.lang.String CURRENCY_ATTRIBUTE
+com.crashlytics.android.answers.PurchaseEvent: java.lang.String SUCCESS_ATTRIBUTE
+com.crashlytics.android.answers.PurchaseEvent: PurchaseEvent()
+com.crashlytics.android.answers.PurchaseEvent: com.crashlytics.android.answers.PurchaseEvent putItemId(java.lang.String)
+com.crashlytics.android.answers.PurchaseEvent: com.crashlytics.android.answers.PurchaseEvent putItemName(java.lang.String)
+com.crashlytics.android.answers.PurchaseEvent: com.crashlytics.android.answers.PurchaseEvent putItemType(java.lang.String)
+com.crashlytics.android.answers.PurchaseEvent: com.crashlytics.android.answers.PurchaseEvent putItemPrice(java.math.BigDecimal)
+com.crashlytics.android.answers.PurchaseEvent: com.crashlytics.android.answers.PurchaseEvent putCurrency(java.util.Currency)
+com.crashlytics.android.answers.PurchaseEvent: com.crashlytics.android.answers.PurchaseEvent putSuccess(boolean)
+com.crashlytics.android.answers.PurchaseEvent: long priceToMicros(java.math.BigDecimal)
+com.crashlytics.android.answers.PurchaseEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.PurchaseEvent: void <clinit>()
+com.crashlytics.android.answers.RandomBackoff
+com.crashlytics.android.answers.RandomBackoff: io.fabric.sdk.android.services.concurrency.internal.Backoff backoff
+com.crashlytics.android.answers.RandomBackoff: java.util.Random random
+com.crashlytics.android.answers.RandomBackoff: double jitterPercent
+com.crashlytics.android.answers.RandomBackoff: RandomBackoff(io.fabric.sdk.android.services.concurrency.internal.Backoff,double)
+com.crashlytics.android.answers.RandomBackoff: RandomBackoff(io.fabric.sdk.android.services.concurrency.internal.Backoff,double,java.util.Random)
+com.crashlytics.android.answers.RandomBackoff: long getDelayMillis(int)
+com.crashlytics.android.answers.RandomBackoff: double randomJitter()
+com.crashlytics.android.answers.RatingEvent
+com.crashlytics.android.answers.RatingEvent: java.lang.String TYPE
+com.crashlytics.android.answers.RatingEvent: java.lang.String CONTENT_ID_ATTRIBUTE
+com.crashlytics.android.answers.RatingEvent: java.lang.String CONTENT_NAME_ATTRIBUTE
+com.crashlytics.android.answers.RatingEvent: java.lang.String CONTENT_TYPE_ATTRIBUTE
+com.crashlytics.android.answers.RatingEvent: java.lang.String RATING_ATTRIBUTE
+com.crashlytics.android.answers.RatingEvent: RatingEvent()
+com.crashlytics.android.answers.RatingEvent: com.crashlytics.android.answers.RatingEvent putContentId(java.lang.String)
+com.crashlytics.android.answers.RatingEvent: com.crashlytics.android.answers.RatingEvent putContentName(java.lang.String)
+com.crashlytics.android.answers.RatingEvent: com.crashlytics.android.answers.RatingEvent putContentType(java.lang.String)
+com.crashlytics.android.answers.RatingEvent: com.crashlytics.android.answers.RatingEvent putRating(int)
+com.crashlytics.android.answers.RatingEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.RetryManager
+com.crashlytics.android.answers.RetryManager: long NANOSECONDS_IN_MS
+com.crashlytics.android.answers.RetryManager: long lastRetry
+com.crashlytics.android.answers.RetryManager: io.fabric.sdk.android.services.concurrency.internal.RetryState retryState
+com.crashlytics.android.answers.RetryManager: RetryManager(io.fabric.sdk.android.services.concurrency.internal.RetryState)
+com.crashlytics.android.answers.RetryManager: boolean canRetry(long)
+com.crashlytics.android.answers.RetryManager: void recordRetry(long)
+com.crashlytics.android.answers.RetryManager: void reset()
+com.crashlytics.android.answers.SamplingEventFilter
+com.crashlytics.android.answers.SamplingEventFilter: int samplingRate
+com.crashlytics.android.answers.SamplingEventFilter: java.util.Set EVENTS_TYPE_TO_SAMPLE
+com.crashlytics.android.answers.SamplingEventFilter: SamplingEventFilter(int)
+com.crashlytics.android.answers.SamplingEventFilter: boolean skipEvent(com.crashlytics.android.answers.SessionEvent)
+com.crashlytics.android.answers.SamplingEventFilter: void <clinit>()
+com.crashlytics.android.answers.SamplingEventFilter$1
+com.crashlytics.android.answers.SamplingEventFilter$1: SamplingEventFilter$1()
+com.crashlytics.android.answers.SearchEvent
+com.crashlytics.android.answers.SearchEvent: java.lang.String TYPE
+com.crashlytics.android.answers.SearchEvent: java.lang.String QUERY_ATTRIBUTE
+com.crashlytics.android.answers.SearchEvent: SearchEvent()
+com.crashlytics.android.answers.SearchEvent: com.crashlytics.android.answers.SearchEvent putQuery(java.lang.String)
+com.crashlytics.android.answers.SearchEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.SessionAnalyticsFilesManager
+com.crashlytics.android.answers.SessionAnalyticsFilesManager: java.lang.String SESSION_ANALYTICS_TO_SEND_FILE_PREFIX
+com.crashlytics.android.answers.SessionAnalyticsFilesManager: java.lang.String SESSION_ANALYTICS_TO_SEND_FILE_EXTENSION
+com.crashlytics.android.answers.SessionAnalyticsFilesManager: io.fabric.sdk.android.services.settings.AnalyticsSettingsData analyticsSettingsData
+com.crashlytics.android.answers.SessionAnalyticsFilesManager: SessionAnalyticsFilesManager(android.content.Context,com.crashlytics.android.answers.SessionEventTransform,io.fabric.sdk.android.services.common.CurrentTimeProvider,io.fabric.sdk.android.services.events.EventsStorage)
+com.crashlytics.android.answers.SessionAnalyticsFilesManager: java.lang.String generateUniqueRollOverFileName()
+com.crashlytics.android.answers.SessionAnalyticsFilesManager: int getMaxFilesToKeep()
+com.crashlytics.android.answers.SessionAnalyticsFilesManager: int getMaxByteSizePerFile()
+com.crashlytics.android.answers.SessionAnalyticsFilesManager: void setAnalyticsSettingsData(io.fabric.sdk.android.services.settings.AnalyticsSettingsData)
+com.crashlytics.android.answers.SessionAnalyticsFilesSender
+com.crashlytics.android.answers.SessionAnalyticsFilesSender: java.lang.String FILE_PARAM_NAME
+com.crashlytics.android.answers.SessionAnalyticsFilesSender: java.lang.String FILE_CONTENT_TYPE
+com.crashlytics.android.answers.SessionAnalyticsFilesSender: java.lang.String apiKey
+com.crashlytics.android.answers.SessionAnalyticsFilesSender: SessionAnalyticsFilesSender(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory,java.lang.String)
+com.crashlytics.android.answers.SessionAnalyticsFilesSender: boolean send(java.util.List)
+com.crashlytics.android.answers.SessionAnalyticsManager
+com.crashlytics.android.answers.SessionAnalyticsManager: java.lang.String EXECUTOR_SERVICE
+com.crashlytics.android.answers.SessionAnalyticsManager: java.lang.String ON_CRASH_ERROR_MSG
+com.crashlytics.android.answers.SessionAnalyticsManager: long FIRST_LAUNCH_INTERVAL_IN_MS
+com.crashlytics.android.answers.SessionAnalyticsManager: long installedAt
+com.crashlytics.android.answers.SessionAnalyticsManager: com.crashlytics.android.answers.AnswersEventsHandler eventsHandler
+com.crashlytics.android.answers.SessionAnalyticsManager: io.fabric.sdk.android.ActivityLifecycleManager lifecycleManager
+com.crashlytics.android.answers.SessionAnalyticsManager: com.crashlytics.android.answers.BackgroundManager backgroundManager
+com.crashlytics.android.answers.SessionAnalyticsManager: com.crashlytics.android.answers.AnswersPreferenceManager preferenceManager
+com.crashlytics.android.answers.SessionAnalyticsManager: com.crashlytics.android.answers.SessionAnalyticsManager build(io.fabric.sdk.android.Kit,android.content.Context,io.fabric.sdk.android.services.common.IdManager,java.lang.String,java.lang.String,long)
+com.crashlytics.android.answers.SessionAnalyticsManager: SessionAnalyticsManager(com.crashlytics.android.answers.AnswersEventsHandler,io.fabric.sdk.android.ActivityLifecycleManager,com.crashlytics.android.answers.BackgroundManager,com.crashlytics.android.answers.AnswersPreferenceManager,long)
+com.crashlytics.android.answers.SessionAnalyticsManager: void enable()
+com.crashlytics.android.answers.SessionAnalyticsManager: void disable()
+com.crashlytics.android.answers.SessionAnalyticsManager: void onCustom(com.crashlytics.android.answers.CustomEvent)
+com.crashlytics.android.answers.SessionAnalyticsManager: void onPredefined(com.crashlytics.android.answers.PredefinedEvent)
+com.crashlytics.android.answers.SessionAnalyticsManager: void onCrash(java.lang.String)
+com.crashlytics.android.answers.SessionAnalyticsManager: void onError(java.lang.String)
+com.crashlytics.android.answers.SessionAnalyticsManager: void onInstall()
+com.crashlytics.android.answers.SessionAnalyticsManager: void onLifecycle(android.app.Activity,com.crashlytics.android.answers.SessionEvent$Type)
+com.crashlytics.android.answers.SessionAnalyticsManager: void onBackground()
+com.crashlytics.android.answers.SessionAnalyticsManager: void setAnalyticsSettingsData(io.fabric.sdk.android.services.settings.AnalyticsSettingsData,java.lang.String)
+com.crashlytics.android.answers.SessionAnalyticsManager: boolean isFirstLaunch(long)
+com.crashlytics.android.answers.SessionAnalyticsManager: boolean installedRecently(long)
+com.crashlytics.android.answers.SessionAnalyticsManagerStrategy
+com.crashlytics.android.answers.SessionAnalyticsManagerStrategy: void setAnalyticsSettingsData(io.fabric.sdk.android.services.settings.AnalyticsSettingsData,java.lang.String)
+com.crashlytics.android.answers.SessionAnalyticsManagerStrategy: void processEvent(com.crashlytics.android.answers.SessionEvent$Builder)
+com.crashlytics.android.answers.SessionAnalyticsManagerStrategy: void sendEvents()
+com.crashlytics.android.answers.SessionAnalyticsManagerStrategy: void deleteAllEvents()
+com.crashlytics.android.answers.SessionEvent
+com.crashlytics.android.answers.SessionEvent: java.lang.String ACTIVITY_KEY
+com.crashlytics.android.answers.SessionEvent: java.lang.String SESSION_ID_KEY
+com.crashlytics.android.answers.SessionEvent: com.crashlytics.android.answers.SessionEventMetadata sessionEventMetadata
+com.crashlytics.android.answers.SessionEvent: long timestamp
+com.crashlytics.android.answers.SessionEvent: com.crashlytics.android.answers.SessionEvent$Type type
+com.crashlytics.android.answers.SessionEvent: java.util.Map details
+com.crashlytics.android.answers.SessionEvent: java.lang.String customType
+com.crashlytics.android.answers.SessionEvent: java.util.Map customAttributes
+com.crashlytics.android.answers.SessionEvent: java.lang.String predefinedType
+com.crashlytics.android.answers.SessionEvent: java.util.Map predefinedAttributes
+com.crashlytics.android.answers.SessionEvent: java.lang.String stringRepresentation
+com.crashlytics.android.answers.SessionEvent: com.crashlytics.android.answers.SessionEvent$Builder lifecycleEventBuilder(com.crashlytics.android.answers.SessionEvent$Type,android.app.Activity)
+com.crashlytics.android.answers.SessionEvent: com.crashlytics.android.answers.SessionEvent$Builder installEventBuilder()
+com.crashlytics.android.answers.SessionEvent: com.crashlytics.android.answers.SessionEvent$Builder crashEventBuilder(java.lang.String)
+com.crashlytics.android.answers.SessionEvent: com.crashlytics.android.answers.SessionEvent$Builder customEventBuilder(com.crashlytics.android.answers.CustomEvent)
+com.crashlytics.android.answers.SessionEvent: com.crashlytics.android.answers.SessionEvent$Builder predefinedEventBuilder(com.crashlytics.android.answers.PredefinedEvent)
+com.crashlytics.android.answers.SessionEvent: SessionEvent(com.crashlytics.android.answers.SessionEventMetadata,long,com.crashlytics.android.answers.SessionEvent$Type,java.util.Map,java.lang.String,java.util.Map,java.lang.String,java.util.Map)
+com.crashlytics.android.answers.SessionEvent: java.lang.String toString()
+com.crashlytics.android.answers.SessionEvent: SessionEvent(com.crashlytics.android.answers.SessionEventMetadata,long,com.crashlytics.android.answers.SessionEvent$Type,java.util.Map,java.lang.String,java.util.Map,java.lang.String,java.util.Map,com.crashlytics.android.answers.SessionEvent$1)
+com.crashlytics.android.answers.SessionEvent$1
+com.crashlytics.android.answers.SessionEvent$Builder
+com.crashlytics.android.answers.SessionEvent$Builder: com.crashlytics.android.answers.SessionEvent$Type type
+com.crashlytics.android.answers.SessionEvent$Builder: long timestamp
+com.crashlytics.android.answers.SessionEvent$Builder: java.util.Map details
+com.crashlytics.android.answers.SessionEvent$Builder: java.lang.String customType
+com.crashlytics.android.answers.SessionEvent$Builder: java.util.Map customAttributes
+com.crashlytics.android.answers.SessionEvent$Builder: java.lang.String predefinedType
+com.crashlytics.android.answers.SessionEvent$Builder: java.util.Map predefinedAttributes
+com.crashlytics.android.answers.SessionEvent$Builder: SessionEvent$Builder(com.crashlytics.android.answers.SessionEvent$Type)
+com.crashlytics.android.answers.SessionEvent$Builder: com.crashlytics.android.answers.SessionEvent$Builder details(java.util.Map)
+com.crashlytics.android.answers.SessionEvent$Builder: com.crashlytics.android.answers.SessionEvent$Builder customType(java.lang.String)
+com.crashlytics.android.answers.SessionEvent$Builder: com.crashlytics.android.answers.SessionEvent$Builder customAttributes(java.util.Map)
+com.crashlytics.android.answers.SessionEvent$Builder: com.crashlytics.android.answers.SessionEvent$Builder predefinedType(java.lang.String)
+com.crashlytics.android.answers.SessionEvent$Builder: com.crashlytics.android.answers.SessionEvent$Builder predefinedAttributes(java.util.Map)
+com.crashlytics.android.answers.SessionEvent$Builder: com.crashlytics.android.answers.SessionEvent build(com.crashlytics.android.answers.SessionEventMetadata)
+com.crashlytics.android.answers.SessionEvent$Type
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type START
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type RESUME
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type PAUSE
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type STOP
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type CRASH
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type INSTALL
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type CUSTOM
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type PREDEFINED
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type[] $VALUES
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type[] values()
+com.crashlytics.android.answers.SessionEvent$Type: com.crashlytics.android.answers.SessionEvent$Type valueOf(java.lang.String)
+com.crashlytics.android.answers.SessionEvent$Type: SessionEvent$Type(java.lang.String,int)
+com.crashlytics.android.answers.SessionEvent$Type: void <clinit>()
+com.crashlytics.android.answers.SessionEventMetadata
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String appBundleId
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String executionId
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String installationId
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String androidId
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String advertisingId
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.Boolean limitAdTrackingEnabled
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String betaDeviceToken
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String buildId
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String osVersion
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String deviceModel
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String appVersionCode
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String appVersionName
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String stringRepresentation
+com.crashlytics.android.answers.SessionEventMetadata: SessionEventMetadata(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Boolean,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.crashlytics.android.answers.SessionEventMetadata: java.lang.String toString()
+com.crashlytics.android.answers.SessionEventTransform
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String APP_BUNDLE_ID_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String EXECUTION_ID_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String INSTALLATION_ID_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String ANDROID_ID_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String ADVERTISING_ID_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String LIMIT_AD_TRACKING_ENABLED_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String BETA_DEVICE_TOKEN_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String BUILD_ID_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String OS_VERSION_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String DEVICE_MODEL_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String APP_VERSION_CODE_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String APP_VERSION_NAME_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String TIMESTAMP_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String TYPE_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String DETAILS_KEY
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String CUSTOM_TYPE
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String CUSTOM_ATTRIBUTES
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String PREDEFINED_TYPE
+com.crashlytics.android.answers.SessionEventTransform: java.lang.String PREDEFINED_ATTRIBUTES
+com.crashlytics.android.answers.SessionEventTransform: SessionEventTransform()
+com.crashlytics.android.answers.SessionEventTransform: byte[] toBytes(com.crashlytics.android.answers.SessionEvent)
+com.crashlytics.android.answers.SessionEventTransform: org.json.JSONObject buildJsonForEvent(com.crashlytics.android.answers.SessionEvent)
+com.crashlytics.android.answers.SessionEventTransform: byte[] toBytes(java.lang.Object)
+com.crashlytics.android.answers.SessionMetadataCollector
+com.crashlytics.android.answers.SessionMetadataCollector: android.content.Context context
+com.crashlytics.android.answers.SessionMetadataCollector: io.fabric.sdk.android.services.common.IdManager idManager
+com.crashlytics.android.answers.SessionMetadataCollector: java.lang.String versionCode
+com.crashlytics.android.answers.SessionMetadataCollector: java.lang.String versionName
+com.crashlytics.android.answers.SessionMetadataCollector: SessionMetadataCollector(android.content.Context,io.fabric.sdk.android.services.common.IdManager,java.lang.String,java.lang.String)
+com.crashlytics.android.answers.SessionMetadataCollector: com.crashlytics.android.answers.SessionEventMetadata getMetadata()
+com.crashlytics.android.answers.ShareEvent
+com.crashlytics.android.answers.ShareEvent: java.lang.String TYPE
+com.crashlytics.android.answers.ShareEvent: java.lang.String METHOD_ATTRIBUTE
+com.crashlytics.android.answers.ShareEvent: java.lang.String CONTENT_ID_ATTRIBUTE
+com.crashlytics.android.answers.ShareEvent: java.lang.String CONTENT_NAME_ATTRIBUTE
+com.crashlytics.android.answers.ShareEvent: java.lang.String CONTENT_TYPE_ATTRIBUTE
+com.crashlytics.android.answers.ShareEvent: ShareEvent()
+com.crashlytics.android.answers.ShareEvent: com.crashlytics.android.answers.ShareEvent putMethod(java.lang.String)
+com.crashlytics.android.answers.ShareEvent: com.crashlytics.android.answers.ShareEvent putContentId(java.lang.String)
+com.crashlytics.android.answers.ShareEvent: com.crashlytics.android.answers.ShareEvent putContentName(java.lang.String)
+com.crashlytics.android.answers.ShareEvent: com.crashlytics.android.answers.ShareEvent putContentType(java.lang.String)
+com.crashlytics.android.answers.ShareEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.SignUpEvent
+com.crashlytics.android.answers.SignUpEvent: java.lang.String TYPE
+com.crashlytics.android.answers.SignUpEvent: java.lang.String METHOD_ATTRIBUTE
+com.crashlytics.android.answers.SignUpEvent: java.lang.String SUCCESS_ATTRIBUTE
+com.crashlytics.android.answers.SignUpEvent: SignUpEvent()
+com.crashlytics.android.answers.SignUpEvent: com.crashlytics.android.answers.SignUpEvent putMethod(java.lang.String)
+com.crashlytics.android.answers.SignUpEvent: com.crashlytics.android.answers.SignUpEvent putSuccess(boolean)
+com.crashlytics.android.answers.SignUpEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.StartCheckoutEvent
+com.crashlytics.android.answers.StartCheckoutEvent: java.lang.String TYPE
+com.crashlytics.android.answers.StartCheckoutEvent: java.math.BigDecimal MICRO_CONSTANT
+com.crashlytics.android.answers.StartCheckoutEvent: java.lang.String TOTAL_PRICE_ATTRIBUTE
+com.crashlytics.android.answers.StartCheckoutEvent: java.lang.String CURRENCY_ATTRIBUTE
+com.crashlytics.android.answers.StartCheckoutEvent: java.lang.String ITEM_COUNT_ATTRIBUTE
+com.crashlytics.android.answers.StartCheckoutEvent: StartCheckoutEvent()
+com.crashlytics.android.answers.StartCheckoutEvent: com.crashlytics.android.answers.StartCheckoutEvent putItemCount(int)
+com.crashlytics.android.answers.StartCheckoutEvent: com.crashlytics.android.answers.StartCheckoutEvent putTotalPrice(java.math.BigDecimal)
+com.crashlytics.android.answers.StartCheckoutEvent: com.crashlytics.android.answers.StartCheckoutEvent putCurrency(java.util.Currency)
+com.crashlytics.android.answers.StartCheckoutEvent: long priceToMicros(java.math.BigDecimal)
+com.crashlytics.android.answers.StartCheckoutEvent: java.lang.String getPredefinedType()
+com.crashlytics.android.answers.StartCheckoutEvent: void <clinit>()
+com.crashlytics.android.beta.AbstractCheckForUpdatesController
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: java.lang.String LAST_UPDATE_CHECK_KEY
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: long LAST_UPDATE_CHECK_DEFAULT
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: long MILLIS_PER_SECOND
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: java.util.concurrent.atomic.AtomicBoolean initialized
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: java.util.concurrent.atomic.AtomicBoolean externallyReady
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: android.content.Context context
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: com.crashlytics.android.beta.Beta beta
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: io.fabric.sdk.android.services.common.IdManager idManager
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: io.fabric.sdk.android.services.settings.BetaSettingsData betaSettings
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: com.crashlytics.android.beta.BuildProperties buildProps
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: io.fabric.sdk.android.services.persistence.PreferenceStore preferenceStore
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: io.fabric.sdk.android.services.common.CurrentTimeProvider currentTimeProvider
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: io.fabric.sdk.android.services.network.HttpRequestFactory httpRequestFactory
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: long lastCheckTimeMillis
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: AbstractCheckForUpdatesController()
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: AbstractCheckForUpdatesController(boolean)
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: void initialize(android.content.Context,com.crashlytics.android.beta.Beta,io.fabric.sdk.android.services.common.IdManager,io.fabric.sdk.android.services.settings.BetaSettingsData,com.crashlytics.android.beta.BuildProperties,io.fabric.sdk.android.services.persistence.PreferenceStore,io.fabric.sdk.android.services.common.CurrentTimeProvider,io.fabric.sdk.android.services.network.HttpRequestFactory)
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: boolean signalExternallyReady()
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: boolean signalInitialized()
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: void checkForUpdates()
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: void performUpdateCheck()
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: void setLastCheckTimeMillis(long)
+com.crashlytics.android.beta.AbstractCheckForUpdatesController: long getLastCheckTimeMillis()
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController: io.fabric.sdk.android.ActivityLifecycleManager$Callbacks callbacks
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController: java.util.concurrent.ExecutorService executorService
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController: ActivityLifecycleCheckForUpdatesController(io.fabric.sdk.android.ActivityLifecycleManager,java.util.concurrent.ExecutorService)
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController: boolean isActivityLifecycleTriggered()
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController: java.util.concurrent.ExecutorService access$000(com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController)
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1: com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController this$0
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1: ActivityLifecycleCheckForUpdatesController$1(com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController)
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1: void onActivityStarted(android.app.Activity)
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1$1
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1$1: com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1 this$1
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1$1: ActivityLifecycleCheckForUpdatesController$1$1(com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1)
+com.crashlytics.android.beta.ActivityLifecycleCheckForUpdatesController$1$1: void run()
+com.crashlytics.android.beta.Beta
+com.crashlytics.android.beta.Beta: java.lang.String TAG
+com.crashlytics.android.beta.Beta: java.lang.String NO_DEVICE_TOKEN
+com.crashlytics.android.beta.Beta: java.lang.String CRASHLYTICS_API_ENDPOINT
+com.crashlytics.android.beta.Beta: java.lang.String CRASHLYTICS_BUILD_PROPERTIES
+com.crashlytics.android.beta.Beta: io.fabric.sdk.android.services.cache.MemoryValueCache deviceTokenCache
+com.crashlytics.android.beta.Beta: com.crashlytics.android.beta.DeviceTokenLoader deviceTokenLoader
+com.crashlytics.android.beta.Beta: com.crashlytics.android.beta.UpdatesController updatesController
+com.crashlytics.android.beta.Beta: Beta()
+com.crashlytics.android.beta.Beta: com.crashlytics.android.beta.Beta getInstance()
+com.crashlytics.android.beta.Beta: boolean onPreExecute()
+com.crashlytics.android.beta.Beta: java.lang.Boolean doInBackground()
+com.crashlytics.android.beta.Beta: com.crashlytics.android.beta.UpdatesController createUpdatesController(int,android.app.Application)
+com.crashlytics.android.beta.Beta: java.util.Map getDeviceIdentifiers()
+com.crashlytics.android.beta.Beta: java.lang.String getIdentifier()
+com.crashlytics.android.beta.Beta: java.lang.String getVersion()
+com.crashlytics.android.beta.Beta: boolean isAppPossiblyInstalledByBeta(java.lang.String,int)
+com.crashlytics.android.beta.Beta: boolean canCheckForUpdates(io.fabric.sdk.android.services.settings.BetaSettingsData,com.crashlytics.android.beta.BuildProperties)
+com.crashlytics.android.beta.Beta: java.lang.String getBetaDeviceToken(android.content.Context,java.lang.String)
+com.crashlytics.android.beta.Beta: io.fabric.sdk.android.services.settings.BetaSettingsData getBetaSettingsData()
+com.crashlytics.android.beta.Beta: com.crashlytics.android.beta.BuildProperties loadBuildProperties(android.content.Context)
+com.crashlytics.android.beta.Beta: java.lang.String getOverridenSpiEndpoint()
+com.crashlytics.android.beta.Beta: java.lang.Object doInBackground()
+com.crashlytics.android.beta.BuildConfig
+com.crashlytics.android.beta.BuildConfig: boolean DEBUG
+com.crashlytics.android.beta.BuildConfig: java.lang.String APPLICATION_ID
+com.crashlytics.android.beta.BuildConfig: java.lang.String BUILD_TYPE
+com.crashlytics.android.beta.BuildConfig: java.lang.String FLAVOR
+com.crashlytics.android.beta.BuildConfig: int VERSION_CODE
+com.crashlytics.android.beta.BuildConfig: java.lang.String VERSION_NAME
+com.crashlytics.android.beta.BuildConfig: java.lang.String ARTIFACT_ID
+com.crashlytics.android.beta.BuildConfig: java.lang.String BUILD_NUMBER
+com.crashlytics.android.beta.BuildConfig: java.lang.String GROUP
+com.crashlytics.android.beta.BuildConfig: BuildConfig()
+com.crashlytics.android.beta.BuildProperties
+com.crashlytics.android.beta.BuildProperties: java.lang.String VERSION_CODE
+com.crashlytics.android.beta.BuildProperties: java.lang.String VERSION_NAME
+com.crashlytics.android.beta.BuildProperties: java.lang.String BUILD_ID
+com.crashlytics.android.beta.BuildProperties: java.lang.String PACKAGE_NAME
+com.crashlytics.android.beta.BuildProperties: java.lang.String versionCode
+com.crashlytics.android.beta.BuildProperties: java.lang.String versionName
+com.crashlytics.android.beta.BuildProperties: java.lang.String buildId
+com.crashlytics.android.beta.BuildProperties: java.lang.String packageName
+com.crashlytics.android.beta.BuildProperties: BuildProperties(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.crashlytics.android.beta.BuildProperties: com.crashlytics.android.beta.BuildProperties fromProperties(java.util.Properties)
+com.crashlytics.android.beta.BuildProperties: com.crashlytics.android.beta.BuildProperties fromPropertiesStream(java.io.InputStream)
+com.crashlytics.android.beta.CheckForUpdatesRequest
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.lang.String BUILD_VERSION
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.lang.String DISPLAY_VERSION
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.lang.String INSTANCE
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.lang.String SOURCE
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.lang.String BETA_SOURCE
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.lang.String SDK_ANDROID_DIR_TOKEN_TYPE
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.lang.String HEADER_BETA_TOKEN
+com.crashlytics.android.beta.CheckForUpdatesRequest: com.crashlytics.android.beta.CheckForUpdatesResponseTransform responseTransform
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.lang.String createBetaTokenHeaderValueFor(java.lang.String)
+com.crashlytics.android.beta.CheckForUpdatesRequest: CheckForUpdatesRequest(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory,com.crashlytics.android.beta.CheckForUpdatesResponseTransform)
+com.crashlytics.android.beta.CheckForUpdatesRequest: com.crashlytics.android.beta.CheckForUpdatesResponse invoke(java.lang.String,java.lang.String,com.crashlytics.android.beta.BuildProperties)
+com.crashlytics.android.beta.CheckForUpdatesRequest: io.fabric.sdk.android.services.network.HttpRequest applyHeadersTo(io.fabric.sdk.android.services.network.HttpRequest,java.lang.String,java.lang.String)
+com.crashlytics.android.beta.CheckForUpdatesRequest: java.util.Map getQueryParamsFor(com.crashlytics.android.beta.BuildProperties)
+com.crashlytics.android.beta.CheckForUpdatesResponse
+com.crashlytics.android.beta.CheckForUpdatesResponse: java.lang.String url
+com.crashlytics.android.beta.CheckForUpdatesResponse: java.lang.String versionString
+com.crashlytics.android.beta.CheckForUpdatesResponse: java.lang.String displayVersion
+com.crashlytics.android.beta.CheckForUpdatesResponse: java.lang.String buildVersion
+com.crashlytics.android.beta.CheckForUpdatesResponse: java.lang.String packageName
+com.crashlytics.android.beta.CheckForUpdatesResponse: java.lang.String instanceId
+com.crashlytics.android.beta.CheckForUpdatesResponse: CheckForUpdatesResponse(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform: java.lang.String URL
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform: java.lang.String VERSION_STRING
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform: java.lang.String BUILD_VERSION
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform: java.lang.String DISPLAY_VERSION
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform: java.lang.String IDENTIFIER
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform: java.lang.String INSTANCE_IDENTIFIER
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform: CheckForUpdatesResponseTransform()
+com.crashlytics.android.beta.CheckForUpdatesResponseTransform: com.crashlytics.android.beta.CheckForUpdatesResponse fromJson(org.json.JSONObject)
+com.crashlytics.android.beta.DeviceTokenLoader
+com.crashlytics.android.beta.DeviceTokenLoader: java.lang.String DIRFACTOR_DEVICE_TOKEN_PREFIX
+com.crashlytics.android.beta.DeviceTokenLoader: DeviceTokenLoader()
+com.crashlytics.android.beta.DeviceTokenLoader: java.lang.String load(android.content.Context)
+com.crashlytics.android.beta.DeviceTokenLoader: java.util.zip.ZipInputStream getZipInputStreamOfAppApkFrom(android.content.Context)
+com.crashlytics.android.beta.DeviceTokenLoader: java.lang.String determineDeviceToken(java.util.zip.ZipInputStream)
+com.crashlytics.android.beta.DeviceTokenLoader: java.lang.Object load(android.content.Context)
+com.crashlytics.android.beta.ImmediateCheckForUpdatesController
+com.crashlytics.android.beta.ImmediateCheckForUpdatesController: ImmediateCheckForUpdatesController()
+com.crashlytics.android.beta.ImmediateCheckForUpdatesController: boolean isActivityLifecycleTriggered()
+com.crashlytics.android.beta.UpdatesController
+com.crashlytics.android.beta.UpdatesController: void initialize(android.content.Context,com.crashlytics.android.beta.Beta,io.fabric.sdk.android.services.common.IdManager,io.fabric.sdk.android.services.settings.BetaSettingsData,com.crashlytics.android.beta.BuildProperties,io.fabric.sdk.android.services.persistence.PreferenceStore,io.fabric.sdk.android.services.common.CurrentTimeProvider,io.fabric.sdk.android.services.network.HttpRequestFactory)
+com.crashlytics.android.beta.UpdatesController: boolean isActivityLifecycleTriggered()
+com.crashlytics.android.core.BuildConfig
+com.crashlytics.android.core.BuildConfig: boolean DEBUG
+com.crashlytics.android.core.BuildConfig: java.lang.String APPLICATION_ID
+com.crashlytics.android.core.BuildConfig: java.lang.String BUILD_TYPE
+com.crashlytics.android.core.BuildConfig: java.lang.String FLAVOR
+com.crashlytics.android.core.BuildConfig: int VERSION_CODE
+com.crashlytics.android.core.BuildConfig: java.lang.String VERSION_NAME
+com.crashlytics.android.core.BuildConfig: java.lang.String ARTIFACT_ID
+com.crashlytics.android.core.BuildConfig: java.lang.String BUILD_NUMBER
+com.crashlytics.android.core.BuildConfig: java.lang.String GROUP
+com.crashlytics.android.core.BuildConfig: BuildConfig()
+com.crashlytics.android.core.BuildIdValidator
+com.crashlytics.android.core.BuildIdValidator: java.lang.String MESSAGE
+com.crashlytics.android.core.BuildIdValidator: java.lang.String buildId
+com.crashlytics.android.core.BuildIdValidator: boolean requiringBuildId
+com.crashlytics.android.core.BuildIdValidator: BuildIdValidator(java.lang.String,boolean)
+com.crashlytics.android.core.BuildIdValidator: void validate(java.lang.String,java.lang.String)
+com.crashlytics.android.core.BuildIdValidator: java.lang.String getMessage(java.lang.String,java.lang.String)
+com.crashlytics.android.core.ByteString
+com.crashlytics.android.core.ByteString: byte[] bytes
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString EMPTY
+com.crashlytics.android.core.ByteString: int hash
+com.crashlytics.android.core.ByteString: ByteString(byte[])
+com.crashlytics.android.core.ByteString: byte byteAt(int)
+com.crashlytics.android.core.ByteString: int size()
+com.crashlytics.android.core.ByteString: boolean isEmpty()
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString copyFrom(byte[],int,int)
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString copyFrom(byte[])
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString copyFrom(java.nio.ByteBuffer,int)
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString copyFrom(java.nio.ByteBuffer)
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString copyFrom(java.lang.String,java.lang.String)
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString copyFromUtf8(java.lang.String)
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString copyFrom(java.util.List)
+com.crashlytics.android.core.ByteString: void copyTo(byte[],int)
+com.crashlytics.android.core.ByteString: void copyTo(byte[],int,int,int)
+com.crashlytics.android.core.ByteString: void copyTo(java.nio.ByteBuffer)
+com.crashlytics.android.core.ByteString: byte[] toByteArray()
+com.crashlytics.android.core.ByteString: java.nio.ByteBuffer asReadOnlyByteBuffer()
+com.crashlytics.android.core.ByteString: java.lang.String toString(java.lang.String)
+com.crashlytics.android.core.ByteString: java.lang.String toStringUtf8()
+com.crashlytics.android.core.ByteString: boolean equals(java.lang.Object)
+com.crashlytics.android.core.ByteString: int hashCode()
+com.crashlytics.android.core.ByteString: java.io.InputStream newInput()
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString$Output newOutput(int)
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString$Output newOutput()
+com.crashlytics.android.core.ByteString: com.crashlytics.android.core.ByteString$CodedBuilder newCodedBuilder(int)
+com.crashlytics.android.core.ByteString: ByteString(byte[],com.crashlytics.android.core.ByteString$1)
+com.crashlytics.android.core.ByteString: void <clinit>()
+com.crashlytics.android.core.ByteString$1
+com.crashlytics.android.core.ByteString$CodedBuilder
+com.crashlytics.android.core.ByteString$CodedBuilder: com.crashlytics.android.core.CodedOutputStream output
+com.crashlytics.android.core.ByteString$CodedBuilder: byte[] buffer
+com.crashlytics.android.core.ByteString$CodedBuilder: ByteString$CodedBuilder(int)
+com.crashlytics.android.core.ByteString$CodedBuilder: com.crashlytics.android.core.ByteString build()
+com.crashlytics.android.core.ByteString$CodedBuilder: com.crashlytics.android.core.CodedOutputStream getCodedOutput()
+com.crashlytics.android.core.ByteString$CodedBuilder: ByteString$CodedBuilder(int,com.crashlytics.android.core.ByteString$1)
+com.crashlytics.android.core.ByteString$Output
+com.crashlytics.android.core.ByteString$Output: java.io.ByteArrayOutputStream bout
+com.crashlytics.android.core.ByteString$Output: ByteString$Output(java.io.ByteArrayOutputStream)
+com.crashlytics.android.core.ByteString$Output: com.crashlytics.android.core.ByteString toByteString()
+com.crashlytics.android.core.ByteString$Output: ByteString$Output(java.io.ByteArrayOutputStream,com.crashlytics.android.core.ByteString$1)
+com.crashlytics.android.core.CLSUUID
+com.crashlytics.android.core.CLSUUID: java.util.concurrent.atomic.AtomicLong _sequenceNumber
+com.crashlytics.android.core.CLSUUID: java.lang.String _clsId
+com.crashlytics.android.core.CLSUUID: CLSUUID(io.fabric.sdk.android.services.common.IdManager)
+com.crashlytics.android.core.CLSUUID: void populateTime(byte[])
+com.crashlytics.android.core.CLSUUID: void populateSequenceNumber(byte[])
+com.crashlytics.android.core.CLSUUID: void populatePID(byte[])
+com.crashlytics.android.core.CLSUUID: byte[] convertLongToFourByteBuffer(long)
+com.crashlytics.android.core.CLSUUID: byte[] convertLongToTwoByteBuffer(long)
+com.crashlytics.android.core.CLSUUID: java.lang.String toString()
+com.crashlytics.android.core.CLSUUID: void <clinit>()
+com.crashlytics.android.core.ClsFileOutputStream
+com.crashlytics.android.core.ClsFileOutputStream: java.lang.String SESSION_FILE_EXTENSION
+com.crashlytics.android.core.ClsFileOutputStream: java.lang.String IN_PROGRESS_SESSION_FILE_EXTENSION
+com.crashlytics.android.core.ClsFileOutputStream: java.lang.String root
+com.crashlytics.android.core.ClsFileOutputStream: java.io.File inProgress
+com.crashlytics.android.core.ClsFileOutputStream: java.io.File complete
+com.crashlytics.android.core.ClsFileOutputStream: boolean closed
+com.crashlytics.android.core.ClsFileOutputStream: java.io.FilenameFilter TEMP_FILENAME_FILTER
+com.crashlytics.android.core.ClsFileOutputStream: ClsFileOutputStream(java.lang.String,java.lang.String)
+com.crashlytics.android.core.ClsFileOutputStream: ClsFileOutputStream(java.io.File,java.lang.String)
+com.crashlytics.android.core.ClsFileOutputStream: void close()
+com.crashlytics.android.core.ClsFileOutputStream: void closeInProgressStream()
+com.crashlytics.android.core.ClsFileOutputStream: java.io.File getCompleteFile()
+com.crashlytics.android.core.ClsFileOutputStream: java.io.File getInProgressFile()
+com.crashlytics.android.core.ClsFileOutputStream: void <clinit>()
+com.crashlytics.android.core.ClsFileOutputStream$1
+com.crashlytics.android.core.ClsFileOutputStream$1: ClsFileOutputStream$1()
+com.crashlytics.android.core.ClsFileOutputStream$1: boolean accept(java.io.File,java.lang.String)
+com.crashlytics.android.core.CodedOutputStream
+com.crashlytics.android.core.CodedOutputStream: byte[] buffer
+com.crashlytics.android.core.CodedOutputStream: int limit
+com.crashlytics.android.core.CodedOutputStream: int position
+com.crashlytics.android.core.CodedOutputStream: java.io.OutputStream output
+com.crashlytics.android.core.CodedOutputStream: int DEFAULT_BUFFER_SIZE
+com.crashlytics.android.core.CodedOutputStream: int LITTLE_ENDIAN_32_SIZE
+com.crashlytics.android.core.CodedOutputStream: int LITTLE_ENDIAN_64_SIZE
+com.crashlytics.android.core.CodedOutputStream: int computePreferredBufferSize(int)
+com.crashlytics.android.core.CodedOutputStream: CodedOutputStream(byte[],int,int)
+com.crashlytics.android.core.CodedOutputStream: CodedOutputStream(java.io.OutputStream,byte[])
+com.crashlytics.android.core.CodedOutputStream: com.crashlytics.android.core.CodedOutputStream newInstance(java.io.OutputStream)
+com.crashlytics.android.core.CodedOutputStream: com.crashlytics.android.core.CodedOutputStream newInstance(java.io.OutputStream,int)
+com.crashlytics.android.core.CodedOutputStream: com.crashlytics.android.core.CodedOutputStream newInstance(byte[])
+com.crashlytics.android.core.CodedOutputStream: com.crashlytics.android.core.CodedOutputStream newInstance(byte[],int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeDouble(int,double)
+com.crashlytics.android.core.CodedOutputStream: void writeFloat(int,float)
+com.crashlytics.android.core.CodedOutputStream: void writeUInt64(int,long)
+com.crashlytics.android.core.CodedOutputStream: void writeInt64(int,long)
+com.crashlytics.android.core.CodedOutputStream: void writeInt32(int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeFixed64(int,long)
+com.crashlytics.android.core.CodedOutputStream: void writeFixed32(int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeBool(int,boolean)
+com.crashlytics.android.core.CodedOutputStream: void writeString(int,java.lang.String)
+com.crashlytics.android.core.CodedOutputStream: void writeBytes(int,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.CodedOutputStream: void writeUInt32(int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeEnum(int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeSFixed32(int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeSFixed64(int,long)
+com.crashlytics.android.core.CodedOutputStream: void writeSInt32(int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeSInt64(int,long)
+com.crashlytics.android.core.CodedOutputStream: void writeRawMessageSetExtension(int,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.CodedOutputStream: void writeDoubleNoTag(double)
+com.crashlytics.android.core.CodedOutputStream: void writeFloatNoTag(float)
+com.crashlytics.android.core.CodedOutputStream: void writeUInt64NoTag(long)
+com.crashlytics.android.core.CodedOutputStream: void writeInt64NoTag(long)
+com.crashlytics.android.core.CodedOutputStream: void writeInt32NoTag(int)
+com.crashlytics.android.core.CodedOutputStream: void writeFixed64NoTag(long)
+com.crashlytics.android.core.CodedOutputStream: void writeFixed32NoTag(int)
+com.crashlytics.android.core.CodedOutputStream: void writeBoolNoTag(boolean)
+com.crashlytics.android.core.CodedOutputStream: void writeStringNoTag(java.lang.String)
+com.crashlytics.android.core.CodedOutputStream: void writeBytesNoTag(com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.CodedOutputStream: void writeUInt32NoTag(int)
+com.crashlytics.android.core.CodedOutputStream: void writeEnumNoTag(int)
+com.crashlytics.android.core.CodedOutputStream: void writeSFixed32NoTag(int)
+com.crashlytics.android.core.CodedOutputStream: void writeSFixed64NoTag(long)
+com.crashlytics.android.core.CodedOutputStream: void writeSInt32NoTag(int)
+com.crashlytics.android.core.CodedOutputStream: void writeSInt64NoTag(long)
+com.crashlytics.android.core.CodedOutputStream: int computeDoubleSize(int,double)
+com.crashlytics.android.core.CodedOutputStream: int computeFloatSize(int,float)
+com.crashlytics.android.core.CodedOutputStream: int computeUInt64Size(int,long)
+com.crashlytics.android.core.CodedOutputStream: int computeInt64Size(int,long)
+com.crashlytics.android.core.CodedOutputStream: int computeInt32Size(int,int)
+com.crashlytics.android.core.CodedOutputStream: int computeFixed64Size(int,long)
+com.crashlytics.android.core.CodedOutputStream: int computeFixed32Size(int,int)
+com.crashlytics.android.core.CodedOutputStream: int computeBoolSize(int,boolean)
+com.crashlytics.android.core.CodedOutputStream: int computeStringSize(int,java.lang.String)
+com.crashlytics.android.core.CodedOutputStream: int computeBytesSize(int,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.CodedOutputStream: int computeUInt32Size(int,int)
+com.crashlytics.android.core.CodedOutputStream: int computeEnumSize(int,int)
+com.crashlytics.android.core.CodedOutputStream: int computeSFixed32Size(int,int)
+com.crashlytics.android.core.CodedOutputStream: int computeSFixed64Size(int,long)
+com.crashlytics.android.core.CodedOutputStream: int computeSInt32Size(int,int)
+com.crashlytics.android.core.CodedOutputStream: int computeSInt64Size(int,long)
+com.crashlytics.android.core.CodedOutputStream: int computeRawMessageSetExtensionSize(int,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.CodedOutputStream: int computeDoubleSizeNoTag(double)
+com.crashlytics.android.core.CodedOutputStream: int computeFloatSizeNoTag(float)
+com.crashlytics.android.core.CodedOutputStream: int computeUInt64SizeNoTag(long)
+com.crashlytics.android.core.CodedOutputStream: int computeInt64SizeNoTag(long)
+com.crashlytics.android.core.CodedOutputStream: int computeInt32SizeNoTag(int)
+com.crashlytics.android.core.CodedOutputStream: int computeFixed64SizeNoTag(long)
+com.crashlytics.android.core.CodedOutputStream: int computeFixed32SizeNoTag(int)
+com.crashlytics.android.core.CodedOutputStream: int computeBoolSizeNoTag(boolean)
+com.crashlytics.android.core.CodedOutputStream: int computeStringSizeNoTag(java.lang.String)
+com.crashlytics.android.core.CodedOutputStream: int computeBytesSizeNoTag(com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.CodedOutputStream: int computeUInt32SizeNoTag(int)
+com.crashlytics.android.core.CodedOutputStream: int computeEnumSizeNoTag(int)
+com.crashlytics.android.core.CodedOutputStream: int computeSFixed32SizeNoTag(int)
+com.crashlytics.android.core.CodedOutputStream: int computeSFixed64SizeNoTag(long)
+com.crashlytics.android.core.CodedOutputStream: int computeSInt32SizeNoTag(int)
+com.crashlytics.android.core.CodedOutputStream: int computeSInt64SizeNoTag(long)
+com.crashlytics.android.core.CodedOutputStream: void refreshBuffer()
+com.crashlytics.android.core.CodedOutputStream: void flush()
+com.crashlytics.android.core.CodedOutputStream: int spaceLeft()
+com.crashlytics.android.core.CodedOutputStream: void checkNoSpaceLeft()
+com.crashlytics.android.core.CodedOutputStream: void writeRawByte(byte)
+com.crashlytics.android.core.CodedOutputStream: void writeRawByte(int)
+com.crashlytics.android.core.CodedOutputStream: void writeRawBytes(com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.CodedOutputStream: void writeRawBytes(byte[])
+com.crashlytics.android.core.CodedOutputStream: void writeRawBytes(byte[],int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeRawBytes(com.crashlytics.android.core.ByteString,int,int)
+com.crashlytics.android.core.CodedOutputStream: void writeTag(int,int)
+com.crashlytics.android.core.CodedOutputStream: int computeTagSize(int)
+com.crashlytics.android.core.CodedOutputStream: void writeRawVarint32(int)
+com.crashlytics.android.core.CodedOutputStream: int computeRawVarint32Size(int)
+com.crashlytics.android.core.CodedOutputStream: void writeRawVarint64(long)
+com.crashlytics.android.core.CodedOutputStream: int computeRawVarint64Size(long)
+com.crashlytics.android.core.CodedOutputStream: void writeRawLittleEndian32(int)
+com.crashlytics.android.core.CodedOutputStream: void writeRawLittleEndian64(long)
+com.crashlytics.android.core.CodedOutputStream: int encodeZigZag32(int)
+com.crashlytics.android.core.CodedOutputStream: long encodeZigZag64(long)
+com.crashlytics.android.core.CodedOutputStream$OutOfSpaceException
+com.crashlytics.android.core.CodedOutputStream$OutOfSpaceException: long serialVersionUID
+com.crashlytics.android.core.CodedOutputStream$OutOfSpaceException: CodedOutputStream$OutOfSpaceException()
+com.crashlytics.android.core.CrashTest
+com.crashlytics.android.core.CrashTest: CrashTest()
+com.crashlytics.android.core.CrashTest: void throwRuntimeException(java.lang.String)
+com.crashlytics.android.core.CrashTest: int stackOverflow()
+com.crashlytics.android.core.CrashTest: void indexOutOfBounds()
+com.crashlytics.android.core.CrashTest: void crashAsyncTask(long)
+com.crashlytics.android.core.CrashTest: void throwFiveChainedExceptions()
+com.crashlytics.android.core.CrashTest: void privateMethodThatThrowsException(java.lang.String)
+com.crashlytics.android.core.CrashTest$1
+com.crashlytics.android.core.CrashTest$1: long val$delayMs
+com.crashlytics.android.core.CrashTest$1: com.crashlytics.android.core.CrashTest this$0
+com.crashlytics.android.core.CrashTest$1: CrashTest$1(com.crashlytics.android.core.CrashTest,long)
+com.crashlytics.android.core.CrashTest$1: java.lang.Void doInBackground(java.lang.Void[])
+com.crashlytics.android.core.CrashTest$1: java.lang.Object doInBackground(java.lang.Object[])
+com.crashlytics.android.core.CrashlyticsCore
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String TAG
+com.crashlytics.android.core.CrashlyticsCore: float CLS_DEFAULT_PROCESS_DELAY
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String CRASHLYTICS_API_ENDPOINT
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String CRASHLYTICS_REQUIRE_BUILD_ID
+com.crashlytics.android.core.CrashlyticsCore: boolean CRASHLYTICS_REQUIRE_BUILD_ID_DEFAULT
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String COLLECT_CUSTOM_LOGS
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String COLLECT_CUSTOM_KEYS
+com.crashlytics.android.core.CrashlyticsCore: int MAX_ATTRIBUTES
+com.crashlytics.android.core.CrashlyticsCore: int MAX_ATTRIBUTE_SIZE
+com.crashlytics.android.core.CrashlyticsCore: int DEFAULT_MAIN_HANDLER_TIMEOUT_SEC
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String PREF_ALWAYS_SEND_REPORTS_KEY
+com.crashlytics.android.core.CrashlyticsCore: boolean SHOULD_PROMPT_BEFORE_SENDING_REPORTS_DEFAULT
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String INITIALIZATION_MARKER_FILE_NAME
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String CRASH_MARKER_FILE_NAME
+com.crashlytics.android.core.CrashlyticsCore: long startTime
+com.crashlytics.android.core.CrashlyticsCore: java.util.concurrent.ConcurrentHashMap attributes
+com.crashlytics.android.core.CrashlyticsCore: java.io.File sdkDir
+com.crashlytics.android.core.CrashlyticsCore: io.fabric.sdk.android.services.persistence.FileStore fileStore
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CrashlyticsFileMarker initializationMarker
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CrashlyticsFileMarker crashMarker
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CrashlyticsListener listener
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler handler
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String userId
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String userEmail
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String userName
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String buildId
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String packageName
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String apiKey
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String installerPackageName
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String versionCode
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String versionName
+com.crashlytics.android.core.CrashlyticsCore: float delay
+com.crashlytics.android.core.CrashlyticsCore: boolean disabled
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.PinningInfoProvider pinningInfo
+com.crashlytics.android.core.CrashlyticsCore: io.fabric.sdk.android.services.network.HttpRequestFactory httpRequestFactory
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper executorServiceWrapper
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.internal.CrashEventDataProvider externalCrashEventDataProvider
+com.crashlytics.android.core.CrashlyticsCore: CrashlyticsCore()
+com.crashlytics.android.core.CrashlyticsCore: CrashlyticsCore(float,com.crashlytics.android.core.CrashlyticsListener,com.crashlytics.android.core.PinningInfoProvider,boolean)
+com.crashlytics.android.core.CrashlyticsCore: CrashlyticsCore(float,com.crashlytics.android.core.CrashlyticsListener,com.crashlytics.android.core.PinningInfoProvider,boolean,java.util.concurrent.ExecutorService)
+com.crashlytics.android.core.CrashlyticsCore: boolean onPreExecute()
+com.crashlytics.android.core.CrashlyticsCore: boolean onPreExecute(android.content.Context)
+com.crashlytics.android.core.CrashlyticsCore: void setAndValidateKitProperties(android.content.Context,java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void installExceptionHandler(com.crashlytics.android.core.UnityVersionProvider)
+com.crashlytics.android.core.CrashlyticsCore: java.lang.Void doInBackground()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getIdentifier()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getVersion()
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CrashlyticsCore getInstance()
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.PinningInfoProvider getPinningInfoProvider()
+com.crashlytics.android.core.CrashlyticsCore: void logException(java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsCore: void log(java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void doLog(int,java.lang.String,java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void log(int,java.lang.String,java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void setUserIdentifier(java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void setUserName(java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void setUserEmail(java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void setString(java.lang.String,java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void setBool(java.lang.String,boolean)
+com.crashlytics.android.core.CrashlyticsCore: void setDouble(java.lang.String,double)
+com.crashlytics.android.core.CrashlyticsCore: void setFloat(java.lang.String,float)
+com.crashlytics.android.core.CrashlyticsCore: void setInt(java.lang.String,int)
+com.crashlytics.android.core.CrashlyticsCore: void setLong(java.lang.String,long)
+com.crashlytics.android.core.CrashlyticsCore: void crash()
+com.crashlytics.android.core.CrashlyticsCore: boolean verifyPinning(java.net.URL)
+com.crashlytics.android.core.CrashlyticsCore: void setListener(com.crashlytics.android.core.CrashlyticsListener)
+com.crashlytics.android.core.CrashlyticsCore: void recordLoggedExceptionEvent(java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: void recordFatalExceptionEvent(java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: java.util.Map getAttributes()
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.BuildIdValidator getBuildIdValidator(java.lang.String,boolean)
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getPackageName()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getApiKey()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getInstallerPackageName()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getVersionName()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getVersionCode()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getOverridenSpiEndpoint()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getBuildId()
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler getHandler()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getUserIdentifier()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getUserEmail()
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String getUserName()
+com.crashlytics.android.core.CrashlyticsCore: void finishInitSynchronously()
+com.crashlytics.android.core.CrashlyticsCore: void markInitializationStarted()
+com.crashlytics.android.core.CrashlyticsCore: void markInitializationComplete()
+com.crashlytics.android.core.CrashlyticsCore: boolean didPreviousInitializationFail()
+com.crashlytics.android.core.CrashlyticsCore: void setExternalCrashEventDataProvider(com.crashlytics.android.core.internal.CrashEventDataProvider)
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.internal.models.SessionEventData getExternalCrashEventData()
+com.crashlytics.android.core.CrashlyticsCore: boolean internalVerifyPinning(java.net.URL)
+com.crashlytics.android.core.CrashlyticsCore: java.io.File getSdkDirectory()
+com.crashlytics.android.core.CrashlyticsCore: boolean shouldPromptUserBeforeSendingCrashReports()
+com.crashlytics.android.core.CrashlyticsCore: boolean shouldSendReportsWithoutPrompting()
+com.crashlytics.android.core.CrashlyticsCore: void setShouldSendUserReportsWithoutPrompting(boolean)
+com.crashlytics.android.core.CrashlyticsCore: boolean canSendWithUserApproval()
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CreateReportSpiCall getCreateReportSpiCall(io.fabric.sdk.android.services.settings.SettingsData)
+com.crashlytics.android.core.CrashlyticsCore: void checkForPreviousCrash()
+com.crashlytics.android.core.CrashlyticsCore: void createCrashMarker()
+com.crashlytics.android.core.CrashlyticsCore: boolean getSendDecisionFromUser(android.app.Activity,io.fabric.sdk.android.services.settings.PromptSettingsData)
+com.crashlytics.android.core.CrashlyticsCore: io.fabric.sdk.android.services.settings.SessionSettingsData getSessionSettingsData()
+com.crashlytics.android.core.CrashlyticsCore: boolean isRequiringBuildId(android.content.Context)
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String formatLogMessage(int,java.lang.String,java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: boolean ensureFabricWithCalled(java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: java.lang.String sanitizeAttribute(java.lang.String)
+com.crashlytics.android.core.CrashlyticsCore: int dipsToPixels(float,int)
+com.crashlytics.android.core.CrashlyticsCore: java.lang.Object doInBackground()
+com.crashlytics.android.core.CrashlyticsCore: com.crashlytics.android.core.CrashlyticsFileMarker access$100(com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.core.CrashlyticsCore: boolean access$200(com.crashlytics.android.core.CrashlyticsCore,android.app.Activity,io.fabric.sdk.android.services.settings.PromptSettingsData)
+com.crashlytics.android.core.CrashlyticsCore: int access$400(float,int)
+com.crashlytics.android.core.CrashlyticsCore$1
+com.crashlytics.android.core.CrashlyticsCore$1: com.crashlytics.android.core.CrashlyticsCore this$0
+com.crashlytics.android.core.CrashlyticsCore$1: CrashlyticsCore$1(com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.core.CrashlyticsCore$1: java.lang.Void call()
+com.crashlytics.android.core.CrashlyticsCore$1: io.fabric.sdk.android.services.concurrency.Priority getPriority()
+com.crashlytics.android.core.CrashlyticsCore$1: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsCore$2
+com.crashlytics.android.core.CrashlyticsCore$2: com.crashlytics.android.core.CrashlyticsCore this$0
+com.crashlytics.android.core.CrashlyticsCore$2: CrashlyticsCore$2(com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.core.CrashlyticsCore$2: java.lang.Void call()
+com.crashlytics.android.core.CrashlyticsCore$2: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsCore$3
+com.crashlytics.android.core.CrashlyticsCore$3: com.crashlytics.android.core.CrashlyticsCore this$0
+com.crashlytics.android.core.CrashlyticsCore$3: CrashlyticsCore$3(com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.core.CrashlyticsCore$3: java.lang.Boolean call()
+com.crashlytics.android.core.CrashlyticsCore$3: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsCore$4
+com.crashlytics.android.core.CrashlyticsCore$4: com.crashlytics.android.core.CrashlyticsCore this$0
+com.crashlytics.android.core.CrashlyticsCore$4: CrashlyticsCore$4(com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.core.CrashlyticsCore$4: java.lang.Boolean call()
+com.crashlytics.android.core.CrashlyticsCore$4: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsCore$5
+com.crashlytics.android.core.CrashlyticsCore$5: com.crashlytics.android.core.CrashlyticsCore this$0
+com.crashlytics.android.core.CrashlyticsCore$5: CrashlyticsCore$5(com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.core.CrashlyticsCore$5: java.lang.Boolean usingSettings(io.fabric.sdk.android.services.settings.SettingsData)
+com.crashlytics.android.core.CrashlyticsCore$5: java.lang.Object usingSettings(io.fabric.sdk.android.services.settings.SettingsData)
+com.crashlytics.android.core.CrashlyticsCore$6
+com.crashlytics.android.core.CrashlyticsCore$6: com.crashlytics.android.core.CrashlyticsCore this$0
+com.crashlytics.android.core.CrashlyticsCore$6: CrashlyticsCore$6(com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.core.CrashlyticsCore$6: java.lang.Boolean usingSettings(io.fabric.sdk.android.services.settings.SettingsData)
+com.crashlytics.android.core.CrashlyticsCore$6: java.lang.Object usingSettings(io.fabric.sdk.android.services.settings.SettingsData)
+com.crashlytics.android.core.CrashlyticsCore$7
+com.crashlytics.android.core.CrashlyticsCore$7: android.app.Activity val$activity
+com.crashlytics.android.core.CrashlyticsCore$7: com.crashlytics.android.core.CrashlyticsCore$OptInLatch val$latch
+com.crashlytics.android.core.CrashlyticsCore$7: com.crashlytics.android.core.DialogStringResolver val$stringResolver
+com.crashlytics.android.core.CrashlyticsCore$7: io.fabric.sdk.android.services.settings.PromptSettingsData val$promptData
+com.crashlytics.android.core.CrashlyticsCore$7: com.crashlytics.android.core.CrashlyticsCore this$0
+com.crashlytics.android.core.CrashlyticsCore$7: CrashlyticsCore$7(com.crashlytics.android.core.CrashlyticsCore,android.app.Activity,com.crashlytics.android.core.CrashlyticsCore$OptInLatch,com.crashlytics.android.core.DialogStringResolver,io.fabric.sdk.android.services.settings.PromptSettingsData)
+com.crashlytics.android.core.CrashlyticsCore$7: void run()
+com.crashlytics.android.core.CrashlyticsCore$7$1
+com.crashlytics.android.core.CrashlyticsCore$7$1: com.crashlytics.android.core.CrashlyticsCore$7 this$1
+com.crashlytics.android.core.CrashlyticsCore$7$1: CrashlyticsCore$7$1(com.crashlytics.android.core.CrashlyticsCore$7)
+com.crashlytics.android.core.CrashlyticsCore$7$1: void onClick(android.content.DialogInterface,int)
+com.crashlytics.android.core.CrashlyticsCore$7$2
+com.crashlytics.android.core.CrashlyticsCore$7$2: com.crashlytics.android.core.CrashlyticsCore$7 this$1
+com.crashlytics.android.core.CrashlyticsCore$7$2: CrashlyticsCore$7$2(com.crashlytics.android.core.CrashlyticsCore$7)
+com.crashlytics.android.core.CrashlyticsCore$7$2: void onClick(android.content.DialogInterface,int)
+com.crashlytics.android.core.CrashlyticsCore$7$3
+com.crashlytics.android.core.CrashlyticsCore$7$3: com.crashlytics.android.core.CrashlyticsCore$7 this$1
+com.crashlytics.android.core.CrashlyticsCore$7$3: CrashlyticsCore$7$3(com.crashlytics.android.core.CrashlyticsCore$7)
+com.crashlytics.android.core.CrashlyticsCore$7$3: void onClick(android.content.DialogInterface,int)
+com.crashlytics.android.core.CrashlyticsCore$Builder
+com.crashlytics.android.core.CrashlyticsCore$Builder: float delay
+com.crashlytics.android.core.CrashlyticsCore$Builder: com.crashlytics.android.core.CrashlyticsListener listener
+com.crashlytics.android.core.CrashlyticsCore$Builder: com.crashlytics.android.core.PinningInfoProvider pinningInfoProvider
+com.crashlytics.android.core.CrashlyticsCore$Builder: boolean disabled
+com.crashlytics.android.core.CrashlyticsCore$Builder: CrashlyticsCore$Builder()
+com.crashlytics.android.core.CrashlyticsCore$Builder: com.crashlytics.android.core.CrashlyticsCore$Builder delay(float)
+com.crashlytics.android.core.CrashlyticsCore$Builder: com.crashlytics.android.core.CrashlyticsCore$Builder listener(com.crashlytics.android.core.CrashlyticsListener)
+com.crashlytics.android.core.CrashlyticsCore$Builder: com.crashlytics.android.core.CrashlyticsCore$Builder pinningInfo(com.crashlytics.android.core.PinningInfoProvider)
+com.crashlytics.android.core.CrashlyticsCore$Builder: com.crashlytics.android.core.CrashlyticsCore$Builder disabled(boolean)
+com.crashlytics.android.core.CrashlyticsCore$Builder: com.crashlytics.android.core.CrashlyticsCore build()
+com.crashlytics.android.core.CrashlyticsCore$CrashMarkerCheck
+com.crashlytics.android.core.CrashlyticsCore$CrashMarkerCheck: com.crashlytics.android.core.CrashlyticsFileMarker crashMarker
+com.crashlytics.android.core.CrashlyticsCore$CrashMarkerCheck: CrashlyticsCore$CrashMarkerCheck(com.crashlytics.android.core.CrashlyticsFileMarker)
+com.crashlytics.android.core.CrashlyticsCore$CrashMarkerCheck: java.lang.Boolean call()
+com.crashlytics.android.core.CrashlyticsCore$CrashMarkerCheck: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsCore$NoOpListener
+com.crashlytics.android.core.CrashlyticsCore$NoOpListener: CrashlyticsCore$NoOpListener()
+com.crashlytics.android.core.CrashlyticsCore$NoOpListener: void crashlyticsDidDetectCrashDuringPreviousExecution()
+com.crashlytics.android.core.CrashlyticsCore$NoOpListener: CrashlyticsCore$NoOpListener(com.crashlytics.android.core.CrashlyticsCore$1)
+com.crashlytics.android.core.CrashlyticsCore$OptInLatch
+com.crashlytics.android.core.CrashlyticsCore$OptInLatch: boolean send
+com.crashlytics.android.core.CrashlyticsCore$OptInLatch: java.util.concurrent.CountDownLatch latch
+com.crashlytics.android.core.CrashlyticsCore$OptInLatch: CrashlyticsCore$OptInLatch()
+com.crashlytics.android.core.CrashlyticsCore$OptInLatch: void setOptIn(boolean)
+com.crashlytics.android.core.CrashlyticsCore$OptInLatch: boolean getOptIn()
+com.crashlytics.android.core.CrashlyticsCore$OptInLatch: void await()
+com.crashlytics.android.core.CrashlyticsCore$OptInLatch: CrashlyticsCore$OptInLatch(com.crashlytics.android.core.CrashlyticsCore$1)
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper: java.util.concurrent.ExecutorService executorService
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper: CrashlyticsExecutorServiceWrapper(java.util.concurrent.ExecutorService)
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper: java.lang.Object executeSyncLoggingException(java.util.concurrent.Callable)
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper: java.util.concurrent.Future executeAsync(java.lang.Runnable)
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper: java.util.concurrent.Future executeAsync(java.util.concurrent.Callable)
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$1
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$1: java.lang.Runnable val$runnable
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$1: com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper this$0
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$1: CrashlyticsExecutorServiceWrapper$1(com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper,java.lang.Runnable)
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$1: void run()
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$2
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$2: java.util.concurrent.Callable val$callable
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$2: com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper this$0
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$2: CrashlyticsExecutorServiceWrapper$2(com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper,java.util.concurrent.Callable)
+com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper$2: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsFileMarker
+com.crashlytics.android.core.CrashlyticsFileMarker: java.lang.String markerName
+com.crashlytics.android.core.CrashlyticsFileMarker: io.fabric.sdk.android.services.persistence.FileStore fileStore
+com.crashlytics.android.core.CrashlyticsFileMarker: CrashlyticsFileMarker(java.lang.String,io.fabric.sdk.android.services.persistence.FileStore)
+com.crashlytics.android.core.CrashlyticsFileMarker: boolean create()
+com.crashlytics.android.core.CrashlyticsFileMarker: boolean isPresent()
+com.crashlytics.android.core.CrashlyticsFileMarker: boolean remove()
+com.crashlytics.android.core.CrashlyticsFileMarker: java.io.File getMarkerFile()
+com.crashlytics.android.core.CrashlyticsListener
+com.crashlytics.android.core.CrashlyticsListener: void crashlyticsDidDetectCrashDuringPreviousExecution()
+com.crashlytics.android.core.CrashlyticsMissingDependencyException
+com.crashlytics.android.core.CrashlyticsMissingDependencyException: long serialVersionUID
+com.crashlytics.android.core.CrashlyticsMissingDependencyException: CrashlyticsMissingDependencyException(java.lang.String)
+com.crashlytics.android.core.CrashlyticsMissingDependencyException: java.lang.String buildExceptionMessage(java.lang.String)
+com.crashlytics.android.core.CrashlyticsPinningInfoProvider
+com.crashlytics.android.core.CrashlyticsPinningInfoProvider: com.crashlytics.android.core.PinningInfoProvider pinningInfo
+com.crashlytics.android.core.CrashlyticsPinningInfoProvider: CrashlyticsPinningInfoProvider(com.crashlytics.android.core.PinningInfoProvider)
+com.crashlytics.android.core.CrashlyticsPinningInfoProvider: java.io.InputStream getKeyStoreStream()
+com.crashlytics.android.core.CrashlyticsPinningInfoProvider: java.lang.String getKeyStorePassword()
+com.crashlytics.android.core.CrashlyticsPinningInfoProvider: java.lang.String[] getPins()
+com.crashlytics.android.core.CrashlyticsPinningInfoProvider: long getPinCreationTimeInMillis()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.FilenameFilter SESSION_FILE_FILTER
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.Comparator LARGEST_FILE_NAME_FIRST
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.Comparator SMALLEST_FILE_NAME_FIRST
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.FilenameFilter ANY_SESSION_FILENAME_FILTER
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.regex.Pattern SESSION_FILE_PATTERN
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.Map SEND_AT_CRASHTIME_HEADER
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: int MAX_LOCAL_LOGGED_EXCEPTIONS
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: int MAX_OPEN_SESSIONS
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: int MAX_COMPLETE_SESSIONS_COUNT
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String INVALID_CLS_CACHE_DIR
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String GENERATOR_FORMAT
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String EVENT_TYPE_CRASH
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String EVENT_TYPE_LOGGED
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: int SESSION_ID_LENGTH
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: int ANALYZER_VERSION
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String SESSION_USER_TAG
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String SESSION_NON_FATAL_TAG
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String SESSION_FATAL_TAG
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String SESSION_APP_TAG
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String SESSION_OS_TAG
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String SESSION_DEVICE_TAG
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String SESSION_BEGIN_TAG
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String[] INITIAL_SESSION_PART_TAGS
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.concurrent.atomic.AtomicInteger eventCounter
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.Thread$UncaughtExceptionHandler defaultHandler
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: io.fabric.sdk.android.services.persistence.FileStore fileStore
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.concurrent.atomic.AtomicBoolean isHandlingException
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper executorServiceWrapper
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: io.fabric.sdk.android.services.common.IdManager idManager
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: com.crashlytics.android.core.CrashlyticsCore crashlyticsCore
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: com.crashlytics.android.core.LogFileManager logFileManager
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: com.crashlytics.android.core.DevicePowerStateListener devicePowerStateListener
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String unityVersion
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: CrashlyticsUncaughtExceptionHandler(java.lang.Thread$UncaughtExceptionHandler,com.crashlytics.android.core.CrashlyticsExecutorServiceWrapper,io.fabric.sdk.android.services.common.IdManager,com.crashlytics.android.core.UnityVersionProvider,io.fabric.sdk.android.services.persistence.FileStore,com.crashlytics.android.core.CrashlyticsCore)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void uncaughtException(java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void handleUncaughtException(java.util.Date,java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: boolean isHandlingException()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeToLog(long,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeNonFatalException(java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void cacheUserData(java.lang.String,java.lang.String,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void cacheKeyData(java.util.Map)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void openSession()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String getCurrentSessionId()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String getPreviousSessionId()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String getSessionIdFromSessionFile(java.io.File)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: boolean hasOpenSession()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: boolean finalizeSessions()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void doOpenSession()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void doCloseSessions()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void doCloseSessions(boolean)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void closeOpenSessions(java.io.File[],int,int)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void closeWithoutRenamingOrLog(com.crashlytics.android.core.ClsFileOutputStream)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void deleteSessionPartFilesFor(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File[] listSessionPartFilesFor(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File[] listCompleteSessionFiles()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File[] listSessionBeginFiles()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File[] listSortedSessionBeginFiles()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File[] listFilesMatching(java.io.FilenameFilter)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File[] ensureFileArrayNotNull(java.io.File[])
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void trimSessionEventFiles(java.lang.String,int)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void trimSessionFiles()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void trimOpenSessions(int)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File[] getTrimmedNonFatalFiles(java.lang.String,java.io.File[],int)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void cleanInvalidTempFiles()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void doCleanInvalidTempFiles(java.io.File[])
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void deleteLegacyInvalidCacheDir()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeFatal(java.util.Date,java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeExternalCrashEvent(com.crashlytics.android.core.internal.models.SessionEventData)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void doWriteNonFatal(java.util.Date,java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeBeginSession(java.lang.String,java.util.Date)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeSessionApp(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeSessionOS(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeSessionDevice(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeSessionUser(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeSessionEvent(com.crashlytics.android.core.CodedOutputStream,java.util.Date,java.lang.Thread,java.lang.Throwable,java.lang.String,boolean)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeSessionPartsToSessionFile(java.io.File,java.lang.String,int)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void synthesizeSessionFile(java.io.File,java.lang.String,java.io.File[],java.io.File)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeNonFatalEventsTo(com.crashlytics.android.core.CodedOutputStream,java.io.File[],java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeInitialPartsTo(com.crashlytics.android.core.CodedOutputStream,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void writeToCosFromFile(com.crashlytics.android.core.CodedOutputStream,java.io.File)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void copyToCodedOutputStream(java.io.InputStream,com.crashlytics.android.core.CodedOutputStream,int)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: com.crashlytics.android.core.UserMetaData getUserMetaData(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void sendSessionReports()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File getFilesDir()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.regex.Pattern access$000()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void access$100(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,java.util.Date,java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.concurrent.atomic.AtomicBoolean access$200(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: com.crashlytics.android.core.LogFileManager access$300(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void access$400(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,java.util.Date,java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.lang.String access$500(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File access$600(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void access$700(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: com.crashlytics.android.core.CrashlyticsCore access$800(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void access$900(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,com.crashlytics.android.core.internal.models.SessionEventData)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void access$1000(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,boolean)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.io.File[] access$1200(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,java.io.FilenameFilter)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: java.util.Map access$1300()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler: void <clinit>()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$1
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$1: CrashlyticsUncaughtExceptionHandler$1()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$1: boolean accept(java.io.File,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$10
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$10: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$10: CrashlyticsUncaughtExceptionHandler$10(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$10: java.lang.Void call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$10: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$11
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$11: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$11: CrashlyticsUncaughtExceptionHandler$11(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$11: java.lang.Boolean call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$11: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$12
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$12: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$12: CrashlyticsUncaughtExceptionHandler$12(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$12: void run()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$13
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$13: java.lang.String val$sessionId
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$13: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$13: CrashlyticsUncaughtExceptionHandler$13(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$13: boolean accept(java.io.File,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$2
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$2: CrashlyticsUncaughtExceptionHandler$2()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$2: int compare(java.io.File,java.io.File)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$2: int compare(java.lang.Object,java.lang.Object)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$3
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$3: CrashlyticsUncaughtExceptionHandler$3()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$3: int compare(java.io.File,java.io.File)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$3: int compare(java.lang.Object,java.lang.Object)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$4
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$4: CrashlyticsUncaughtExceptionHandler$4()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$4: boolean accept(java.io.File,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$5
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$5: java.util.Date val$now
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$5: java.lang.Thread val$thread
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$5: java.lang.Throwable val$ex
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$5: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$5: CrashlyticsUncaughtExceptionHandler$5(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,java.util.Date,java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$5: java.lang.Void call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$5: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$6
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$6: long val$timestamp
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$6: java.lang.String val$msg
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$6: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$6: CrashlyticsUncaughtExceptionHandler$6(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,long,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$6: java.lang.Void call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$6: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$7
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$7: java.util.Date val$now
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$7: java.lang.Thread val$thread
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$7: java.lang.Throwable val$ex
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$7: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$7: CrashlyticsUncaughtExceptionHandler$7(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,java.util.Date,java.lang.Thread,java.lang.Throwable)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$7: void run()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$8
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$8: java.lang.String val$userId
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$8: java.lang.String val$userName
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$8: java.lang.String val$userEmail
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$8: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$8: CrashlyticsUncaughtExceptionHandler$8(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,java.lang.String,java.lang.String,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$8: java.lang.Void call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$8: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$9
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$9: java.util.Map val$keyData
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$9: com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler this$0
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$9: CrashlyticsUncaughtExceptionHandler$9(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler,java.util.Map)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$9: java.lang.Void call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$9: java.lang.Object call()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$AnySessionPartFileFilter
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$AnySessionPartFileFilter: CrashlyticsUncaughtExceptionHandler$AnySessionPartFileFilter()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$AnySessionPartFileFilter: boolean accept(java.io.File,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$AnySessionPartFileFilter: CrashlyticsUncaughtExceptionHandler$AnySessionPartFileFilter(com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$1)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$FileNameContainsFilter
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$FileNameContainsFilter: java.lang.String string
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$FileNameContainsFilter: CrashlyticsUncaughtExceptionHandler$FileNameContainsFilter(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$FileNameContainsFilter: boolean accept(java.io.File,java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SendSessionRunnable
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SendSessionRunnable: com.crashlytics.android.core.CrashlyticsCore crashlyticsCore
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SendSessionRunnable: java.io.File fileToSend
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SendSessionRunnable: CrashlyticsUncaughtExceptionHandler$SendSessionRunnable(com.crashlytics.android.core.CrashlyticsCore,java.io.File)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SendSessionRunnable: void run()
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SessionPartFileFilter
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SessionPartFileFilter: java.lang.String sessionId
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SessionPartFileFilter: CrashlyticsUncaughtExceptionHandler$SessionPartFileFilter(java.lang.String)
+com.crashlytics.android.core.CrashlyticsUncaughtExceptionHandler$SessionPartFileFilter: boolean accept(java.io.File,java.lang.String)
+com.crashlytics.android.core.CreateReportRequest
+com.crashlytics.android.core.CreateReportRequest: java.lang.String apiKey
+com.crashlytics.android.core.CreateReportRequest: com.crashlytics.android.core.Report report
+com.crashlytics.android.core.CreateReportRequest: CreateReportRequest(java.lang.String,com.crashlytics.android.core.Report)
+com.crashlytics.android.core.CreateReportSpiCall
+com.crashlytics.android.core.CreateReportSpiCall: boolean invoke(com.crashlytics.android.core.CreateReportRequest)
+com.crashlytics.android.core.DefaultCreateReportSpiCall
+com.crashlytics.android.core.DefaultCreateReportSpiCall: java.lang.String FILE_PARAM
+com.crashlytics.android.core.DefaultCreateReportSpiCall: java.lang.String IDENTIFIER_PARAM
+com.crashlytics.android.core.DefaultCreateReportSpiCall: java.lang.String FILE_CONTENT_TYPE
+com.crashlytics.android.core.DefaultCreateReportSpiCall: DefaultCreateReportSpiCall(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory)
+com.crashlytics.android.core.DefaultCreateReportSpiCall: DefaultCreateReportSpiCall(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory,io.fabric.sdk.android.services.network.HttpMethod)
+com.crashlytics.android.core.DefaultCreateReportSpiCall: boolean invoke(com.crashlytics.android.core.CreateReportRequest)
+com.crashlytics.android.core.DefaultCreateReportSpiCall: io.fabric.sdk.android.services.network.HttpRequest applyHeadersTo(io.fabric.sdk.android.services.network.HttpRequest,com.crashlytics.android.core.CreateReportRequest)
+com.crashlytics.android.core.DefaultCreateReportSpiCall: io.fabric.sdk.android.services.network.HttpRequest applyMultipartDataTo(io.fabric.sdk.android.services.network.HttpRequest,com.crashlytics.android.core.CreateReportRequest)
+com.crashlytics.android.core.DevicePowerStateListener
+com.crashlytics.android.core.DevicePowerStateListener: android.content.IntentFilter FILTER_BATTERY_CHANGED
+com.crashlytics.android.core.DevicePowerStateListener: android.content.IntentFilter FILTER_POWER_CONNECTED
+com.crashlytics.android.core.DevicePowerStateListener: android.content.IntentFilter FILTER_POWER_DISCONNECTED
+com.crashlytics.android.core.DevicePowerStateListener: java.util.concurrent.atomic.AtomicBoolean receiversRegistered
+com.crashlytics.android.core.DevicePowerStateListener: android.content.Context context
+com.crashlytics.android.core.DevicePowerStateListener: android.content.BroadcastReceiver powerDisconnectedReceiver
+com.crashlytics.android.core.DevicePowerStateListener: android.content.BroadcastReceiver powerConnectedReceiver
+com.crashlytics.android.core.DevicePowerStateListener: boolean isPowerConnected
+com.crashlytics.android.core.DevicePowerStateListener: DevicePowerStateListener(android.content.Context)
+com.crashlytics.android.core.DevicePowerStateListener: boolean isPowerConnected()
+com.crashlytics.android.core.DevicePowerStateListener: void dispose()
+com.crashlytics.android.core.DevicePowerStateListener: boolean access$002(com.crashlytics.android.core.DevicePowerStateListener,boolean)
+com.crashlytics.android.core.DevicePowerStateListener: void <clinit>()
+com.crashlytics.android.core.DevicePowerStateListener$1
+com.crashlytics.android.core.DevicePowerStateListener$1: com.crashlytics.android.core.DevicePowerStateListener this$0
+com.crashlytics.android.core.DevicePowerStateListener$1: DevicePowerStateListener$1(com.crashlytics.android.core.DevicePowerStateListener)
+com.crashlytics.android.core.DevicePowerStateListener$1: void onReceive(android.content.Context,android.content.Intent)
+com.crashlytics.android.core.DevicePowerStateListener$2
+com.crashlytics.android.core.DevicePowerStateListener$2: com.crashlytics.android.core.DevicePowerStateListener this$0
+com.crashlytics.android.core.DevicePowerStateListener$2: DevicePowerStateListener$2(com.crashlytics.android.core.DevicePowerStateListener)
+com.crashlytics.android.core.DevicePowerStateListener$2: void onReceive(android.content.Context,android.content.Intent)
+com.crashlytics.android.core.DialogStringResolver
+com.crashlytics.android.core.DialogStringResolver: java.lang.String PROMPT_TITLE_RES_NAME
+com.crashlytics.android.core.DialogStringResolver: java.lang.String PROMPT_MESSAGE_RES_NAME
+com.crashlytics.android.core.DialogStringResolver: java.lang.String SUBMISSION_SEND_RES_NAME
+com.crashlytics.android.core.DialogStringResolver: java.lang.String SUBMISSION_ALWAYS_SEND_RES_NAME
+com.crashlytics.android.core.DialogStringResolver: java.lang.String SUBMISSION_CANCEL_RES_NAME
+com.crashlytics.android.core.DialogStringResolver: android.content.Context context
+com.crashlytics.android.core.DialogStringResolver: io.fabric.sdk.android.services.settings.PromptSettingsData promptData
+com.crashlytics.android.core.DialogStringResolver: DialogStringResolver(android.content.Context,io.fabric.sdk.android.services.settings.PromptSettingsData)
+com.crashlytics.android.core.DialogStringResolver: java.lang.String getTitle()
+com.crashlytics.android.core.DialogStringResolver: java.lang.String getMessage()
+com.crashlytics.android.core.DialogStringResolver: java.lang.String getSendButtonTitle()
+com.crashlytics.android.core.DialogStringResolver: java.lang.String getAlwaysSendButtonTitle()
+com.crashlytics.android.core.DialogStringResolver: java.lang.String getCancelButtonTitle()
+com.crashlytics.android.core.DialogStringResolver: java.lang.String resourceOrFallbackValue(java.lang.String,java.lang.String)
+com.crashlytics.android.core.DialogStringResolver: java.lang.String stringOrFallback(java.lang.String,java.lang.String)
+com.crashlytics.android.core.DialogStringResolver: boolean isNullOrEmpty(java.lang.String)
+com.crashlytics.android.core.ExceptionUtils
+com.crashlytics.android.core.ExceptionUtils: ExceptionUtils()
+com.crashlytics.android.core.ExceptionUtils: void writeStackTraceIfNotNull(java.lang.Throwable,java.io.OutputStream)
+com.crashlytics.android.core.ExceptionUtils: void writeStackTrace(android.content.Context,java.lang.Throwable,java.lang.String)
+com.crashlytics.android.core.ExceptionUtils: void writeStackTrace(java.lang.Throwable,java.io.OutputStream)
+com.crashlytics.android.core.ExceptionUtils: void writeStackTrace(java.lang.Throwable,java.io.Writer)
+com.crashlytics.android.core.ExceptionUtils: java.lang.String getMessage(java.lang.Throwable)
+com.crashlytics.android.core.FileLogStore
+com.crashlytics.android.core.FileLogStore: void writeToLog(long,java.lang.String)
+com.crashlytics.android.core.FileLogStore: com.crashlytics.android.core.ByteString getLogAsByteString()
+com.crashlytics.android.core.FileLogStore: void closeLogFile()
+com.crashlytics.android.core.FileLogStore: void deleteLogFile()
+com.crashlytics.android.core.LogFileManager
+com.crashlytics.android.core.LogFileManager: java.lang.String LOGFILE_EXT
+com.crashlytics.android.core.LogFileManager: java.lang.String LOGFILE_PREFIX
+com.crashlytics.android.core.LogFileManager: java.lang.String DIRECTORY_NAME
+com.crashlytics.android.core.LogFileManager: com.crashlytics.android.core.LogFileManager$NoopLogStore NOOP_LOG_STORE
+com.crashlytics.android.core.LogFileManager: int MAX_LOG_SIZE
+com.crashlytics.android.core.LogFileManager: android.content.Context context
+com.crashlytics.android.core.LogFileManager: io.fabric.sdk.android.services.persistence.FileStore fileStore
+com.crashlytics.android.core.LogFileManager: com.crashlytics.android.core.FileLogStore currentLog
+com.crashlytics.android.core.LogFileManager: LogFileManager(android.content.Context,io.fabric.sdk.android.services.persistence.FileStore)
+com.crashlytics.android.core.LogFileManager: LogFileManager(android.content.Context,io.fabric.sdk.android.services.persistence.FileStore,java.lang.String)
+com.crashlytics.android.core.LogFileManager: void setCurrentSession(java.lang.String)
+com.crashlytics.android.core.LogFileManager: void writeToLog(long,java.lang.String)
+com.crashlytics.android.core.LogFileManager: com.crashlytics.android.core.ByteString getByteStringForLog()
+com.crashlytics.android.core.LogFileManager: void clearLog()
+com.crashlytics.android.core.LogFileManager: void discardOldLogFiles(java.util.Set)
+com.crashlytics.android.core.LogFileManager: void setLogFile(java.io.File,int)
+com.crashlytics.android.core.LogFileManager: java.io.File getWorkingFileForSession(java.lang.String)
+com.crashlytics.android.core.LogFileManager: java.lang.String getSessionIdForFile(java.io.File)
+com.crashlytics.android.core.LogFileManager: boolean isLoggingEnabled()
+com.crashlytics.android.core.LogFileManager: java.io.File getLogFileDir()
+com.crashlytics.android.core.LogFileManager: void <clinit>()
+com.crashlytics.android.core.LogFileManager$1
+com.crashlytics.android.core.LogFileManager$NoopLogStore
+com.crashlytics.android.core.LogFileManager$NoopLogStore: LogFileManager$NoopLogStore()
+com.crashlytics.android.core.LogFileManager$NoopLogStore: void writeToLog(long,java.lang.String)
+com.crashlytics.android.core.LogFileManager$NoopLogStore: com.crashlytics.android.core.ByteString getLogAsByteString()
+com.crashlytics.android.core.LogFileManager$NoopLogStore: void closeLogFile()
+com.crashlytics.android.core.LogFileManager$NoopLogStore: void deleteLogFile()
+com.crashlytics.android.core.LogFileManager$NoopLogStore: LogFileManager$NoopLogStore(com.crashlytics.android.core.LogFileManager$1)
+com.crashlytics.android.core.ManifestUnityVersionProvider
+com.crashlytics.android.core.ManifestUnityVersionProvider: java.lang.String FABRIC_UNITY_CRASHLYTICS_VERSION_KEY
+com.crashlytics.android.core.ManifestUnityVersionProvider: android.content.Context context
+com.crashlytics.android.core.ManifestUnityVersionProvider: java.lang.String packageName
+com.crashlytics.android.core.ManifestUnityVersionProvider: ManifestUnityVersionProvider(android.content.Context,java.lang.String)
+com.crashlytics.android.core.ManifestUnityVersionProvider: java.lang.String getUnityVersion()
+com.crashlytics.android.core.MetaDataStore
+com.crashlytics.android.core.MetaDataStore: java.nio.charset.Charset UTF_8
+com.crashlytics.android.core.MetaDataStore: java.lang.String USERDATA_SUFFIX
+com.crashlytics.android.core.MetaDataStore: java.lang.String KEYDATA_SUFFIX
+com.crashlytics.android.core.MetaDataStore: java.lang.String METADATA_EXT
+com.crashlytics.android.core.MetaDataStore: java.lang.String KEY_USER_ID
+com.crashlytics.android.core.MetaDataStore: java.lang.String KEY_USER_NAME
+com.crashlytics.android.core.MetaDataStore: java.lang.String KEY_USER_EMAIL
+com.crashlytics.android.core.MetaDataStore: java.io.File filesDir
+com.crashlytics.android.core.MetaDataStore: MetaDataStore(java.io.File)
+com.crashlytics.android.core.MetaDataStore: void writeUserData(java.lang.String,com.crashlytics.android.core.UserMetaData)
+com.crashlytics.android.core.MetaDataStore: com.crashlytics.android.core.UserMetaData readUserData(java.lang.String)
+com.crashlytics.android.core.MetaDataStore: void writeKeyData(java.lang.String,java.util.Map)
+com.crashlytics.android.core.MetaDataStore: java.util.Map readKeyData(java.lang.String)
+com.crashlytics.android.core.MetaDataStore: java.io.File getUserDataFileForSession(java.lang.String)
+com.crashlytics.android.core.MetaDataStore: java.io.File getKeysFileForSession(java.lang.String)
+com.crashlytics.android.core.MetaDataStore: com.crashlytics.android.core.UserMetaData jsonToUserData(java.lang.String)
+com.crashlytics.android.core.MetaDataStore: java.lang.String userDataToJson(com.crashlytics.android.core.UserMetaData)
+com.crashlytics.android.core.MetaDataStore: java.util.Map jsonToKeysData(java.lang.String)
+com.crashlytics.android.core.MetaDataStore: java.lang.String keysDataToJson(java.util.Map)
+com.crashlytics.android.core.MetaDataStore: java.lang.String valueOrNull(org.json.JSONObject,java.lang.String)
+com.crashlytics.android.core.MetaDataStore: void <clinit>()
+com.crashlytics.android.core.MetaDataStore$1
+com.crashlytics.android.core.MetaDataStore$1: com.crashlytics.android.core.UserMetaData val$userData
+com.crashlytics.android.core.MetaDataStore$1: MetaDataStore$1(com.crashlytics.android.core.UserMetaData)
+com.crashlytics.android.core.NativeCrashWriter
+com.crashlytics.android.core.NativeCrashWriter: java.lang.String NDK_CRASH_TYPE
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.internal.models.SignalData DEFAULT_SIGNAL
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage[] EMPTY_CHILDREN
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$ThreadMessage[] EMPTY_THREAD_MESSAGES
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$FrameMessage[] EMPTY_FRAME_MESSAGES
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage[] EMPTY_BINARY_IMAGE_MESSAGES
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$CustomAttributeMessage[] EMPTY_CUSTOM_ATTRIBUTE_MESSAGES
+com.crashlytics.android.core.NativeCrashWriter: NativeCrashWriter()
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$EventMessage createEventMessage(com.crashlytics.android.core.internal.models.SessionEventData,com.crashlytics.android.core.LogFileManager,java.util.Map)
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.internal.models.CustomAttributeData[] mergeCustomAttributes(com.crashlytics.android.core.internal.models.CustomAttributeData[],java.util.Map)
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$DeviceMessage createDeviceMessage(com.crashlytics.android.core.internal.models.DeviceData)
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage createThreadsMessage(com.crashlytics.android.core.internal.models.ThreadData[])
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage createFramesMessage(com.crashlytics.android.core.internal.models.ThreadData$FrameData[])
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage createBinaryImagesMessage(com.crashlytics.android.core.internal.models.BinaryImageData[])
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage createCustomAttributesMessage(com.crashlytics.android.core.internal.models.CustomAttributeData[])
+com.crashlytics.android.core.NativeCrashWriter: void writeNativeCrash(com.crashlytics.android.core.internal.models.SessionEventData,com.crashlytics.android.core.LogFileManager,java.util.Map,com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter: com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage[] access$000()
+com.crashlytics.android.core.NativeCrashWriter: void <clinit>()
+com.crashlytics.android.core.NativeCrashWriter$ApplicationMessage
+com.crashlytics.android.core.NativeCrashWriter$ApplicationMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$ApplicationMessage: NativeCrashWriter$ApplicationMessage(com.crashlytics.android.core.NativeCrashWriter$ExecutionMessage,com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage)
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage: long baseAddr
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage: long imageSize
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage: java.lang.String filePath
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage: java.lang.String uuid
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage: NativeCrashWriter$BinaryImageMessage(com.crashlytics.android.core.internal.models.BinaryImageData)
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$BinaryImageMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$CustomAttributeMessage
+com.crashlytics.android.core.NativeCrashWriter$CustomAttributeMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$CustomAttributeMessage: java.lang.String key
+com.crashlytics.android.core.NativeCrashWriter$CustomAttributeMessage: java.lang.String value
+com.crashlytics.android.core.NativeCrashWriter$CustomAttributeMessage: NativeCrashWriter$CustomAttributeMessage(com.crashlytics.android.core.internal.models.CustomAttributeData)
+com.crashlytics.android.core.NativeCrashWriter$CustomAttributeMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$CustomAttributeMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: float batteryLevel
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: int batteryVelocity
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: boolean proximityOn
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: int orientation
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: long ramUsed
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: long diskUsed
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: NativeCrashWriter$DeviceMessage(float,int,boolean,int,long,long)
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$DeviceMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$EventMessage
+com.crashlytics.android.core.NativeCrashWriter$EventMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$EventMessage: long time
+com.crashlytics.android.core.NativeCrashWriter$EventMessage: java.lang.String crashType
+com.crashlytics.android.core.NativeCrashWriter$EventMessage: NativeCrashWriter$EventMessage(long,java.lang.String,com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage[])
+com.crashlytics.android.core.NativeCrashWriter$EventMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$EventMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$ExecutionMessage
+com.crashlytics.android.core.NativeCrashWriter$ExecutionMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$ExecutionMessage: NativeCrashWriter$ExecutionMessage(com.crashlytics.android.core.NativeCrashWriter$SignalMessage,com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage,com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage)
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: long address
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: java.lang.String symbol
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: java.lang.String file
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: long offset
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: int importance
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: NativeCrashWriter$FrameMessage(com.crashlytics.android.core.internal.models.ThreadData$FrameData)
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$FrameMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$LogMessage
+com.crashlytics.android.core.NativeCrashWriter$LogMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$LogMessage: com.crashlytics.android.core.ByteString logBytes
+com.crashlytics.android.core.NativeCrashWriter$LogMessage: NativeCrashWriter$LogMessage(com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.NativeCrashWriter$LogMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$LogMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$NullMessage
+com.crashlytics.android.core.NativeCrashWriter$NullMessage: NativeCrashWriter$NullMessage()
+com.crashlytics.android.core.NativeCrashWriter$NullMessage: void write(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage: int tag
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage: com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage[] children
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage: NativeCrashWriter$ProtobufMessage(int,com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage[])
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage: int getSize()
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage: int getSizeNoTag()
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage: void write(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage
+com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage: com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage[] messages
+com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage: NativeCrashWriter$RepeatedMessage(com.crashlytics.android.core.NativeCrashWriter$ProtobufMessage[])
+com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage: void write(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage: int getSize()
+com.crashlytics.android.core.NativeCrashWriter$SignalMessage
+com.crashlytics.android.core.NativeCrashWriter$SignalMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$SignalMessage: java.lang.String sigName
+com.crashlytics.android.core.NativeCrashWriter$SignalMessage: java.lang.String sigCode
+com.crashlytics.android.core.NativeCrashWriter$SignalMessage: long sigAddr
+com.crashlytics.android.core.NativeCrashWriter$SignalMessage: NativeCrashWriter$SignalMessage(com.crashlytics.android.core.internal.models.SignalData)
+com.crashlytics.android.core.NativeCrashWriter$SignalMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$SignalMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$ThreadMessage
+com.crashlytics.android.core.NativeCrashWriter$ThreadMessage: int PROTOBUF_TAG
+com.crashlytics.android.core.NativeCrashWriter$ThreadMessage: java.lang.String name
+com.crashlytics.android.core.NativeCrashWriter$ThreadMessage: int importance
+com.crashlytics.android.core.NativeCrashWriter$ThreadMessage: NativeCrashWriter$ThreadMessage(com.crashlytics.android.core.internal.models.ThreadData,com.crashlytics.android.core.NativeCrashWriter$RepeatedMessage)
+com.crashlytics.android.core.NativeCrashWriter$ThreadMessage: int getPropertiesSize()
+com.crashlytics.android.core.NativeCrashWriter$ThreadMessage: void writeProperties(com.crashlytics.android.core.CodedOutputStream)
+com.crashlytics.android.core.NativeCrashWriter$ThreadMessage: boolean hasName()
+com.crashlytics.android.core.PinningInfoProvider
+com.crashlytics.android.core.PinningInfoProvider: java.io.InputStream getKeyStoreStream()
+com.crashlytics.android.core.PinningInfoProvider: java.lang.String getKeyStorePassword()
+com.crashlytics.android.core.PinningInfoProvider: java.lang.String[] getPins()
+com.crashlytics.android.core.QueueFileLogStore
+com.crashlytics.android.core.QueueFileLogStore: java.io.File workingFile
+com.crashlytics.android.core.QueueFileLogStore: int maxLogSize
+com.crashlytics.android.core.QueueFileLogStore: io.fabric.sdk.android.services.common.QueueFile logFile
+com.crashlytics.android.core.QueueFileLogStore: QueueFileLogStore(java.io.File,int)
+com.crashlytics.android.core.QueueFileLogStore: void writeToLog(long,java.lang.String)
+com.crashlytics.android.core.QueueFileLogStore: com.crashlytics.android.core.ByteString getLogAsByteString()
+com.crashlytics.android.core.QueueFileLogStore: void closeLogFile()
+com.crashlytics.android.core.QueueFileLogStore: void deleteLogFile()
+com.crashlytics.android.core.QueueFileLogStore: void openLogFile()
+com.crashlytics.android.core.QueueFileLogStore: void doWriteToLog(long,java.lang.String)
+com.crashlytics.android.core.QueueFileLogStore$1
+com.crashlytics.android.core.QueueFileLogStore$1: byte[] val$logBytes
+com.crashlytics.android.core.QueueFileLogStore$1: int[] val$offsetHolder
+com.crashlytics.android.core.QueueFileLogStore$1: com.crashlytics.android.core.QueueFileLogStore this$0
+com.crashlytics.android.core.QueueFileLogStore$1: QueueFileLogStore$1(com.crashlytics.android.core.QueueFileLogStore,byte[],int[])
+com.crashlytics.android.core.QueueFileLogStore$1: void read(java.io.InputStream,int)
+com.crashlytics.android.core.Report
+com.crashlytics.android.core.Report: boolean remove()
+com.crashlytics.android.core.Report: java.lang.String getFileName()
+com.crashlytics.android.core.Report: java.lang.String getIdentifier()
+com.crashlytics.android.core.Report: java.io.File getFile()
+com.crashlytics.android.core.Report: java.util.Map getCustomHeaders()
+com.crashlytics.android.core.ReportUploader
+com.crashlytics.android.core.ReportUploader: java.io.FilenameFilter crashFileFilter
+com.crashlytics.android.core.ReportUploader: java.util.Map HEADER_INVALID_CLS_FILE
+com.crashlytics.android.core.ReportUploader: short[] RETRY_INTERVALS
+com.crashlytics.android.core.ReportUploader: java.lang.String CLS_FILE_EXT
+com.crashlytics.android.core.ReportUploader: java.lang.Object fileAccessLock
+com.crashlytics.android.core.ReportUploader: com.crashlytics.android.core.CreateReportSpiCall createReportCall
+com.crashlytics.android.core.ReportUploader: java.lang.Thread uploadThread
+com.crashlytics.android.core.ReportUploader: ReportUploader(com.crashlytics.android.core.CreateReportSpiCall)
+com.crashlytics.android.core.ReportUploader: void uploadReports()
+com.crashlytics.android.core.ReportUploader: void uploadReports(float)
+com.crashlytics.android.core.ReportUploader: boolean isUploading()
+com.crashlytics.android.core.ReportUploader: boolean forceUpload(com.crashlytics.android.core.Report)
+com.crashlytics.android.core.ReportUploader: java.util.List findReports()
+com.crashlytics.android.core.ReportUploader: java.lang.Thread access$002(com.crashlytics.android.core.ReportUploader,java.lang.Thread)
+com.crashlytics.android.core.ReportUploader: short[] access$100()
+com.crashlytics.android.core.ReportUploader: void <clinit>()
+com.crashlytics.android.core.ReportUploader$1
+com.crashlytics.android.core.ReportUploader$1: ReportUploader$1()
+com.crashlytics.android.core.ReportUploader$1: boolean accept(java.io.File,java.lang.String)
+com.crashlytics.android.core.ReportUploader$Worker
+com.crashlytics.android.core.ReportUploader$Worker: float delay
+com.crashlytics.android.core.ReportUploader$Worker: com.crashlytics.android.core.ReportUploader this$0
+com.crashlytics.android.core.ReportUploader$Worker: ReportUploader$Worker(com.crashlytics.android.core.ReportUploader,float)
+com.crashlytics.android.core.ReportUploader$Worker: void onRun()
+com.crashlytics.android.core.ReportUploader$Worker: void attemptUploadWithRetry()
+com.crashlytics.android.core.SessionProtobufHelper
+com.crashlytics.android.core.SessionProtobufHelper: java.lang.String SIGNAL_DEFAULT
+com.crashlytics.android.core.SessionProtobufHelper: com.crashlytics.android.core.ByteString SIGNAL_DEFAULT_BYTE_STRING
+com.crashlytics.android.core.SessionProtobufHelper: com.crashlytics.android.core.ByteString UNITY_PLATFORM_BYTE_STRING
+com.crashlytics.android.core.SessionProtobufHelper: SessionProtobufHelper()
+com.crashlytics.android.core.SessionProtobufHelper: void writeBeginSession(com.crashlytics.android.core.CodedOutputStream,java.lang.String,java.lang.String,long)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionApp(com.crashlytics.android.core.CodedOutputStream,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionOS(com.crashlytics.android.core.CodedOutputStream,boolean)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionDevice(com.crashlytics.android.core.CodedOutputStream,java.lang.String,int,java.lang.String,int,long,long,boolean,java.util.Map,int,java.lang.String,java.lang.String)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionUser(com.crashlytics.android.core.CodedOutputStream,java.lang.String,java.lang.String,java.lang.String)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionEvent(com.crashlytics.android.core.CodedOutputStream,long,java.lang.String,java.lang.Throwable,java.lang.Thread,java.lang.StackTraceElement[],java.lang.Thread[],java.util.List,java.util.Map,com.crashlytics.android.core.LogFileManager,android.app.ActivityManager$RunningAppProcessInfo,int,java.lang.String,java.lang.String,float,int,boolean,long,long)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionEventApp(com.crashlytics.android.core.CodedOutputStream,java.lang.Throwable,java.lang.Thread,java.lang.StackTraceElement[],java.lang.Thread[],java.util.List,int,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,java.util.Map,android.app.ActivityManager$RunningAppProcessInfo,int)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionEventAppExecution(com.crashlytics.android.core.CodedOutputStream,java.lang.Throwable,java.lang.Thread,java.lang.StackTraceElement[],java.lang.Thread[],java.util.List,int,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionEventAppCustomAttributes(com.crashlytics.android.core.CodedOutputStream,java.util.Map)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionEventAppExecutionException(com.crashlytics.android.core.CodedOutputStream,java.lang.Throwable,int,int,int)
+com.crashlytics.android.core.SessionProtobufHelper: void writeThread(com.crashlytics.android.core.CodedOutputStream,java.lang.Thread,java.lang.StackTraceElement[],int,boolean)
+com.crashlytics.android.core.SessionProtobufHelper: void writeFrame(com.crashlytics.android.core.CodedOutputStream,int,java.lang.StackTraceElement,boolean)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionEventDevice(com.crashlytics.android.core.CodedOutputStream,float,int,boolean,int,long,long)
+com.crashlytics.android.core.SessionProtobufHelper: void writeSessionEventLog(com.crashlytics.android.core.CodedOutputStream,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: int getSessionAppSize(com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,int,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: int getSessionAppOrgSize(com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: int getSessionOSSize(com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,boolean)
+com.crashlytics.android.core.SessionProtobufHelper: int getDeviceIdentifierSize(io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType,java.lang.String)
+com.crashlytics.android.core.SessionProtobufHelper: int getSessionDeviceSize(int,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,int,long,long,boolean,java.util.Map,int,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: int getBinaryImageSize(com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: int getSessionEventSize(long,java.lang.String,java.lang.Throwable,java.lang.Thread,java.lang.StackTraceElement[],java.lang.Thread[],java.util.List,int,java.util.Map,android.app.ActivityManager$RunningAppProcessInfo,int,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,float,int,boolean,long,long,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: int getEventAppSize(java.lang.Throwable,java.lang.Thread,java.lang.StackTraceElement[],java.lang.Thread[],java.util.List,int,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString,java.util.Map,android.app.ActivityManager$RunningAppProcessInfo,int)
+com.crashlytics.android.core.SessionProtobufHelper: int getEventAppExecutionSize(java.lang.Throwable,java.lang.Thread,java.lang.StackTraceElement[],java.lang.Thread[],java.util.List,int,com.crashlytics.android.core.ByteString,com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: int getEventAppCustomAttributeSize(java.lang.String,java.lang.String)
+com.crashlytics.android.core.SessionProtobufHelper: int getEventDeviceSize(float,int,boolean,int,long,long)
+com.crashlytics.android.core.SessionProtobufHelper: int getEventLogSize(com.crashlytics.android.core.ByteString)
+com.crashlytics.android.core.SessionProtobufHelper: int getEventAppExecutionExceptionSize(java.lang.Throwable,int,int)
+com.crashlytics.android.core.SessionProtobufHelper: int getEventAppExecutionSignalSize()
+com.crashlytics.android.core.SessionProtobufHelper: int getFrameSize(java.lang.StackTraceElement,boolean)
+com.crashlytics.android.core.SessionProtobufHelper: int getThreadSize(java.lang.Thread,java.lang.StackTraceElement[],int,boolean)
+com.crashlytics.android.core.SessionProtobufHelper: com.crashlytics.android.core.ByteString stringToByteString(java.lang.String)
+com.crashlytics.android.core.SessionProtobufHelper: void <clinit>()
+com.crashlytics.android.core.SessionReport
+com.crashlytics.android.core.SessionReport: java.io.File file
+com.crashlytics.android.core.SessionReport: java.util.Map customHeaders
+com.crashlytics.android.core.SessionReport: SessionReport(java.io.File)
+com.crashlytics.android.core.SessionReport: SessionReport(java.io.File,java.util.Map)
+com.crashlytics.android.core.SessionReport: java.io.File getFile()
+com.crashlytics.android.core.SessionReport: java.lang.String getFileName()
+com.crashlytics.android.core.SessionReport: java.lang.String getIdentifier()
+com.crashlytics.android.core.SessionReport: java.util.Map getCustomHeaders()
+com.crashlytics.android.core.SessionReport: boolean remove()
+com.crashlytics.android.core.UnityVersionProvider
+com.crashlytics.android.core.UnityVersionProvider: java.lang.String getUnityVersion()
+com.crashlytics.android.core.UserMetaData
+com.crashlytics.android.core.UserMetaData: com.crashlytics.android.core.UserMetaData EMPTY
+com.crashlytics.android.core.UserMetaData: java.lang.String id
+com.crashlytics.android.core.UserMetaData: java.lang.String name
+com.crashlytics.android.core.UserMetaData: java.lang.String email
+com.crashlytics.android.core.UserMetaData: UserMetaData()
+com.crashlytics.android.core.UserMetaData: UserMetaData(java.lang.String,java.lang.String,java.lang.String)
+com.crashlytics.android.core.UserMetaData: boolean isEmpty()
+com.crashlytics.android.core.UserMetaData: void <clinit>()
+com.crashlytics.android.core.Utils
+com.crashlytics.android.core.Utils: Utils()
+com.crashlytics.android.core.Utils: void capFileCount(java.io.File,java.io.FilenameFilter,int,java.util.Comparator)
+com.crashlytics.android.core.WireFormat
+com.crashlytics.android.core.WireFormat: int WIRETYPE_VARINT
+com.crashlytics.android.core.WireFormat: int WIRETYPE_FIXED64
+com.crashlytics.android.core.WireFormat: int WIRETYPE_LENGTH_DELIMITED
+com.crashlytics.android.core.WireFormat: int WIRETYPE_START_GROUP
+com.crashlytics.android.core.WireFormat: int WIRETYPE_END_GROUP
+com.crashlytics.android.core.WireFormat: int WIRETYPE_FIXED32
+com.crashlytics.android.core.WireFormat: int TAG_TYPE_BITS
+com.crashlytics.android.core.WireFormat: int TAG_TYPE_MASK
+com.crashlytics.android.core.WireFormat: int MESSAGE_SET_ITEM
+com.crashlytics.android.core.WireFormat: int MESSAGE_SET_TYPE_ID
+com.crashlytics.android.core.WireFormat: int MESSAGE_SET_MESSAGE
+com.crashlytics.android.core.WireFormat: int MESSAGE_SET_ITEM_TAG
+com.crashlytics.android.core.WireFormat: int MESSAGE_SET_ITEM_END_TAG
+com.crashlytics.android.core.WireFormat: int MESSAGE_SET_TYPE_ID_TAG
+com.crashlytics.android.core.WireFormat: int MESSAGE_SET_MESSAGE_TAG
+com.crashlytics.android.core.WireFormat: WireFormat()
+com.crashlytics.android.core.WireFormat: int getTagWireType(int)
+com.crashlytics.android.core.WireFormat: int getTagFieldNumber(int)
+com.crashlytics.android.core.WireFormat: int makeTag(int,int)
+com.crashlytics.android.core.WireFormat: void <clinit>()
+com.crashlytics.android.core.WireFormat$1
+com.crashlytics.android.core.WireFormat$FieldType
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType DOUBLE
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType FLOAT
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType INT64
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType UINT64
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType INT32
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType FIXED64
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType FIXED32
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType BOOL
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType STRING
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType GROUP
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType MESSAGE
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType BYTES
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType UINT32
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType ENUM
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType SFIXED32
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType SFIXED64
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType SINT32
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType SINT64
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$JavaType javaType
+com.crashlytics.android.core.WireFormat$FieldType: int wireType
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType[] $VALUES
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType[] values()
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$FieldType valueOf(java.lang.String)
+com.crashlytics.android.core.WireFormat$FieldType: WireFormat$FieldType(java.lang.String,int,com.crashlytics.android.core.WireFormat$JavaType,int)
+com.crashlytics.android.core.WireFormat$FieldType: com.crashlytics.android.core.WireFormat$JavaType getJavaType()
+com.crashlytics.android.core.WireFormat$FieldType: int getWireType()
+com.crashlytics.android.core.WireFormat$FieldType: boolean isPackable()
+com.crashlytics.android.core.WireFormat$FieldType: WireFormat$FieldType(java.lang.String,int,com.crashlytics.android.core.WireFormat$JavaType,int,com.crashlytics.android.core.WireFormat$1)
+com.crashlytics.android.core.WireFormat$FieldType: void <clinit>()
+com.crashlytics.android.core.WireFormat$FieldType$1
+com.crashlytics.android.core.WireFormat$FieldType$1: WireFormat$FieldType$1(java.lang.String,int,com.crashlytics.android.core.WireFormat$JavaType,int)
+com.crashlytics.android.core.WireFormat$FieldType$1: boolean isPackable()
+com.crashlytics.android.core.WireFormat$FieldType$2
+com.crashlytics.android.core.WireFormat$FieldType$2: WireFormat$FieldType$2(java.lang.String,int,com.crashlytics.android.core.WireFormat$JavaType,int)
+com.crashlytics.android.core.WireFormat$FieldType$2: boolean isPackable()
+com.crashlytics.android.core.WireFormat$FieldType$3
+com.crashlytics.android.core.WireFormat$FieldType$3: WireFormat$FieldType$3(java.lang.String,int,com.crashlytics.android.core.WireFormat$JavaType,int)
+com.crashlytics.android.core.WireFormat$FieldType$3: boolean isPackable()
+com.crashlytics.android.core.WireFormat$FieldType$4
+com.crashlytics.android.core.WireFormat$FieldType$4: WireFormat$FieldType$4(java.lang.String,int,com.crashlytics.android.core.WireFormat$JavaType,int)
+com.crashlytics.android.core.WireFormat$FieldType$4: boolean isPackable()
+com.crashlytics.android.core.WireFormat$JavaType
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType INT
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType LONG
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType FLOAT
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType DOUBLE
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType BOOLEAN
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType STRING
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType BYTE_STRING
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType ENUM
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType MESSAGE
+com.crashlytics.android.core.WireFormat$JavaType: java.lang.Object defaultDefault
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType[] $VALUES
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType[] values()
+com.crashlytics.android.core.WireFormat$JavaType: com.crashlytics.android.core.WireFormat$JavaType valueOf(java.lang.String)
+com.crashlytics.android.core.WireFormat$JavaType: WireFormat$JavaType(java.lang.String,int,java.lang.Object)
+com.crashlytics.android.core.WireFormat$JavaType: java.lang.Object getDefaultDefault()
+com.crashlytics.android.core.WireFormat$JavaType: void <clinit>()
+com.crashlytics.android.core.internal.CrashEventDataProvider
+com.crashlytics.android.core.internal.CrashEventDataProvider: com.crashlytics.android.core.internal.models.SessionEventData getCrashEventData()
+com.crashlytics.android.core.internal.models.BinaryImageData
+com.crashlytics.android.core.internal.models.BinaryImageData: long baseAddress
+com.crashlytics.android.core.internal.models.BinaryImageData: long size
+com.crashlytics.android.core.internal.models.BinaryImageData: java.lang.String path
+com.crashlytics.android.core.internal.models.BinaryImageData: java.lang.String id
+com.crashlytics.android.core.internal.models.BinaryImageData: BinaryImageData(long,long,java.lang.String,java.lang.String)
+com.crashlytics.android.core.internal.models.CustomAttributeData
+com.crashlytics.android.core.internal.models.CustomAttributeData: java.lang.String key
+com.crashlytics.android.core.internal.models.CustomAttributeData: java.lang.String value
+com.crashlytics.android.core.internal.models.CustomAttributeData: CustomAttributeData(java.lang.String,java.lang.String)
+com.crashlytics.android.core.internal.models.DeviceData
+com.crashlytics.android.core.internal.models.DeviceData: int orientation
+com.crashlytics.android.core.internal.models.DeviceData: long totalPhysicalMemory
+com.crashlytics.android.core.internal.models.DeviceData: long totalInternalStorage
+com.crashlytics.android.core.internal.models.DeviceData: long availablePhysicalMemory
+com.crashlytics.android.core.internal.models.DeviceData: long availableInternalStorage
+com.crashlytics.android.core.internal.models.DeviceData: int batteryCapacity
+com.crashlytics.android.core.internal.models.DeviceData: int batteryVelocity
+com.crashlytics.android.core.internal.models.DeviceData: boolean proximity
+com.crashlytics.android.core.internal.models.DeviceData: DeviceData(int,long,long,long,long,int,int,boolean)
+com.crashlytics.android.core.internal.models.SessionEventData
+com.crashlytics.android.core.internal.models.SessionEventData: long timestamp
+com.crashlytics.android.core.internal.models.SessionEventData: com.crashlytics.android.core.internal.models.SignalData signal
+com.crashlytics.android.core.internal.models.SessionEventData: com.crashlytics.android.core.internal.models.ThreadData[] threads
+com.crashlytics.android.core.internal.models.SessionEventData: com.crashlytics.android.core.internal.models.BinaryImageData[] binaryImages
+com.crashlytics.android.core.internal.models.SessionEventData: com.crashlytics.android.core.internal.models.CustomAttributeData[] customAttributes
+com.crashlytics.android.core.internal.models.SessionEventData: com.crashlytics.android.core.internal.models.DeviceData deviceData
+com.crashlytics.android.core.internal.models.SessionEventData: SessionEventData(long,com.crashlytics.android.core.internal.models.SignalData,com.crashlytics.android.core.internal.models.ThreadData[],com.crashlytics.android.core.internal.models.BinaryImageData[],com.crashlytics.android.core.internal.models.CustomAttributeData[],com.crashlytics.android.core.internal.models.DeviceData)
+com.crashlytics.android.core.internal.models.SignalData
+com.crashlytics.android.core.internal.models.SignalData: java.lang.String name
+com.crashlytics.android.core.internal.models.SignalData: java.lang.String code
+com.crashlytics.android.core.internal.models.SignalData: long faultAddress
+com.crashlytics.android.core.internal.models.SignalData: SignalData(java.lang.String,java.lang.String,long)
+com.crashlytics.android.core.internal.models.ThreadData
+com.crashlytics.android.core.internal.models.ThreadData: int IMPORTANCE_CRASHED_THREAD
+com.crashlytics.android.core.internal.models.ThreadData: java.lang.String name
+com.crashlytics.android.core.internal.models.ThreadData: int importance
+com.crashlytics.android.core.internal.models.ThreadData: com.crashlytics.android.core.internal.models.ThreadData$FrameData[] frames
+com.crashlytics.android.core.internal.models.ThreadData: ThreadData(int,com.crashlytics.android.core.internal.models.ThreadData$FrameData[])
+com.crashlytics.android.core.internal.models.ThreadData: ThreadData(java.lang.String,int,com.crashlytics.android.core.internal.models.ThreadData$FrameData[])
+com.crashlytics.android.core.internal.models.ThreadData$FrameData
+com.crashlytics.android.core.internal.models.ThreadData$FrameData: long address
+com.crashlytics.android.core.internal.models.ThreadData$FrameData: java.lang.String symbol
+com.crashlytics.android.core.internal.models.ThreadData$FrameData: java.lang.String file
+com.crashlytics.android.core.internal.models.ThreadData$FrameData: long offset
+com.crashlytics.android.core.internal.models.ThreadData$FrameData: int importance
+com.crashlytics.android.core.internal.models.ThreadData$FrameData: ThreadData$FrameData(long,int)
+com.crashlytics.android.core.internal.models.ThreadData$FrameData: ThreadData$FrameData(long,java.lang.String,int)
+com.crashlytics.android.core.internal.models.ThreadData$FrameData: ThreadData$FrameData(long,java.lang.String,java.lang.String,long,int)
 com.parse.BackgroundTask
 com.parse.BackgroundTask: com.parse.ParseCallback callback
 com.parse.BackgroundTask: java.lang.Object result
@@ -7651,6 +9451,122 @@ com.parse.twitter.Twitter$1$1$1: void onPreExecute()
 com.parse.twitter.Twitter$1$1$1: void onPostExecute(com.parse.signpost.http.HttpParameters)
 com.parse.twitter.Twitter$1$1$1: void onPostExecute(java.lang.Object)
 com.parse.twitter.Twitter$1$1$1: java.lang.Object doInBackground(java.lang.Object[])
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks: ActivityLifecycleManager$Callbacks()
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks: void onActivityCreated(android.app.Activity,android.os.Bundle)
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks: void onActivityStarted(android.app.Activity)
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks: void onActivityResumed(android.app.Activity)
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks: void onActivityPaused(android.app.Activity)
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks: void onActivityStopped(android.app.Activity)
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks: void onActivitySaveInstanceState(android.app.Activity,android.os.Bundle)
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks: void onActivityDestroyed(android.app.Activity)
+io.fabric.sdk.android.Kit: io.fabric.sdk.android.Fabric fabric
+io.fabric.sdk.android.Kit: io.fabric.sdk.android.InitializationTask initializationTask
+io.fabric.sdk.android.Kit: android.content.Context context
+io.fabric.sdk.android.Kit: io.fabric.sdk.android.InitializationCallback initializationCallback
+io.fabric.sdk.android.Kit: io.fabric.sdk.android.services.common.IdManager idManager
+io.fabric.sdk.android.Kit: Kit()
+io.fabric.sdk.android.Kit: java.lang.String getVersion()
+io.fabric.sdk.android.Kit: void injectParameters(android.content.Context,io.fabric.sdk.android.Fabric,io.fabric.sdk.android.InitializationCallback,io.fabric.sdk.android.services.common.IdManager)
+io.fabric.sdk.android.Kit: void initialize()
+io.fabric.sdk.android.Kit: boolean onPreExecute()
+io.fabric.sdk.android.Kit: java.lang.Object doInBackground()
+io.fabric.sdk.android.Kit: void onPostExecute(java.lang.Object)
+io.fabric.sdk.android.Kit: void onCancelled(java.lang.Object)
+io.fabric.sdk.android.Kit: io.fabric.sdk.android.services.common.IdManager getIdManager()
+io.fabric.sdk.android.Kit: android.content.Context getContext()
+io.fabric.sdk.android.Kit: io.fabric.sdk.android.Fabric getFabric()
+io.fabric.sdk.android.Kit: java.lang.String getIdentifier()
+io.fabric.sdk.android.Kit: java.lang.String getPath()
+io.fabric.sdk.android.Kit: int compareTo(io.fabric.sdk.android.Kit)
+io.fabric.sdk.android.Kit: boolean containsAnnotatedDependency(io.fabric.sdk.android.Kit)
+io.fabric.sdk.android.Kit: boolean hasAnnotatedDependency()
+io.fabric.sdk.android.Kit: java.util.Collection getDependencies()
+io.fabric.sdk.android.Kit: int compareTo(java.lang.Object)
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String HEADER_API_KEY
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String HEADER_DEVELOPER_TOKEN
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String HEADER_CLIENT_TYPE
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String HEADER_CLIENT_VERSION
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String HEADER_REQUEST_ID
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String HEADER_USER_AGENT
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String HEADER_ACCEPT
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String CRASHLYTICS_USER_AGENT
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String ACCEPT_JSON_VALUE
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String CLS_ANDROID_SDK_DEVELOPER_TOKEN
+io.fabric.sdk.android.services.common.AbstractSpiCall: int DEFAULT_TIMEOUT
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String ANDROID_CLIENT_TYPE
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.util.regex.Pattern PROTOCOL_AND_HOST_PATTERN
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String url
+io.fabric.sdk.android.services.common.AbstractSpiCall: io.fabric.sdk.android.services.network.HttpRequestFactory requestFactory
+io.fabric.sdk.android.services.common.AbstractSpiCall: io.fabric.sdk.android.services.network.HttpMethod method
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String protocolAndHostOverride
+io.fabric.sdk.android.services.common.AbstractSpiCall: io.fabric.sdk.android.Kit kit
+io.fabric.sdk.android.services.common.AbstractSpiCall: AbstractSpiCall(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory,io.fabric.sdk.android.services.network.HttpMethod)
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String getUrl()
+io.fabric.sdk.android.services.common.AbstractSpiCall: io.fabric.sdk.android.services.network.HttpRequest getHttpRequest()
+io.fabric.sdk.android.services.common.AbstractSpiCall: io.fabric.sdk.android.services.network.HttpRequest getHttpRequest(java.util.Map)
+io.fabric.sdk.android.services.common.AbstractSpiCall: java.lang.String overrideProtocolAndHost(java.lang.String)
+io.fabric.sdk.android.services.common.AbstractSpiCall: void <clinit>()
+io.fabric.sdk.android.services.common.BackgroundPriorityRunnable: BackgroundPriorityRunnable()
+io.fabric.sdk.android.services.common.BackgroundPriorityRunnable: void run()
+io.fabric.sdk.android.services.common.BackgroundPriorityRunnable: void onRun()
+io.fabric.sdk.android.services.common.CommonUtils$Architecture: io.fabric.sdk.android.services.common.CommonUtils$Architecture[] values()
+io.fabric.sdk.android.services.common.CommonUtils$Architecture: io.fabric.sdk.android.services.common.CommonUtils$Architecture valueOf(java.lang.String)
+io.fabric.sdk.android.services.common.DeliveryMechanism: io.fabric.sdk.android.services.common.DeliveryMechanism[] values()
+io.fabric.sdk.android.services.common.DeliveryMechanism: io.fabric.sdk.android.services.common.DeliveryMechanism valueOf(java.lang.String)
+io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType: io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType[] values()
+io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType: io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType valueOf(java.lang.String)
+io.fabric.sdk.android.services.concurrency.AsyncTask$Status: io.fabric.sdk.android.services.concurrency.AsyncTask$Status[] values()
+io.fabric.sdk.android.services.concurrency.AsyncTask$Status: io.fabric.sdk.android.services.concurrency.AsyncTask$Status valueOf(java.lang.String)
+io.fabric.sdk.android.services.concurrency.Priority: io.fabric.sdk.android.services.concurrency.Priority[] values()
+io.fabric.sdk.android.services.concurrency.Priority: io.fabric.sdk.android.services.concurrency.Priority valueOf(java.lang.String)
+io.fabric.sdk.android.services.concurrency.PriorityCallable: PriorityCallable()
+io.fabric.sdk.android.services.concurrency.PriorityTask: java.util.List dependencies
+io.fabric.sdk.android.services.concurrency.PriorityTask: java.util.concurrent.atomic.AtomicBoolean hasRun
+io.fabric.sdk.android.services.concurrency.PriorityTask: java.util.concurrent.atomic.AtomicReference throwable
+io.fabric.sdk.android.services.concurrency.PriorityTask: PriorityTask()
+io.fabric.sdk.android.services.concurrency.PriorityTask: java.util.Collection getDependencies()
+io.fabric.sdk.android.services.concurrency.PriorityTask: void addDependency(io.fabric.sdk.android.services.concurrency.Task)
+io.fabric.sdk.android.services.concurrency.PriorityTask: boolean areDependenciesMet()
+io.fabric.sdk.android.services.concurrency.PriorityTask: void setFinished(boolean)
+io.fabric.sdk.android.services.concurrency.PriorityTask: boolean isFinished()
+io.fabric.sdk.android.services.concurrency.PriorityTask: io.fabric.sdk.android.services.concurrency.Priority getPriority()
+io.fabric.sdk.android.services.concurrency.PriorityTask: void setError(java.lang.Throwable)
+io.fabric.sdk.android.services.concurrency.PriorityTask: java.lang.Throwable getError()
+io.fabric.sdk.android.services.concurrency.PriorityTask: int compareTo(java.lang.Object)
+io.fabric.sdk.android.services.concurrency.PriorityTask: boolean isProperDelegate(java.lang.Object)
+io.fabric.sdk.android.services.concurrency.PriorityTask: void addDependency(java.lang.Object)
+io.fabric.sdk.android.services.concurrency.internal.AbstractFuture$Sync: long serialVersionUID
+io.fabric.sdk.android.services.events.EventsFilesManager: java.lang.String ROLL_OVER_FILE_NAME_SEPARATOR
+io.fabric.sdk.android.services.events.EventsFilesManager: int MAX_BYTE_SIZE_PER_FILE
+io.fabric.sdk.android.services.events.EventsFilesManager: int MAX_FILES_IN_BATCH
+io.fabric.sdk.android.services.events.EventsFilesManager: int MAX_FILES_TO_KEEP
+io.fabric.sdk.android.services.events.EventsFilesManager: android.content.Context context
+io.fabric.sdk.android.services.events.EventsFilesManager: io.fabric.sdk.android.services.events.EventTransform transform
+io.fabric.sdk.android.services.events.EventsFilesManager: io.fabric.sdk.android.services.common.CurrentTimeProvider currentTimeProvider
+io.fabric.sdk.android.services.events.EventsFilesManager: io.fabric.sdk.android.services.events.EventsStorage eventStorage
+io.fabric.sdk.android.services.events.EventsFilesManager: int defaultMaxFilesToKeep
+io.fabric.sdk.android.services.events.EventsFilesManager: long lastRollOverTime
+io.fabric.sdk.android.services.events.EventsFilesManager: java.util.List rollOverListeners
+io.fabric.sdk.android.services.events.EventsFilesManager: EventsFilesManager(android.content.Context,io.fabric.sdk.android.services.events.EventTransform,io.fabric.sdk.android.services.common.CurrentTimeProvider,io.fabric.sdk.android.services.events.EventsStorage,int)
+io.fabric.sdk.android.services.events.EventsFilesManager: void writeEvent(java.lang.Object)
+io.fabric.sdk.android.services.events.EventsFilesManager: void registerRollOverListener(io.fabric.sdk.android.services.events.EventsStorageListener)
+io.fabric.sdk.android.services.events.EventsFilesManager: boolean rollFileOver()
+io.fabric.sdk.android.services.events.EventsFilesManager: void rollFileOverIfNeeded(int)
+io.fabric.sdk.android.services.events.EventsFilesManager: java.lang.String generateUniqueRollOverFileName()
+io.fabric.sdk.android.services.events.EventsFilesManager: int getMaxFilesToKeep()
+io.fabric.sdk.android.services.events.EventsFilesManager: int getMaxByteSizePerFile()
+io.fabric.sdk.android.services.events.EventsFilesManager: long getLastRollOverTime()
+io.fabric.sdk.android.services.events.EventsFilesManager: void triggerRollOverOnListeners(java.lang.String)
+io.fabric.sdk.android.services.events.EventsFilesManager: java.util.List getBatchOfFilesToSend()
+io.fabric.sdk.android.services.events.EventsFilesManager: void deleteSentFiles(java.util.List)
+io.fabric.sdk.android.services.events.EventsFilesManager: void deleteAllEventsFiles()
+io.fabric.sdk.android.services.events.EventsFilesManager: void deleteOldestInRollOverIfOverMax()
+io.fabric.sdk.android.services.events.EventsFilesManager: long parseCreationTimestampFromFileName(java.lang.String)
+io.fabric.sdk.android.services.network.HttpMethod: io.fabric.sdk.android.services.network.HttpMethod[] values()
+io.fabric.sdk.android.services.network.HttpMethod: io.fabric.sdk.android.services.network.HttpMethod valueOf(java.lang.String)
+io.fabric.sdk.android.services.network.HttpRequest$HttpRequestException: long serialVersionUID
+io.fabric.sdk.android.services.settings.SettingsCacheBehavior: io.fabric.sdk.android.services.settings.SettingsCacheBehavior[] values()
+io.fabric.sdk.android.services.settings.SettingsCacheBehavior: io.fabric.sdk.android.services.settings.SettingsCacheBehavior valueOf(java.lang.String)
 org.jsoup.Connection
 org.jsoup.Connection: org.jsoup.Connection url(java.net.URL)
 org.jsoup.Connection: org.jsoup.Connection url(java.lang.String)

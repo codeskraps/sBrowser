@@ -24,9 +24,21 @@
 
 <resources>
 
-    <style name="MyTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar">
+    <style name="MyTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar"/>
 
+    <style name="MyTheme.AppCompat.NoActionBar.FullScreen" parent="@style/MyTheme.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
+
+    <style name="Toobar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">#000</item>
+    </style>
+
     <style name="horizontalBar">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

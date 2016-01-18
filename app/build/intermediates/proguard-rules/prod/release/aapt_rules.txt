@@ -50,51 +50,53 @@
 -keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
 
 # view res/layout/abc_screen_toolbar.xml #generated:36
+# view res/layout/lst_bookmarks.xml #generated:29
+# view res/layout/preference.xml #generated:8
 -keep class android.support.v7.widget.Toolbar { <init>(...); }
 
 # view res/layout/abc_screen_simple.xml #generated:25
 # view res/layout/abc_screen_simple_overlay_action_mode.xml #generated:32
 -keep class android.support.v7.widget.ViewStubCompat { <init>(...); }
 
-# view AndroidManifest.xml #generated:66
+# view AndroidManifest.xml #generated:70
 -keep class com.codeskraps.sbrowser.home.BookmarksActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:74
+# view AndroidManifest.xml #generated:79
 -keep class com.codeskraps.sbrowser.home.PreferenceActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:77
+# view AndroidManifest.xml #generated:82
 -keep class com.codeskraps.sbrowser.home.PrefsUserActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:80
+# view AndroidManifest.xml #generated:85
 -keep class com.codeskraps.sbrowser.home.PurchaseActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:42
+# view AndroidManifest.xml #generated:46
 -keep class com.codeskraps.sbrowser.home.SBrowserActivity { <init>(...); }
 
 # view AndroidManifest.xml #generated:36
 -keep class com.codeskraps.sbrowser.home.SBrowserApplication { <init>(...); }
 
-# view AndroidManifest.xml #generated:63
+# view AndroidManifest.xml #generated:67
 -keep class com.codeskraps.sbrowser.home.TabsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:69
+# view AndroidManifest.xml #generated:74
 -keep class com.codeskraps.sbrowser.home.VideoPlayer { <init>(...); }
 
-# view AndroidManifest.xml #generated:83
+# view AndroidManifest.xml #generated:88
 -keep class com.codeskraps.sbrowser.loginsignup.DispatchActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:86
+# view AndroidManifest.xml #generated:91
 -keep class com.codeskraps.sbrowser.loginsignup.LoginActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:89
+# view AndroidManifest.xml #generated:94
 -keep class com.codeskraps.sbrowser.loginsignup.SignUpActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:92
+# view AndroidManifest.xml #generated:97
 -keep class com.codeskraps.sbrowser.loginsignup.SignUpOrLogInActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:96
+# view AndroidManifest.xml #generated:101
 -keep class com.codeskraps.sbrowser.services.ProAccoundVerificationService { <init>(...); }
 
-# view AndroidManifest.xml #generated:97
+# view AndroidManifest.xml #generated:102
 -keep class com.codeskraps.sbrowser.services.SyncService { <init>(...); }
 
