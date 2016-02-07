@@ -30,6 +30,7 @@ import android.widget.ProgressBar;
 import com.codeskraps.sbrowser.R;
 import com.codeskraps.sbrowser.misc.L;
 import com.codeskraps.sbrowser.misc.SBrowserData;
+import com.codeskraps.sbrowser.misc.Util;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -53,8 +54,7 @@ public class WebViewFragment extends Fragment {
     private boolean webLoading;
 
     public static WebViewFragment getInstance() {
-        WebViewFragment fragment = new WebViewFragment();
-        return fragment;
+        return new WebViewFragment();
     }
 
     @Override
@@ -159,6 +159,15 @@ public class WebViewFragment extends Fragment {
             webView.loadUrl(sBrowserData.getSaveState());
             sBrowserData.setSelected(false);
         }
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            try {
+                Class.forName("android.webkit.WebView").getMethod("onResume", (Class[]) null).invoke(webView, (Object[]) null);
+            } catch (Exception e) {
+                L.e(TAG, "Handled - onResume:" + e, e);
+            }
+        } else webView.onResume();
+        webView.resumeTimers();
     }
 
     @Override
@@ -168,6 +177,20 @@ public class WebViewFragment extends Fragment {
                 .getsBrowserData();
         sBrowserData.setSelected(true);
         sBrowserData.setSaveState(webView.getUrl());
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            try {
+                Class.forName("android.webkit.WebView").getMethod("onPause", (Class[]) null).invoke(webView, (Object[]) null);
+            } catch (Exception e) {
+                L.e(TAG, "Handled - onPause:" + e, e);
+            }
+        } else webView.onPause();
+        webView.pauseTimers(); //careful with this! Pauses all layout, parsing, and JavaScript timers for all WebViews.
+    }
+
+    @Override
+    public void onDestroy() {
+        Util.clearCache(getActivity());
+        super.onDestroy();
     }
 
     private class WebViewActivityClient extends WebViewClient {

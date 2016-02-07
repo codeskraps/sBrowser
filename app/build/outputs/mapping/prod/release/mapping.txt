@@ -9858,18 +9858,18 @@ com.codeskraps.sbrowser.home.PreferenceActivity -> com.codeskraps.sbrowser.home.
     android.content.SharedPreferences prefs -> c
     java.lang.String[] lstFlashArray -> d
     java.lang.String[] lstuserAgentArray -> e
-    48:60:void <init>() -> <init>
-    67:107:void onCreate(android.os.Bundle) -> onCreate
-    111:129:void onResume() -> onResume
-    133:137:void onPause() -> onPause
-    141:144:void onBackPressed() -> onBackPressed
-    147:201:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
-    217:217:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
-    50:50:void <clinit>() -> <clinit>
+    45:57:void <init>() -> <init>
+    64:106:void onCreate(android.os.Bundle) -> onCreate
+    110:128:void onResume() -> onResume
+    132:136:void onPause() -> onPause
+    140:143:void onBackPressed() -> onBackPressed
+    146:200:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    216:216:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+    47:47:void <clinit>() -> <clinit>
 com.codeskraps.sbrowser.home.PreferenceActivity$1 -> com.codeskraps.sbrowser.home.PreferenceActivity$1:
     com.codeskraps.sbrowser.home.PreferenceActivity this$0 -> a
-    84:84:void <init>(com.codeskraps.sbrowser.home.PreferenceActivity) -> <init>
-    87:88:void onClick(android.view.View) -> onClick
+    81:81:void <init>(com.codeskraps.sbrowser.home.PreferenceActivity) -> <init>
+    84:85:void onClick(android.view.View) -> onClick
 com.codeskraps.sbrowser.home.PrefsUserActivity -> com.codeskraps.sbrowser.home.PrefsUserActivity:
     java.lang.String TAG -> a
     com.codeskraps.sbrowser.misc.SBrowserData sBrowserData -> b
@@ -9902,60 +9902,62 @@ com.codeskraps.sbrowser.home.PurchaseActivity$1 -> com.codeskraps.sbrowser.home.
 com.codeskraps.sbrowser.home.SBrowserActivity -> com.codeskraps.sbrowser.home.SBrowserActivity:
     java.lang.String TAG -> i
     com.codeskraps.sbrowser.misc.SBrowserData sBrowserData -> j
-    com.codeskraps.sbrowser.misc.DataBaseData dataBaseData -> k
-    com.codeskraps.sbrowser.home.WebViewFragment wF -> l
-    android.webkit.WebView webView -> m
-    android.view.View horizontalBar -> n
-    android.view.View verticalBar -> o
-    71:78:void <init>() -> <init>
-    85:146:void onCreate(android.os.Bundle) -> onCreate
-    149:151:void setWebView(com.codeskraps.sbrowser.home.WebViewFragment,android.webkit.WebView) -> a
-    155:157:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    161:181:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    186:189:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    194:218:void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
-    223:292:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    298:356:boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
-    361:363:void onResume() -> onResume
-    367:369:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
-    372:379:void updateView(int) -> a
-    382:438:void onClick(android.view.View) -> onClick
-    441:442:void setStopButton() -> k
-    445:452:void setBackForwardButtons() -> l
-    455:475:void doSearch() -> m
-    71:71:android.webkit.WebView access$000(com.codeskraps.sbrowser.home.SBrowserActivity) -> a
-    72:72:void <clinit>() -> <clinit>
+    com.codeskraps.sbrowser.home.WebViewFragment wF -> k
+    android.webkit.WebView webView -> l
+    android.view.View horizontalBar -> m
+    android.view.View verticalBar -> n
+    android.view.View menuView -> o
+    70:77:void <init>() -> <init>
+    85:153:void onCreate(android.os.Bundle) -> onCreate
+    156:158:void setWebView(com.codeskraps.sbrowser.home.WebViewFragment,android.webkit.WebView) -> a
+    162:164:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    168:191:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    196:199:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    204:233:void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    282:309:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    315:373:boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
+    378:383:void onBackPressed() -> onBackPressed
+    387:389:void onResume() -> onResume
+    393:397:void onPause() -> onPause
+    401:403:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    406:413:void updateView(int) -> a
+    416:488:void onClick(android.view.View) -> onClick
+    491:493:void setStopButton() -> k
+    496:504:void setBackForwardButtons() -> l
+    507:527:void doSearch() -> m
+    70:70:android.webkit.WebView access$000(com.codeskraps.sbrowser.home.SBrowserActivity) -> a
+    71:71:void <clinit>() -> <clinit>
 com.codeskraps.sbrowser.home.SBrowserActivity$1 -> com.codeskraps.sbrowser.home.SBrowserActivity$1:
     android.widget.EditText val$input -> a
     com.codeskraps.sbrowser.home.SBrowserActivity this$0 -> b
-    392:392:void <init>(com.codeskraps.sbrowser.home.SBrowserActivity,android.widget.EditText) -> <init>
-    394:397:void onClick(android.content.DialogInterface,int) -> onClick
+    426:426:void <init>(com.codeskraps.sbrowser.home.SBrowserActivity,android.widget.EditText) -> <init>
+    428:431:void onClick(android.content.DialogInterface,int) -> onClick
 com.codeskraps.sbrowser.home.SBrowserActivity$2 -> com.codeskraps.sbrowser.home.SBrowserActivity$2:
     com.codeskraps.sbrowser.home.SBrowserActivity this$0 -> a
-    400:400:void <init>(com.codeskraps.sbrowser.home.SBrowserActivity) -> <init>
-    402:403:void onClick(android.content.DialogInterface,int) -> onClick
+    434:434:void <init>(com.codeskraps.sbrowser.home.SBrowserActivity) -> <init>
+    436:437:void onClick(android.content.DialogInterface,int) -> onClick
 com.codeskraps.sbrowser.home.SBrowserActivity$3 -> com.codeskraps.sbrowser.home.SBrowserActivity$3:
     android.widget.EditText val$inputSearch -> a
     com.codeskraps.sbrowser.home.SBrowserActivity this$0 -> b
-    462:462:void <init>(com.codeskraps.sbrowser.home.SBrowserActivity,android.widget.EditText) -> <init>
-    464:466:void onClick(android.content.DialogInterface,int) -> onClick
+    514:514:void <init>(com.codeskraps.sbrowser.home.SBrowserActivity,android.widget.EditText) -> <init>
+    516:518:void onClick(android.content.DialogInterface,int) -> onClick
 com.codeskraps.sbrowser.home.SBrowserActivity$4 -> com.codeskraps.sbrowser.home.SBrowserActivity$4:
     com.codeskraps.sbrowser.home.SBrowserActivity this$0 -> a
-    469:469:void <init>(com.codeskraps.sbrowser.home.SBrowserActivity) -> <init>
-    471:472:void onClick(android.content.DialogInterface,int) -> onClick
+    521:521:void <init>(com.codeskraps.sbrowser.home.SBrowserActivity) -> <init>
+    523:524:void onClick(android.content.DialogInterface,int) -> onClick
 com.codeskraps.sbrowser.home.SBrowserApplication -> com.codeskraps.sbrowser.home.SBrowserApplication:
     java.lang.String TAG -> a
     com.codeskraps.sbrowser.misc.SBrowserData sBrowserData -> b
     com.codeskraps.sbrowser.misc.DataBaseData dataBaseData -> c
-    46:55:void <init>() -> <init>
-    59:90:void onCreate() -> onCreate
-    94:105:android.content.Intent getMenuIntent(android.view.MenuItem,android.content.Context) -> a
-    109:109:com.codeskraps.sbrowser.misc.SBrowserData getsBrowserData() -> a
-    113:114:void setsBrowserData(com.codeskraps.sbrowser.misc.SBrowserData) -> a
-    118:120:void onTerminate() -> onTerminate
-    123:123:com.codeskraps.sbrowser.misc.DataBaseData getDataBaseData() -> b
-    127:128:void setDataBaseData(com.codeskraps.sbrowser.misc.DataBaseData) -> a
-    47:47:void <clinit>() -> <clinit>
+    47:56:void <init>() -> <init>
+    60:94:void onCreate() -> onCreate
+    98:110:android.content.Intent getMenuIntent(android.view.MenuItem,android.content.Context) -> a
+    114:114:com.codeskraps.sbrowser.misc.SBrowserData getsBrowserData() -> a
+    118:119:void setsBrowserData(com.codeskraps.sbrowser.misc.SBrowserData) -> a
+    123:125:void onTerminate() -> onTerminate
+    128:128:com.codeskraps.sbrowser.misc.DataBaseData getDataBaseData() -> b
+    132:133:void setDataBaseData(com.codeskraps.sbrowser.misc.DataBaseData) -> a
+    48:48:void <clinit>() -> <clinit>
 com.codeskraps.sbrowser.home.TabsActivity -> com.codeskraps.sbrowser.home.TabsActivity:
     com.codeskraps.sbrowser.misc.SBrowserData sBrowserData -> a
     com.codeskraps.sbrowser.misc.DataBaseData dataBaseData -> b
@@ -9985,59 +9987,60 @@ com.codeskraps.sbrowser.home.WebViewFragment -> is:
     java.lang.String video -> af
     android.app.AlertDialog$Builder alert -> ag
     boolean webLoading -> ah
-    43:345:void <init>() -> <init>
-    56:57:com.codeskraps.sbrowser.home.WebViewFragment getInstance() -> I
+    44:368:void <init>() -> <init>
+    57:57:com.codeskraps.sbrowser.home.WebViewFragment getInstance() -> I
     62:63:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     69:103:void onViewCreated(android.view.View,android.os.Bundle) -> a
-    108:162:void onResume() -> j
-    166:171:void onPause() -> k
-    353:353:boolean isReloading() -> J
-    357:358:void reload() -> K
-    43:43:java.lang.String access$300() -> L
-    43:43:java.lang.String access$502(com.codeskraps.sbrowser.home.WebViewFragment,java.lang.String) -> a
-    43:43:java.lang.String access$500(com.codeskraps.sbrowser.home.WebViewFragment) -> a
-    43:43:java.lang.String access$602(com.codeskraps.sbrowser.home.WebViewFragment,java.lang.String) -> b
-    43:43:java.lang.String access$600(com.codeskraps.sbrowser.home.WebViewFragment) -> b
-    43:43:android.app.AlertDialog$Builder access$700(com.codeskraps.sbrowser.home.WebViewFragment) -> c
-    43:43:android.app.AlertDialog$Builder access$702(com.codeskraps.sbrowser.home.WebViewFragment,android.app.AlertDialog$Builder) -> a
-    43:43:boolean access$800(com.codeskraps.sbrowser.home.WebViewFragment) -> d
-    43:43:boolean access$802(com.codeskraps.sbrowser.home.WebViewFragment,boolean) -> a
-    43:43:android.widget.ProgressBar access$900(com.codeskraps.sbrowser.home.WebViewFragment) -> e
-    44:44:void <clinit>() -> <clinit>
+    108:171:void onResume() -> j
+    175:188:void onPause() -> k
+    192:194:void onDestroy() -> n
+    376:376:boolean isReloading() -> J
+    380:381:void reload() -> K
+    44:44:java.lang.String access$300() -> L
+    44:44:java.lang.String access$502(com.codeskraps.sbrowser.home.WebViewFragment,java.lang.String) -> a
+    44:44:java.lang.String access$500(com.codeskraps.sbrowser.home.WebViewFragment) -> a
+    44:44:java.lang.String access$602(com.codeskraps.sbrowser.home.WebViewFragment,java.lang.String) -> b
+    44:44:java.lang.String access$600(com.codeskraps.sbrowser.home.WebViewFragment) -> b
+    44:44:android.app.AlertDialog$Builder access$700(com.codeskraps.sbrowser.home.WebViewFragment) -> c
+    44:44:android.app.AlertDialog$Builder access$702(com.codeskraps.sbrowser.home.WebViewFragment,android.app.AlertDialog$Builder) -> a
+    44:44:boolean access$800(com.codeskraps.sbrowser.home.WebViewFragment) -> d
+    44:44:boolean access$802(com.codeskraps.sbrowser.home.WebViewFragment,boolean) -> a
+    44:44:android.widget.ProgressBar access$900(com.codeskraps.sbrowser.home.WebViewFragment) -> e
+    45:45:void <clinit>() -> <clinit>
 com.codeskraps.sbrowser.home.WebViewFragment$1 -> is$1:
 com.codeskraps.sbrowser.home.WebViewFragment$DownloadActivityListener -> is$a:
     com.codeskraps.sbrowser.home.WebViewFragment this$0 -> a
-    345:345:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
-    348:349:void onDownloadStart(java.lang.String,java.lang.String,java.lang.String,java.lang.String,long) -> onDownloadStart
-    345:345:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
+    368:368:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
+    371:372:void onDownloadStart(java.lang.String,java.lang.String,java.lang.String,java.lang.String,long) -> onDownloadStart
+    368:368:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
 com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo -> is$b:
     com.codeskraps.sbrowser.home.WebViewFragment this$0 -> a
-    235:235:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
-    240:290:java.lang.Boolean doInBackground(java.lang.String[]) -> a
-    295:322:void onPostExecute(java.lang.Boolean) -> a
-    235:235:void onPostExecute(java.lang.Object) -> onPostExecute
-    235:235:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    235:235:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
+    258:258:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
+    263:313:java.lang.Boolean doInBackground(java.lang.String[]) -> a
+    318:345:void onPostExecute(java.lang.Boolean) -> a
+    258:258:void onPostExecute(java.lang.Object) -> onPostExecute
+    258:258:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    258:258:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
 com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo$1 -> is$b$1:
     com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo this$1 -> a
-    302:302:void <init>(com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo) -> <init>
-    304:311:void onClick(android.content.DialogInterface,int) -> onClick
+    325:325:void <init>(com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo) -> <init>
+    327:334:void onClick(android.content.DialogInterface,int) -> onClick
 com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo$2 -> is$b$2:
     com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo this$1 -> a
-    314:314:void <init>(com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo) -> <init>
-    316:318:void onClick(android.content.DialogInterface,int) -> onClick
+    337:337:void <init>(com.codeskraps.sbrowser.home.WebViewFragment$HandleVideo) -> <init>
+    339:341:void onClick(android.content.DialogInterface,int) -> onClick
 com.codeskraps.sbrowser.home.WebViewFragment$WebChromeActivityClient -> is$c:
     com.codeskraps.sbrowser.home.WebViewFragment this$0 -> a
-    325:325:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
-    328:342:void onProgressChanged(android.webkit.WebView,int) -> onProgressChanged
-    325:325:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
+    348:348:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
+    351:365:void onProgressChanged(android.webkit.WebView,int) -> onProgressChanged
+    348:348:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
 com.codeskraps.sbrowser.home.WebViewFragment$WebViewActivityClient -> is$d:
     com.codeskraps.sbrowser.home.WebViewFragment this$0 -> a
-    173:173:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
-    176:218:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
-    223:225:void onReceivedSslError(android.webkit.WebView,android.webkit.SslErrorHandler,android.net.http.SslError) -> onReceivedSslError
-    229:232:void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
-    173:173:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
+    196:196:void <init>(com.codeskraps.sbrowser.home.WebViewFragment) -> <init>
+    199:241:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
+    246:248:void onReceivedSslError(android.webkit.WebView,android.webkit.SslErrorHandler,android.net.http.SslError) -> onReceivedSslError
+    252:255:void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
+    196:196:void <init>(com.codeskraps.sbrowser.home.WebViewFragment,com.codeskraps.sbrowser.home.WebViewFragment$1) -> <init>
 com.codeskraps.sbrowser.loginsignup.DispatchActivity -> com.codeskraps.sbrowser.loginsignup.DispatchActivity:
     10:10:void <init>() -> <init>
     14:24:void onCreate(android.os.Bundle) -> onCreate
@@ -10132,7 +10135,6 @@ com.codeskraps.sbrowser.misc.DataBaseData -> iu:
     64:76:void update(java.lang.String,com.codeskraps.sbrowser.misc.BookmarkItem) -> b
     80:86:void delete(java.lang.String,int) -> a
     89:95:android.database.Cursor query(java.lang.String) -> a
-    99:102:void deleteTable(java.lang.String) -> b
     31:31:android.content.Context access$000(com.codeskraps.sbrowser.misc.DataBaseData) -> a
     31:31:java.lang.String access$100() -> b
     32:32:void <clinit>() -> <clinit>
@@ -10229,6 +10231,12 @@ com.codeskraps.sbrowser.misc.SBrowserData -> iy:
     144:145:void setUserAgent(int) -> b
     152:153:void setTabbed(boolean) -> f
     28:28:void <clinit>() -> <clinit>
+com.codeskraps.sbrowser.misc.Util -> iz:
+    java.lang.String TAG -> a
+    7:7:void <init>() -> <init>
+    11:30:int clearCacheFolder(java.io.File) -> a
+    38:41:void clearCache(android.content.Context) -> a
+    8:8:void <clinit>() -> <clinit>
 com.codeskraps.sbrowser.services.ProAccoundVerificationService -> com.codeskraps.sbrowser.services.ProAccoundVerificationService:
     java.lang.String TAG -> a
     com.codeskraps.sbrowser.bill_util.IabHelper mHelper -> b
@@ -16378,13 +16386,13 @@ com.parse.twitter.Twitter$1$1$1 -> com.parse.twitter.Twitter$1$1$1:
     166:185:void onPostExecute(com.parse.signpost.http.HttpParameters) -> onPostExecute
     1:1:void onPostExecute(java.lang.Object) -> onPostExecute
     1:1:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-io.fabric.sdk.android.ActivityLifecycleManager -> iz:
+io.fabric.sdk.android.ActivityLifecycleManager -> ja:
     android.app.Application application -> a
     io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper callbacksWrapper -> b
     55:60:void <init>(android.content.Context) -> <init>
     68:68:boolean registerCallbacks(io.fabric.sdk.android.ActivityLifecycleManager$Callbacks) -> a
     76:79:void resetCallbacks() -> a
-io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper -> iz$a:
+io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper -> ja$a:
     java.util.Set registeredCallbacks -> a
     android.app.Application application -> b
     82:88:void <init>(android.app.Application) -> <init>
@@ -16392,7 +16400,7 @@ io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper
     100:144:boolean registerLifecycleCallbacks(io.fabric.sdk.android.ActivityLifecycleManager$Callbacks) -> a
     81:81:boolean access$000(io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper,io.fabric.sdk.android.ActivityLifecycleManager$Callbacks) -> a
     81:81:void access$100(io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper) -> a
-io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1 -> iz$a$1:
+io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1 -> ja$a$1:
     io.fabric.sdk.android.ActivityLifecycleManager$Callbacks val$callbacks -> a
     io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper this$0 -> b
     102:102:void <init>(io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper,io.fabric.sdk.android.ActivityLifecycleManager$Callbacks) -> <init>
@@ -16403,7 +16411,7 @@ io.fabric.sdk.android.ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper
     126:127:void onActivityStopped(android.app.Activity) -> onActivityStopped
     132:133:void onActivitySaveInstanceState(android.app.Activity,android.os.Bundle) -> onActivitySaveInstanceState
     137:138:void onActivityDestroyed(android.app.Activity) -> onActivityDestroyed
-io.fabric.sdk.android.ActivityLifecycleManager$Callbacks -> iz$b:
+io.fabric.sdk.android.ActivityLifecycleManager$Callbacks -> ja$b:
     42:42:void <init>() -> <init>
     43:43:void onActivityCreated(android.app.Activity,android.os.Bundle) -> onActivityCreated
     44:44:void onActivityStarted(android.app.Activity) -> onActivityStarted
@@ -16412,7 +16420,7 @@ io.fabric.sdk.android.ActivityLifecycleManager$Callbacks -> iz$b:
     47:47:void onActivityStopped(android.app.Activity) -> onActivityStopped
     48:48:void onActivitySaveInstanceState(android.app.Activity,android.os.Bundle) -> onActivitySaveInstanceState
     49:49:void onActivityDestroyed(android.app.Activity) -> onActivityDestroyed
-io.fabric.sdk.android.DefaultLogger -> ja:
+io.fabric.sdk.android.DefaultLogger -> jb:
     int logLevel -> a
     28:30:void <init>(int) -> <init>
     32:34:void <init>() -> <init>
@@ -16429,7 +16437,7 @@ io.fabric.sdk.android.DefaultLogger -> ja:
     108:109:void e(java.lang.String,java.lang.String) -> e
     113:114:void log(int,java.lang.String,java.lang.String) -> a
     118:121:void log(int,java.lang.String,java.lang.String,boolean) -> a
-io.fabric.sdk.android.Fabric -> jb:
+io.fabric.sdk.android.Fabric -> jc:
     io.fabric.sdk.android.Fabric singleton -> a
     io.fabric.sdk.android.Logger DEFAULT_LOGGER -> b
     android.content.Context context -> e
@@ -16470,20 +16478,20 @@ io.fabric.sdk.android.Fabric -> jb:
     48:48:java.util.concurrent.atomic.AtomicBoolean access$100(io.fabric.sdk.android.Fabric) -> b
     48:48:io.fabric.sdk.android.InitializationCallback access$200(io.fabric.sdk.android.Fabric) -> c
     56:56:void <clinit>() -> <clinit>
-io.fabric.sdk.android.Fabric$1 -> jb$1:
+io.fabric.sdk.android.Fabric$1 -> jc$1:
     io.fabric.sdk.android.Fabric this$0 -> a
     365:365:void <init>(io.fabric.sdk.android.Fabric) -> <init>
     369:370:void onActivityCreated(android.app.Activity,android.os.Bundle) -> onActivityCreated
     374:375:void onActivityStarted(android.app.Activity) -> onActivityStarted
     379:380:void onActivityResumed(android.app.Activity) -> onActivityResumed
-io.fabric.sdk.android.Fabric$2 -> jb$2:
+io.fabric.sdk.android.Fabric$2 -> jc$2:
     java.util.concurrent.CountDownLatch kitInitializedLatch -> a
     int val$size -> b
     io.fabric.sdk.android.Fabric this$0 -> c
     590:591:void <init>(io.fabric.sdk.android.Fabric,int) -> <init>
     598:603:void success(java.lang.Object) -> a
     607:608:void failure(java.lang.Exception) -> a
-io.fabric.sdk.android.Fabric$Builder -> jb$a:
+io.fabric.sdk.android.Fabric$Builder -> jc$a:
     android.content.Context context -> a
     io.fabric.sdk.android.Kit[] kits -> b
     io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor threadPoolExecutor -> c
@@ -16497,7 +16505,7 @@ io.fabric.sdk.android.Fabric$Builder -> jb$a:
     102:107:io.fabric.sdk.android.Fabric$Builder kits(io.fabric.sdk.android.Kit[]) -> a
     202:203:io.fabric.sdk.android.Fabric$Builder debuggable(boolean) -> a
     227:262:io.fabric.sdk.android.Fabric build() -> a
-io.fabric.sdk.android.FabricContext -> jc:
+io.fabric.sdk.android.FabricContext -> jd:
     java.lang.String componentPath -> a
     java.lang.String componentName -> b
     38:41:void <init>(android.content.Context,java.lang.String,java.lang.String) -> <init>
@@ -16509,27 +16517,27 @@ io.fabric.sdk.android.FabricContext -> jc:
     81:81:java.io.File getCacheDir() -> getCacheDir
     87:87:java.io.File getExternalCacheDir() -> getExternalCacheDir
     92:92:android.content.SharedPreferences getSharedPreferences(java.lang.String,int) -> getSharedPreferences
-io.fabric.sdk.android.FabricKitsFinder -> jd:
+io.fabric.sdk.android.FabricKitsFinder -> je:
     java.lang.String apkFileName -> a
     43:45:void <init>(java.lang.String) -> <init>
     49:80:java.util.Map call() -> a
     84:103:io.fabric.sdk.android.KitInfo loadKitInfo(java.util.zip.ZipEntry,java.util.zip.ZipFile) -> a
     107:107:java.util.zip.ZipFile loadApkFile() -> b
     35:35:java.lang.Object call() -> call
-io.fabric.sdk.android.InitializationCallback -> je:
+io.fabric.sdk.android.InitializationCallback -> jf:
     io.fabric.sdk.android.InitializationCallback EMPTY -> d
     void success(java.lang.Object) -> a
     void failure(java.lang.Exception) -> a
     25:25:void <clinit>() -> <clinit>
-io.fabric.sdk.android.InitializationCallback$1 -> je$1:
-io.fabric.sdk.android.InitializationCallback$Empty -> je$a:
+io.fabric.sdk.android.InitializationCallback$1 -> jf$1:
+io.fabric.sdk.android.InitializationCallback$Empty -> jf$a:
     38:38:void <init>() -> <init>
     43:43:void success(java.lang.Object) -> a
     48:48:void failure(java.lang.Exception) -> a
     37:37:void <init>(io.fabric.sdk.android.InitializationCallback$1) -> <init>
-io.fabric.sdk.android.InitializationException -> jf:
+io.fabric.sdk.android.InitializationException -> jg:
     26:27:void <init>(java.lang.String) -> <init>
-io.fabric.sdk.android.InitializationTask -> jg:
+io.fabric.sdk.android.InitializationTask -> jh:
     io.fabric.sdk.android.Kit kit -> a
     33:35:void <init>(io.fabric.sdk.android.Kit) -> <init>
     39:56:void onPreExecute() -> a
@@ -16539,7 +16547,7 @@ io.fabric.sdk.android.InitializationTask -> jg:
     87:87:io.fabric.sdk.android.services.concurrency.Priority getPriority() -> getPriority
     91:94:io.fabric.sdk.android.services.common.TimingMetric createAndStartTimingMetric(java.lang.String) -> a
     28:28:java.lang.Object doInBackground(java.lang.Object[]) -> a
-io.fabric.sdk.android.Kit -> jh:
+io.fabric.sdk.android.Kit -> ji:
     io.fabric.sdk.android.Fabric fabric -> fabric
     io.fabric.sdk.android.InitializationTask initializationTask -> initializationTask
     android.content.Context context -> context
@@ -16563,9 +16571,9 @@ io.fabric.sdk.android.Kit -> jh:
     177:178:boolean hasAnnotatedDependency() -> hasAnnotatedDependency
     183:183:java.util.Collection getDependencies() -> getDependencies
     33:33:int compareTo(java.lang.Object) -> compareTo
-io.fabric.sdk.android.KitGroup -> ji:
+io.fabric.sdk.android.KitGroup -> jj:
     java.util.Collection getKits() -> getKits
-io.fabric.sdk.android.KitInfo -> jj:
+io.fabric.sdk.android.KitInfo -> jk:
     java.lang.String identifier -> a
     java.lang.String version -> b
     java.lang.String buildType -> c
@@ -16573,7 +16581,7 @@ io.fabric.sdk.android.KitInfo -> jj:
     32:32:java.lang.String getIdentifier() -> a
     36:36:java.lang.String getVersion() -> b
     40:40:java.lang.String getBuildType() -> c
-io.fabric.sdk.android.Logger -> jk:
+io.fabric.sdk.android.Logger -> jl:
     boolean isLoggable(java.lang.String,int) -> a
     void d(java.lang.String,java.lang.String,java.lang.Throwable) -> a
     void w(java.lang.String,java.lang.String,java.lang.Throwable) -> d
@@ -16585,7 +16593,7 @@ io.fabric.sdk.android.Logger -> jk:
     void e(java.lang.String,java.lang.String) -> e
     void log(int,java.lang.String,java.lang.String) -> a
     void log(int,java.lang.String,java.lang.String,boolean) -> a
-io.fabric.sdk.android.Onboarding -> jl:
+io.fabric.sdk.android.Onboarding -> jm:
     io.fabric.sdk.android.services.network.HttpRequestFactory requestFactory -> a
     android.content.pm.PackageManager packageManager -> b
     java.lang.String packageName -> c
@@ -16611,24 +16619,24 @@ io.fabric.sdk.android.Onboarding -> jl:
     208:216:io.fabric.sdk.android.services.settings.AppRequestData buildAppRequest(io.fabric.sdk.android.services.settings.IconRequest,java.util.Collection) -> a
     221:221:java.lang.String getOverridenSpiEndpoint() -> b
     45:45:java.lang.Object doInBackground() -> doInBackground
-io.fabric.sdk.android.services.cache.AbstractValueCache -> jm:
+io.fabric.sdk.android.services.cache.AbstractValueCache -> jn:
     io.fabric.sdk.android.services.cache.ValueCache childCache -> a
     30:32:void <init>(io.fabric.sdk.android.services.cache.ValueCache) -> <init>
     36:43:java.lang.Object get(android.content.Context,io.fabric.sdk.android.services.cache.ValueLoader) -> a
     java.lang.Object getCached(android.content.Context) -> a
     void cacheValue(android.content.Context,java.lang.Object) -> a
     67:71:void cache(android.content.Context,java.lang.Object) -> b
-io.fabric.sdk.android.services.cache.MemoryValueCache -> jn:
+io.fabric.sdk.android.services.cache.MemoryValueCache -> jo:
     java.lang.Object value -> a
     27:28:void <init>() -> <init>
     31:32:void <init>(io.fabric.sdk.android.services.cache.ValueCache) -> <init>
     41:41:java.lang.Object getCached(android.content.Context) -> a
     46:47:void cacheValue(android.content.Context,java.lang.Object) -> a
-io.fabric.sdk.android.services.cache.ValueCache -> jo:
+io.fabric.sdk.android.services.cache.ValueCache -> jp:
     java.lang.Object get(android.content.Context,io.fabric.sdk.android.services.cache.ValueLoader) -> a
-io.fabric.sdk.android.services.cache.ValueLoader -> jp:
+io.fabric.sdk.android.services.cache.ValueLoader -> jq:
     java.lang.Object load(android.content.Context) -> load
-io.fabric.sdk.android.services.common.AbstractSpiCall -> jq:
+io.fabric.sdk.android.services.common.AbstractSpiCall -> jr:
     java.lang.String HEADER_API_KEY -> HEADER_API_KEY
     java.lang.String HEADER_DEVELOPER_TOKEN -> HEADER_DEVELOPER_TOKEN
     java.lang.String HEADER_CLIENT_TYPE -> HEADER_CLIENT_TYPE
@@ -16653,13 +16661,13 @@ io.fabric.sdk.android.services.common.AbstractSpiCall -> jq:
     137:139:io.fabric.sdk.android.services.network.HttpRequest getHttpRequest(java.util.Map) -> getHttpRequest
     155:162:java.lang.String overrideProtocolAndHost(java.lang.String) -> overrideProtocolAndHost
     55:55:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.common.AdvertisingInfo -> jr:
+io.fabric.sdk.android.services.common.AdvertisingInfo -> js:
     java.lang.String advertisingId -> a
     boolean limitAdTrackingEnabled -> b
     24:27:void <init>(java.lang.String,boolean) -> <init>
     31:41:boolean equals(java.lang.Object) -> equals
     46:48:int hashCode() -> hashCode
-io.fabric.sdk.android.services.common.AdvertisingInfoProvider -> js:
+io.fabric.sdk.android.services.common.AdvertisingInfoProvider -> jt:
     android.content.Context context -> a
     io.fabric.sdk.android.services.persistence.PreferenceStore preferenceStore -> b
     35:38:void <init>(android.content.Context) -> <init>
@@ -16673,12 +16681,12 @@ io.fabric.sdk.android.services.common.AdvertisingInfoProvider -> js:
     117:133:io.fabric.sdk.android.services.common.AdvertisingInfo getAdvertisingInfoFromStrategies() -> e
     28:28:io.fabric.sdk.android.services.common.AdvertisingInfo access$000(io.fabric.sdk.android.services.common.AdvertisingInfoProvider) -> a
     28:28:void access$100(io.fabric.sdk.android.services.common.AdvertisingInfoProvider,io.fabric.sdk.android.services.common.AdvertisingInfo) -> a
-io.fabric.sdk.android.services.common.AdvertisingInfoProvider$1 -> js$1:
+io.fabric.sdk.android.services.common.AdvertisingInfoProvider$1 -> jt$1:
     io.fabric.sdk.android.services.common.AdvertisingInfo val$advertisingInfo -> a
     io.fabric.sdk.android.services.common.AdvertisingInfoProvider this$0 -> b
     68:68:void <init>(io.fabric.sdk.android.services.common.AdvertisingInfoProvider,io.fabric.sdk.android.services.common.AdvertisingInfo) -> <init>
     70:76:void onRun() -> onRun
-io.fabric.sdk.android.services.common.AdvertisingInfoReflectionStrategy -> jt:
+io.fabric.sdk.android.services.common.AdvertisingInfoReflectionStrategy -> ju:
     android.content.Context context -> a
     44:46:void <init>(android.content.Context) -> <init>
     50:55:boolean isGooglePlayServiceAvailable(android.content.Context) -> a
@@ -16686,12 +16694,12 @@ io.fabric.sdk.android.services.common.AdvertisingInfoReflectionStrategy -> jt:
     73:83:java.lang.String getAdvertisingId() -> b
     88:99:boolean isLimitAdTrackingEnabled() -> c
     104:113:java.lang.Object getInfo() -> d
-io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy -> ju:
+io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy -> jv:
     android.content.Context context -> a
     44:46:void <init>(android.content.Context) -> <init>
     49:98:io.fabric.sdk.android.services.common.AdvertisingInfo getAdvertisingInfo() -> a
-io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$1 -> ju$1:
-io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$AdvertisingConnection -> ju$a:
+io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$1 -> jv$1:
+io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$AdvertisingConnection -> jv$a:
     boolean retrieved -> a
     java.util.concurrent.LinkedBlockingQueue queue -> b
     104:109:void <init>() -> <init>
@@ -16699,26 +16707,26 @@ io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$Advertising
     122:123:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
     126:139:android.os.IBinder getBinder() -> a
     104:104:void <init>(io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$1) -> <init>
-io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$AdvertisingInterface -> ju$b:
+io.fabric.sdk.android.services.common.AdvertisingInfoServiceStrategy$AdvertisingInterface -> jv$b:
     android.os.IBinder binder -> a
     161:163:void <init>(android.os.IBinder) -> <init>
     167:167:android.os.IBinder asBinder() -> asBinder
     171:186:java.lang.String getId() -> a
     190:207:boolean isLimitAdTrackingEnabled() -> b
-io.fabric.sdk.android.services.common.AdvertisingInfoStrategy -> jv:
+io.fabric.sdk.android.services.common.AdvertisingInfoStrategy -> jw:
     io.fabric.sdk.android.services.common.AdvertisingInfo getAdvertisingInfo() -> a
-io.fabric.sdk.android.services.common.ApiKey -> jw:
+io.fabric.sdk.android.services.common.ApiKey -> jx:
     28:28:void <init>() -> <init>
     54:64:java.lang.String getValue(android.content.Context) -> a
     68:89:java.lang.String getApiKeyFromManifest(android.content.Context) -> b
     93:105:java.lang.String getApiKeyFromStrings(android.content.Context) -> c
     109:114:void logErrorOrThrowException(android.content.Context) -> d
     117:117:java.lang.String buildApiKeyInstructions() -> a
-io.fabric.sdk.android.services.common.BackgroundPriorityRunnable -> jx:
+io.fabric.sdk.android.services.common.BackgroundPriorityRunnable -> jy:
     26:26:void <init>() -> <init>
     29:31:void run() -> run
     void onRun() -> onRun
-io.fabric.sdk.android.services.common.CommonUtils -> jy:
+io.fabric.sdk.android.services.common.CommonUtils -> jz:
     java.lang.Boolean clsTrace -> b
     char[] HEX_VALUES -> c
     long totalRamInBytes -> d
@@ -16768,11 +16776,11 @@ io.fabric.sdk.android.services.common.CommonUtils -> jy:
     870:871:boolean checkPermission(android.content.Context,java.lang.String) -> c
     924:932:boolean canTryConnection(android.content.Context) -> n
     89:671:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.common.CommonUtils$1 -> jy$1:
+io.fabric.sdk.android.services.common.CommonUtils$1 -> jz$1:
     671:671:void <init>() -> <init>
     676:676:int compare(java.io.File,java.io.File) -> a
     671:671:int compare(java.lang.Object,java.lang.Object) -> compare
-io.fabric.sdk.android.services.common.CommonUtils$Architecture -> jy$a:
+io.fabric.sdk.android.services.common.CommonUtils$Architecture -> jz$a:
     io.fabric.sdk.android.services.common.CommonUtils$Architecture X86_32 -> a
     io.fabric.sdk.android.services.common.CommonUtils$Architecture X86_64 -> b
     io.fabric.sdk.android.services.common.CommonUtils$Architecture ARM_UNKNOWN -> c
@@ -16790,17 +16798,17 @@ io.fabric.sdk.android.services.common.CommonUtils$Architecture -> jy$a:
     153:153:void <init>(java.lang.String,int) -> <init>
     178:191:io.fabric.sdk.android.services.common.CommonUtils$Architecture getValue() -> a
     153:172:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.common.Crash -> jz:
+io.fabric.sdk.android.services.common.Crash -> ka:
     java.lang.String sessionId -> a
     24:26:void <init>(java.lang.String) -> <init>
     29:29:java.lang.String getSessionId() -> a
-io.fabric.sdk.android.services.common.Crash$FatalException -> jz$a:
+io.fabric.sdk.android.services.common.Crash$FatalException -> ka$a:
     40:41:void <init>(java.lang.String) -> <init>
-io.fabric.sdk.android.services.common.Crash$LoggedException -> jz$b:
+io.fabric.sdk.android.services.common.Crash$LoggedException -> ka$b:
     34:35:void <init>(java.lang.String) -> <init>
-io.fabric.sdk.android.services.common.CurrentTimeProvider -> ka:
+io.fabric.sdk.android.services.common.CurrentTimeProvider -> kb:
     long getCurrentTimeMillis() -> a
-io.fabric.sdk.android.services.common.DeliveryMechanism -> kb:
+io.fabric.sdk.android.services.common.DeliveryMechanism -> kc:
     io.fabric.sdk.android.services.common.DeliveryMechanism DEVELOPER -> a
     io.fabric.sdk.android.services.common.DeliveryMechanism USER_SIDELOAD -> b
     io.fabric.sdk.android.services.common.DeliveryMechanism TEST_DISTRIBUTION -> c
@@ -16814,32 +16822,32 @@ io.fabric.sdk.android.services.common.DeliveryMechanism -> kb:
     43:43:java.lang.String toString() -> toString
     51:56:io.fabric.sdk.android.services.common.DeliveryMechanism determineFrom(java.lang.String) -> a
     25:27:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.common.DeviceIdentifierProvider -> kc:
+io.fabric.sdk.android.services.common.DeviceIdentifierProvider -> kd:
     java.util.Map getDeviceIdentifiers() -> getDeviceIdentifiers
-io.fabric.sdk.android.services.common.ExecutorUtils -> kd:
+io.fabric.sdk.android.services.common.ExecutorUtils -> ke:
     42:45:java.util.concurrent.ExecutorService buildSingleThreadExecutorService(java.lang.String) -> a
     58:62:java.util.concurrent.ScheduledExecutorService buildSingleThreadScheduledExecutorService(java.lang.String) -> b
     66:68:java.util.concurrent.ThreadFactory getNamedThreadFactory(java.lang.String) -> c
     86:88:void addDelayedShutdownHook(java.lang.String,java.util.concurrent.ExecutorService) -> a
     92:112:void addDelayedShutdownHook(java.lang.String,java.util.concurrent.ExecutorService,long,java.util.concurrent.TimeUnit) -> a
-io.fabric.sdk.android.services.common.ExecutorUtils$1 -> kd$1:
+io.fabric.sdk.android.services.common.ExecutorUtils$1 -> ke$1:
     java.lang.String val$threadNameTemplate -> a
     java.util.concurrent.atomic.AtomicLong val$count -> b
     68:68:void <init>(java.lang.String,java.util.concurrent.atomic.AtomicLong) -> <init>
     71:80:java.lang.Thread newThread(java.lang.Runnable) -> newThread
-io.fabric.sdk.android.services.common.ExecutorUtils$1$1 -> kd$1$1:
+io.fabric.sdk.android.services.common.ExecutorUtils$1$1 -> ke$1$1:
     java.lang.Runnable val$runnable -> a
     io.fabric.sdk.android.services.common.ExecutorUtils$1 this$0 -> b
     72:72:void <init>(io.fabric.sdk.android.services.common.ExecutorUtils$1,java.lang.Runnable) -> <init>
     75:76:void onRun() -> onRun
-io.fabric.sdk.android.services.common.ExecutorUtils$2 -> kd$2:
+io.fabric.sdk.android.services.common.ExecutorUtils$2 -> ke$2:
     java.lang.String val$serviceName -> a
     java.util.concurrent.ExecutorService val$service -> b
     long val$terminationTimeout -> c
     java.util.concurrent.TimeUnit val$timeUnit -> d
     92:92:void <init>(java.lang.String,java.util.concurrent.ExecutorService,long,java.util.concurrent.TimeUnit) -> <init>
     96:110:void onRun() -> onRun
-io.fabric.sdk.android.services.common.IdManager -> ke:
+io.fabric.sdk.android.services.common.IdManager -> kf:
     java.util.regex.Pattern ID_PATTERN -> d
     java.lang.String FORWARD_SLASH_REGEX -> e
     java.util.concurrent.locks.ReentrantLock installationIdLock -> f
@@ -16873,7 +16881,7 @@ io.fabric.sdk.android.services.common.IdManager -> ke:
     335:338:void putNonNullIdInto(java.util.Map,io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType,java.lang.String) -> a
     341:352:java.lang.String getAndroidId() -> n
     47:52:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType -> ke$a:
+io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType -> kf$a:
     io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType WIFI_MAC_ADDRESS -> a
     io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType BLUETOOTH_MAC_ADDRESS -> b
     io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType FONT_TOKEN -> c
@@ -16887,17 +16895,17 @@ io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType -> ke$a:
     54:54:io.fabric.sdk.android.services.common.IdManager$DeviceIdentifierType valueOf(java.lang.String) -> valueOf
     68:70:void <init>(java.lang.String,int,int) -> <init>
     54:64:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.common.InstallerPackageNameProvider -> kf:
+io.fabric.sdk.android.services.common.InstallerPackageNameProvider -> kg:
     io.fabric.sdk.android.services.cache.ValueLoader installerPackageNameLoader -> a
     io.fabric.sdk.android.services.cache.MemoryValueCache installerPackageNameCache -> b
     36:53:void <init>() -> <init>
     57:62:java.lang.String getInstallerPackageName(android.content.Context) -> a
-io.fabric.sdk.android.services.common.InstallerPackageNameProvider$1 -> kf$1:
+io.fabric.sdk.android.services.common.InstallerPackageNameProvider$1 -> kg$1:
     io.fabric.sdk.android.services.common.InstallerPackageNameProvider this$0 -> a
     36:36:void <init>(io.fabric.sdk.android.services.common.InstallerPackageNameProvider) -> <init>
     39:45:java.lang.String load(android.content.Context) -> a
     36:36:java.lang.Object load(android.content.Context) -> load
-io.fabric.sdk.android.services.common.QueueFile -> kg:
+io.fabric.sdk.android.services.common.QueueFile -> kh:
     java.util.logging.Logger LOGGER -> b
     java.io.RandomAccessFile raf -> c
     int fileLength -> a
@@ -16936,20 +16944,20 @@ io.fabric.sdk.android.services.common.QueueFile -> kg:
     74:74:void access$300(io.fabric.sdk.android.services.common.QueueFile,int,byte[],int,int) -> a
     74:74:java.io.RandomAccessFile access$400(io.fabric.sdk.android.services.common.QueueFile) -> a
     75:75:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.common.QueueFile$1 -> kg$1:
+io.fabric.sdk.android.services.common.QueueFile$1 -> kh$1:
     boolean first -> a
     java.lang.StringBuilder val$builder -> b
     io.fabric.sdk.android.services.common.QueueFile this$0 -> c
     563:564:void <init>(io.fabric.sdk.android.services.common.QueueFile,java.lang.StringBuilder) -> <init>
     568:574:void read(java.io.InputStream,int) -> read
-io.fabric.sdk.android.services.common.QueueFile$Element -> kg$a:
+io.fabric.sdk.android.services.common.QueueFile$Element -> kh$a:
     io.fabric.sdk.android.services.common.QueueFile$Element NULL -> a
     int position -> b
     int length -> c
     604:607:void <init>(int,int) -> <init>
     611:611:java.lang.String toString() -> toString
     590:590:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.common.QueueFile$ElementInputStream -> kg$b:
+io.fabric.sdk.android.services.common.QueueFile$ElementInputStream -> kh$b:
     int position -> b
     int remaining -> c
     io.fabric.sdk.android.services.common.QueueFile this$0 -> a
@@ -16957,14 +16965,14 @@ io.fabric.sdk.android.services.common.QueueFile$ElementInputStream -> kg$b:
     472:485:int read(byte[],int,int) -> read
     491:498:int read() -> read
     461:461:void <init>(io.fabric.sdk.android.services.common.QueueFile,io.fabric.sdk.android.services.common.QueueFile$Element,io.fabric.sdk.android.services.common.QueueFile$1) -> <init>
-io.fabric.sdk.android.services.common.QueueFile$ElementReader -> kg$c:
+io.fabric.sdk.android.services.common.QueueFile$ElementReader -> kh$c:
     void read(java.io.InputStream,int) -> read
-io.fabric.sdk.android.services.common.ResponseParser -> kh:
+io.fabric.sdk.android.services.common.ResponseParser -> ki:
     35:45:int parse(int) -> a
-io.fabric.sdk.android.services.common.SystemCurrentTimeProvider -> ki:
+io.fabric.sdk.android.services.common.SystemCurrentTimeProvider -> kj:
     25:25:void <init>() -> <init>
     29:29:long getCurrentTimeMillis() -> a
-io.fabric.sdk.android.services.common.TimingMetric -> kj:
+io.fabric.sdk.android.services.common.TimingMetric -> kk:
     java.lang.String eventName -> a
     java.lang.String tag -> b
     boolean disabled -> c
@@ -16974,7 +16982,7 @@ io.fabric.sdk.android.services.common.TimingMetric -> kj:
     40:43:void startMeasuring() -> a
     49:53:void stopMeasuring() -> b
     63:64:void reportToLog() -> c
-io.fabric.sdk.android.services.concurrency.AsyncTask -> kk:
+io.fabric.sdk.android.services.concurrency.AsyncTask -> kl:
     int CPU_COUNT -> a
     int CORE_POOL_SIZE -> d
     int MAXIMUM_POOL_SIZE -> e
@@ -17008,41 +17016,41 @@ io.fabric.sdk.android.services.concurrency.AsyncTask -> kk:
     200:200:void access$400(io.fabric.sdk.android.services.concurrency.AsyncTask,java.lang.Object) -> b
     200:200:void access$500(io.fabric.sdk.android.services.concurrency.AsyncTask,java.lang.Object) -> c
     203:237:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.concurrency.AsyncTask$1 -> kk$1:
+io.fabric.sdk.android.services.concurrency.AsyncTask$1 -> kl$1:
     java.util.concurrent.atomic.AtomicInteger count -> a
     208:209:void <init>() -> <init>
     212:212:java.lang.Thread newThread(java.lang.Runnable) -> newThread
-io.fabric.sdk.android.services.concurrency.AsyncTask$2 -> kk$2:
+io.fabric.sdk.android.services.concurrency.AsyncTask$2 -> kl$2:
     io.fabric.sdk.android.services.concurrency.AsyncTask this$0 -> a
     305:305:void <init>(io.fabric.sdk.android.services.concurrency.AsyncTask) -> <init>
     307:311:java.lang.Object call() -> call
-io.fabric.sdk.android.services.concurrency.AsyncTask$3 -> kk$3:
+io.fabric.sdk.android.services.concurrency.AsyncTask$3 -> kl$3:
     io.fabric.sdk.android.services.concurrency.AsyncTask this$0 -> a
     315:315:void <init>(io.fabric.sdk.android.services.concurrency.AsyncTask,java.util.concurrent.Callable) -> <init>
     319:328:void done() -> done
-io.fabric.sdk.android.services.concurrency.AsyncTask$4 -> kk$4:
+io.fabric.sdk.android.services.concurrency.AsyncTask$4 -> kl$4:
     int[] $SwitchMap$io$fabric$sdk$android$services$concurrency$AsyncTask$Status -> a
     597:597:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.concurrency.AsyncTask$AsyncTaskResult -> kk$a:
+io.fabric.sdk.android.services.concurrency.AsyncTask$AsyncTaskResult -> kl$a:
     io.fabric.sdk.android.services.concurrency.AsyncTask task -> a
     java.lang.Object[] data -> b
     692:695:void <init>(io.fabric.sdk.android.services.concurrency.AsyncTask,java.lang.Object[]) -> <init>
-io.fabric.sdk.android.services.concurrency.AsyncTask$InternalHandler -> kk$b:
+io.fabric.sdk.android.services.concurrency.AsyncTask$InternalHandler -> kl$b:
     663:664:void <init>() -> <init>
     669:680:void handleMessage(android.os.Message) -> handleMessage
-io.fabric.sdk.android.services.concurrency.AsyncTask$SerialExecutor -> kk$c:
+io.fabric.sdk.android.services.concurrency.AsyncTask$SerialExecutor -> kl$c:
     java.util.LinkedList tasks -> a
     java.lang.Runnable active -> b
     246:247:void <init>() -> <init>
     251:263:void execute(java.lang.Runnable) -> execute
     266:269:void scheduleNext() -> a
     246:246:void <init>(io.fabric.sdk.android.services.concurrency.AsyncTask$1) -> <init>
-io.fabric.sdk.android.services.concurrency.AsyncTask$SerialExecutor$1 -> kk$c$1:
+io.fabric.sdk.android.services.concurrency.AsyncTask$SerialExecutor$1 -> kl$c$1:
     java.lang.Runnable val$r -> a
     io.fabric.sdk.android.services.concurrency.AsyncTask$SerialExecutor this$0 -> b
     251:251:void <init>(io.fabric.sdk.android.services.concurrency.AsyncTask$SerialExecutor,java.lang.Runnable) -> <init>
     254:258:void run() -> run
-io.fabric.sdk.android.services.concurrency.AsyncTask$Status -> kk$d:
+io.fabric.sdk.android.services.concurrency.AsyncTask$Status -> kl$d:
     io.fabric.sdk.android.services.concurrency.AsyncTask$Status PENDING -> a
     io.fabric.sdk.android.services.concurrency.AsyncTask$Status RUNNING -> b
     io.fabric.sdk.android.services.concurrency.AsyncTask$Status FINISHED -> c
@@ -17051,15 +17059,15 @@ io.fabric.sdk.android.services.concurrency.AsyncTask$Status -> kk$d:
     276:276:io.fabric.sdk.android.services.concurrency.AsyncTask$Status valueOf(java.lang.String) -> valueOf
     276:276:void <init>(java.lang.String,int) -> <init>
     276:288:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.concurrency.AsyncTask$WorkerRunnable -> kk$e:
+io.fabric.sdk.android.services.concurrency.AsyncTask$WorkerRunnable -> kl$e:
     java.lang.Object[] params -> b
     683:683:void <init>() -> <init>
     683:683:void <init>(io.fabric.sdk.android.services.concurrency.AsyncTask$1) -> <init>
-io.fabric.sdk.android.services.concurrency.Dependency -> kl:
+io.fabric.sdk.android.services.concurrency.Dependency -> km:
     void addDependency(java.lang.Object) -> addDependency
     java.util.Collection getDependencies() -> getDependencies
     boolean areDependenciesMet() -> areDependenciesMet
-io.fabric.sdk.android.services.concurrency.DependencyPriorityBlockingQueue -> km:
+io.fabric.sdk.android.services.concurrency.DependencyPriorityBlockingQueue -> kn:
     java.util.Queue blockedQueue -> a
     java.util.concurrent.locks.ReentrantLock lock -> b
     54:60:void <init>() -> <init>
@@ -17086,9 +17094,9 @@ io.fabric.sdk.android.services.concurrency.DependencyPriorityBlockingQueue -> km
     46:46:java.lang.Object poll(long,java.util.concurrent.TimeUnit) -> poll
     46:46:java.lang.Object take() -> take
     46:46:java.lang.Object poll() -> poll
-io.fabric.sdk.android.services.concurrency.DependsOn -> kn:
+io.fabric.sdk.android.services.concurrency.DependsOn -> ko:
     java.lang.Class[] value() -> a
-io.fabric.sdk.android.services.concurrency.Priority -> ko:
+io.fabric.sdk.android.services.concurrency.Priority -> kp:
     io.fabric.sdk.android.services.concurrency.Priority LOW -> a
     io.fabric.sdk.android.services.concurrency.Priority NORMAL -> b
     io.fabric.sdk.android.services.concurrency.Priority HIGH -> c
@@ -17099,7 +17107,7 @@ io.fabric.sdk.android.services.concurrency.Priority -> ko:
     23:23:void <init>(java.lang.String,int) -> <init>
     38:44:int compareTo(io.fabric.sdk.android.services.concurrency.PriorityProvider,java.lang.Object) -> a
     23:27:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.concurrency.PriorityAsyncTask -> kp:
+io.fabric.sdk.android.services.concurrency.PriorityAsyncTask -> kq:
     io.fabric.sdk.android.services.concurrency.PriorityTask priorityTask -> a
     36:38:void <init>() -> <init>
     42:44:void executeOnExecutor(java.util.concurrent.ExecutorService,java.lang.Object[]) -> a
@@ -17113,19 +17121,19 @@ io.fabric.sdk.android.services.concurrency.PriorityAsyncTask -> kp:
     91:92:void setError(java.lang.Throwable) -> setError
     101:101:io.fabric.sdk.android.services.concurrency.Dependency getDelegate() -> e
     27:27:void addDependency(java.lang.Object) -> addDependency
-io.fabric.sdk.android.services.concurrency.PriorityAsyncTask$ProxyExecutor -> kp$a:
+io.fabric.sdk.android.services.concurrency.PriorityAsyncTask$ProxyExecutor -> kq$a:
     java.util.concurrent.Executor executor -> a
     io.fabric.sdk.android.services.concurrency.PriorityAsyncTask task -> b
     107:110:void <init>(java.util.concurrent.Executor,io.fabric.sdk.android.services.concurrency.PriorityAsyncTask) -> <init>
     114:122:void execute(java.lang.Runnable) -> execute
     104:104:io.fabric.sdk.android.services.concurrency.PriorityAsyncTask access$000(io.fabric.sdk.android.services.concurrency.PriorityAsyncTask$ProxyExecutor) -> a
-io.fabric.sdk.android.services.concurrency.PriorityAsyncTask$ProxyExecutor$1 -> kp$a$1:
+io.fabric.sdk.android.services.concurrency.PriorityAsyncTask$ProxyExecutor$1 -> kq$a$1:
     io.fabric.sdk.android.services.concurrency.PriorityAsyncTask$ProxyExecutor this$0 -> a
     114:114:void <init>(io.fabric.sdk.android.services.concurrency.PriorityAsyncTask$ProxyExecutor,java.lang.Runnable,java.lang.Object) -> <init>
     119:119:io.fabric.sdk.android.services.concurrency.Dependency getDelegate() -> a
-io.fabric.sdk.android.services.concurrency.PriorityCallable -> kq:
+io.fabric.sdk.android.services.concurrency.PriorityCallable -> kr:
     25:25:void <init>() -> <init>
-io.fabric.sdk.android.services.concurrency.PriorityFutureTask -> kr:
+io.fabric.sdk.android.services.concurrency.PriorityFutureTask -> ks:
     java.lang.Object delegate -> b
     39:41:void <init>(java.util.concurrent.Callable) -> <init>
     44:46:void <init>(java.lang.Runnable,java.lang.Object) -> <init>
@@ -17140,9 +17148,9 @@ io.fabric.sdk.android.services.concurrency.PriorityFutureTask -> kr:
     96:96:io.fabric.sdk.android.services.concurrency.Dependency getDelegate() -> a
     102:105:io.fabric.sdk.android.services.concurrency.Dependency checkAndInitDelegate(java.lang.Object) -> a
     33:33:void addDependency(java.lang.Object) -> addDependency
-io.fabric.sdk.android.services.concurrency.PriorityProvider -> ks:
+io.fabric.sdk.android.services.concurrency.PriorityProvider -> kt:
     io.fabric.sdk.android.services.concurrency.Priority getPriority() -> getPriority
-io.fabric.sdk.android.services.concurrency.PriorityTask -> kt:
+io.fabric.sdk.android.services.concurrency.PriorityTask -> ku:
     java.util.List dependencies -> dependencies
     java.util.concurrent.atomic.AtomicBoolean hasRun -> hasRun
     java.util.concurrent.atomic.AtomicReference throwable -> throwable
@@ -17158,7 +17166,7 @@ io.fabric.sdk.android.services.concurrency.PriorityTask -> kt:
     83:83:int compareTo(java.lang.Object) -> compareTo
     91:98:boolean isProperDelegate(java.lang.Object) -> isProperDelegate
     31:31:void addDependency(java.lang.Object) -> addDependency
-io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor -> ku:
+io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor -> kv:
     int CPU_COUNT -> a
     int CORE_POOL_SIZE -> b
     int MAXIMUM_POOL_SIZE -> c
@@ -17172,31 +17180,31 @@ io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor -> ku:
     118:118:io.fabric.sdk.android.services.concurrency.DependencyPriorityBlockingQueue getQueue() -> b
     34:34:java.util.concurrent.BlockingQueue getQueue() -> getQueue
     36:38:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor$PriorityThreadFactory -> ku$a:
+io.fabric.sdk.android.services.concurrency.PriorityThreadPoolExecutor$PriorityThreadFactory -> kv$a:
     int threadPriority -> a
     125:127:void <init>(int) -> <init>
     131:134:java.lang.Thread newThread(java.lang.Runnable) -> newThread
-io.fabric.sdk.android.services.concurrency.Task -> kv:
+io.fabric.sdk.android.services.concurrency.Task -> kw:
     void setFinished(boolean) -> setFinished
     boolean isFinished() -> isFinished
     void setError(java.lang.Throwable) -> setError
-io.fabric.sdk.android.services.concurrency.UnmetDependencyException -> kw:
+io.fabric.sdk.android.services.concurrency.UnmetDependencyException -> kx:
     26:27:void <init>() -> <init>
     30:31:void <init>(java.lang.String) -> <init>
     38:39:void <init>(java.lang.Throwable) -> <init>
-io.fabric.sdk.android.services.concurrency.internal.Backoff -> kx:
+io.fabric.sdk.android.services.concurrency.internal.Backoff -> ky:
     long getDelayMillis(int) -> getDelayMillis
-io.fabric.sdk.android.services.concurrency.internal.DefaultRetryPolicy -> ky:
+io.fabric.sdk.android.services.concurrency.internal.DefaultRetryPolicy -> kz:
     int maxRetries -> a
     25:26:void <init>() -> <init>
     28:30:void <init>(int) -> <init>
-io.fabric.sdk.android.services.concurrency.internal.ExponentialBackoff -> kz:
+io.fabric.sdk.android.services.concurrency.internal.ExponentialBackoff -> la:
     long baseTimeMillis -> a
     int power -> b
     34:37:void <init>(long,int) -> <init>
     41:41:long getDelayMillis(int) -> getDelayMillis
-io.fabric.sdk.android.services.concurrency.internal.RetryPolicy -> la:
-io.fabric.sdk.android.services.concurrency.internal.RetryState -> lb:
+io.fabric.sdk.android.services.concurrency.internal.RetryPolicy -> lb:
+io.fabric.sdk.android.services.concurrency.internal.RetryState -> lc:
     int retryCount -> a
     io.fabric.sdk.android.services.concurrency.internal.Backoff backoff -> b
     io.fabric.sdk.android.services.concurrency.internal.RetryPolicy retryPolicy -> c
@@ -17205,9 +17213,9 @@ io.fabric.sdk.android.services.concurrency.internal.RetryState -> lb:
     40:40:long getRetryDelay() -> a
     52:52:io.fabric.sdk.android.services.concurrency.internal.RetryState nextRetryState() -> b
     56:56:io.fabric.sdk.android.services.concurrency.internal.RetryState initialRetryState() -> c
-io.fabric.sdk.android.services.events.EventTransform -> lc:
+io.fabric.sdk.android.services.events.EventTransform -> ld:
     byte[] toBytes(java.lang.Object) -> toBytes
-io.fabric.sdk.android.services.events.EventsFilesManager -> ld:
+io.fabric.sdk.android.services.events.EventsFilesManager -> le:
     java.lang.String ROLL_OVER_FILE_NAME_SEPARATOR -> ROLL_OVER_FILE_NAME_SEPARATOR
     int MAX_BYTE_SIZE_PER_FILE -> MAX_BYTE_SIZE_PER_FILE
     int MAX_FILES_IN_BATCH -> MAX_FILES_IN_BATCH
@@ -17234,16 +17242,16 @@ io.fabric.sdk.android.services.events.EventsFilesManager -> ld:
     187:190:void deleteAllEventsFiles() -> deleteAllEventsFiles
     193:230:void deleteOldestInRollOverIfOverMax() -> deleteOldestInRollOverIfOverMax
     233:242:long parseCreationTimestampFromFileName(java.lang.String) -> parseCreationTimestampFromFileName
-io.fabric.sdk.android.services.events.EventsFilesManager$1 -> ld$1:
+io.fabric.sdk.android.services.events.EventsFilesManager$1 -> le$1:
     io.fabric.sdk.android.services.events.EventsFilesManager this$0 -> a
     208:208:void <init>(io.fabric.sdk.android.services.events.EventsFilesManager) -> <init>
     211:211:int compare(io.fabric.sdk.android.services.events.EventsFilesManager$FileWithTimestamp,io.fabric.sdk.android.services.events.EventsFilesManager$FileWithTimestamp) -> a
     208:208:int compare(java.lang.Object,java.lang.Object) -> compare
-io.fabric.sdk.android.services.events.EventsFilesManager$FileWithTimestamp -> ld$a:
+io.fabric.sdk.android.services.events.EventsFilesManager$FileWithTimestamp -> le$a:
     java.io.File file -> a
     long timestamp -> b
     250:253:void <init>(java.io.File,long) -> <init>
-io.fabric.sdk.android.services.events.EventsStorage -> le:
+io.fabric.sdk.android.services.events.EventsStorage -> lf:
     void add(byte[]) -> a
     int getWorkingFileUsedSizeInBytes() -> a
     boolean isWorkingFileEmpty() -> b
@@ -17253,17 +17261,17 @@ io.fabric.sdk.android.services.events.EventsStorage -> le:
     void deleteFilesInRollOverDirectory(java.util.List) -> a
     void deleteWorkingFile() -> d
     boolean canWorkingFileStore(int,int) -> a
-io.fabric.sdk.android.services.events.EventsStorageListener -> lf:
+io.fabric.sdk.android.services.events.EventsStorageListener -> lg:
     void onRollOver(java.lang.String) -> onRollOver
-io.fabric.sdk.android.services.events.FileRollOverManager -> lg:
+io.fabric.sdk.android.services.events.FileRollOverManager -> lh:
     boolean rollFileOver() -> rollFileOver
     void cancelTimeBasedFileRollOver() -> cancelTimeBasedFileRollOver
-io.fabric.sdk.android.services.events.FilesSender -> lh:
+io.fabric.sdk.android.services.events.FilesSender -> li:
     boolean send(java.util.List) -> send
-io.fabric.sdk.android.services.events.GZIPQueueFileEventStorage -> li:
+io.fabric.sdk.android.services.events.GZIPQueueFileEventStorage -> lj:
     32:33:void <init>(android.content.Context,java.io.File,java.lang.String,java.lang.String) -> <init>
     37:37:java.io.OutputStream getMoveOutputStream(java.io.File) -> a
-io.fabric.sdk.android.services.events.QueueFileEventStorage -> lj:
+io.fabric.sdk.android.services.events.QueueFileEventStorage -> lk:
     android.content.Context context -> a
     java.io.File workingDirectory -> b
     java.lang.String targetDirectoryName -> c
@@ -17283,15 +17291,15 @@ io.fabric.sdk.android.services.events.QueueFileEventStorage -> lj:
     165:169:void deleteWorkingFile() -> d
     173:173:boolean isWorkingFileEmpty() -> b
     178:178:boolean canWorkingFileStore(int,int) -> a
-io.fabric.sdk.android.services.events.TimeBasedFileRollOverRunnable -> lk:
+io.fabric.sdk.android.services.events.TimeBasedFileRollOverRunnable -> ll:
     android.content.Context context -> a
     io.fabric.sdk.android.services.events.FileRollOverManager fileRollOverManager -> b
     32:35:void <init>(android.content.Context,io.fabric.sdk.android.services.events.FileRollOverManager) -> <init>
     40:51:void run() -> run
-io.fabric.sdk.android.services.network.CertificateChainCleaner -> ll:
+io.fabric.sdk.android.services.network.CertificateChainCleaner -> lm:
     40:72:java.security.cert.X509Certificate[] getCleanChain(java.security.cert.X509Certificate[],io.fabric.sdk.android.services.network.SystemKeyStore) -> a
     77:87:boolean isValidLink(java.security.cert.X509Certificate,java.security.cert.X509Certificate) -> a
-io.fabric.sdk.android.services.network.DefaultHttpRequestFactory -> lm:
+io.fabric.sdk.android.services.network.DefaultHttpRequestFactory -> ln:
     io.fabric.sdk.android.Logger logger -> a
     io.fabric.sdk.android.services.network.PinningInfoProvider pinningInfo -> b
     javax.net.ssl.SSLSocketFactory sslSocketFactory -> c
@@ -17305,10 +17313,10 @@ io.fabric.sdk.android.services.network.DefaultHttpRequestFactory -> lm:
     118:118:boolean isHttps(java.lang.String) -> a
     122:125:javax.net.ssl.SSLSocketFactory getSSLSocketFactory() -> b
     129:139:javax.net.ssl.SSLSocketFactory initSSLSocketFactory() -> c
-io.fabric.sdk.android.services.network.DefaultHttpRequestFactory$1 -> lm$1:
+io.fabric.sdk.android.services.network.DefaultHttpRequestFactory$1 -> ln$1:
     int[] $SwitchMap$io$fabric$sdk$android$services$network$HttpMethod -> a
     83:83:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.network.HttpMethod -> ln:
+io.fabric.sdk.android.services.network.HttpMethod -> lo:
     io.fabric.sdk.android.services.network.HttpMethod GET -> a
     io.fabric.sdk.android.services.network.HttpMethod POST -> b
     io.fabric.sdk.android.services.network.HttpMethod PUT -> c
@@ -17318,7 +17326,7 @@ io.fabric.sdk.android.services.network.HttpMethod -> ln:
     20:20:io.fabric.sdk.android.services.network.HttpMethod valueOf(java.lang.String) -> valueOf
     20:20:void <init>(java.lang.String,int) -> <init>
     20:24:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.network.HttpRequest -> lo:
+io.fabric.sdk.android.services.network.HttpRequest -> lp:
     java.lang.String[] EMPTY_STRINGS -> b
     io.fabric.sdk.android.services.network.HttpRequest$ConnectionFactory CONNECTION_FACTORY -> c
     java.net.HttpURLConnection connection -> d
@@ -17388,53 +17396,53 @@ io.fabric.sdk.android.services.network.HttpRequest -> lo:
     103:103:java.lang.String access$000(java.lang.String) -> e
     103:103:int access$100(io.fabric.sdk.android.services.network.HttpRequest) -> a
     261:323:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.network.HttpRequest$6 -> lo$1:
+io.fabric.sdk.android.services.network.HttpRequest$6 -> lp$1:
     java.io.InputStream val$input -> a
     java.io.OutputStream val$output -> b
     io.fabric.sdk.android.services.network.HttpRequest this$0 -> c
     2364:2364:void <init>(io.fabric.sdk.android.services.network.HttpRequest,java.io.Closeable,boolean,java.io.InputStream,java.io.OutputStream) -> <init>
     2368:2372:io.fabric.sdk.android.services.network.HttpRequest run() -> a
     2364:2364:java.lang.Object run() -> b
-io.fabric.sdk.android.services.network.HttpRequest$CloseOperation -> lo$a:
+io.fabric.sdk.android.services.network.HttpRequest$CloseOperation -> lp$a:
     java.io.Closeable closeable -> a
     boolean ignoreCloseExceptions -> b
     624:627:void <init>(java.io.Closeable,boolean) -> <init>
     631:641:void done() -> c
-io.fabric.sdk.android.services.network.HttpRequest$ConnectionFactory -> lo$b:
+io.fabric.sdk.android.services.network.HttpRequest$ConnectionFactory -> lp$b:
     io.fabric.sdk.android.services.network.HttpRequest$ConnectionFactory DEFAULT -> a
     java.net.HttpURLConnection create(java.net.URL) -> a
     java.net.HttpURLConnection create(java.net.URL,java.net.Proxy) -> a
     312:312:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.network.HttpRequest$ConnectionFactory$1 -> lo$b$1:
+io.fabric.sdk.android.services.network.HttpRequest$ConnectionFactory$1 -> lp$b$1:
     312:312:void <init>() -> <init>
     314:314:java.net.HttpURLConnection create(java.net.URL) -> a
     318:318:java.net.HttpURLConnection create(java.net.URL,java.net.Proxy) -> a
-io.fabric.sdk.android.services.network.HttpRequest$HttpRequestException -> lo$c:
+io.fabric.sdk.android.services.network.HttpRequest$HttpRequestException -> lp$c:
     long serialVersionUID -> serialVersionUID
     549:550:void <init>(java.io.IOException) -> <init>
     559:559:java.io.IOException getCause() -> a
     541:541:java.lang.Throwable getCause() -> getCause
-io.fabric.sdk.android.services.network.HttpRequest$Operation -> lo$d:
+io.fabric.sdk.android.services.network.HttpRequest$Operation -> lp$d:
     568:568:void <init>() -> <init>
     java.lang.Object run() -> b
     void done() -> c
     587:602:java.lang.Object call() -> call
-io.fabric.sdk.android.services.network.HttpRequest$RequestOutputStream -> lo$e:
+io.fabric.sdk.android.services.network.HttpRequest$RequestOutputStream -> lp$e:
     java.nio.charset.CharsetEncoder encoder -> a
     683:686:void <init>(java.io.OutputStream,java.lang.String,int) -> <init>
     696:700:io.fabric.sdk.android.services.network.HttpRequest$RequestOutputStream write(java.lang.String) -> a
-io.fabric.sdk.android.services.network.HttpRequestFactory -> lp:
+io.fabric.sdk.android.services.network.HttpRequestFactory -> lq:
     void setPinningInfoProvider(io.fabric.sdk.android.services.network.PinningInfoProvider) -> a
     io.fabric.sdk.android.services.network.HttpRequest buildHttpRequest(io.fabric.sdk.android.services.network.HttpMethod,java.lang.String) -> a
     io.fabric.sdk.android.services.network.HttpRequest buildHttpRequest(io.fabric.sdk.android.services.network.HttpMethod,java.lang.String,java.util.Map) -> a
-io.fabric.sdk.android.services.network.NetworkUtils -> lq:
+io.fabric.sdk.android.services.network.NetworkUtils -> lr:
     37:42:javax.net.ssl.SSLSocketFactory getSSLSocketFactory(io.fabric.sdk.android.services.network.PinningInfoProvider) -> a
-io.fabric.sdk.android.services.network.PinningInfoProvider -> lr:
+io.fabric.sdk.android.services.network.PinningInfoProvider -> ls:
     java.io.InputStream getKeyStoreStream() -> getKeyStoreStream
     java.lang.String getKeyStorePassword() -> getKeyStorePassword
     java.lang.String[] getPins() -> getPins
     long getPinCreationTimeInMillis() -> getPinCreationTimeInMillis
-io.fabric.sdk.android.services.network.PinningTrustManager -> ls:
+io.fabric.sdk.android.services.network.PinningTrustManager -> lt:
     javax.net.ssl.TrustManager[] systemTrustManagers -> a
     io.fabric.sdk.android.services.network.SystemKeyStore systemKeyStore -> b
     long pinCreationTimeMillis -> c
@@ -17449,7 +17457,7 @@ io.fabric.sdk.android.services.network.PinningTrustManager -> ls:
     170:180:void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String) -> checkServerTrusted
     183:183:java.security.cert.X509Certificate[] getAcceptedIssuers() -> getAcceptedIssuers
     187:195:byte[] hexStringToByteArray(java.lang.String) -> a
-io.fabric.sdk.android.services.network.SystemKeyStore -> lt:
+io.fabric.sdk.android.services.network.SystemKeyStore -> lu:
     java.security.KeyStore trustStore -> a
     java.util.HashMap trustRoots -> b
     44:48:void <init>(java.io.InputStream,java.lang.String) -> <init>
@@ -17457,20 +17465,20 @@ io.fabric.sdk.android.services.network.SystemKeyStore -> lt:
     56:72:java.security.cert.X509Certificate getTrustRootFor(java.security.cert.X509Certificate) -> b
     77:92:java.util.HashMap initializeTrustedRoots(java.security.KeyStore) -> a
     98:115:java.security.KeyStore getTrustStore(java.io.InputStream,java.lang.String) -> a
-io.fabric.sdk.android.services.persistence.FileStore -> lu:
+io.fabric.sdk.android.services.persistence.FileStore -> lv:
     java.io.File getFilesDir() -> a
-io.fabric.sdk.android.services.persistence.FileStoreImpl -> lv:
+io.fabric.sdk.android.services.persistence.FileStoreImpl -> lw:
     android.content.Context context -> a
     java.lang.String contentPath -> b
     java.lang.String legacySupport -> c
     37:46:void <init>(io.fabric.sdk.android.Kit) -> <init>
     82:82:java.io.File getFilesDir() -> a
     106:115:java.io.File prepare(java.io.File) -> a
-io.fabric.sdk.android.services.persistence.PreferenceStore -> lw:
+io.fabric.sdk.android.services.persistence.PreferenceStore -> lx:
     android.content.SharedPreferences get() -> a
     android.content.SharedPreferences$Editor edit() -> b
     boolean save(android.content.SharedPreferences$Editor) -> a
-io.fabric.sdk.android.services.persistence.PreferenceStoreImpl -> lx:
+io.fabric.sdk.android.services.persistence.PreferenceStoreImpl -> ly:
     android.content.SharedPreferences sharedPreferences -> a
     java.lang.String preferenceName -> b
     android.content.Context context -> c
@@ -17479,14 +17487,14 @@ io.fabric.sdk.android.services.persistence.PreferenceStoreImpl -> lx:
     56:56:android.content.SharedPreferences get() -> a
     64:64:android.content.SharedPreferences$Editor edit() -> b
     75:79:boolean save(android.content.SharedPreferences$Editor) -> a
-io.fabric.sdk.android.services.settings.AbstractAppSpiCall -> ly:
+io.fabric.sdk.android.services.settings.AbstractAppSpiCall -> lz:
     69:70:void <init>(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory,io.fabric.sdk.android.services.network.HttpMethod) -> <init>
     74:94:boolean invoke(io.fabric.sdk.android.services.settings.AppRequestData) -> a
     98:98:io.fabric.sdk.android.services.network.HttpRequest applyHeadersTo(io.fabric.sdk.android.services.network.HttpRequest,io.fabric.sdk.android.services.settings.AppRequestData) -> a
     108:147:io.fabric.sdk.android.services.network.HttpRequest applyMultipartDataTo(io.fabric.sdk.android.services.network.HttpRequest,io.fabric.sdk.android.services.settings.AppRequestData) -> b
     151:151:java.lang.String getKitVersionKey(io.fabric.sdk.android.KitInfo) -> a
     155:155:java.lang.String getKitBuildTypeKey(io.fabric.sdk.android.KitInfo) -> b
-io.fabric.sdk.android.services.settings.AnalyticsSettingsData -> lz:
+io.fabric.sdk.android.services.settings.AnalyticsSettingsData -> ma:
     java.lang.String analyticsURL -> a
     int flushIntervalSeconds -> b
     int maxByteSizePerFile -> c
@@ -17497,12 +17505,12 @@ io.fabric.sdk.android.services.settings.AnalyticsSettingsData -> lz:
     boolean flushOnBackground -> h
     int samplingRate -> i
     40:50:void <init>(java.lang.String,int,int,int,int,boolean,boolean,int,boolean) -> <init>
-io.fabric.sdk.android.services.settings.AppIconSettingsData -> ma:
+io.fabric.sdk.android.services.settings.AppIconSettingsData -> mb:
     java.lang.String hash -> a
     int width -> b
     int height -> c
     30:34:void <init>(java.lang.String,int,int) -> <init>
-io.fabric.sdk.android.services.settings.AppRequestData -> mb:
+io.fabric.sdk.android.services.settings.AppRequestData -> mc:
     java.lang.String apiKey -> a
     java.lang.String appId -> b
     java.lang.String displayVersion -> c
@@ -17515,7 +17523,7 @@ io.fabric.sdk.android.services.settings.AppRequestData -> mb:
     io.fabric.sdk.android.services.settings.IconRequest icon -> j
     java.util.Collection sdkKits -> k
     47:60:void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,io.fabric.sdk.android.services.settings.IconRequest,java.util.Collection) -> <init>
-io.fabric.sdk.android.services.settings.AppSettingsData -> mc:
+io.fabric.sdk.android.services.settings.AppSettingsData -> md:
     java.lang.String identifier -> a
     java.lang.String status -> b
     java.lang.String url -> c
@@ -17523,22 +17531,22 @@ io.fabric.sdk.android.services.settings.AppSettingsData -> mc:
     boolean updateRequired -> e
     io.fabric.sdk.android.services.settings.AppIconSettingsData icon -> f
     38:45:void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,io.fabric.sdk.android.services.settings.AppIconSettingsData) -> <init>
-io.fabric.sdk.android.services.settings.BetaSettingsData -> md:
+io.fabric.sdk.android.services.settings.BetaSettingsData -> me:
     java.lang.String updateUrl -> a
     int updateSuspendDurationSeconds -> b
     24:27:void <init>(java.lang.String,int) -> <init>
-io.fabric.sdk.android.services.settings.CachedSettingsIo -> me:
+io.fabric.sdk.android.services.settings.CachedSettingsIo -> mf:
     org.json.JSONObject readCachedSettings() -> a
     void writeCachedSettings(long,org.json.JSONObject) -> a
-io.fabric.sdk.android.services.settings.CreateAppSpiCall -> mf:
+io.fabric.sdk.android.services.settings.CreateAppSpiCall -> mg:
     32:33:void <init>(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory) -> <init>
     29:29:boolean invoke(io.fabric.sdk.android.services.settings.AppRequestData) -> a
-io.fabric.sdk.android.services.settings.DefaultCachedSettingsIo -> mg:
+io.fabric.sdk.android.services.settings.DefaultCachedSettingsIo -> mh:
     io.fabric.sdk.android.Kit kit -> a
     40:42:void <init>(io.fabric.sdk.android.Kit) -> <init>
     46:69:org.json.JSONObject readCachedSettings() -> a
     74:92:void writeCachedSettings(long,org.json.JSONObject) -> a
-io.fabric.sdk.android.services.settings.DefaultSettingsController -> mh:
+io.fabric.sdk.android.services.settings.DefaultSettingsController -> mi:
     io.fabric.sdk.android.services.settings.SettingsRequest settingsRequest -> a
     io.fabric.sdk.android.services.settings.SettingsJsonTransform settingsJsonTransform -> b
     io.fabric.sdk.android.services.common.CurrentTimeProvider currentTimeProvider -> c
@@ -17555,7 +17563,7 @@ io.fabric.sdk.android.services.settings.DefaultSettingsController -> mh:
     151:152:java.lang.String getStoredBuildInstanceIdentifier() -> c
     157:159:boolean setStoredBuildInstanceIdentifier(java.lang.String) -> a
     163:165:boolean buildInstanceIdentifierChanged() -> d
-io.fabric.sdk.android.services.settings.DefaultSettingsJsonTransform -> mi:
+io.fabric.sdk.android.services.settings.DefaultSettingsJsonTransform -> mj:
     30:30:void <init>() -> <init>
     36:56:io.fabric.sdk.android.services.settings.SettingsData buildFromJson(io.fabric.sdk.android.services.common.CurrentTimeProvider,org.json.JSONObject) -> a
     77:93:io.fabric.sdk.android.services.settings.AppSettingsData buildAppDataFrom(org.json.JSONObject) -> a
@@ -17566,7 +17574,7 @@ io.fabric.sdk.android.services.settings.DefaultSettingsJsonTransform -> mi:
     181:203:io.fabric.sdk.android.services.settings.PromptSettingsData buildPromptDataFrom(org.json.JSONObject) -> f
     208:215:io.fabric.sdk.android.services.settings.BetaSettingsData buildBetaSettingsDataFrom(org.json.JSONObject) -> g
     220:232:long getExpiresAtFrom(io.fabric.sdk.android.services.common.CurrentTimeProvider,long,org.json.JSONObject) -> a
-io.fabric.sdk.android.services.settings.DefaultSettingsSpiCall -> mj:
+io.fabric.sdk.android.services.settings.DefaultSettingsSpiCall -> mk:
     66:67:void <init>(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory) -> <init>
     74:75:void <init>(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory,io.fabric.sdk.android.services.network.HttpMethod) -> <init>
     79:98:org.json.JSONObject invoke(io.fabric.sdk.android.services.settings.SettingsRequest) -> a
@@ -17576,20 +17584,20 @@ io.fabric.sdk.android.services.settings.DefaultSettingsSpiCall -> mj:
     139:153:java.util.Map getQueryParamsFor(io.fabric.sdk.android.services.settings.SettingsRequest) -> b
     159:172:io.fabric.sdk.android.services.network.HttpRequest applyHeadersTo(io.fabric.sdk.android.services.network.HttpRequest,io.fabric.sdk.android.services.settings.SettingsRequest) -> a
     176:179:void applyNonNullHeader(io.fabric.sdk.android.services.network.HttpRequest,java.lang.String,java.lang.String) -> a
-io.fabric.sdk.android.services.settings.FeaturesSettingsData -> mk:
+io.fabric.sdk.android.services.settings.FeaturesSettingsData -> ml:
     boolean promptEnabled -> a
     boolean collectLoggedException -> b
     boolean collectReports -> c
     boolean collectAnalytics -> d
     30:35:void <init>(boolean,boolean,boolean,boolean) -> <init>
-io.fabric.sdk.android.services.settings.IconRequest -> ml:
+io.fabric.sdk.android.services.settings.IconRequest -> mm:
     java.lang.String hash -> a
     int iconResourceId -> b
     int width -> c
     int height -> d
     37:42:void <init>(java.lang.String,int,int,int) -> <init>
     50:74:io.fabric.sdk.android.services.settings.IconRequest build(android.content.Context,java.lang.String) -> a
-io.fabric.sdk.android.services.settings.PromptSettingsData -> mm:
+io.fabric.sdk.android.services.settings.PromptSettingsData -> mn:
     java.lang.String title -> a
     java.lang.String message -> b
     java.lang.String sendButtonTitle -> c
@@ -17598,7 +17606,7 @@ io.fabric.sdk.android.services.settings.PromptSettingsData -> mm:
     boolean showAlwaysSendButton -> f
     java.lang.String alwaysSendButtonTitle -> g
     36:44:void <init>(java.lang.String,java.lang.String,java.lang.String,boolean,java.lang.String,boolean,java.lang.String) -> <init>
-io.fabric.sdk.android.services.settings.SessionSettingsData -> mn:
+io.fabric.sdk.android.services.settings.SessionSettingsData -> mo:
     int logBufferSize -> a
     int maxChainedExceptionDepth -> b
     int maxCustomExceptionEvents -> c
@@ -17606,7 +17614,7 @@ io.fabric.sdk.android.services.settings.SessionSettingsData -> mn:
     int identifierMask -> e
     boolean sendSessionWithoutCrash -> f
     35:42:void <init>(int,int,int,int,int,boolean) -> <init>
-io.fabric.sdk.android.services.settings.Settings -> mo:
+io.fabric.sdk.android.services.settings.Settings -> mp:
     java.util.concurrent.atomic.AtomicReference settingsData -> a
     java.util.concurrent.CountDownLatch settingsDataLatch -> b
     io.fabric.sdk.android.services.settings.SettingsController settingsController -> c
@@ -17620,14 +17628,14 @@ io.fabric.sdk.android.services.settings.Settings -> mo:
     165:174:boolean loadSettingsSkippingCache() -> d
     178:180:void setSettingsData(io.fabric.sdk.android.services.settings.SettingsData) -> a
     36:36:void <init>(io.fabric.sdk.android.services.settings.Settings$1) -> <init>
-io.fabric.sdk.android.services.settings.Settings$1 -> mo$1:
-io.fabric.sdk.android.services.settings.Settings$LazyHolder -> mo$a:
+io.fabric.sdk.android.services.settings.Settings$1 -> mp$1:
+io.fabric.sdk.android.services.settings.Settings$LazyHolder -> mp$a:
     io.fabric.sdk.android.services.settings.Settings INSTANCE -> a
     46:46:io.fabric.sdk.android.services.settings.Settings access$100() -> a
     47:47:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.settings.Settings$SettingsAccess -> mo$b:
+io.fabric.sdk.android.services.settings.Settings$SettingsAccess -> mp$b:
     java.lang.Object usingSettings(io.fabric.sdk.android.services.settings.SettingsData) -> usingSettings
-io.fabric.sdk.android.services.settings.SettingsCacheBehavior -> mp:
+io.fabric.sdk.android.services.settings.SettingsCacheBehavior -> mq:
     io.fabric.sdk.android.services.settings.SettingsCacheBehavior USE_CACHE -> a
     io.fabric.sdk.android.services.settings.SettingsCacheBehavior SKIP_CACHE_LOOKUP -> b
     io.fabric.sdk.android.services.settings.SettingsCacheBehavior IGNORE_CACHE_EXPIRATION -> c
@@ -17636,10 +17644,10 @@ io.fabric.sdk.android.services.settings.SettingsCacheBehavior -> mp:
     25:25:io.fabric.sdk.android.services.settings.SettingsCacheBehavior valueOf(java.lang.String) -> valueOf
     25:25:void <init>(java.lang.String,int) -> <init>
     25:40:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.settings.SettingsController -> mq:
+io.fabric.sdk.android.services.settings.SettingsController -> mr:
     io.fabric.sdk.android.services.settings.SettingsData loadSettingsData() -> a
     io.fabric.sdk.android.services.settings.SettingsData loadSettingsData(io.fabric.sdk.android.services.settings.SettingsCacheBehavior) -> a
-io.fabric.sdk.android.services.settings.SettingsData -> mr:
+io.fabric.sdk.android.services.settings.SettingsData -> ms:
     io.fabric.sdk.android.services.settings.AppSettingsData appData -> a
     io.fabric.sdk.android.services.settings.SessionSettingsData sessionData -> b
     io.fabric.sdk.android.services.settings.PromptSettingsData promptData -> c
@@ -17651,12 +17659,12 @@ io.fabric.sdk.android.services.settings.SettingsData -> mr:
     int cacheDuration -> i
     39:49:void <init>(long,io.fabric.sdk.android.services.settings.AppSettingsData,io.fabric.sdk.android.services.settings.SessionSettingsData,io.fabric.sdk.android.services.settings.PromptSettingsData,io.fabric.sdk.android.services.settings.FeaturesSettingsData,io.fabric.sdk.android.services.settings.AnalyticsSettingsData,io.fabric.sdk.android.services.settings.BetaSettingsData,int,int) -> <init>
     52:52:boolean isExpired(long) -> a
-io.fabric.sdk.android.services.settings.SettingsJsonConstants -> ms:
+io.fabric.sdk.android.services.settings.SettingsJsonConstants -> mt:
     java.lang.String BETA_UPDATE_ENDPOINT_DEFAULT -> a
     62:62:void <clinit>() -> <clinit>
-io.fabric.sdk.android.services.settings.SettingsJsonTransform -> mt:
+io.fabric.sdk.android.services.settings.SettingsJsonTransform -> mu:
     io.fabric.sdk.android.services.settings.SettingsData buildFromJson(io.fabric.sdk.android.services.common.CurrentTimeProvider,org.json.JSONObject) -> a
-io.fabric.sdk.android.services.settings.SettingsRequest -> mu:
+io.fabric.sdk.android.services.settings.SettingsRequest -> mv:
     java.lang.String apiKey -> a
     java.lang.String deviceModel -> b
     java.lang.String osBuildVersion -> c
@@ -17670,9 +17678,9 @@ io.fabric.sdk.android.services.settings.SettingsRequest -> mu:
     int source -> k
     java.lang.String iconHash -> l
     40:53:void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String) -> <init>
-io.fabric.sdk.android.services.settings.SettingsSpiCall -> mv:
+io.fabric.sdk.android.services.settings.SettingsSpiCall -> mw:
     org.json.JSONObject invoke(io.fabric.sdk.android.services.settings.SettingsRequest) -> a
-io.fabric.sdk.android.services.settings.UpdateAppSpiCall -> mw:
+io.fabric.sdk.android.services.settings.UpdateAppSpiCall -> mx:
     32:33:void <init>(io.fabric.sdk.android.Kit,java.lang.String,java.lang.String,io.fabric.sdk.android.services.network.HttpRequestFactory) -> <init>
     29:29:boolean invoke(io.fabric.sdk.android.services.settings.AppRequestData) -> a
 org.jsoup.Connection -> org.jsoup.Connection:

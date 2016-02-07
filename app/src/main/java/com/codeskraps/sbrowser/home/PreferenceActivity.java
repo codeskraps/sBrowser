@@ -33,17 +33,14 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.codeskraps.sbrowser.BuildConfig;
 import com.codeskraps.sbrowser.R;
-import com.codeskraps.sbrowser.loginsignup.DispatchActivity;
-import com.codeskraps.sbrowser.misc.Cons;
 import com.codeskraps.sbrowser.misc.L;
 import com.codeskraps.sbrowser.misc.SBrowserData;
-import com.parse.ParseUser;
+
+import java.util.Locale;
 
 public class PreferenceActivity extends android.preference.PreferenceActivity implements
         OnSharedPreferenceChangeListener, OnPreferenceClickListener {
@@ -97,10 +94,12 @@ public class PreferenceActivity extends android.preference.PreferenceActivity im
                 USERAGENT);
         // getPreferenceScreen().findPreference(PURCHASE).setOnPreferenceClickListener(this);
         // getPreferenceScreen().findPreference(USER).setOnPreferenceClickListener(this);
+        Preference prefVersion = getPreferenceScreen().findPreference("prefs_version");
 
         etxtPrefHome.setSummary(sBrowserData.getetxtHome());
         lstFlash.setSummary(lstFlashArray[sBrowserData.getLstflash()]);
         lstUserAgent.setSummary(lstuserAgentArray[sBrowserData.getUserAgent()]);
+        prefVersion.setTitle(getString(R.string.sBrowserTitle, BuildConfig.VERSION_NAME));
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);

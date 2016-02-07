@@ -23,7 +23,7 @@ android {
         applicationId "com.codeskraps.sbrowser"
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 35
+        versionCode 37
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_7
             targetCompatibility JavaVersion.VERSION_1_7
@@ -38,7 +38,7 @@ android {
             return true
         }
         prod {
-            versionName "2.4"
+            versionName "2.6"
             applicationId "com.codeskraps.sbrowser"
             setProperty("archivesBaseName", "sBrowser-v$versionName")
             return true

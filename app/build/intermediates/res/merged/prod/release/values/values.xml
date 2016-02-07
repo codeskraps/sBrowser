@@ -253,7 +253,7 @@
     <string name="alertVideoFound_title">Video Found</string>
     <string name="app_name">sBrowser</string>
     <string name="categoryInformation">Information</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">0c0040b1-9e80-402a-9967-95b8b2b08ff5</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">09533131-ce16-4496-8e23-f763ee060fe0</string>
     <string name="contextMenuCopyLink">Copy Link</string>
     <string name="contextMenuDeleteBoomark">Delete bookmark</string>
     <string name="contextMenuEditBookmark">Edit bookmark</string>
@@ -325,7 +325,7 @@
     <string name="prompt_password_again">Password Again</string>
     <string name="prompt_username">Username</string>
     <string name="sBrowserSummary">License GNU GPL v3 – 2012 – Codeskraps</string>
-    <string name="sBrowserTitle">sBrowser v2.4</string>
+    <string name="sBrowserTitle">sBrowser v%s</string>
     <string name="sign_up">Sign up</string>
     <string name="slogan">The world is your playground</string>
     <string name="status_bar_notification_info_overflow">999+</string>

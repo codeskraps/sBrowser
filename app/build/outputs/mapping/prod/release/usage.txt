@@ -3936,6 +3936,7 @@ com.codeskraps.sbrowser.misc.Cons
 com.codeskraps.sbrowser.misc.DataBaseData:
     public static final java.lang.String DB_TABLE_BOOKMARK
     public static final java.lang.String DB_TABLE_TABS
+    99:102:public void deleteTable(java.lang.String)
 com.codeskraps.sbrowser.misc.DataBaseData$DbHelper:
     public static final java.lang.String DB_NAME
     public static final int DB_VERSION

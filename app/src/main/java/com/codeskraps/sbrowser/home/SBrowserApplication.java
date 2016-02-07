@@ -30,6 +30,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 
+import com.codeskraps.sbrowser.BuildConfig;
 import com.codeskraps.sbrowser.R;
 import com.codeskraps.sbrowser.misc.BookmarkItem;
 import com.codeskraps.sbrowser.misc.Cons;
@@ -57,11 +58,14 @@ public class SBrowserApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        final Fabric fabric = new Fabric.Builder(this)
-                .kits(new Crashlytics())
-                .debuggable(true)
-                .build();
-        Fabric.with(fabric);
+
+        if (!BuildConfig.DEBUG) {
+            final Fabric fabric = new Fabric.Builder(this)
+                    .kits(new Crashlytics())
+                    .debuggable(true)
+                    .build();
+            Fabric.with(fabric);
+        }
 
         L.d(TAG, "onCreate started");
 
@@ -95,10 +99,11 @@ public class SBrowserApplication extends Application {
             // case R.id.itemTabs: return new Intent(context, TabsActivity.class);
             case R.id.itemBookmarks:
                 return new Intent(context, BookmarksActivity.class);
+            /*-
             case R.id.itemDownloads:
                 Intent i = new Intent();
                 i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
-                return i;
+                return i;*/
             case R.id.itemPreference:
                 return new Intent(context, PreferenceActivity.class);
         }

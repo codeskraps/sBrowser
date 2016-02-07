@@ -61,7 +61,6 @@ import android.widget.Toast;
 
 import com.codeskraps.sbrowser.R;
 import com.codeskraps.sbrowser.misc.BookmarkItem;
-import com.codeskraps.sbrowser.misc.DataBaseData;
 import com.codeskraps.sbrowser.misc.L;
 import com.codeskraps.sbrowser.misc.SBrowserData;
 
@@ -72,12 +71,13 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
     private static final String TAG = SBrowserActivity.class.getSimpleName();
 
     private SBrowserData sBrowserData = null;
-    private DataBaseData dataBaseData = null;
+    // private DataBaseData dataBaseData = null;
 
     private WebViewFragment wF = null;
     private WebView webView = null;
     private View horizontalBar;
     private View verticalBar;
+    private View menuView;
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
@@ -86,7 +86,7 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
         super.onCreate(savedInstanceState);
 
         sBrowserData = ((SBrowserApplication) getApplication()).getsBrowserData();
-        dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
+        // dataBaseData = ((SBrowserApplication) getApplication()).getDataBaseData();
 
         if (sBrowserData.isChkFullscreen()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -112,6 +112,13 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
         findViewById(R.id.btnSearch_land).setOnClickListener(this);
         findViewById(R.id.btnMenu_land).setOnClickListener(this);
 
+        menuView = findViewById(R.id.ll_menu);
+        menuView.setOnClickListener(this);
+        menuView.bringToFront();
+
+        findViewById(R.id.txt_bookmarks).setOnClickListener(this);
+        findViewById(R.id.txt_prefs).setOnClickListener(this);
+
 		/*-
         Resources res = getResources();
 		if (res.getBoolean(R.bool.isTablet)) {
@@ -129,9 +136,9 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
 			findViewById(R.id.btnSearch).setVisibility(View.GONE);
 		}*/
 
-        findViewById(R.id.btnMenu).setVisibility(View.GONE);
-        findViewById(R.id.btnMenu_land).setVisibility(View.GONE);
-        findViewById(R.id.btnSearch).setVisibility(View.VISIBLE);
+        // findViewById(R.id.btnMenu).setVisibility(View.GONE);
+        // findViewById(R.id.btnMenu_land).setVisibility(View.GONE);
+        // findViewById(R.id.btnSearch).setVisibility(View.VISIBLE);
 
         FrameLayout fragmentContainer = (FrameLayout) findViewById(R.id.fragment_container);
         if (fragmentContainer != null) {
@@ -159,7 +166,10 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-
+            if (menuView.getVisibility() == View.VISIBLE) {
+                menuView.setVisibility(View.GONE);
+                return true;
+            }
             if (webView.canGoBack()) webView.goBack();
             else {
                 if (webView != null) {
@@ -194,32 +204,37 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
         L.v(TAG, "onCreateContextMenu");
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        WebView.HitTestResult result = ((WebView) v).getHitTestResult();
+        if (v instanceof WebView) {
+            WebView.HitTestResult result = ((WebView) v).getHitTestResult();
 
-        if (result.getType() == HitTestResult.IMAGE_TYPE
-                || result.getType() == HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-            L.d(TAG, "onCreateContextMenu - SRC_IMAGE_ANCHOR_TYPE");
-            menu.setHeaderTitle(result.getExtra());
+            if (result.getType() == HitTestResult.IMAGE_TYPE
+                    || result.getType() == HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
+                L.d(TAG, "onCreateContextMenu - SRC_IMAGE_ANCHOR_TYPE");
+                menu.setHeaderTitle(result.getExtra());
 
+                MenuInflater inflater = getMenuInflater();
+                inflater.inflate(R.menu.contextmenuimage, menu);
+
+            } else if (result.getType() == HitTestResult.ANCHOR_TYPE
+                    || result.getType() == HitTestResult.SRC_ANCHOR_TYPE) {
+                L.d(TAG, "onCreateContextMenu - SRC_ANCHOR_TYPE");
+                menu.setHeaderTitle(result.getExtra());
+
+                MenuInflater inflater = getMenuInflater();
+                inflater.inflate(R.menu.contextmenulink, menu);
+
+            } else if (result.getType() == HitTestResult.UNKNOWN_TYPE) {
+                L.d(TAG, "onCreateContextMenu - Unknown_type");
+            }
+        } else {
             MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.contextmenuimage, menu);
-
-        } else if (result.getType() == HitTestResult.ANCHOR_TYPE
-                || result.getType() == HitTestResult.SRC_ANCHOR_TYPE) {
-            L.d(TAG, "onCreateContextMenu - SRC_ANCHOR_TYPE");
-            menu.setHeaderTitle(result.getExtra());
-
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.contextmenulink, menu);
-
-        } else if (result.getType() == HitTestResult.UNKNOWN_TYPE) {
-            L.d(TAG, "onCreateContextMenu - Unknown_type");
+            inflater.inflate(R.menu.main, menu);
         }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        /*-
         if (item.getItemId() == R.id.itemQuit) {
 
             try {
@@ -230,7 +245,9 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
             this.finish();
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
-        } else if (item.getItemId() == R.id.itemFeedback) {
+        } else*/
+        /*-
+        if (item.getItemId() == R.id.itemFeedback) {
 
             Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
 
@@ -240,7 +257,7 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
             emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "sBrowser - Feedback");
             emailIntent.setType("plain/text");
 
-            startActivity(Intent.createChooser(emailIntent, "Send your feedback in:"));
+            startActivity(Intent.createChooser(emailIntent, "Send your feedback in:"));*/
 
 			/*-
             } else if (item.getItemId() == R.id.itemBuyMeAPint) {
@@ -259,35 +276,35 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
 					Log.e(TAG, e.getMessage());
 				}
 			 */
-        } else {
+        // } else {
 
-            try {
-                Picture picture = webView.capturePicture();
-                PictureDrawable pictureDrawable = new PictureDrawable(picture);
-                Bitmap bitmap = Bitmap.createBitmap(300, 300, Config.ARGB_8888);
-                Canvas canvas = new Canvas(bitmap);
-                canvas.drawPicture(pictureDrawable.getPicture());
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, bos);
-                bitmap.isRecycled();
+        try {
+            Picture picture = webView.capturePicture();
+            PictureDrawable pictureDrawable = new PictureDrawable(picture);
+            Bitmap bitmap = Bitmap.createBitmap(300, 300, Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            canvas.drawPicture(pictureDrawable.getPicture());
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, bos);
+            bitmap.isRecycled();
 
-                BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
-                bookmarkItem.setImage(bos.toByteArray());
-                sBrowserData.setBookmarkItem(bookmarkItem);
-                bos.close();
+            BookmarkItem bookmarkItem = new BookmarkItem(webView.getTitle(), webView.getUrl());
+            bookmarkItem.setImage(bos.toByteArray());
+            sBrowserData.setBookmarkItem(bookmarkItem);
+            bos.close();
 
-            } catch (Exception e) {
-                L.e(TAG, "Picture:" + e.getMessage());
-                BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
-                bookmarkItem.setImage(null);
-                sBrowserData.setBookmarkItem(bookmarkItem);
-            }
-
-            SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
-            SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item,
-                    SBrowserActivity.this));
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        } catch (Exception e) {
+            L.e(TAG, "Picture:" + e.getMessage());
+            BookmarkItem bookmarkItem = new BookmarkItem("Set title", "Set url");
+            bookmarkItem.setImage(null);
+            sBrowserData.setBookmarkItem(bookmarkItem);
         }
+
+        SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
+        SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item,
+                SBrowserActivity.this));
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        // }
 
         return super.onOptionsItemSelected(item);
     }
@@ -357,9 +374,26 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
     }
 
     @Override
+    public void onBackPressed() {
+        L.v(TAG, "onBackPressed v:" + menuView.getVisibility());
+        if (menuView.getVisibility() == View.VISIBLE) {
+            menuView.setVisibility(View.GONE);
+
+        } else super.onBackPressed();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         updateView(getResources().getConfiguration().orientation);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (menuView.getVisibility() == View.VISIBLE) {
+            menuView.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -432,17 +466,35 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
             case R.id.btnMenu:
             case R.id.btnMenu_land:
                 L.v(TAG, "Menu pressed");
-                openOptionsMenu();
+                menuView.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.ll_menu:
+                menuView.setVisibility(View.GONE);
+                break;
+
+            case R.id.txt_bookmarks:
+                Intent iBookmark = new Intent(this, BookmarksActivity.class);
+                startActivity(iBookmark);
+                menuView.setVisibility(View.GONE);
+                break;
+
+            case R.id.txt_prefs:
+                Intent iPrefs = new Intent(this, PreferenceActivity.class);
+                startActivity(iPrefs);
+                menuView.setVisibility(View.GONE);
                 break;
         }
     }
 
     public void setStopButton() {
         ((ImageView) findViewById(R.id.btnRefresh)).setImageResource(R.drawable.webview_stop);
+        ((ImageView) findViewById(R.id.btnRefresh_land)).setImageResource(R.drawable.webview_stop);
     }
 
     public void setBackForwardButtons() {
         ((ImageView) findViewById(R.id.btnRefresh)).setImageResource(R.drawable.webview_refresh);
+        ((ImageView) findViewById(R.id.btnRefresh_land)).setImageResource(R.drawable.webview_refresh);
 
         if (webView.canGoForward()) {
             ((ImageView) findViewById(R.id.btnRight)).setImageResource(R.drawable.webview_right);

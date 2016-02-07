@@ -69,6 +69,7 @@
     -->
     <PreferenceCategory android:title="@string/categoryInformation" >
         <Preference
+            android:key="prefs_version"
             android:summary="@string/sBrowserSummary"
             android:title="@string/sBrowserTitle" />
     </PreferenceCategory>

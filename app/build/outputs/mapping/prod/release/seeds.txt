@@ -2306,6 +2306,7 @@ com.codeskraps.sbrowser.R$drawable: int bookmark_empty
 com.codeskraps.sbrowser.R$drawable: int fav_icon
 com.codeskraps.sbrowser.R$drawable: int h_masthead_background
 com.codeskraps.sbrowser.R$drawable: int ic_launcher
+com.codeskraps.sbrowser.R$drawable: int ic_menu_moreoverflow_normal_holo_dark
 com.codeskraps.sbrowser.R$drawable: int masthead_background
 com.codeskraps.sbrowser.R$drawable: int mug_bw
 com.codeskraps.sbrowser.R$drawable: int notification_template_icon_bg
@@ -2391,12 +2392,9 @@ com.codeskraps.sbrowser.R$id: int info
 com.codeskraps.sbrowser.R$id: int itemBookmarks
 com.codeskraps.sbrowser.R$id: int itemCopyLink
 com.codeskraps.sbrowser.R$id: int itemDelete
-com.codeskraps.sbrowser.R$id: int itemDownloads
 com.codeskraps.sbrowser.R$id: int itemEdit
-com.codeskraps.sbrowser.R$id: int itemFeedback
 com.codeskraps.sbrowser.R$id: int itemOpen
 com.codeskraps.sbrowser.R$id: int itemPreference
-com.codeskraps.sbrowser.R$id: int itemQuit
 com.codeskraps.sbrowser.R$id: int itemSaveImage
 com.codeskraps.sbrowser.R$id: int itemSaveLink
 com.codeskraps.sbrowser.R$id: int itemShareImage
@@ -2410,6 +2408,7 @@ com.codeskraps.sbrowser.R$id: int listMode
 com.codeskraps.sbrowser.R$id: int list_item
 com.codeskraps.sbrowser.R$id: int llTabLine
 com.codeskraps.sbrowser.R$id: int llTabRemove
+com.codeskraps.sbrowser.R$id: int ll_menu
 com.codeskraps.sbrowser.R$id: int logInButton
 com.codeskraps.sbrowser.R$id: int login
 com.codeskraps.sbrowser.R$id: int login_form
@@ -2476,6 +2475,8 @@ com.codeskraps.sbrowser.R$id: int txtRecovery
 com.codeskraps.sbrowser.R$id: int txtTabIcon
 com.codeskraps.sbrowser.R$id: int txtTabTitle
 com.codeskraps.sbrowser.R$id: int txtTabURL
+com.codeskraps.sbrowser.R$id: int txt_bookmarks
+com.codeskraps.sbrowser.R$id: int txt_prefs
 com.codeskraps.sbrowser.R$id: int up
 com.codeskraps.sbrowser.R$id: int useLogo
 com.codeskraps.sbrowser.R$id: int username

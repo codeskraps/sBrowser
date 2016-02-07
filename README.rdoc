@@ -4,7 +4,7 @@
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
 * <b>License:</b> GNU GPL v3
-* <b>Latest Version:</b> 2.4
+* <b>Latest Version:</b> 2.6
 * <b>Release Date:</b> 2016
 
 == General Information
@@ -13,7 +13,7 @@ This is an app for Android powered devices. sBrowser is a simple Internet broswe
 
 == Authors
 
-Carles Sentis codeskraps@gmail.com
+Carles Sentis me@codeskraps.com
 
 == Install
 
@@ -22,6 +22,10 @@ Install from Google Play
 
 == ChangeLog
 
+v2.6
+ - Added menu button
+v.2.5
+ - Stop browser when pushed to the background
 v2.4
  - Update to Material Design
  - More support for native Html5 video playback
