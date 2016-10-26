@@ -146,7 +146,7 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
             if (savedInstanceState != null) {
                 return;
             }
-            wF = WebViewFragment.getInstance();
+            wF = WebViewFragment.newInstance();
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, wF)
                     .commit();
         }
@@ -278,6 +278,18 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
 			 */
         // } else {
 
+        saveBookmarkItem();
+
+        SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
+        SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item,
+                SBrowserActivity.this));
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        // }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void saveBookmarkItem(){
         try {
             Picture picture = webView.capturePicture();
             PictureDrawable pictureDrawable = new PictureDrawable(picture);
@@ -299,14 +311,6 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
             bookmarkItem.setImage(null);
             sBrowserData.setBookmarkItem(bookmarkItem);
         }
-
-        SBrowserApplication sBrwoserApp = (SBrowserApplication) getApplication();
-        SBrowserActivity.this.startActivity(sBrwoserApp.getMenuIntent(item,
-                SBrowserActivity.this));
-        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        // }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressLint("NewApi")
@@ -474,6 +478,7 @@ public class SBrowserActivity extends AppCompatActivity implements OnClickListen
                 break;
 
             case R.id.txt_bookmarks:
+                saveBookmarkItem();
                 Intent iBookmark = new Intent(this, BookmarksActivity.class);
                 startActivity(iBookmark);
                 menuView.setVisibility(View.GONE);

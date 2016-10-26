@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/prod/release/values-ldltr-v21/values-ldltr-v21.xml",
+        "outputFile": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/incremental/mergeProdReleaseResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 163
                 },
                 "from": {
-                    "file": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "file": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 240,
+                        "startOffset": 55,
                         "endColumn": 112,
-                        "endOffset": 348
+                        "endOffset": 163
                     }
                 }
             }

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/dev/debug/values-h720dp-v13/values-h720dp-v13.xml",
+        "outputFile": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/incremental/mergeDevDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 117
                 },
                 "from": {
-                    "file": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-h720dp/values-h720dp.xml",
+                    "file": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 232,
+                        "startOffset": 55,
                         "endColumn": 66,
-                        "endOffset": 294
+                        "endOffset": 117
                     }
                 }
             }

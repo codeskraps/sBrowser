@@ -1,6 +1,7 @@
 package com.codeskraps.sbrowser.home;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
@@ -14,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,8 @@ import android.webkit.DownloadListener;
 import android.webkit.MimeTypeMap;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
@@ -28,6 +32,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.codeskraps.sbrowser.R;
+import com.codeskraps.sbrowser.misc.AdBlocker;
 import com.codeskraps.sbrowser.misc.L;
 import com.codeskraps.sbrowser.misc.SBrowserData;
 import com.codeskraps.sbrowser.misc.Util;
@@ -37,7 +42,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,7 +60,7 @@ public class WebViewFragment extends Fragment {
 
     private boolean webLoading;
 
-    public static WebViewFragment getInstance() {
+    public static WebViewFragment newInstance() {
         return new WebViewFragment();
     }
 
@@ -194,6 +201,15 @@ public class WebViewFragment extends Fragment {
     }
 
     private class WebViewActivityClient extends WebViewClient {
+
+        private Map<String, Boolean> loadedUrls = new HashMap<>();
+
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            return shouldOverrideUrlLoading(view, request.getUrl().toString());
+        }
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             L.d(TAG, "shouldOverrideUrlLoading: " + url);
@@ -231,20 +247,46 @@ public class WebViewFragment extends Fragment {
                 goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(goToMarket);
 
-            } else {
-                if (!url.equals("about:blank") && !url.equals(view.getUrl())) {
-                    L.v(TAG, "Loading url:" + url);
-                    view.loadUrl(url);
-                    new HandleVideo().execute(url);
-                }
+            } else if (!url.equals("about:blank") && !url.equals(view.getUrl())) {
+                L.v(TAG, "Loading url:" + url);
+                view.loadUrl(url);
+                new HandleVideo().execute(url);
             }
             return true;
         }
 
         @Override
-        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed();
+        public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+            // L.v(TAG, "shouldInterceptRequest - url:" + url);
+            boolean ad;
+            if (!loadedUrls.containsKey(url)) {
+                ad = AdBlocker.isAd(url);
+                loadedUrls.put(url, ad);
+            } else {
+                ad = loadedUrls.get(url);
+            }
+            return ad ? AdBlocker.createEmptyResource() : super.shouldInterceptRequest(view, url);
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error){
             L.d(TAG, "onReceivedSslError");
+            final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.notification_error_ssl_cert_invalid);
+            builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    handler.proceed();
+                }
+            });
+            builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    handler.cancel();
+                }
+            });
+            final AlertDialog dialog = builder.create();
+            dialog.show();
         }
 
         public void onReceivedError(WebView view, int errorCode, String description,
@@ -307,6 +349,26 @@ public class WebViewFragment extends Fragment {
                     return true;
                 }
 
+                L.e(TAG, "script");
+                metalinks = doc.select("script");
+                if (!metalinks.isEmpty()) {
+                    Iterator<Element> iter = metalinks.iterator();
+                    while (iter.hasNext()) {
+                        String html = iter.next().html();
+                        L.w(TAG, "new:" + html);
+                        if (!TextUtils.isEmpty(html) && html.contains("setVideoUrlHigh")) {
+                            String[] lines = html.split("\\r\\n|\\n|\\r");
+                            for (String line : lines) {
+                                if (line.contains("setVideoUrlHigh")) {
+                                    L.w(TAG, "setVideoUrlHigh:" + line);
+                                    video = line.substring(line.indexOf('(') + 2, line.indexOf(')') - 1);
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+
             } catch (Exception e) {
                 L.e(TAG, "Handled - HandleVideo:" + e, e);
             }
@@ -333,7 +395,6 @@ public class WebViewFragment extends Fragment {
                         alert = null;
                     }
                 });
-
                 alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         dialog.cancel();

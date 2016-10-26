@@ -133,5 +133,6 @@
     <string name="addBookmark">Add Bookmark</string>
     <string name="tabsActivity">Tabs</string>
     <string name="newTab">New tab</string>
+    <string name="notification_error_ssl_cert_invalid">Invalid SSL cetrificate</string>
 
 </resources>

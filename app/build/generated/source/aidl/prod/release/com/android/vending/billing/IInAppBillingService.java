@@ -185,15 +185,6 @@ public java.lang.String getInterfaceDescriptor()
 {
 return DESCRIPTOR;
 }
-/**
-     * Checks support for the requested billing API version, package and in-app type.
-     * Minimum API version supported by this interface is 3.
-     * @param apiVersion the billing version which the app is using
-     * @param packageName the package name of the calling app
-     * @param type type of the in-app item being purchased "inapp" for one-time purchases
-     *        and "subs" for subscription.
-     * @return RESULT_OK(0) on success, corresponding result code on failures
-     */
 @Override public int isBillingSupported(int apiVersion, java.lang.String packageName, java.lang.String type) throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
@@ -369,15 +360,6 @@ _data.recycle();
 }
 return _result;
 }
-/**
-     * Consume the last purchase of the given SKU. This will result in this item being removed
-     * from all subsequent responses to getPurchases() and allow re-purchase of this item.
-     * @param apiVersion billing API version that the app is using
-     * @param packageName package name of the calling app
-     * @param purchaseToken token in the purchase information JSON that identifies the purchase
-     *        to be consumed
-     * @return 0 if consumption succeeded. Appropriate error values for failures.
-     */
 @Override public int consumePurchase(int apiVersion, java.lang.String packageName, java.lang.String purchaseToken) throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
@@ -405,15 +387,6 @@ static final int TRANSACTION_getBuyIntent = (android.os.IBinder.FIRST_CALL_TRANS
 static final int TRANSACTION_getPurchases = (android.os.IBinder.FIRST_CALL_TRANSACTION + 3);
 static final int TRANSACTION_consumePurchase = (android.os.IBinder.FIRST_CALL_TRANSACTION + 4);
 }
-/**
-     * Checks support for the requested billing API version, package and in-app type.
-     * Minimum API version supported by this interface is 3.
-     * @param apiVersion the billing version which the app is using
-     * @param packageName the package name of the calling app
-     * @param type type of the in-app item being purchased "inapp" for one-time purchases
-     *        and "subs" for subscription.
-     * @return RESULT_OK(0) on success, corresponding result code on failures
-     */
 public int isBillingSupported(int apiVersion, java.lang.String packageName, java.lang.String type) throws android.os.RemoteException;
 /**
      * Provides details of a list of SKUs
@@ -488,14 +461,5 @@ public android.os.Bundle getBuyIntent(int apiVersion, java.lang.String packageNa
      *                                      user has more owned skus than the current list.
      */
 public android.os.Bundle getPurchases(int apiVersion, java.lang.String packageName, java.lang.String type, java.lang.String continuationToken) throws android.os.RemoteException;
-/**
-     * Consume the last purchase of the given SKU. This will result in this item being removed
-     * from all subsequent responses to getPurchases() and allow re-purchase of this item.
-     * @param apiVersion billing API version that the app is using
-     * @param packageName package name of the calling app
-     * @param purchaseToken token in the purchase information JSON that identifies the purchase
-     *        to be consumed
-     * @return 0 if consumption succeeded. Appropriate error values for failures.
-     */
 public int consumePurchase(int apiVersion, java.lang.String packageName, java.lang.String purchaseToken) throws android.os.RemoteException;
 }

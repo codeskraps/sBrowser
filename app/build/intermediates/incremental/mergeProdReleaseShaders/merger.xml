@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/shaders"/></dataSet><dataSet config="prod"><source path="/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/prod/shaders"/></dataSet><dataSet config="release"><source path="/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/release/shaders"/></dataSet><dataSet config="prodRelease"><source path="/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/prodRelease/shaders"/></dataSet></merger>

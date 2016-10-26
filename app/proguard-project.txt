@@ -34,6 +34,14 @@
 -dontwarn com.crashlytics.**
 -dontwarn com.parse.**
 
+# okhttp
+-dontwarn com.squareup.okhttp3.**
+-keep class com.squareup.okhttp3.** {*;}
+-dontwarn okio.*
+
+# RxAndroid
+-dontwarn rx.internal.util.unsafe.**
+
 # Android
 -dontpreverify
 -repackageclasses ''

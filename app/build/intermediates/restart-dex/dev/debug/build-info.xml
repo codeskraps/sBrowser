@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="23"
+    density="xxhdpi"
+    format="8"
+    plugin-version="2.2.2"
+    timestamp="12408675880943"
+    token="-7191496900376649680"
+    verifier="COMPATIBLE" >
+
+    <task
+        name="javac"
+        duration="2123" />
+    <task
+        name="instant-run-dex"
+        duration="9622" />
+    <task
+        name="instant-run-transform"
+        duration="150" />
+    <task
+        name="verifier"
+        duration="244" />
+
+    <artifact
+        location="/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/reload-dex/dev/debug/classes.dex"
+        type="RELOAD_DEX" />
+
+    <build
+        timestamp="11710388960424"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/outputs/apk/sBrowser-v2.6-dev-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="12075034156550"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/builds/dev/debug/12075034156550/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="12279016154588"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/builds/dev/debug/12279016154588/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="12408675880943"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/reload-dex/dev/debug/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+
+</instant-run>

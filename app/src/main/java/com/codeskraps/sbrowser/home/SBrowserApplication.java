@@ -32,6 +32,7 @@ import android.view.MenuItem;
 
 import com.codeskraps.sbrowser.BuildConfig;
 import com.codeskraps.sbrowser.R;
+import com.codeskraps.sbrowser.misc.AdBlocker;
 import com.codeskraps.sbrowser.misc.BookmarkItem;
 import com.codeskraps.sbrowser.misc.Cons;
 import com.codeskraps.sbrowser.misc.DataBaseData;
@@ -66,6 +67,8 @@ public class SBrowserApplication extends Application {
                     .build();
             Fabric.with(fabric);
         }
+
+        AdBlocker.init(this);
 
         L.d(TAG, "onCreate started");
 

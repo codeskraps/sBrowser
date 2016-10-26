@@ -1,7 +1,7 @@
 # view res/layout/abc_alert_dialog_material.xml #generated:75
 -keep class android.support.v4.widget.NestedScrollView { <init>(...); }
 
-# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:40
+# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:39
 -keep class android.support.v4.widget.Space { <init>(...); }
 
 # view res/layout/abc_action_menu_item_layout.xml #generated:17
@@ -46,7 +46,7 @@
 # view res/layout/abc_screen_simple.xml #generated:17
 -keep class android.support.v7.widget.FitWindowsLinearLayout { <init>(...); }
 
-# view res/layout/abc_search_view.xml #generated:78
+# view res/layout/abc_search_view.xml #generated:75
 -keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
 
 # view res/layout/abc_screen_toolbar.xml #generated:36

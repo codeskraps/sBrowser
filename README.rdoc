@@ -4,7 +4,7 @@
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
 * <b>License:</b> GNU GPL v3
-* <b>Latest Version:</b> 2.6
+* <b>Latest Version:</b> 2.7
 * <b>Release Date:</b> 2016
 
 == General Information
@@ -22,6 +22,9 @@ Install from Google Play
 
 == ChangeLog
 
+v2.7
+ - Build in AdBlocker
+ - Bug fix
 v2.6
  - Added menu button
 v.2.5

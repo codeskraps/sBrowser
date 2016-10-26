@@ -1,0 +1,7 @@
+#Wed Oct 26 16:00:33 IST 2016
+base.0=/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/instant-run-bootstrap_95eb26cf6f2225c11c212ab05ff6389f4bfe9259
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/instant-run_dcdaee103b708df4f713d9b8d79fe63b076bd432/classes.dex
+base.1=/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/instant-run_dcdaee103b708df4f713d9b8d79fe63b076bd432
+file.0=/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/transforms/dex/dev/debug/folders/1000/10/instant-run-bootstrap_95eb26cf6f2225c11c212ab05ff6389f4bfe9259/classes.dex

@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/prod/release/xml/user_pref.xml",
-        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/xml/user_pref.xml"
-    },
-    {
         "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/prod/release/xml/preferences.xml",
         "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/build/intermediates/res/merged/prod/release/xml/user_pref.xml",
+        "source": "/home/codeskraps/AndroidStudioProjects/sBrowser/app/src/main/res/xml/user_pref.xml"
     }
 ]
