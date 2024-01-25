@@ -2,6 +2,9 @@ package com.codeskraps.sbrowser.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val primary = Color(0xFF142AF3)
+val primary_dark = Color(0xFF6876F2)
+
 // Neutrals
 val dark_100 = Color(0xFF2C3A42)
 val dark_95 = Color(0xFF37444B)

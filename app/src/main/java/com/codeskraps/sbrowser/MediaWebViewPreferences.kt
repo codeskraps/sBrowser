@@ -14,6 +14,7 @@ class MediaWebViewPreferences @Inject constructor(
         private const val PREF_JAVASCRIPT = "pref_javascript"
         private const val PREF_PLUGINS = "pref_plugins"
         private const val PREF_USER_AGENT = "pref_user_agent"
+        private const val PREF_SHOW_URL = "pref_show_url"
     }
 
     private val prefs by lazy {
@@ -60,5 +61,11 @@ class MediaWebViewPreferences @Inject constructor(
         get() = prefs.getString(PREF_USER_AGENT, Constants.userAgent) ?: Constants.userAgent
         set(value) {
             prefs.edit().putString(PREF_USER_AGENT, value).apply()
+        }
+
+    var showUrl: Boolean
+        get() = prefs.getBoolean(PREF_SHOW_URL, Constants.showUrl)
+        set(value) {
+            prefs.edit().putBoolean(PREF_SHOW_URL, value).apply()
         }
 }

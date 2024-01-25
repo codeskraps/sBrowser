@@ -67,7 +67,7 @@ class MediaWebViewModel @Inject constructor(
     }
 
     private fun onLoad(currentState: MediaWebViewState, url: String): MediaWebViewState {
-        mediaWebView.loadUrl(url.ifBlank { Constants.home })
+        mediaWebView.loadUrl(url.ifBlank { mediaWebViewPreferences.homeUrl })
         savedStateHandle.remove<String>("url")
         return currentState
     }

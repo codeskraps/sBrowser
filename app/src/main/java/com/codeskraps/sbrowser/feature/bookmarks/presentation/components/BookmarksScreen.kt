@@ -3,7 +3,9 @@ package com.codeskraps.sbrowser.feature.bookmarks.presentation.components
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -48,6 +50,7 @@ fun BookmarksScreen(
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        containerColor = MaterialTheme.colorScheme.secondary,
         topBar = {
             TopAppBar(title = { Text(text = "Bookmarks") })
         }
@@ -78,13 +81,17 @@ fun BookmarksScreen(
                     Box(
                         modifier = Modifier
                             .width(100.dp)
+                            .height(100.dp)
                             .padding(10.dp)
                     ) {
                         IconButton(
                             onClick = { handleEvent(BookmarkEvent.Add) },
                             modifier = Modifier.align(Alignment.Center)
                         ) {
-                            Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
+                            Icon(
+                                modifier = Modifier.size(200.dp),
+                                imageVector = Icons.Default.Add, contentDescription = "Add"
+                            )
                         }
                     }
                 }

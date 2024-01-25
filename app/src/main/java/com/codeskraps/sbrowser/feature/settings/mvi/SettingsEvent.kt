@@ -8,4 +8,5 @@ sealed interface SettingsEvent {
     data class JavaScript(val value: Boolean) : SettingsEvent
     data class Plugins(val value: PluginState) : SettingsEvent
     data class UserAgent(val value: String) : SettingsEvent
+    data class ShowUrl(val value: Boolean) : SettingsEvent
 }
