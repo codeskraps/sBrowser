@@ -20,6 +20,7 @@ class MediaWebViewClient : WebViewClient() {
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
         super.onPageStarted(view, url, favicon)
         handleEvent?.let { it(MediaWebViewEvent.Loading(true)) }
+        urlListener?.let { url?.let { (url) } }
     }
 
     override fun onPageFinished(view: WebView?, url: String?) {

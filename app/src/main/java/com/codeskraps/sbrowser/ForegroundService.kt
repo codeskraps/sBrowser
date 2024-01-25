@@ -32,6 +32,9 @@ class ForegroundService : Service() {
     @Inject
     lateinit var mediaWebView: MediaWebView
 
+    @Inject
+    lateinit var mediaWebViewPreferences: MediaWebViewPreferences
+
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
@@ -93,7 +96,7 @@ class ForegroundService : Service() {
     private fun createNotification(contentText: String): Notification =
         NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(getString(R.string.app_name))
-            .setContentText(contentText)
+            .setContentText(if (mediaWebViewPreferences.showUrl) contentText else "Keep notification to play while the app is on the background.")
             .setSmallIcon(R.drawable.ic_notification)
             .setContentIntent(contentPendingIntent())
             .setDeleteIntent(deletePendingIntent())

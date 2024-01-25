@@ -11,11 +11,11 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.codeskraps.sbrowser_d"
+        applicationId = "com.codeskraps.sbrowser_new"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -78,7 +78,6 @@ dependencies {
     implementation(libs.jsoup)
 
     implementation(libs.media3.exoplayer)
-    //implementation(libs.media3.session)
     implementation(libs.media3.ui)
 
     testImplementation(libs.junit)

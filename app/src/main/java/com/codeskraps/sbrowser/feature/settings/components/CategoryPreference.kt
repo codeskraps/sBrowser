@@ -15,7 +15,7 @@ fun CategoryPreference(
     Text(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 15.dp, top = 5.dp, end = 15.dp, bottom = 5.dp),
+            .padding(start = 20.dp, top = 10.dp, end = 20.dp, bottom = 10.dp),
         color = MaterialTheme.colorScheme.tertiary,
         text = title
     )

@@ -7,5 +7,6 @@ object Constants {
     const val javaScript = true
     val plugins = PluginState.ON
     const val userAgent = "Default"
+    const val showUrl = false
     const val inputExtra = "inputExtra"
 }

@@ -28,7 +28,7 @@ fun Preference(
 
     var modifier = Modifier
         .fillMaxWidth()
-        .padding(start = 10.dp, top = 5.dp, end = 10.dp, bottom = 5.dp)
+        .padding(start = 15.dp, top = 10.dp, end = 15.dp, bottom = 10.dp)
     onChange?.let {
         modifier = modifier.clickable {
             showDialog = true

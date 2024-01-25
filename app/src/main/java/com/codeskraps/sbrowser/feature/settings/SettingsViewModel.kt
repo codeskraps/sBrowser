@@ -29,7 +29,8 @@ class SettingsViewModel @Inject constructor(
                         homeUrl = mediaWebViewPreferences.homeUrl,
                         javaScript = mediaWebViewPreferences.javaScript,
                         plugins = mediaWebViewPreferences.plugins,
-                        userAgent = mediaWebViewPreferences.userAgent
+                        userAgent = mediaWebViewPreferences.userAgent,
+                        showUrl = mediaWebViewPreferences.showUrl
                     )
                 )
             )
@@ -43,6 +44,7 @@ class SettingsViewModel @Inject constructor(
             is SettingsEvent.JavaScript -> onJavaScript(currentState, event.value)
             is SettingsEvent.Plugins -> onPlugins(currentState, event.value)
             is SettingsEvent.UserAgent -> onUserAgent(currentState, event.value)
+            is SettingsEvent.ShowUrl -> onShowUrl(currentState, event.value)
         }
     }
 
@@ -69,5 +71,10 @@ class SettingsViewModel @Inject constructor(
         }
         mediaWebViewPreferences.userAgent = value
         return currentState.copy(userAgent = value)
+    }
+
+    private fun onShowUrl(currentState: SettingsState, value: Boolean): SettingsState {
+        mediaWebViewPreferences.showUrl = value
+        return currentState.copy(showUrl = value)
     }
 }

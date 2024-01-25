@@ -66,6 +66,10 @@ fun SettingsScreen(
                 ) { newValue ->
                     handleEvent(SettingsEvent.UserAgent(newValue))
                 }
+                CategoryPreference(title = "Notification")
+                CheckPreference(title = "Show Url", value = state.showUrl) { newValue ->
+                    handleEvent(SettingsEvent.ShowUrl(newValue))
+                }
                 CategoryPreference(title = "Information")
                 Preference(
                     title = "sBrowser v3.0",
