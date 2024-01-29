@@ -1,6 +1,5 @@
 package com.codeskraps.sbrowser.feature.settings.components
 
-import android.webkit.WebSettings.PluginState
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,6 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.codeskraps.sbrowser.feature.settings.mvi.SettingsEvent
 import com.codeskraps.sbrowser.feature.settings.mvi.SettingsState
+import com.codeskraps.sbrowser.feature.webview.media.ClearCookies
+import com.codeskraps.sbrowser.feature.webview.media.TextSize
+import com.codeskraps.sbrowser.feature.webview.media.UserAgent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,45 +31,68 @@ fun SettingsScreen(
         }
     ) { paddingValues ->
 
-        val plugins = when (state.plugins) {
-            PluginState.ON -> "Always on"
-            PluginState.ON_DEMAND -> "On demand"
-            else -> "Off"
-        }
-
         LazyColumn(modifier = Modifier.padding(paddingValues)) {
             item {
-                CategoryPreference(title = "Page content settings")
-                Preference(title = "Set home page", summary = state.homeUrl) { newValue ->
+                CategoryPreference(title = "Page Content Settings")
+                Preference(title = "Set Home Page", summary = state.homeUrl) { newValue ->
                     handleEvent(SettingsEvent.Home(newValue))
                 }
                 SpacerPreference()
-                CheckPreference(title = "Enable JavaScript", value = state.javaScript) { newValue ->
+                CheckPreference(
+                    title = "Enable JavaScript",
+                    isChecked = state.javaScript
+                ) { newValue ->
                     handleEvent(SettingsEvent.JavaScript(newValue))
                 }
                 SpacerPreference()
                 ListPreference(
-                    title = "Enable plug-ins",
-                    summary = plugins,
-                    items = arrayOf("Always on", "On demand", "Off")
+                    title = "Text Size",
+                    summary = state.textSize.ui,
+                    items = TextSize.displayArray()
                 ) { newValue ->
-                    val userAgent: PluginState = when (newValue) {
-                        "Always on" -> PluginState.ON
-                        "On demand" -> PluginState.ON_DEMAND
-                        else -> PluginState.OFF
-                    }
-                    handleEvent(SettingsEvent.Plugins(userAgent))
+                    handleEvent(SettingsEvent.TextSize(TextSize.parse(newValue)))
                 }
                 SpacerPreference()
                 ListPreference(
-                    title = "Set user agent",
-                    summary = state.userAgent,
-                    items = arrayOf("Default", "Firefox", "Chrome", "Ipad")
+                    title = "Set User Agent",
+                    summary = state.userAgent.ui,
+                    items = UserAgent.getDisplayArray()
                 ) { newValue ->
-                    handleEvent(SettingsEvent.UserAgent(newValue))
+                    handleEvent(SettingsEvent.UserAgent(UserAgent.parse(newValue)))
+                }
+                SpacerPreference()
+                CheckPreference(
+                    title = "Dom Storage",
+                    isChecked = state.domStorage
+                ) { newValue ->
+                    handleEvent(SettingsEvent.DomStorage(newValue))
+                }
+                CategoryPreference(title = "Cookies Manager")
+                CheckPreference(
+                    title = "Accept Cookies",
+                    isChecked = state.acceptCookies
+                ) { newValue ->
+                    handleEvent(SettingsEvent.AcceptCookies(newValue))
+                }
+                SpacerPreference()
+                CheckPreference(
+                    title = "Third Party Cookies",
+                    isChecked = state.thirdPartyCookies,
+                    enabled = state.acceptCookies
+                ) { newValue ->
+                    handleEvent(SettingsEvent.ThirdPartyCookies(newValue))
+                }
+                SpacerPreference()
+                ListPreference(
+                    title = "Clear Cookies",
+                    summary = state.clearCookies.ui,
+                    enabled = state.acceptCookies,
+                    items = ClearCookies.displayArray()
+                ) { newValue ->
+                    handleEvent(SettingsEvent.ClearCookies(ClearCookies.parse(newValue)))
                 }
                 CategoryPreference(title = "Notification")
-                CheckPreference(title = "Show Url", value = state.showUrl) { newValue ->
+                CheckPreference(title = "Show Url", isChecked = state.showUrl) { newValue ->
                     handleEvent(SettingsEvent.ShowUrl(newValue))
                 }
                 CategoryPreference(title = "Information")

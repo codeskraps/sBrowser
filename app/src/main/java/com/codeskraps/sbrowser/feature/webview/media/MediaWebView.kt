@@ -3,19 +3,18 @@ package com.codeskraps.sbrowser.feature.webview.media
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import android.webkit.WebSettings
-import android.webkit.WebSettings.PluginState
 import android.webkit.WebView
 import com.codeskraps.sbrowser.MediaWebViewPreferences
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewEvent
-import com.codeskraps.sbrowser.util.Constants
-import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.ByteArrayOutputStream
 import javax.inject.Inject
 
@@ -41,6 +40,8 @@ class MediaWebView @Inject constructor(
         get() = webView.title
     val settings: WebSettings
         get() = webView.settings
+    val cookieManager: CookieManager
+        get() = CookieManager.getInstance()
 
     fun iniLoad() {
         if (!initLoad) {
@@ -56,6 +57,7 @@ class MediaWebView @Inject constructor(
     fun setHandleListener(handleEvent: ((MediaWebViewEvent) -> Unit)?) {
         (webView.webChromeClient as MediaWebChromeClient).handleEvent = handleEvent
         (webView.webViewClient as MediaWebViewClient).handleEvent = handleEvent
+        webView.javascriptInterface.handleEvent = handleEvent
     }
 
     fun detachView() {
@@ -119,6 +121,8 @@ class MediaWebView @Inject constructor(
             }
         }
 
+        val javascriptInterface = WebScriptInterface()
+
         init {
             with(settings) {
                 loadsImagesAutomatically = true
@@ -127,22 +131,41 @@ class MediaWebView @Inject constructor(
                 loadWithOverviewMode = true
                 useWideViewPort = true
                 builtInZoomControls = true
-                //displayZoomControls = true
+                displayZoomControls = false
                 mediaPlaybackRequiresUserGesture = false
-                pluginState = mediaWebViewPreferences.plugins
-                allowFileAccess = true
+                allowFileAccess = false
+                textZoom = mediaWebViewPreferences.textSize.size
+
+
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    isAlgorithmicDarkeningAllowed = isDarkMode(context)
+                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    forceDark =
+                        if (isDarkMode(context)) WebSettings.FORCE_DARK_ON else WebSettings.FORCE_DARK_AUTO
+                }
 
                 setInitialScale(200)
                 setSupportZoom(true)
                 setNetworkAvailable(true)
 
-                if (mediaWebViewPreferences.userAgent != Constants.userAgent) {
-                    userAgentString =
-                        userAgentString.replace("Android", mediaWebViewPreferences.userAgent)
-                }
+                userAgentString = mediaWebViewPreferences.userAgent.value
             }
 
-            CookieManager.getInstance().setAcceptThirdPartyCookies(this@InternalWebView, true)
+            //webView.addJavascriptInterface(WebScriptInterface(), "App")
+
+            with(CookieManager.getInstance()) {
+                setAcceptCookie(mediaWebViewPreferences.acceptCookies)
+                setAcceptThirdPartyCookies(
+                    this@InternalWebView,
+                    mediaWebViewPreferences.thirdPartyCookies
+                )
+            }
         }
+    }
+
+    companion object {
+        private fun isDarkMode(context: Context): Boolean =
+            context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
     }
 }

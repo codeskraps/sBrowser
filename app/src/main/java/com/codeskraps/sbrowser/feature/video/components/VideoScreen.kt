@@ -8,6 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
@@ -24,17 +25,15 @@ fun VideoScreen(
         val exoPlayer = remember {
             ExoPlayer.Builder(context).build().apply {
                 setMediaItem(MediaItem.fromUri(state.url))
+                playWhenReady = true
                 prepare()
             }
         }
 
-        val mediaSource = remember(state.url) {
-            MediaItem.fromUri(state.url)
-        }
-
-        LaunchedEffect(mediaSource) {
-            exoPlayer.setMediaItem(mediaSource)
-            exoPlayer.prepare()
+        LifecycleResumeEffect(exoPlayer) {
+            onPauseOrDispose {
+                handleEvent(VideoEvent.Position(exoPlayer.currentPosition))
+            }
         }
 
         DisposableEffect(Unit) {
@@ -48,6 +47,9 @@ fun VideoScreen(
                 PlayerView(ctx).apply {
                     player = exoPlayer
                 }
+            },
+            update = { _ ->
+                exoPlayer.seekTo(state.position)
             },
             modifier = Modifier.fillMaxSize()
         )

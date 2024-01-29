@@ -23,6 +23,7 @@ class VideoViewModel @Inject constructor(
     override fun reduceState(currentState: VideoState, event: VideoEvent): VideoState {
         return when (event) {
             is VideoEvent.Load -> onLoad(currentState, event.url)
+            is VideoEvent.Position -> currentState.copy(position = event.position)
         }
     }
 

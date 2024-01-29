@@ -21,31 +21,52 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ListPreference(
+fun <T> ListPreference(
     title: String,
-    summary: String,
-    items: Array<String>,
-    onChange: (String) -> Unit
+    summary: T,
+    items: Array<T>,
+    enabled: Boolean = true,
+    onChange: (T) -> Unit
 ) {
     var showDialog by remember { mutableStateOf(false) }
 
+    var modifier = Modifier
+        .fillMaxWidth()
+        .padding(start = 15.dp, top = 10.dp, end = 15.dp, bottom = 10.dp)
+    modifier = if (enabled) {
+        modifier.clickable { showDialog = true }
+    } else {
+        modifier
+    }
+
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 15.dp, top = 10.dp, end = 15.dp, bottom = 10.dp)
-            .clickable { showDialog = true }
+        modifier = modifier
     ) {
-        Text(text = title)
-        Text(
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-            fontSize = 14.sp,
-            text = summary
-        )
+        if (enabled) {
+            Text(text = title)
+            Text(
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                fontSize = 14.sp,
+                text = summary.toString()
+            )
+        } else {
+            Text(text = title, color = MaterialTheme.colorScheme.secondaryContainer)
+            Text(
+                color = MaterialTheme.colorScheme.secondaryContainer,
+                fontSize = 14.sp,
+                text = summary.toString()
+            )
+        }
 
         if (showDialog) {
-            ListPreferenceEditDialog(value = summary, dialogTitle = title, items = items, onSave = {
-                onChange(it)
-            }) {
+            ListPreferenceEditDialog(
+                value = summary,
+                dialogTitle = title,
+                items = items,
+                onSave = {
+                    onChange(it)
+                }
+            ) {
                 showDialog = false
             }
         }
@@ -53,11 +74,11 @@ fun ListPreference(
 }
 
 @Composable
-private fun ListPreferenceEditDialog(
-    value: String,
+private fun <T> ListPreferenceEditDialog(
+    value: T,
     dialogTitle: String,
-    items: Array<String>,
-    onSave: (String) -> Unit,
+    items: Array<T>,
+    onSave: (T) -> Unit,
     onDismissRequest: () -> Unit
 ) {
     var preferenceValue by remember { mutableStateOf(value) }
@@ -85,7 +106,10 @@ private fun ListPreferenceEditDialog(
                         RadioButton(
                             selected = preferenceValue == it,
                             onClick = { preferenceValue = it })
-                        Text(text = it, modifier = Modifier.align(Alignment.CenterVertically))
+                        Text(
+                            text = it.toString(),
+                            modifier = Modifier.align(Alignment.CenterVertically)
+                        )
                     }
                 }
             }

@@ -1,6 +1,7 @@
 package com.codeskraps.sbrowser.feature.webview.media
 
 import android.graphics.Bitmap
+import android.util.Base64
 import android.webkit.MimeTypeMap
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -9,6 +10,7 @@ import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.InputStream
 import java.util.Locale
 
 
@@ -26,11 +28,42 @@ class MediaWebViewClient : WebViewClient() {
     override fun onPageFinished(view: WebView?, url: String?) {
         super.onPageFinished(view, url)
         handleEvent?.let { it(MediaWebViewEvent.Loading(false)) }
+
+        //loadScript(view)
     }
 
-    override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+    private fun loadScript(view: WebView?) {
+        view?.context?.assets?.let {
+            runCatching {
+                val inputStream: InputStream = it.open(
+                    "\$(\"video\").on(\"play\", function() { App.onVideoStart() });"
+                )
+                val buffer = ByteArray(inputStream.available())
+                inputStream.read(buffer)
+                inputStream.close()
+
+                val encoded = Base64.encodeToString(buffer, Base64.NO_WRAP)
+
+                view.loadUrl(
+                    "javascript:(function() {" +
+                            "var parent = document.getElementsByTagName('head').item(0);" +
+                            "var script = document.createElement('script');" +
+                            "script.type = 'text/javascript';" +
+                            "script.innerHTML = window.atob('$encoded');" +
+                            "parent.appendChild(script)" +
+                            "})()"
+                )
+            }
+        }
+    }
+
+    override fun shouldOverrideUrlLoading(
+        view: WebView?,
+        request: WebResourceRequest?
+    ): Boolean {
         val url = request?.url.toString()
-        val fileExtension = MimeTypeMap.getFileExtensionFromUrl(url).lowercase(Locale.getDefault())
+        val fileExtension =
+            MimeTypeMap.getFileExtensionFromUrl(url).lowercase(Locale.getDefault())
 
         if ("mp4" == fileExtension || "3gp" == fileExtension) {
             handleEvent?.let { it(MediaWebViewEvent.VideoPlayer(url)) }
