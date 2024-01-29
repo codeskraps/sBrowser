@@ -23,12 +23,22 @@ import com.codeskraps.sbrowser.feature.video.VideoViewModel
 import com.codeskraps.sbrowser.feature.video.components.VideoScreen
 import com.codeskraps.sbrowser.feature.webview.MediaWebViewModel
 import com.codeskraps.sbrowser.feature.webview.components.WebViewScreen
+import com.codeskraps.sbrowser.feature.webview.media.ClearCookies
+import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
 import com.codeskraps.sbrowser.navigation.Screen
 import com.codeskraps.sbrowser.ui.theme.SBrowserTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var mediaWebView: MediaWebView
+
+    @Inject
+    lateinit var mediaWebViewPreferences: MediaWebViewPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -100,5 +110,14 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        when (mediaWebViewPreferences.clearCookies) {
+            ClearCookies.OFF -> {}
+            ClearCookies.SESSION_COOKIES -> mediaWebView.cookieManager.removeSessionCookies {}
+            ClearCookies.ALL_COOKIES -> mediaWebView.cookieManager.removeAllCookies {}
+        }
+        super.onDestroy()
     }
 }

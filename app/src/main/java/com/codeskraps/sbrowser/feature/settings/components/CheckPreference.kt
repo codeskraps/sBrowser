@@ -1,6 +1,5 @@
 package com.codeskraps.sbrowser.feature.settings.components
 
-import android.graphics.Paint.Align
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,8 +10,10 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,10 +24,11 @@ import androidx.compose.ui.unit.sp
 fun CheckPreference(
     title: String,
     summary: String? = null,
-    value: Boolean,
+    isChecked: Boolean,
+    enabled: Boolean = true,
     onCheckedChange: ((Boolean) -> Unit)? = null
 ) {
-    var isChecked by remember { mutableStateOf(value) }
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -36,7 +38,11 @@ fun CheckPreference(
             modifier = Modifier
                 .align(Alignment.CenterVertically)
         ) {
-            Text(text = title)
+            if (enabled) {
+                Text(text = title)
+            } else {
+                Text(text = title, color = MaterialTheme.colorScheme.secondaryContainer)
+            }
             if (!summary.isNullOrBlank()) {
                 Text(
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
@@ -50,9 +56,9 @@ fun CheckPreference(
             modifier = Modifier
                 .align(Alignment.CenterVertically),
             checked = isChecked,
-            onCheckedChange = {
-                isChecked = it
-                onCheckedChange?.let { it(isChecked) }
+            enabled = enabled,
+            onCheckedChange = { newValue ->
+                onCheckedChange?.let { it(newValue) }
             }
         )
     }
