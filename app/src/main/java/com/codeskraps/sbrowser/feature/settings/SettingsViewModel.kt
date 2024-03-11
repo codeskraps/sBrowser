@@ -21,9 +21,7 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(
     private val mediaWebView: MediaWebView,
     private val mediaWebViewPreferences: MediaWebViewPreferences
-) : StateReducerViewModel<SettingsState, SettingsEvent, SettingsAction>() {
-
-    override fun initState(): SettingsState = SettingsState.initial
+) : StateReducerViewModel<SettingsState, SettingsEvent, SettingsAction>(SettingsState.initial) {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {

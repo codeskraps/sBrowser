@@ -52,17 +52,15 @@ private class StateReducerFlowImpl<STATE, EVENT>(
     }
 }
 
-abstract class StateReducerViewModel<STATE, EVENT, ACTION> : ViewModel() {
+abstract class StateReducerViewModel<STATE, EVENT, ACTION>(initialState: STATE) : ViewModel() {
 
-    private val initState by lazy { initState() }
     val state = StateReducerFlow(
-        initialState = initState,
+        initialState = initialState,
         reduceState = ::reduceState
     )
 
     protected val actionChannel = Channel<ACTION>()
     val action = actionChannel.receiveAsFlow()
 
-    protected abstract fun initState(): STATE
     protected abstract fun reduceState(currentState: STATE, event: EVENT): STATE
 }

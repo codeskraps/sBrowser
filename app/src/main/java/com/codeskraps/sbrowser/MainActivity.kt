@@ -1,5 +1,7 @@
 package com.codeskraps.sbrowser
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -25,6 +27,7 @@ import com.codeskraps.sbrowser.feature.webview.MediaWebViewModel
 import com.codeskraps.sbrowser.feature.webview.components.WebViewScreen
 import com.codeskraps.sbrowser.feature.webview.media.ClearCookies
 import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
+import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewEvent
 import com.codeskraps.sbrowser.navigation.Screen
 import com.codeskraps.sbrowser.ui.theme.SBrowserTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,6 +44,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             SBrowserTheme {
                 Surface(
@@ -67,6 +71,17 @@ class MainActivity : ComponentActivity() {
                                 action = viewModel.action
                             ) { route ->
                                 navController.navigate(route)
+                            }
+
+                            val action: String? = intent?.action
+                            val data: Uri? = intent?.data
+
+                            if (Intent.ACTION_VIEW == action && data != null) {
+
+                                val url = data.toString()
+                                if (url.startsWith("http://") || url.startsWith("https://")) {
+                                    viewModel.state.handleEvent(MediaWebViewEvent.Load(url))
+                                }
                             }
                         }
                         composable(

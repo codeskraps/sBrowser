@@ -3,14 +3,21 @@ package com.codeskraps.sbrowser.feature.webview.components
 import android.Manifest
 import android.content.pm.PackageManager
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
@@ -28,9 +35,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ClipboardManager
+import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
 import com.codeskraps.sbrowser.MainActivity
@@ -63,13 +74,25 @@ fun AddressButton(
     }
 }
 
+@Preview
+@Composable
+private fun PreviewAddressEditDialog() {
+    AddressEditDialog(
+        url = "https://www.google.com",
+        handleEvent = {},
+        onDismissRequest = {}
+    )
+}
+
 @Composable
 private fun AddressEditDialog(
     url: String,
     handleEvent: (MediaWebViewEvent) -> Unit,
     onDismissRequest: () -> Unit
 ) {
+    val clipboardManager: ClipboardManager = LocalClipboardManager.current
     var editUrl by remember { mutableStateOf(url) }
+    val textClipboard = clipboardManager.getText()?.text ?: ""
 
     AlertDialog(
         onDismissRequest = { onDismissRequest() },
@@ -88,8 +111,22 @@ private fun AddressEditDialog(
         },
         title = { Text(text = "Edit Current Url") },
         text = {
-            Column {
-                Text(text = "Url:")
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
+                    Text(text = "Url:", modifier = Modifier.padding(bottom = 10.dp))
+                    Spacer(modifier = Modifier.weight(1f))
+                    if (textClipboard.isNotEmpty()) {
+                        IconButton(onClick = { editUrl = textClipboard }) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_paste),
+                                contentDescription = "paste"
+                            )
+                        }
+                    }
+                    IconButton(onClick = { editUrl = "" }) {
+                        Icon(imageVector = Icons.Default.Delete, contentDescription = "delete")
+                    }
+                }
                 Spacer(modifier = Modifier.height(10.dp))
                 OutlinedTextField(value = editUrl, onValueChange = { editUrl = it })
             }
@@ -146,7 +183,7 @@ fun GoBackButton(
         }
     }) {
         Icon(
-            imageVector = Icons.Default.ArrowBack,
+            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
             contentDescription = "GoBack",
             tint = if (mediaWebView.canGoBack()) {
                 MaterialTheme.colorScheme.tertiary
@@ -167,7 +204,7 @@ fun GoForwardButton(
         }
     }) {
         Icon(
-            imageVector = Icons.Default.ArrowForward,
+            imageVector = Icons.AutoMirrored.Filled.ArrowForward,
             contentDescription = "GoForward",
             tint = if (mediaWebView.canGoForward()) {
                 MaterialTheme.colorScheme.tertiary

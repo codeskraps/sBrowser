@@ -11,8 +11,7 @@ import javax.inject.Inject
 @HiltViewModel
 class VideoViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle
-) : StateReducerViewModel<VideoState, VideoEvent, VideoAction>() {
-    override fun initState(): VideoState = VideoState.initial
+) : StateReducerViewModel<VideoState, VideoEvent, VideoAction>(VideoState.initial) {
 
     init {
         savedStateHandle.get<String>("url")?.run {
