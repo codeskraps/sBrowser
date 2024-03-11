@@ -14,8 +14,9 @@ android {
         applicationId = "com.codeskraps.sbrowser_new"
         minSdk = 26
         targetSdk = 34
-        versionCode = 4
-        versionName = "3.2"
+        versionCode = 6
+        versionName = "3.3"
+        setProperty("archivesBaseName", "sBrowser-v$versionName.$versionCode")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -25,11 +26,16 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            isMinifyEnabled = false
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-DEBUG"
         }
     }
     compileOptions {

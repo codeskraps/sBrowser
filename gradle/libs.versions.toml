@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.2"
+agp = "8.3.0"
 kotlin = "1.9.21"
 core-ktx = "1.12.0"
 junit = "4.13.2"
@@ -7,13 +7,13 @@ androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.8.2"
-compose-bom = "2023.10.01"
+compose-bom = "2024.02.02"
 ksp = "1.9.21-1.0.16"
-hilt = "2.50"
-hilt-navigation = "1.1.0"
+hilt = "2.51"
+hilt-navigation = "1.2.0"
 room = "2.6.1"
 jsoup = "1.17.2"
-media3_version = "1.2.1"
+media3_version = "1.3.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }

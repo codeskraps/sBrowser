@@ -18,9 +18,7 @@ import javax.inject.Inject
 class BookmarkViewModel @Inject constructor(
     private val webView: MediaWebView,
     private val localBookmarkRepository: LocalBookmarkRepository
-) : StateReducerViewModel<BookmarkState, BookmarkEvent, BookmarkAction>() {
-
-    override fun initState(): BookmarkState = BookmarkState.initial
+) : StateReducerViewModel<BookmarkState, BookmarkEvent, BookmarkAction>(BookmarkState.initial) {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {

@@ -1,11 +1,13 @@
 package com.codeskraps.sbrowser.feature.webview.media
 
+import android.net.Uri
 import android.text.TextUtils
 import android.util.Log
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
+import java.io.IOException
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -16,7 +18,7 @@ class HandleVideo {
     }
 
     operator fun invoke(url: String, result: (String) -> Unit) {
-        try {
+        runCatching {
             val doc: Document = Jsoup.connect(url).get()
             var metalinks: Elements = doc.select("div[id=player]")
 
@@ -87,7 +89,7 @@ class HandleVideo {
                     }
                 }
             }
-        } catch (e: Exception) {
+        }.onFailure { e ->
             Log.e(TAG, "Handled - HandleVideo:$e", e)
         }
     }

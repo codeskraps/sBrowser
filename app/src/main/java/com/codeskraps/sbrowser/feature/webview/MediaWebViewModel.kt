@@ -25,9 +25,9 @@ class MediaWebViewModel @Inject constructor(
     private val backgroundStatus: BackgroundStatus,
     private val savedStateHandle: SavedStateHandle,
     private val mediaWebViewPreferences: MediaWebViewPreferences
-) : StateReducerViewModel<MediaWebViewState, MediaWebViewEvent, MediaWebViewAction>() {
-
-    override fun initState(): MediaWebViewState = MediaWebViewState.initial
+) : StateReducerViewModel<MediaWebViewState, MediaWebViewEvent, MediaWebViewAction>(
+    MediaWebViewState.initial
+) {
 
     init {
         mediaWebView.setHandleListener(state::handleEvent)
