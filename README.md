@@ -4,7 +4,7 @@
 
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
-* <b>License:</b> GNU GPL v3
+* <b>License:</b> MIT
 * <b>Latest Version:</b> 3.4
 * <b>Release Date:</b> 2024
 
@@ -132,23 +132,6 @@ v1.2
 v1.1 
  - Added bookmarks
 
-## Copyright/License
+## License
 
-sBrowser Copyright (C) Carles Sentis 2011-2024 me@codeskraps.com
-
-sBrowser is free software: you can
-redistribute it and/or modify it under the terms
-of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of
-the License, or (at your option) any later
-version.
-
-sBrowser is distributed in the hope that it
-will be useful, but WITHOUT ANY WARRANTY; without
-even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-General Public License for more details.
-
-You should have received a copy of the GNU
-General Public License along with this program.
-If not, see http://www.gnu.org/licenses.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
