@@ -2,27 +2,44 @@
 
 # sBrowser
 
-* <b>Homepage:</b>
 * <b>Git:</b> https://github.com/heepie/sBrowser
 * <b>Author:</b> Carles Sentis  
 * <b>License:</b> GNU GPL v3
-* <b>Latest Version:</b> 2.7
-* <b>Release Date:</b> 2016
+* <b>Latest Version:</b> 3.4
+* <b>Release Date:</b> 2024
 
 ## General Information
 
-This is an app for Android powered devices. sBrowser is a simple Internet broswer specially developed for teaching purposes in a workshop in 091 Labs (091labs.com). 
+sBrowser is a simple Internet browser for Android devices. Originally developed for teaching purposes in a workshop at 091 Labs (091labs.com), it has evolved into a feature-rich yet lightweight browsing solution.
 
 ### Authors
 
-Carles Sentis me@codeskraps.com
+Carles Sentis (me@codeskraps.com)
+
+## Features
+
+- Ad-blocking functionality
+- Bookmark management with thumbnails
+- HTML5 video support
+- Customizable user agent
+- Privacy-focused with encrypted search options
+- Material Design user interface
+- Support for HTTPS
 
 ### Install
 
 Install from Google Play
- - https://play.google.com/store/apps/details?id=com.codeskraps.sbrowser
+ - https://play.google.com/store/apps/details?id=com.codeskraps.sbrowser_new
+
+Or download the latest APK from GitHub releases.
 
 ## ChangeLog
+
+v3.4
+- Updated to modern Android architecture
+- Material 3 design implementation
+- Improved performance and stability
+- Support for newer Android versions
 
 v2.7
  - Build in AdBlocker
@@ -118,7 +135,7 @@ v1.1
 
 ## Copyright/License
 
-sBrowser Copyright (C) Carles Sentis 2011 me@codeskraps.com
+sBrowser Copyright (C) Carles Sentis 2011-2024 me@codeskraps.com
 
 sBrowser is free software: you can
 redistribute it and/or modify it under the terms
