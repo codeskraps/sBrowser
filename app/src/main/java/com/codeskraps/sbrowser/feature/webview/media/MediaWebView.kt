@@ -25,32 +25,28 @@ import androidx.lifecycle.LifecycleOwner
 
 @SuppressLint("SetJavaScriptEnabled")
 class MediaWebView @Inject constructor(
-    private val application: Application,
+    application: Application,
     private val mediaWebViewPreferences: MediaWebViewPreferences
 ) : DefaultLifecycleObserver {
 
-    private var _webView: InternalWebView? = null
-    private val webView: InternalWebView
-        get() = _webView ?: InternalWebView(application).also {
-            it.setupWebView()
-            _webView = it
-        }
+    private val webView: InternalWebView = InternalWebView(application).apply {
+        setupWebView()
+    }
 
     private var initLoad: Boolean = false
     val attachView: View
         get() = webView
     val url: String?
-        get() = _webView?.url
+        get() = webView.url
     val title: String?
-        get() = _webView?.title
-    val settings: WebSettings?
-        get() = _webView?.settings
+        get() = webView.title
+    val settings: WebSettings
+        get() = webView.settings
     val cookieManager: CookieManager
         get() = CookieManager.getInstance()
 
     override fun onDestroy(owner: LifecycleOwner) {
-        _webView?.destroy()
-        _webView = null
+        webView.destroy()
         super.onDestroy(owner)
     }
 
@@ -62,18 +58,18 @@ class MediaWebView @Inject constructor(
     }
 
     fun setUrlListener(urlListener: ((String) -> Unit)?) {
-        (_webView?.webViewClient as? MediaWebViewClient)?.urlListener = urlListener
+        (webView.webViewClient as? MediaWebViewClient)?.urlListener = urlListener
     }
 
     fun setHandleListener(handleEvent: ((MediaWebViewEvent) -> Unit)?) {
-        (_webView?.webChromeClient as? MediaWebChromeClient)?.handleEvent = handleEvent
-        (_webView?.webViewClient as? MediaWebViewClient)?.handleEvent = handleEvent
-        _webView?.javascriptInterface?.handleEvent = handleEvent
+        (webView.webChromeClient as? MediaWebChromeClient)?.handleEvent = handleEvent
+        (webView.webViewClient as? MediaWebViewClient)?.handleEvent = handleEvent
+        webView.javascriptInterface.handleEvent = handleEvent
     }
 
     fun detachView() {
-        _webView?.parent?.let {
-            (it as ViewGroup).removeView(_webView)
+        webView.parent?.let {
+            (it as ViewGroup).removeView(webView)
         }
     }
 
@@ -82,26 +78,26 @@ class MediaWebView @Inject constructor(
     }
 
     fun stopLoading() {
-        _webView?.stopLoading()
+        webView.stopLoading()
     }
 
     fun reload() {
-        _webView?.reload()
+        webView.reload()
     }
 
-    fun canGoBack(): Boolean = _webView?.canGoBack() ?: false
-    fun canGoForward(): Boolean = _webView?.canGoForward() ?: false
+    fun canGoBack(): Boolean = webView.canGoBack()
+    fun canGoForward(): Boolean = webView.canGoForward()
 
     fun goBack() {
-        if (canGoBack()) _webView?.goBack()
+        if (canGoBack()) webView.goBack()
     }
 
     fun goForward() {
-        if (canGoForward()) _webView?.goForward()
+        if (canGoForward()) webView.goForward()
     }
 
     fun capturePicture(): ByteArray? {
-        return _webView?.let { webView ->
+        return webView.let { webView ->
             runCatching {
                 createBitmap(300, 300).let { bitmap ->
                     Canvas(bitmap).also { canvas ->
@@ -120,7 +116,11 @@ class MediaWebView @Inject constructor(
     inner class InternalWebView : WebView {
         constructor(context: Context?) : super(context!!)
         constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs)
-        constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context!!, attrs, defStyleAttr)
+        constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+            context!!,
+            attrs,
+            defStyleAttr
+        )
 
         val javascriptInterface = WebScriptInterface()
 
@@ -133,7 +133,7 @@ class MediaWebView @Inject constructor(
         fun setupWebView() {
             webViewClient = MediaWebViewClient()
             webChromeClient = MediaWebChromeClient()
-            
+
             // Enable hardware acceleration and scrolling
             setLayerType(View.LAYER_TYPE_HARDWARE, null)
             ViewCompat.setNestedScrollingEnabled(this, true)
@@ -187,14 +187,14 @@ class MediaWebView @Inject constructor(
             setEnableSmoothTransition(true)
             blockNetworkImage = false
             blockNetworkLoads = false
-            
+
             // Additional rendering settings
             layoutAlgorithm = WebSettings.LayoutAlgorithm.NORMAL
             standardFontFamily = "sans-serif"
             defaultTextEncodingName = "UTF-8"
             defaultFontSize = 16
             minimumFontSize = 8
-            
+
             // Modern web features
             setupModernWebFeatures()
 

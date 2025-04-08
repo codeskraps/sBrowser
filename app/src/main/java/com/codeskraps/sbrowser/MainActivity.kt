@@ -28,6 +28,7 @@ import com.codeskraps.sbrowser.feature.settings.components.SettingsScreen
 import com.codeskraps.sbrowser.feature.splash.SplashViewModel
 import com.codeskraps.sbrowser.feature.video.VideoViewModel
 import com.codeskraps.sbrowser.feature.video.components.VideoScreen
+import com.codeskraps.sbrowser.feature.video.mvi.VideoAction
 import com.codeskraps.sbrowser.feature.webview.MediaWebViewModel
 import com.codeskraps.sbrowser.feature.webview.components.WebViewScreen
 import com.codeskraps.sbrowser.feature.webview.media.ClearCookies
@@ -35,6 +36,7 @@ import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewEvent
 import com.codeskraps.sbrowser.navigation.Screen
 import com.codeskraps.sbrowser.ui.theme.SBrowserTheme
+import com.codeskraps.sbrowser.util.components.ObserveAsEvents
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -145,6 +147,12 @@ class MainActivity : ComponentActivity() {
                                 state = state,
                                 handleEvent = viewModel.state::handleEvent
                             )
+
+                            ObserveAsEvents(flow = viewModel.action) { action ->
+                                when (action) {
+                                    VideoAction.NavigateBack -> navController.popBackStack()
+                                }
+                            }
                         }
                     }
                 }

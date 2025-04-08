@@ -6,6 +6,7 @@ import android.net.http.SslCertificate
 import android.net.http.SslError
 import android.util.Log
 import android.webkit.MimeTypeMap
+import android.webkit.RenderProcessGoneDetail
 import android.webkit.SslErrorHandler
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
@@ -118,7 +119,7 @@ class MediaWebViewClient : WebViewClient() {
         request: WebResourceRequest?
     ): Boolean {
         if (view == null || request == null) return false
-        
+
         val url = request.url.toString()
         if (url.isBlank()) return false
 

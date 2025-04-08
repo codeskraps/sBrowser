@@ -106,11 +106,12 @@ class MediaWebViewModel @Inject constructor(
     }
 
     private fun onPermission(currentState: MediaWebViewState): MediaWebViewState {
+        val url = mediaWebView.url
         viewModelScope.launch(Dispatchers.IO) {
             analyticsRepository.trackEvent(
                 eventName = "permission_request",
                 eventData = mapOf(
-                    "url" to (mediaWebView.url ?: ""),
+                    "url" to (url ?: ""),
                     "type" to "notification"
                 )
             )
@@ -120,10 +121,11 @@ class MediaWebViewModel @Inject constructor(
     }
 
     private fun onDownloadService(currentState: MediaWebViewState): MediaWebViewState {
+        val url = mediaWebView.url
         viewModelScope.launch(Dispatchers.IO) {
             analyticsRepository.trackEvent(
                 eventName = "download_initiated",
-                eventData = mapOf("url" to (mediaWebView.url ?: ""))
+                eventData = mapOf("url" to (url ?: ""))
             )
             actionChannel.send(MediaWebViewAction.DownloadService)
         }
@@ -131,10 +133,11 @@ class MediaWebViewModel @Inject constructor(
     }
 
     private fun onActionView(currentState: MediaWebViewState): MediaWebViewState {
+        val url = mediaWebView.url
         viewModelScope.launch(Dispatchers.IO) {
             analyticsRepository.trackEvent(
                 eventName = "action_view",
-                eventData = mapOf("url" to (mediaWebView.url ?: ""))
+                eventData = mapOf("url" to (url ?: ""))
             )
             actionChannel.send(MediaWebViewAction.ActionView)
         }
@@ -142,11 +145,12 @@ class MediaWebViewModel @Inject constructor(
     }
 
     private fun onVideoPlayer(currentState: MediaWebViewState, url: String): MediaWebViewState {
+        val currentUrl = mediaWebView.url
         viewModelScope.launch(Dispatchers.IO) {
             analyticsRepository.trackEvent(
                 eventName = "video_player_launch",
                 eventData = mapOf(
-                    "current_url" to (mediaWebView.url ?: ""),
+                    "current_url" to (currentUrl ?: ""),
                     "video_url" to url
                 )
             )
