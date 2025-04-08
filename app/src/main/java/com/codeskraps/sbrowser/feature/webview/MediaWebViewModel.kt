@@ -1,7 +1,6 @@
 package com.codeskraps.sbrowser.feature.webview
 
 import android.content.Context
-import android.content.Intent
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
@@ -11,8 +10,8 @@ import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewAction
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewEvent
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewState
+import com.codeskraps.sbrowser.umami.domain.AnalyticsRepository
 import com.codeskraps.sbrowser.util.BackgroundStatus
-import com.codeskraps.sbrowser.util.Constants
 import com.codeskraps.sbrowser.util.StateReducerViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +23,8 @@ class MediaWebViewModel @Inject constructor(
     val mediaWebView: MediaWebView,
     private val backgroundStatus: BackgroundStatus,
     private val savedStateHandle: SavedStateHandle,
-    private val mediaWebViewPreferences: MediaWebViewPreferences
+    private val mediaWebViewPreferences: MediaWebViewPreferences,
+    private val analyticsRepository: AnalyticsRepository
 ) : StateReducerViewModel<MediaWebViewState, MediaWebViewEvent, MediaWebViewAction>(
     MediaWebViewState.initial
 ) {
@@ -63,12 +63,19 @@ class MediaWebViewModel @Inject constructor(
             is MediaWebViewEvent.DownloadService -> onDownloadService(currentState)
             is MediaWebViewEvent.ActionView -> onActionView(currentState)
             is MediaWebViewEvent.VideoPlayer -> onVideoPlayer(currentState, event.url)
+            is MediaWebViewEvent.Toast -> onToast(currentState, event.message)
         }
     }
 
     private fun onLoad(currentState: MediaWebViewState, url: String): MediaWebViewState {
-        mediaWebView.loadUrl(url.ifBlank { mediaWebViewPreferences.homeUrl })
+        val finalUrl = url.ifBlank { mediaWebViewPreferences.homeUrl }
+        mediaWebView.loadUrl(finalUrl)
         savedStateHandle.remove<String>("url")
+        
+        viewModelScope.launch(Dispatchers.IO) {
+            analyticsRepository.trackPageView(finalUrl)
+        }
+        
         return currentState
     }
 
@@ -79,14 +86,20 @@ class MediaWebViewModel @Inject constructor(
         val url = mediaWebView.url
         viewModelScope.launch(Dispatchers.IO) {
             if (!currentState.background) {
+                analyticsRepository.trackEvent(
+                    eventName = "background_service_start",
+                    eventData = mapOf("url" to (url ?: ""))
+                )
                 ContextCompat.startForegroundService(
                     context,
-                    Intent(context, ForegroundService::class.java).apply {
-                        putExtra(Constants.inputExtra, url)
-                    }
+                    ForegroundService.createIntent(context, url)
                 )
             } else {
-                context.stopService(Intent(context, ForegroundService::class.java))
+                analyticsRepository.trackEvent(
+                    eventName = "background_service_stop",
+                    eventData = mapOf("url" to (url ?: ""))
+                )
+                context.stopService(ForegroundService.createIntent(context))
             }
         }
         return currentState
@@ -94,6 +107,13 @@ class MediaWebViewModel @Inject constructor(
 
     private fun onPermission(currentState: MediaWebViewState): MediaWebViewState {
         viewModelScope.launch(Dispatchers.IO) {
+            analyticsRepository.trackEvent(
+                eventName = "permission_request",
+                eventData = mapOf(
+                    "url" to (mediaWebView.url ?: ""),
+                    "type" to "notification"
+                )
+            )
             actionChannel.send(MediaWebViewAction.Toast("Allow Notification Permission in the Device Settings for the app"))
         }
         return currentState
@@ -101,6 +121,10 @@ class MediaWebViewModel @Inject constructor(
 
     private fun onDownloadService(currentState: MediaWebViewState): MediaWebViewState {
         viewModelScope.launch(Dispatchers.IO) {
+            analyticsRepository.trackEvent(
+                eventName = "download_initiated",
+                eventData = mapOf("url" to (mediaWebView.url ?: ""))
+            )
             actionChannel.send(MediaWebViewAction.DownloadService)
         }
         return currentState
@@ -108,6 +132,10 @@ class MediaWebViewModel @Inject constructor(
 
     private fun onActionView(currentState: MediaWebViewState): MediaWebViewState {
         viewModelScope.launch(Dispatchers.IO) {
+            analyticsRepository.trackEvent(
+                eventName = "action_view",
+                eventData = mapOf("url" to (mediaWebView.url ?: ""))
+            )
             actionChannel.send(MediaWebViewAction.ActionView)
         }
         return currentState
@@ -115,7 +143,21 @@ class MediaWebViewModel @Inject constructor(
 
     private fun onVideoPlayer(currentState: MediaWebViewState, url: String): MediaWebViewState {
         viewModelScope.launch(Dispatchers.IO) {
+            analyticsRepository.trackEvent(
+                eventName = "video_player_launch",
+                eventData = mapOf(
+                    "current_url" to (mediaWebView.url ?: ""),
+                    "video_url" to url
+                )
+            )
             actionChannel.send(MediaWebViewAction.VideoPlayer(url))
+        }
+        return currentState
+    }
+
+    private fun onToast(currentState: MediaWebViewState, message: String): MediaWebViewState {
+        viewModelScope.launch(Dispatchers.IO) {
+            actionChannel.send(MediaWebViewAction.Toast(message))
         }
         return currentState
     }

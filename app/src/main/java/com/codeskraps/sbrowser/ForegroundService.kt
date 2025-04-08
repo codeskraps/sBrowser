@@ -5,6 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
@@ -24,6 +25,11 @@ class ForegroundService : Service() {
         private const val DELETE_EXTRA = "deleteExtra"
         private const val HOME_EXTRA = "homeExtra"
         private const val REFRESH_EXTRA = "refreshExtra"
+
+        fun createIntent(context: Context, url: String? = null): Intent =
+            Intent(context, ForegroundService::class.java).apply {
+                url?.let { putExtra(Constants.inputExtra, it) }
+            }
     }
 
     @Inject

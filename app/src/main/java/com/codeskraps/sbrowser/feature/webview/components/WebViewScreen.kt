@@ -31,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.net.toUri
 import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewAction
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewEvent
@@ -58,43 +59,50 @@ fun WebViewScreen(
         when (onAction) {
             is MediaWebViewAction.Toast -> {
                 scope.launch {
+                    val isSecurityMessage = onAction.message.startsWith("Security Warning")
                     val result = snackbarHostState.showSnackbar(
                         message = onAction.message,
-                        actionLabel = "Go",
+                        actionLabel = if (isSecurityMessage) "OK" else "Go",
                         withDismissAction = true,
                         duration = SnackbarDuration.Long
                     )
                     when (result) {
                         SnackbarResult.Dismissed -> {}
                         SnackbarResult.ActionPerformed -> {
-                            context.startActivity(Intent(ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                                data = Uri.fromParts("package", context.packageName, null)
-                                addCategory(CATEGORY_DEFAULT)
-                                addFlags(FLAG_ACTIVITY_NEW_TASK)
-                                addFlags(FLAG_ACTIVITY_NO_HISTORY)
-                                addFlags(FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
-                            })
+                            if (!isSecurityMessage) {
+                                context.startActivity(Intent(ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                                    data = Uri.fromParts("package", context.packageName, null)
+                                    addCategory(CATEGORY_DEFAULT)
+                                    addFlags(FLAG_ACTIVITY_NEW_TASK)
+                                    addFlags(FLAG_ACTIVITY_NO_HISTORY)
+                                    addFlags(FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+                                })
+                            }
                         }
                     }
                 }
             }
 
             is MediaWebViewAction.DownloadService -> {
-                (context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager).run {
-                    enqueue(DownloadManager.Request(Uri.parse(mediaWebView.url)))
-                    context.startActivity(Intent().apply {
-                        setAction(DownloadManager.ACTION_VIEW_DOWNLOADS)
-                    })
+                mediaWebView.url?.let { url ->
+                    (context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager).run {
+                        enqueue(DownloadManager.Request(url.toUri()))
+                        context.startActivity(Intent().apply {
+                            setAction(DownloadManager.ACTION_VIEW_DOWNLOADS)
+                        })
+                    }
                 }
             }
 
             is MediaWebViewAction.ActionView -> {
-                context.startActivity(
-                    Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse(mediaWebView.url)
-                    ).apply { flags = FLAG_ACTIVITY_NEW_TASK }
-                )
+                mediaWebView.url?.let { url ->
+                    context.startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            url.toUri()
+                        ).apply { flags = FLAG_ACTIVITY_NEW_TASK }
+                    )
+                }
             }
 
             is MediaWebViewAction.VideoPlayer -> {

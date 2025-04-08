@@ -1,19 +1,19 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.google.ksp)
     alias(libs.plugins.google.hilt)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.codeskraps.sbrowser"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.codeskraps.sbrowser_new"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 6
         versionName = "3.3"
         setProperty("archivesBaseName", "sBrowser-v$versionName.$versionCode")
@@ -21,6 +21,11 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
+        }
+
+        // Room schema export configuration
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
         }
     }
 
@@ -69,6 +74,8 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.webkit)
+    implementation(libs.androidx.core.splashscreen)
 
     //Dagger - Hilt
     implementation(libs.hilt.android)

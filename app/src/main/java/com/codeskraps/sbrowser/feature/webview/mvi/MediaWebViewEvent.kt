@@ -13,4 +13,5 @@ sealed interface MediaWebViewEvent {
     data class VideoPlayer(val url: String) : MediaWebViewEvent
     data object DownloadService : MediaWebViewEvent
     data object ActionView : MediaWebViewEvent
+    data class Toast(val message: String) : MediaWebViewEvent
 }

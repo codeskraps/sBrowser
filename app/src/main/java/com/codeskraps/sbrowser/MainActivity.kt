@@ -3,13 +3,17 @@ package com.codeskraps.sbrowser
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.view.ViewTreeObserver
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavType
@@ -21,6 +25,7 @@ import com.codeskraps.sbrowser.feature.bookmarks.presentation.BookmarkViewModel
 import com.codeskraps.sbrowser.feature.bookmarks.presentation.components.BookmarksScreen
 import com.codeskraps.sbrowser.feature.settings.SettingsViewModel
 import com.codeskraps.sbrowser.feature.settings.components.SettingsScreen
+import com.codeskraps.sbrowser.feature.splash.SplashViewModel
 import com.codeskraps.sbrowser.feature.video.VideoViewModel
 import com.codeskraps.sbrowser.feature.video.components.VideoScreen
 import com.codeskraps.sbrowser.feature.webview.MediaWebViewModel
@@ -42,8 +47,29 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var mediaWebViewPreferences: MediaWebViewPreferences
 
+    private val splashViewModel: SplashViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+
+        // Set up the OnPreDrawListener to keep the splashscreen on-screen
+        val content: View = findViewById(android.R.id.content)
+        content.viewTreeObserver.addOnPreDrawListener(
+            object : ViewTreeObserver.OnPreDrawListener {
+                override fun onPreDraw(): Boolean {
+                    // Check if the initial data is ready
+                    return if (splashViewModel.isReady.value) {
+                        // The content is ready; start drawing
+                        content.viewTreeObserver.removeOnPreDrawListener(this)
+                        true
+                    } else {
+                        // The content isn't ready; suspend
+                        false
+                    }
+                }
+            }
+        )
 
         setContent {
             SBrowserTheme {
@@ -77,7 +103,6 @@ class MainActivity : ComponentActivity() {
                             val data: Uri? = intent?.data
 
                             if (Intent.ACTION_VIEW == action && data != null) {
-
                                 val url = data.toString()
                                 if (url.startsWith("http://") || url.startsWith("https://")) {
                                     viewModel.state.handleEvent(MediaWebViewEvent.Load(url))
