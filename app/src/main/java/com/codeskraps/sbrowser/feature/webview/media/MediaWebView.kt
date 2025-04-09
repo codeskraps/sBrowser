@@ -22,6 +22,7 @@ import javax.inject.Inject
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import com.monstertechno.adblocker.AdBlockerWebView
 
 @SuppressLint("SetJavaScriptEnabled")
 class MediaWebView @Inject constructor(
@@ -122,6 +123,10 @@ class MediaWebView @Inject constructor(
             defStyleAttr
         )
 
+        init {
+            AdBlockerWebView.init(context).initializeWebView(this)
+        }
+
         val javascriptInterface = WebScriptInterface()
 
         override fun onWindowVisibilityChanged(visibility: Int) {
@@ -131,11 +136,15 @@ class MediaWebView @Inject constructor(
         }
 
         fun setupWebView() {
-            webViewClient = MediaWebViewClient()
+            webViewClient = MediaWebViewClient(mediaWebViewPreferences)
             webChromeClient = MediaWebChromeClient()
 
             // Enable hardware acceleration and scrolling
-            setLayerType(View.LAYER_TYPE_HARDWARE, null)
+            setLayerType(
+                if (mediaWebViewPreferences.hardwareAcceleration) View.LAYER_TYPE_HARDWARE
+                else View.LAYER_TYPE_SOFTWARE,
+                null
+            )
             ViewCompat.setNestedScrollingEnabled(this, true)
             isScrollbarFadingEnabled = true
             scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
@@ -161,35 +170,34 @@ class MediaWebView @Inject constructor(
 
         private fun WebSettings.initializeWebSettings() {
             // Basic settings
-            loadsImagesAutomatically = true
+            loadsImagesAutomatically = !mediaWebViewPreferences.blockNetworkImages
             javaScriptEnabled = mediaWebViewPreferences.javaScript
-            domStorageEnabled = true
+            domStorageEnabled = mediaWebViewPreferences.domStorage
             loadWithOverviewMode = true
             useWideViewPort = true
             builtInZoomControls = true
             displayZoomControls = false
-            mediaPlaybackRequiresUserGesture = false
-            allowFileAccess = false
-            textZoom = mediaWebViewPreferences.textSize.size
+            mediaPlaybackRequiresUserGesture = mediaWebViewPreferences.mediaPlaybackRequiresGesture
+            allowFileAccess = mediaWebViewPreferences.allowFileAccess
+            textZoom = mediaWebViewPreferences.textSize.value
 
             // Enhanced web compatibility
             javaScriptCanOpenWindowsAutomatically = true
             databaseEnabled = true
-            domStorageEnabled = true
             allowContentAccess = true
             setSupportMultipleWindows(true)
             allowFileAccessFromFileURLs = false
             allowUniversalAccessFromFileURLs = false
 
             // Performance and rendering improvements
-            setRenderPriority(WebSettings.RenderPriority.HIGH)
-            cacheMode = WebSettings.LOAD_NO_CACHE  // Try without cache first
-            setEnableSmoothTransition(true)
-            blockNetworkImage = false
-            blockNetworkLoads = false
+            setRenderPriority(mediaWebViewPreferences.renderPriority.toWebSetting())
+            cacheMode = mediaWebViewPreferences.cacheMode.value
+            setEnableSmoothTransition(mediaWebViewPreferences.smoothScrolling)
+            blockNetworkImage = mediaWebViewPreferences.blockNetworkImages
+            blockNetworkLoads = mediaWebViewPreferences.blockNetworkLoads
 
             // Additional rendering settings
-            layoutAlgorithm = WebSettings.LayoutAlgorithm.NORMAL
+            layoutAlgorithm = WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING
             standardFontFamily = "sans-serif"
             defaultTextEncodingName = "UTF-8"
             defaultFontSize = 16
@@ -199,33 +207,35 @@ class MediaWebView @Inject constructor(
             setupModernWebFeatures()
 
             // Security settings with compatibility
-            mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+            mixedContentMode = mediaWebViewPreferences.mixedContentMode.value
 
             // Display settings
             setInitialScale(0)  // Let the WebView determine the proper scale
             setSupportZoom(true)
             setNetworkAvailable(true)
 
-            // Set a modern user agent if default is not provided
-            userAgentString = mediaWebViewPreferences.userAgent.value.takeIf { it.isNotBlank() }
-                ?: "Mozilla/5.0 (Linux; Android ${android.os.Build.VERSION.RELEASE}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
+            // Set user agent
+            userAgentString = mediaWebViewPreferences.userAgent.toWebSetting()
         }
 
         private fun WebSettings.setupModernWebFeatures() {
             if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
                 WebSettingsCompat.setForceDark(
                     this,
-                    if (isDarkMode(context)) WebSettingsCompat.FORCE_DARK_ON
+                    if (mediaWebViewPreferences.forceDark) WebSettingsCompat.FORCE_DARK_ON
                     else WebSettingsCompat.FORCE_DARK_OFF
                 )
             }
 
             if (WebViewFeature.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE)) {
-                WebSettingsCompat.setSafeBrowsingEnabled(this, true)
+                WebSettingsCompat.setSafeBrowsingEnabled(this, mediaWebViewPreferences.safeBrowsing)
             }
 
             if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
-                WebSettingsCompat.setAlgorithmicDarkeningAllowed(this, isDarkMode(context))
+                WebSettingsCompat.setAlgorithmicDarkeningAllowed(
+                    this,
+                    mediaWebViewPreferences.algorithmicDarkening
+                )
             }
 
             // Enable additional modern features if available

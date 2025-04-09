@@ -13,9 +13,9 @@ fun WebViewProgressIndicator(
 ) {
     if (state.loading) {
         LinearProgressIndicator(
-            progress = state.progress,
+            progress = { state.progress },
             modifier = Modifier.fillMaxWidth(),
-            color = MaterialTheme.colorScheme.tertiary
+            color = MaterialTheme.colorScheme.tertiary,
         )
     }
 }

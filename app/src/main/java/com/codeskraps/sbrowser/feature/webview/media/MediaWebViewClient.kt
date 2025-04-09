@@ -6,14 +6,16 @@ import android.net.http.SslCertificate
 import android.net.http.SslError
 import android.util.Log
 import android.webkit.MimeTypeMap
-import android.webkit.RenderProcessGoneDetail
 import android.webkit.SslErrorHandler
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import com.codeskraps.sbrowser.MediaWebViewPreferences
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewEvent
+import com.monstertechno.adblocker.AdBlockerWebView
+import com.monstertechno.adblocker.util.AdBlocker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,8 +25,11 @@ import java.security.cert.CertificateException
 import java.security.cert.CertificateFactory
 import java.security.cert.X509Certificate
 import java.util.Locale
+import javax.inject.Inject
 
-class MediaWebViewClient : WebViewClient() {
+class MediaWebViewClient @Inject constructor(
+    private val mediaWebViewPreferences: MediaWebViewPreferences
+) : WebViewClient() {
 
     var urlListener: ((String) -> Unit)? = null
     var handleEvent: ((MediaWebViewEvent) -> Unit)? = null
@@ -96,7 +101,7 @@ class MediaWebViewClient : WebViewClient() {
                     certificate.checkValidity()
                     // Certificate is valid, we can proceed
                     handler.proceed()
-                    handleEvent?.let { 
+                    handleEvent?.let {
                         it(MediaWebViewEvent.Toast("Certificate verified - Proceeding with caution"))
                     }
                     return
@@ -108,7 +113,7 @@ class MediaWebViewClient : WebViewClient() {
 
         // If we couldn't verify the certificate or verification failed, cancel the connection
         handler.cancel()
-        handleEvent?.let { 
+        handleEvent?.let {
             it(MediaWebViewEvent.Loading(false))
             it(MediaWebViewEvent.Toast("Security Warning: $errorMessage"))
         }
@@ -129,14 +134,26 @@ class MediaWebViewClient : WebViewClient() {
                 handleEvent?.let { it(MediaWebViewEvent.ActionView) }
                 return true
             }
+
             url.startsWith("mailto:") -> {
                 handleEvent?.let { it(MediaWebViewEvent.ActionView) }
                 return true
             }
+
             url.startsWith("sms:") -> {
                 handleEvent?.let { it(MediaWebViewEvent.ActionView) }
                 return true
             }
+        }
+
+        // Check if URL is in whitelist
+        if (mediaWebViewPreferences.adblockerEnabled && 
+            !mediaWebViewPreferences.adblockerWhitelist.split(",").any { 
+                url.contains(it.trim(), ignoreCase = true) 
+            } && 
+            AdBlocker.isAd(url)
+        ) {
+            return true
         }
 
         val fileExtension = MimeTypeMap.getFileExtensionFromUrl(url).lowercase(Locale.getDefault())
@@ -166,6 +183,7 @@ class MediaWebViewClient : WebViewClient() {
                 }
                 false // Let the WebView load the page while we check for video
             }
+
             else -> false // Let WebView handle the URL
         }
     }
@@ -174,7 +192,24 @@ class MediaWebViewClient : WebViewClient() {
         view: WebView?,
         request: WebResourceRequest?
     ): WebResourceResponse? {
-        // Add any content blocking or request modification logic here if needed
-        return super.shouldInterceptRequest(view, request)
+        if (!mediaWebViewPreferences.adblockerEnabled) {
+            return super.shouldInterceptRequest(view, request)
+        }
+
+        val url = request?.url.toString()
+        
+        // Check if URL is in whitelist
+        if (mediaWebViewPreferences.adblockerWhitelist.split(",").any { 
+            url.contains(it.trim(), ignoreCase = true) 
+        }) {
+            return super.shouldInterceptRequest(view, request)
+        }
+
+        // Check if URL should be blocked
+        return if (AdBlockerWebView.blockAds(view, url)) {
+            AdBlocker.createEmptyResource()
+        } else {
+            super.shouldInterceptRequest(view, request)
+        }
     }
 }

@@ -11,13 +11,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
@@ -251,7 +248,7 @@ fun BackgroundButton(
 fun SearchButton(
     handleEvent: (MediaWebViewEvent) -> Unit
 ) {
-    IconButton(onClick = { handleEvent(MediaWebViewEvent.Load(Constants.home)) }) {
+    IconButton(onClick = { handleEvent(MediaWebViewEvent.Load(Constants.HOME)) }) {
         Icon(
             imageVector = Icons.Default.Search,
             contentDescription = "Home",

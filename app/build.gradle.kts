@@ -44,17 +44,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_19
+        targetCompatibility = JavaVersion.VERSION_19
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = JavaVersion.VERSION_19.toString()
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.7"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
     packaging {
         resources {
@@ -76,10 +77,12 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.webkit)
     implementation(libs.androidx.core.splashscreen)
+    //implementation(libs.)
 
     //Dagger - Hilt
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.androidx.appcompat)
     ksp(libs.hilt.android.compiler)
 
     // Room
@@ -89,6 +92,7 @@ dependencies {
     ksp(libs.room.compiler)
 
     implementation(libs.jsoup)
+    implementation(libs.webviewadblock.library)
 
     implementation(libs.media3.exoplayer)
     implementation(libs.media3.ui)

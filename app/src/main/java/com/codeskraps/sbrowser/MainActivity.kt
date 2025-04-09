@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewTreeObserver
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -52,7 +53,7 @@ class MainActivity : ComponentActivity() {
     private val splashViewModel: SplashViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = installSplashScreen()
+        installSplashScreen()
         super.onCreate(savedInstanceState)
 
         // Set up the OnPreDrawListener to keep the splashscreen on-screen
@@ -120,7 +121,10 @@ class MainActivity : ComponentActivity() {
                             BookmarksScreen(
                                 state = state,
                                 handleEvent = viewModel.state::handleEvent,
-                                action = viewModel.action
+                                action = viewModel.action,
+                                onBack = {
+                                    navController.navigateUp()
+                                }
                             ) { route ->
                                 navController.navigate(route)
                             }
@@ -133,7 +137,10 @@ class MainActivity : ComponentActivity() {
 
                             SettingsScreen(
                                 state = state,
-                                handleEvent = viewModel.state::handleEvent
+                                handleEvent = viewModel.state::handleEvent,
+                                onBack = {
+                                    navController.navigateUp()
+                                }
                             )
                         }
                         composable(
@@ -162,9 +169,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onDestroy() {
         when (mediaWebViewPreferences.clearCookies) {
-            ClearCookies.OFF -> {}
-            ClearCookies.SESSION_COOKIES -> mediaWebView.cookieManager.removeSessionCookies {}
-            ClearCookies.ALL_COOKIES -> mediaWebView.cookieManager.removeAllCookies {}
+            ClearCookies.Off -> {}
+            ClearCookies.SessionCookies -> mediaWebView.cookieManager.removeSessionCookies {}
+            ClearCookies.AllCookies -> mediaWebView.cookieManager.removeAllCookies {}
         }
         super.onDestroy()
     }

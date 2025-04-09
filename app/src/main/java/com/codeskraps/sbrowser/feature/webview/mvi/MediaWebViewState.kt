@@ -10,7 +10,7 @@ data class MediaWebViewState(
 ) {
     companion object {
         val initial = MediaWebViewState(
-            homeUrl = Constants.home,
+            homeUrl = Constants.HOME,
             loading = false,
             progress = .0f,
             background = false

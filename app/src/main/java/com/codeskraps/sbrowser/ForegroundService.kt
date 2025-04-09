@@ -28,7 +28,7 @@ class ForegroundService : Service() {
 
         fun createIntent(context: Context, url: String? = null): Intent =
             Intent(context, ForegroundService::class.java).apply {
-                url?.let { putExtra(Constants.inputExtra, it) }
+                url?.let { putExtra(Constants.INPUT_EXTRAS, it) }
             }
     }
 
@@ -63,7 +63,7 @@ class ForegroundService : Service() {
                 return START_NOT_STICKY
 
             } else if (it.getBoolean(HOME_EXTRA, false)) {
-                mediaWebView.loadUrl(Constants.home)
+                mediaWebView.loadUrl(Constants.HOME)
                 return START_NOT_STICKY
 
             } else if (it.getBoolean(REFRESH_EXTRA, false)) {
@@ -71,7 +71,7 @@ class ForegroundService : Service() {
                 return START_NOT_STICKY
 
             } else {
-                url = it.getString(Constants.inputExtra) ?: url
+                url = it.getString(Constants.INPUT_EXTRAS) ?: url
             }
         }
 

@@ -4,6 +4,7 @@ import android.app.Application
 import com.codeskraps.sbrowser.MediaWebViewPreferences
 import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
 import com.codeskraps.sbrowser.util.BackgroundStatus
+import com.monstertechno.adblocker.AdBlockerWebView
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

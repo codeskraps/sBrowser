@@ -16,6 +16,8 @@ room = "2.6.1"
 jsoup = "1.17.2"
 media3_version = "1.6.0"
 webkit = "1.13.0"
+webviewadblock-library = "1.1"
+appcompat = "1.7.0"
 
 [libraries]
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
@@ -49,6 +51,8 @@ jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "media3_version" }
 media3-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "media3_version" }
 webkit = { group = "androidx.webkit", name = "webkit", version.ref = "webkit" }
+webviewadblock-library = { module = "com.github.MonsterTechnoGits:WebViewAdblock-Library", version.ref = "webviewadblock-library" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -16,20 +16,31 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.net.toUri
 import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
@@ -41,6 +52,7 @@ import com.codeskraps.sbrowser.util.components.ObserveAsEvents
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WebViewScreen(
     mediaWebView: MediaWebView,
@@ -54,6 +66,8 @@ fun WebViewScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val backPressDispatcher = LocalOnBackPressedDispatcherOwner.current
+    val topAppBarState = rememberTopAppBarState()
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(topAppBarState)
 
     ObserveAsEvents(flow = action) { onAction ->
         when (onAction) {
@@ -121,17 +135,20 @@ fun WebViewScreen(
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
+        topBar = {},
         bottomBar = {
             if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
                 Box(modifier = Modifier.fillMaxWidth()) {
                     WebViewProgressIndicator(state = state)
-                    Row(modifier = Modifier.fillMaxWidth()) {
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp)
+                    ) {
                         AddressButton(url = mediaWebView.url ?: "", handleEvent = handleEvent)
                         GoBackButton(mediaWebView = mediaWebView)
                         GoForwardButton(mediaWebView = mediaWebView)
                         HomeButton(homeUrl = state.homeUrl, handleEvent = handleEvent)
                         RefreshStopButton(mediaWebView, state)
-                        //SearchButton(handleEvent = handleEvent)
                         BackgroundButton(state = state, handleEvent = handleEvent)
                         Spacer(modifier = Modifier.weight(1f))
                         MenuButton(navRoute = navRoute)
@@ -140,7 +157,11 @@ fun WebViewScreen(
             }
         }
     ) { paddingValues ->
-        Row(modifier = Modifier.padding(paddingValues)) {
+        Row(modifier = Modifier
+            .padding(paddingValues)
+            .windowInsetsPadding(WindowInsets.safeDrawing)
+            .nestedScroll(scrollBehavior.nestedScrollConnection)
+        ) {
             if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 Column {
                     AddressButton(url = mediaWebView.url ?: "", handleEvent = handleEvent)
@@ -148,7 +169,6 @@ fun WebViewScreen(
                     GoForwardButton(mediaWebView = mediaWebView)
                     HomeButton(homeUrl = state.homeUrl, handleEvent = handleEvent)
                     RefreshStopButton(mediaWebView, state)
-                    //SearchButton(handleEvent = handleEvent)
                     BackgroundButton(state = state, handleEvent = handleEvent)
                     Spacer(modifier = Modifier.weight(1f))
                     MenuButton(navRoute = navRoute)
