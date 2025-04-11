@@ -14,8 +14,8 @@ android {
         applicationId = "com.codeskraps.sbrowser_new"
         minSdk = 26
         targetSdk = 35
-        versionCode = 8
-        versionName = "4.0"
+        versionCode = 9
+        versionName = "4.1"
         setProperty("archivesBaseName", "sBrowser-v$versionName.$versionCode")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
