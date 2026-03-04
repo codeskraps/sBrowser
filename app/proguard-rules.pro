@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Suppress R8 missing class warnings
+-dontwarn com.google.re2j.Matcher
+-dontwarn com.google.re2j.Pattern
