@@ -4,10 +4,11 @@ import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 sealed class Screen(val route: String) {
-    data object WebView : Screen("webView/{url}") {
+    data object WebView : Screen("webView?url={url}") {
+        const val startRoute = "webView"
         fun createRoute(url: String): String {
             val encoded = URLEncoder.encode(url, StandardCharsets.UTF_8.toString())
-            return "webView/$encoded"
+            return "webView?url=$encoded"
         }
     }
 

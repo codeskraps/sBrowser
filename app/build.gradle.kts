@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.google.ksp)
     alias(libs.plugins.google.hilt)
     alias(libs.plugins.compose.compiler)
@@ -8,24 +7,17 @@ plugins {
 
 android {
     namespace = "com.codeskraps.sbrowser"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.codeskraps.sbrowser_new"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 9
         versionName = "4.1"
-        setProperty("archivesBaseName", "sBrowser-v$versionName.$versionCode")
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
-        }
-
-        // Room schema export configuration
-        ksp {
-            arg("room.schemaLocation", "$projectDir/schemas")
         }
     }
 
@@ -47,9 +39,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_19
         targetCompatibility = JavaVersion.VERSION_19
     }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_19.toString()
-    }
     buildFeatures {
         compose = true
         buildConfig = true
@@ -64,6 +53,11 @@ android {
     }
 }
 
+// Room schema export configuration
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
 dependencies {
 
     implementation(libs.core.ktx)
@@ -75,6 +69,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.material.icons.core)
     implementation(libs.webkit)
     implementation(libs.androidx.core.splashscreen)
     //implementation(libs.)

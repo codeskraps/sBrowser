@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun <T> ListPreference(
+fun <T : Any> ListPreference(
     title: String,
     summary: T,
     items: Array<T>,
@@ -74,7 +74,7 @@ fun <T> ListPreference(
 }
 
 @Composable
-private fun <T> ListPreferenceEditDialog(
+private fun <T : Any> ListPreferenceEditDialog(
     value: T,
     dialogTitle: String,
     items: Array<T>,

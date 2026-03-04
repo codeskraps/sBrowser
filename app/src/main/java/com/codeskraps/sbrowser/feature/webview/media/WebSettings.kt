@@ -9,7 +9,7 @@ sealed class ClearCookies(val value: Int, private val displayName: String) {
     data object AllCookies : ClearCookies(2, "All Cookies")
 
     companion object {
-        val entries = arrayOf(Off, SessionCookies, AllCookies)
+        val entries by lazy { arrayOf(Off, SessionCookies, AllCookies) }
         fun fromValue(value: Int): ClearCookies {
             return when (value) {
                 Off.value -> Off
@@ -32,7 +32,7 @@ sealed class CacheMode(val value: Int, private val displayName: String) {
     data object CacheOnly : CacheMode(WebSettings.LOAD_CACHE_ONLY, "Cache Only")
 
     companion object {
-        val entries = arrayOf(Default, CacheElseNetwork, NoCache, CacheOnly)
+        val entries by lazy { arrayOf(Default, CacheElseNetwork, NoCache, CacheOnly) }
         fun fromValue(value: Int): CacheMode {
             return when (value) {
                 Default.value -> Default
@@ -53,7 +53,7 @@ sealed class RenderPriority(val value: Int, private val displayName: String) {
     data object High : RenderPriority(2, "High")
 
     companion object {
-        val entries = arrayOf(Low, Normal, High)
+        val entries by lazy { arrayOf(Low, Normal, High) }
         fun fromValue(value: Int): RenderPriority {
             return when (value) {
                 Low.value -> Low
@@ -85,7 +85,7 @@ sealed class MixedContentMode(val value: Int, private val displayName: String) {
     data object NeverAllow : MixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW, "Never Allow")
 
     companion object {
-        val entries = arrayOf(AlwaysAllow, CompatibilityMode, NeverAllow)
+        val entries by lazy { arrayOf(AlwaysAllow, CompatibilityMode, NeverAllow) }
         fun fromValue(value: Int): MixedContentMode {
             return when (value) {
                 AlwaysAllow.value -> AlwaysAllow
@@ -107,7 +107,7 @@ sealed class TextSize(val value: Int, private val displayName: String) {
     data object Huge : TextSize(200, "Huge")
 
     companion object {
-        val entries = arrayOf(Tiny, Small, Normal, Large, Huge)
+        val entries by lazy { arrayOf(Tiny, Small, Normal, Large, Huge) }
         fun fromValue(value: Int): TextSize {
             return when (value) {
                 Tiny.value -> Tiny
@@ -135,16 +135,18 @@ sealed class UserAgent(val value: Int, val displayName: String) {
     data object EdgeWin10 : UserAgent(7, "Edge on Windows 10")
 
     companion object {
-        val entries = arrayOf(
-            Default,
-            ChromeWin10,
-            ChromeMacOS,
-            ChromeIPad,
-            ChromeAndroid,
-            SafariIPhone,
-            FirefoxWin10,
-            EdgeWin10
-        )
+        val entries by lazy {
+            arrayOf(
+                Default,
+                ChromeWin10,
+                ChromeMacOS,
+                ChromeIPad,
+                ChromeAndroid,
+                SafariIPhone,
+                FirefoxWin10,
+                EdgeWin10
+            )
+        }
 
         fun fromValue(value: Int): UserAgent {
             return when (value) {

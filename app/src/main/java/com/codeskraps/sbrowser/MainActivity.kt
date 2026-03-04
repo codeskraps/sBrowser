@@ -15,7 +15,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -84,11 +84,14 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.WebView.route
+                        startDestination = Screen.WebView.startRoute
                     ) {
                         composable(
                             route = Screen.WebView.route,
-                            arguments = listOf(navArgument("url") { type = NavType.StringType })
+                            arguments = listOf(navArgument("url") {
+                                type = NavType.StringType
+                                defaultValue = ""
+                            })
                         ) {
                             val viewModel = hiltViewModel<MediaWebViewModel>()
                             val state by viewModel.state.collectAsStateWithLifecycle()
