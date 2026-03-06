@@ -183,15 +183,20 @@ class MediaWebView @Inject constructor(
 
             // Enhanced web compatibility
             javaScriptCanOpenWindowsAutomatically = true
+            @Suppress("DEPRECATION")
             databaseEnabled = true
             allowContentAccess = true
             setSupportMultipleWindows(true)
+            @Suppress("DEPRECATION")
             allowFileAccessFromFileURLs = false
+            @Suppress("DEPRECATION")
             allowUniversalAccessFromFileURLs = false
 
             // Performance and rendering improvements
+            @Suppress("DEPRECATION")
             setRenderPriority(mediaWebViewPreferences.renderPriority.toWebSetting())
             cacheMode = mediaWebViewPreferences.cacheMode.value
+            @Suppress("DEPRECATION")
             setEnableSmoothTransition(mediaWebViewPreferences.smoothScrolling)
             blockNetworkImage = mediaWebViewPreferences.blockNetworkImages
             blockNetworkLoads = mediaWebViewPreferences.blockNetworkLoads
@@ -218,6 +223,7 @@ class MediaWebView @Inject constructor(
             userAgentString = mediaWebViewPreferences.userAgent.toWebSetting()
         }
 
+        @Suppress("DEPRECATION")
         private fun WebSettings.setupModernWebFeatures() {
             if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
                 WebSettingsCompat.setForceDark(

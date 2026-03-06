@@ -9,6 +9,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 
 internal data class UmamiConfig(
     val scriptUrl: String,
@@ -62,7 +63,7 @@ internal class UmamiAnalyticsDataSource(
                         })();
                         """.trimIndent()
                     ) { result ->
-                        continuation.resume(result.toBooleanStrictOrNull() ?: false, null)
+                        continuation.resume(result.toBooleanStrictOrNull() ?: false)
                     }
                 }
 
@@ -70,7 +71,7 @@ internal class UmamiAnalyticsDataSource(
                     isInitialized = true
                     break
                 }
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 // Log error if needed
             }
 

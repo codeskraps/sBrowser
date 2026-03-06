@@ -18,7 +18,7 @@ class LocalBookmarkRepositoryImpl @Inject constructor(
         return flow {
             runCatching {
                 bookmarkDao.getAll().collect { items ->
-                    emit(Resource.Success(items?.map { it.toBookmark() } ?: emptyList()))
+                    emit(Resource.Success(items.map { it.toBookmark() }))
                 }
             }.getOrElse {
                 emit(Resource.Error("DB ERROR !!!"))

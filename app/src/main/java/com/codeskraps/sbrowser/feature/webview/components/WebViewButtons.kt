@@ -28,14 +28,14 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ClipboardManager
-import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -87,9 +87,13 @@ private fun AddressEditDialog(
     handleEvent: (MediaWebViewEvent) -> Unit,
     onDismissRequest: () -> Unit
 ) {
-    val clipboardManager: ClipboardManager = LocalClipboardManager.current
+    val clipboard = LocalClipboard.current
     var editUrl by remember { mutableStateOf(url) }
-    val textClipboard = clipboardManager.getText()?.text ?: ""
+    var textClipboard by remember { mutableStateOf("") }
+    LaunchedEffect(Unit) {
+        val clipEntry = clipboard.getClipEntry()
+        textClipboard = clipEntry?.clipData?.getItemAt(0)?.text?.toString() ?: ""
+    }
 
     AlertDialog(
         onDismissRequest = { onDismissRequest() },

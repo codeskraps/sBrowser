@@ -35,7 +35,7 @@ object CoreUmamiModule {
                 context = app,
                 config = UmamiConfig(
                     scriptUrl = "https://umami.codeskraps.com/script.js",
-                    websiteId = "ec28ad88-cb69-4211-8b6c-af29f58d82c2",
+                    websiteId = "6ef6811d-9465-4918-816b-ff9bea6192e2",
                     baseUrl = "https://umami.codeskraps.com"
                 )
             ),

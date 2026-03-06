@@ -267,6 +267,7 @@ class SettingsViewModel @Inject constructor(
         return currentState.copy(cacheMode = value)
     }
 
+    @Suppress("DEPRECATION")
     private fun onSmoothScrolling(currentState: SettingsState, value: Boolean): SettingsState {
         mediaWebView.settings.setEnableSmoothTransition(value)
         mediaWebViewPreferences.smoothScrolling = value
@@ -274,6 +275,7 @@ class SettingsViewModel @Inject constructor(
         return currentState.copy(smoothScrolling = value)
     }
 
+    @Suppress("DEPRECATION")
     private fun onRenderPriority(
         currentState: SettingsState,
         value: RenderPriority

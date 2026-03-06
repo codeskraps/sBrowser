@@ -17,10 +17,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -144,12 +144,12 @@ fun WebViewScreen(
         topBar = {},
         bottomBar = {
             if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                Box(modifier = Modifier.fillMaxWidth()) {
+                Box(modifier = Modifier
+                    .fillMaxWidth()
+                    .windowInsetsPadding(WindowInsets.navigationBars)
+                ) {
                     WebViewProgressIndicator(state = state)
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 8.dp)
-                    ) {
+                    Row(modifier = Modifier.fillMaxWidth()) {
                         AddressButton(url = mediaWebView.url ?: "", handleEvent = handleEvent)
                         GoBackButton(mediaWebView = mediaWebView)
                         GoForwardButton(mediaWebView = mediaWebView)
@@ -165,7 +165,6 @@ fun WebViewScreen(
     ) { paddingValues ->
         Row(modifier = Modifier
             .padding(paddingValues)
-            .windowInsetsPadding(WindowInsets.safeDrawing)
             .nestedScroll(scrollBehavior.nestedScrollConnection)
         ) {
             if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
