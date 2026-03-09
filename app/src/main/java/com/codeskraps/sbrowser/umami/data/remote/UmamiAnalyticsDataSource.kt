@@ -1,153 +1,67 @@
 package com.codeskraps.sbrowser.umami.data.remote
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.webkit.WebView
-import androidx.webkit.WebViewClientCompat
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlin.coroutines.resume
+import org.json.JSONObject
+import java.net.HttpURLConnection
+import java.net.URL
+import java.util.Locale
 
 internal data class UmamiConfig(
-    val scriptUrl: String,
     val websiteId: String,
     val baseUrl: String
 )
 
-@SuppressLint("SetJavaScriptEnabled")
 internal class UmamiAnalyticsDataSource(
-    private val context: Context,
     private val config: UmamiConfig
 ) {
 
     private var isInitialized = false
 
-    private val webView: WebView by lazy {
-        WebView(context).apply {
-            settings.javaScriptEnabled = true
-            webViewClient = UmamiWebViewClient()
-            loadUrl("about:blank")
-        }
+    fun initialize() {
+        isInitialized = true
     }
 
-    private val umamiScript = """
-        <script defer src="${config.scriptUrl}" data-website-id="${config.websiteId}"></script>
-    """.trimIndent()
+    suspend fun trackPageView(pageName: String) {
+        if (!isInitialized) return
 
-    @OptIn(ExperimentalCoroutinesApi::class)
-    suspend fun initialize() = withContext(Dispatchers.Main) {
-        if (isInitialized) return@withContext
+        val path = if (pageName.startsWith("/")) pageName else "/$pageName"
+        val title = pageName
+            .replace("-", " ")
+            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
-        webView.loadDataWithBaseURL(
-            config.baseUrl,
-            "<html><head>$umamiScript</head><body></body></html>",
-            "text/html",
-            "UTF-8",
-            null
-        )
+        val payload = JSONObject().apply {
+            put("hostname", "sbrowser.app")
+            put("language", Locale.getDefault().toLanguageTag())
+            put("url", path)
+            put("title", title)
+            put("website", config.websiteId)
+        }
 
-        // Check if Umami is ready by evaluating JavaScript
-        var attempts = 0
-        val maxAttempts = 10 // Maximum number of attempts
+        sendEvent(payload)
+    }
 
-        while (attempts < maxAttempts) {
-            try {
-                val isUmamiReady = suspendCancellableCoroutine { continuation ->
-                    webView.evaluateJavascript(
-                        """
-                        (function() {
-                            return typeof umami !== 'undefined';
-                        })();
-                        """.trimIndent()
-                    ) { result ->
-                        continuation.resume(result.toBooleanStrictOrNull() ?: false)
-                    }
-                }
+    suspend fun trackEvent(eventName: String, eventData: Map<String, String> = emptyMap()) {
+        if (!isInitialized) return
 
-                if (isUmamiReady) {
-                    isInitialized = true
-                    break
-                }
-            } catch (_: Exception) {
-                // Log error if needed
+        val payload = JSONObject().apply {
+            put("hostname", "sbrowser.app")
+            put("language", Locale.getDefault().toLanguageTag())
+            put("url", "/")
+            put("website", config.websiteId)
+            put("name", eventName)
+            if (eventData.isNotEmpty()) {
+                put("data", JSONObject(eventData as Map<*, *>))
             }
-
-            attempts++
-            delay(200) // Short delay between checks
         }
+
+        sendEvent(payload)
     }
 
-    suspend fun trackPageView(pageName: String) = withContext(Dispatchers.Main) {
-        if (!isInitialized) return@withContext
+    suspend fun identifyUser(walletAddress: String?) {
+        if (!isInitialized || walletAddress.isNullOrBlank()) return
 
-        webView.evaluateJavascript(
-            """
-            (function() {
-                if (typeof umami === 'undefined') {
-                    console.error('Umami is not defined');
-                    return false;
-                }
-                
-                try {
-                    // Format the page name as a proper URL path
-                    const path = '$pageName'.startsWith('/') ? '$pageName' : '/$pageName';
-                    // Create a title from the page name (capitalize first letter, replace dashes with spaces)
-                    const title = '$pageName'
-                        .replace(/-/g, ' ')
-                        .replace(/\\b\\w/g, l => l.toUpperCase());
-                    
-                    umami.track({ 
-                        url: path, 
-                        title: title,
-                        website: '${config.websiteId}'
-                    });
-                    console.log('Page view tracked:', path, 'with title:', title);
-                    return true;
-                } catch (e) {
-                    console.error('Error tracking page view:', e);
-                    return false;
-                }
-            })();
-            """,
-            null
-        )
-    }
-
-    suspend fun trackEvent(eventName: String, eventData: Map<String, String> = emptyMap()) = withContext(Dispatchers.Main) {
-        if (!isInitialized) return@withContext
-
-        webView.evaluateJavascript(
-            """
-            (function() {
-                if (typeof umami === 'undefined') {
-                    console.error('Umami is not defined');
-                    return false;
-                }
-                
-                try {
-                    const data = ${eventData.entries.joinToString(",", "{", "}") {
-                "\"${it.key}\": \"${it.value}\""
-            }};
-                    umami.track('$eventName', data, '${config.websiteId}');
-                    console.log('Event tracked:', '$eventName', data);
-                    return true;
-                } catch (e) {
-                    console.error('Error tracking event:', e);
-                    return false;
-                }
-            })();
-            """,
-            null
-        )
-    }
-
-    suspend fun identifyUser(walletAddress: String?) = withContext(Dispatchers.Main) {
-        if (!isInitialized || walletAddress.isNullOrBlank()) return@withContext
-
-        // Anonymize the address by using only the first and last 4 characters
         val addressLength = walletAddress.length
         val anonymizedId = if (addressLength > 8) {
             "${walletAddress.take(4)}...${walletAddress.takeLast(4)}"
@@ -155,27 +69,62 @@ internal class UmamiAnalyticsDataSource(
             walletAddress
         }
 
-        webView.evaluateJavascript(
-            """
-            (function() {
-                if (typeof umami === 'undefined') {
-                    console.error('Umami is not defined');
-                    return false;
-                }
-                
-                try {
-                    umami.identify({ wallet_id: '$anonymizedId' }, '${config.websiteId}');
-                    console.log('User identified:', '$anonymizedId');
-                    return true;
-                } catch (e) {
-                    console.error('Error identifying user:', e);
-                    return false;
-                }
-            })();
-            """,
-            null
-        )
+        val payload = JSONObject().apply {
+            put("hostname", "sbrowser.app")
+            put("language", Locale.getDefault().toLanguageTag())
+            put("url", "/")
+            put("website", config.websiteId)
+            put("data", JSONObject().apply {
+                put("wallet_id", anonymizedId)
+            })
+        }
+
+        sendIdentify(payload)
     }
 
-    private class UmamiWebViewClient : WebViewClientCompat()
+    private suspend fun sendEvent(payload: JSONObject) {
+        send(JSONObject().apply {
+            put("type", "event")
+            put("payload", payload)
+        })
+    }
+
+    private suspend fun sendIdentify(payload: JSONObject) {
+        send(JSONObject().apply {
+            put("type", "identify")
+            put("payload", payload)
+        })
+    }
+
+    private suspend fun send(body: JSONObject) = withContext(Dispatchers.IO) {
+        try {
+            val url = URL("${config.baseUrl}/api/send")
+            val connection = url.openConnection() as HttpURLConnection
+            connection.apply {
+                requestMethod = "POST"
+                setRequestProperty("Content-Type", "application/json")
+                setRequestProperty("User-Agent", "Mozilla/5.0")
+                doOutput = true
+                connectTimeout = 5000
+                readTimeout = 5000
+            }
+
+            connection.outputStream.use { os ->
+                os.write(body.toString().toByteArray(Charsets.UTF_8))
+            }
+
+            val responseCode = connection.responseCode
+            if (responseCode !in 200..299) {
+                Log.w(TAG, "Umami API returned $responseCode")
+            }
+
+            connection.disconnect()
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to send analytics: ${e.message}")
+        }
+    }
+
+    companion object {
+        private const val TAG = "UmamiAnalytics"
+    }
 }
