@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.codeskraps.sbrowser.feature.video.mvi.VideoAction
 import com.codeskraps.sbrowser.feature.video.mvi.VideoEvent
 import com.codeskraps.sbrowser.feature.video.mvi.VideoState
-import com.codeskraps.sbrowser.umami.domain.AnalyticsRepository
+import com.codeskraps.umamilib.domain.UmamiAnalytics
 import com.codeskraps.sbrowser.util.StateReducerViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +21,7 @@ private const val SAVED_POSITION = "saved_position"
 @HiltViewModel
 class VideoViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val analyticsRepository: AnalyticsRepository
+    private val analyticsRepository: UmamiAnalytics
 ) : StateReducerViewModel<VideoState, VideoEvent, VideoAction>(VideoState.initial) {
 
     private var controlsJob: Job? = null

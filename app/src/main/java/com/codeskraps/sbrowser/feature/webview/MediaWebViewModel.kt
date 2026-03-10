@@ -10,7 +10,7 @@ import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewAction
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewEvent
 import com.codeskraps.sbrowser.feature.webview.mvi.MediaWebViewState
-import com.codeskraps.sbrowser.umami.domain.AnalyticsRepository
+import com.codeskraps.umamilib.domain.UmamiAnalytics
 import com.codeskraps.sbrowser.util.BackgroundStatus
 import com.codeskraps.sbrowser.util.StateReducerViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,7 +24,7 @@ class MediaWebViewModel @Inject constructor(
     private val backgroundStatus: BackgroundStatus,
     private val savedStateHandle: SavedStateHandle,
     private val mediaWebViewPreferences: MediaWebViewPreferences,
-    private val analyticsRepository: AnalyticsRepository
+    private val analyticsRepository: UmamiAnalytics
 ) : StateReducerViewModel<MediaWebViewState, MediaWebViewEvent, MediaWebViewAction>(
     MediaWebViewState.initial
 ) {

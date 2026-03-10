@@ -13,7 +13,7 @@ import com.codeskraps.sbrowser.feature.webview.media.MixedContentMode
 import com.codeskraps.sbrowser.feature.webview.media.RenderPriority
 import com.codeskraps.sbrowser.feature.webview.media.TextSize
 import com.codeskraps.sbrowser.feature.webview.media.UserAgent
-import com.codeskraps.sbrowser.umami.domain.AnalyticsRepository
+import com.codeskraps.umamilib.domain.UmamiAnalytics
 import com.codeskraps.sbrowser.util.StateReducerViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +24,7 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(
     private val mediaWebView: MediaWebView,
     private val mediaWebViewPreferences: MediaWebViewPreferences,
-    private val analyticsRepository: AnalyticsRepository
+    private val analyticsRepository: UmamiAnalytics
 ) : StateReducerViewModel<SettingsState, SettingsEvent, SettingsAction>(SettingsState.initial) {
 
     init {

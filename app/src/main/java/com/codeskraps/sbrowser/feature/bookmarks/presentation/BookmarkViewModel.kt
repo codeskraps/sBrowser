@@ -7,7 +7,7 @@ import com.codeskraps.sbrowser.feature.bookmarks.presentation.mvi.BookmarkAction
 import com.codeskraps.sbrowser.feature.bookmarks.presentation.mvi.BookmarkEvent
 import com.codeskraps.sbrowser.feature.bookmarks.presentation.mvi.BookmarkState
 import com.codeskraps.sbrowser.feature.webview.media.MediaWebView
-import com.codeskraps.sbrowser.umami.domain.AnalyticsRepository
+import com.codeskraps.umamilib.domain.UmamiAnalytics
 import com.codeskraps.sbrowser.util.Resource
 import com.codeskraps.sbrowser.util.StateReducerViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +19,7 @@ import javax.inject.Inject
 class BookmarkViewModel @Inject constructor(
     private val webView: MediaWebView,
     private val localBookmarkRepository: LocalBookmarkRepository,
-    private val analyticsRepository: AnalyticsRepository
+    private val analyticsRepository: UmamiAnalytics
 ) : StateReducerViewModel<BookmarkState, BookmarkEvent, BookmarkAction>(BookmarkState.initial) {
 
     init {

@@ -60,6 +60,8 @@ ksp {
 
 dependencies {
 
+    implementation(libs.umamilib)
+
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.runtime.compose)
