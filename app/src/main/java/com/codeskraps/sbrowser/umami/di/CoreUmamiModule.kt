@@ -3,6 +3,7 @@ package com.codeskraps.sbrowser.umami.di
 import android.app.Application
 import com.codeskraps.umamilib.Umami
 import com.codeskraps.umamilib.UmamiConfig
+import com.codeskraps.umamilib.create
 import com.codeskraps.umamilib.domain.UmamiAnalytics
 import dagger.Module
 import dagger.Provides

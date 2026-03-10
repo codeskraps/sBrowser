@@ -1,5 +1,5 @@
 [versions]
-umamilib = "0.3.0"
+umamilib = "0.4.0"
 agp = "9.1.0"
 core-splashscreen = "1.2.0"
 kotlin = "2.3.10"
