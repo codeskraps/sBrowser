@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> **This repository has moved to [git.codeskraps.com/codeskraps/sBrowser](https://git.codeskraps.com/codeskraps/sBrowser).**
+> This GitHub copy is no longer maintained and will not receive updates.
+
 ![logo](app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp)
 
 # sBrowser
